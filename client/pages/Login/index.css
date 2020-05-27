@@ -1,0 +1,9 @@
+body {
+background-position: center;
+background-size: cover;
+background: linear-gradient(to bottom,
+  rgba(13, 4, 95, 0.433) 0%,
+  rgba(13, 4, 95, 0.433) 75%,
+  rgba(13, 4, 95, 0.433) 100%),
+    url('../../assets/image/pexels-photo-2422290.png') !important;
+}
