@@ -131,20 +131,28 @@ export class Main extends Component {
                     /> */}
                     <Switch>
                         <Route exact={true} path={'/'} component={HomePage} />
-                        <Route path={'/auth/login'} component={LoginPage} />
                         <Route
+                            exact={true}
+                            path={'/auth/login'}
+                            component={LoginPage}
+                        />
+                        <Route
+                            exact={true}
                             path={'/auth/register'}
                             component={RegisterPage}
                         />
                         <Route
+                            exact={true}
                             path={'/auth/passwords/reset/:token'}
                             component={ResetPasswordPage}
                         />
                         <Route
+                            exact={true}
                             path={'/auth/passwords/email'}
                             component={ForgotPasswordPage}
                         />
                         <Route
+                            exact={true}
                             path={'/auth/emails/confirm/:token'}
                             component={EmailConfirmationPage}
                         />
