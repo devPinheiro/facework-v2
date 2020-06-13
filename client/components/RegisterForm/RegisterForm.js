@@ -1,5 +1,6 @@
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import React, { Fragment } from 'react'
 
 // components
@@ -10,10 +11,10 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
     <Fragment>
         <div className="container mx-auto flex justify-center">
             <div className="max-w-md-1/2 mx-3 my-12 w-full">
-                <h1 className="text-center font-primary font-semibold text-gold">
-                    Register
+                <h1 className="text-center mb-12 font-primary font-semibold text-white">
+                    facework
                 </h1>
-                <div className="bg-white shadow-md my-12 p-16 rounded w-full">
+                <div className="bg-white-600 shadow-md p-16 rounded w-full">
                     <Formik
                         onSubmit={onSubmit}
                         initialValues={initialValues}
@@ -73,6 +74,18 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                 </div>
             </div>
         </div>
+        <div className="mb-10 text-white flex justify-center">
+            <div>By contunuing, you agree to the MasterBuilder's 
+                {<Link className="text-orange no-underline">Conditions of Use</Link>} and 
+                {<Link className="text-orange no-underline"> Privacy Policy</Link>}
+            </div>
+        </div>
+        <div className="mt-2 text-white flex justify-center">
+            <div className="">Already have an account? 
+                {<Link to="/auth/login" className="text-orange no-underline"> Sign in Now</Link>}
+            </div>
+        </div>
+
     </Fragment>
 )
 

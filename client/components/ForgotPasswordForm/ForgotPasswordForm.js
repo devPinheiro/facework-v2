@@ -10,7 +10,7 @@ const ForgotPasswordForm = ({ initialValues, onSubmit, validationSchema }) => (
     <Fragment>
         <div className="container mx-auto flex justify-center">
             <div className="max-w-md-1/2 mx-3 my-12 w-full">
-                <h1 className="text-center font-primary font-semibold text-gold">
+                <h1 className="text-center font-primary font-semibold text-white">
                     Forgot Password
                 </h1>
                 <div className="bg-white shadow-md my-12 p-16 rounded w-full">
