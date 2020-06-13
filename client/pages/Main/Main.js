@@ -13,6 +13,7 @@ import SendEmailConfirm from '@components/SendEmailConfirm'
 
 // css
 import '@client/styles/main.css'
+import '@client/'
 
 // actions
 import { authLogout, postResendEmailConfirm } from '@client/store/actions/auth'

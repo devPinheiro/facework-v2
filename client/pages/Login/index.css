@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
+
+
 body {
-background-position: center;
-background-size: cover;
-background: linear-gradient(to bottom,
-  rgba(13, 4, 95, 0.433) 0%,
-  rgba(13, 4, 95, 0.433) 75%,
-  rgba(13, 4, 95, 0.433) 100%),
-    url('../../assets/image/pexels-photo-2422290.png') !important;
+  font-family: 'Roboto', sans-serif;
+  background-repeat: no-repeat;
+  box-shadow:inset 0 0 0 2000px rgba(6, 40, 63, 0.444);
+  background-image: url('../../assets/image/pexels-photo-2422290.png') !important;
+  background-color: rgba(37, 116, 169, 0.444);
 }

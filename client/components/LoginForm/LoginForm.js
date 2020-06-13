@@ -4,18 +4,20 @@ import { Link } from 'react-router-dom'
 import React, { Fragment } from 'react'
 
 // components
+// import Footer from '@components/Footer'
+
 import Button from '@components/Button'
 import Textbox from '@components/Textbox'
 
 const LoginForm = ({ initialValues, onSubmit, validationSchema }) => (
     <Fragment>
-        <div className="container mx-auto flex justify-center">
-            <div className="max-w-md-1/2 mx-3 my-12 w-full">
-                <h1 className="text-center font-primary font-semibold text-blue">
+        <div className="container mx-auto flex text-white justify-center">
+            <div className="max-w-md-1/2 mx-3 my-8 w-full">
+                <h1 className="text-center font-primary mb-12 font-semibold text-8xl ">
                     facework
                 </h1>
-                <div className="bg-white shadow-md my-12 p-16 rounded w-full">
-                    <h4 className="text-center font-primary font-semibold mb-4 text-blue">
+                <div className="bg-white-900 shadow-md  p-8 rounded-lg w-full">
+                    <h4 className="text-center font-primary font-semibold mb-4">
                         Sign In
                     </h4>
                     <Formik
@@ -66,7 +68,7 @@ const LoginForm = ({ initialValues, onSubmit, validationSchema }) => (
                                 <div className="text-center my-12">
                                     <Link
                                         to="/auth/passwords/email"
-                                        className="font-primary text-brown no-underline"
+                                        className="font-primary text-white no-underline"
                                     >
                                         Forgot Password ?
                                     </Link>
@@ -77,6 +79,19 @@ const LoginForm = ({ initialValues, onSubmit, validationSchema }) => (
                 </div>
             </div>
         </div>
+        
+        <div className="mb-10 text-white flex justify-center">
+            <div>By contunuing, you agree to the MasterBuilder's
+                {<Link className="text-orange no-underline"> Conditions of Use</Link>} and 
+                {<Link className="text-orange no-underline"> Privacy Policy</Link>}
+            </div>
+        </div>
+        <div className="mt-2 text-white flex justify-center">
+            <div className="">New to facework? 
+                {<Link to="/auth/register" className="text-orange no-underline"> Sign Up Now</Link>}
+            </div>
+        </div>
+        
     </Fragment>
 )
 
