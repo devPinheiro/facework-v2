@@ -62,13 +62,23 @@
   * @import "utilities/background-patterns";
   * @import "utilities/skew-transforms";
   */
+  @media all and (max-width: 1000px){
+    body {
+      font-size: 12px !important;
+      background-size: auto !important;
+      background-position: cover !important;
+    }
+  }
 
-html, body {
-    height: 100vh;
+
+body {
+    height: auto;
+    max-width: 100%;
     font-family: 'Roboto', sans-serif !important;
     color: white !important;
-    /* background-color: #fefbfa!important; */
+    background-position: center center;
 }
+
 
 .page {
     min-height: 760px;
