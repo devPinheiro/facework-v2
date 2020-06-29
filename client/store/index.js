@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 
 const instance = Axios.create({
-    baseURL: '/api/v1/'
+    baseURL: 'http://facework.com.ng/api/'
 })
 
 export default createStore(
