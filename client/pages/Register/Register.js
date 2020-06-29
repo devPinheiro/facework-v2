@@ -60,8 +60,7 @@ export class RegisterPage extends Component {
             })
             .catch(({ error }) => {
                 setSubmitting(false)
-
-                setErrors(error.response.data.data.errors)
+                setErrors(error.response.data.errors)
             })
     }
 
