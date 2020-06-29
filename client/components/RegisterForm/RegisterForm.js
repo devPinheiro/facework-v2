@@ -75,17 +75,33 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
             </div>
         </div>
         <div className="mb-10 text-white flex justify-center">
-            <div>By contunuing, you agree to the MasterBuilder's 
-                {<Link className="text-orange no-underline">Conditions of Use</Link>} and 
-                {<Link className="text-orange no-underline"> Privacy Policy</Link>}
+            <div>
+                By contunuing, you agree to the MasterBuilder's
+                {
+                    <Link className="text-orange no-underline" to="/auth/login">
+                        Conditions of Use
+                    </Link>
+                }{' '}
+                and
+                {
+                    <Link className="text-orange no-underline" to="/auth/login">
+                        {' '}
+                        Privacy Policy
+                    </Link>
+                }
             </div>
         </div>
         <div className="mt-2 text-white flex justify-center">
-            <div className="">Already have an account? 
-                {<Link to="/auth/login" className="text-orange no-underline"> Sign in Now</Link>}
+            <div className="">
+                Already have an account?
+                {
+                    <Link to="/auth/login" className="text-orange no-underline">
+                        {' '}
+                        Sign in Now
+                    </Link>
+                }
             </div>
         </div>
-
     </Fragment>
 )
 

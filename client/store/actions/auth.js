@@ -21,7 +21,7 @@ export const postRegister = data => ({
     payload: {
         request: {
             method: 'POST',
-            url: 'auth/register',
+            url: 'auth/signup',
             data
         }
     }

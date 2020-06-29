@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Button from '@components/Button'
 
 const Hero = () => (
     <div className="w-full h-64 justify-center pt-20">
