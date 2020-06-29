@@ -38,7 +38,7 @@ export const postLogin = data => ({
     payload: {
         request: {
             method: 'POST',
-            url: 'auth/login',
+            url: '/auth/login',
             data
         }
     }

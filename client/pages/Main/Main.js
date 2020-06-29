@@ -7,7 +7,7 @@ import { BrowserRouter, Route, withRouter, Switch } from 'react-router-dom'
 
 // components
 import Flash from '@components/Flash'
-import Topbar from '@components/Topbar'
+// import Topbar from '@components/Topbar'
 import PageLoader from '@components/PageLoader'
 import SendEmailConfirm from '@components/SendEmailConfirm'
 
