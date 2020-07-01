@@ -59,8 +59,22 @@ class LoginPage extends Component {
                 dispatch(flashMessage('Successfully logged in.'))
             })
             .catch(({ error }) => {
+                const { message } = error.response.data
                 setSubmitting(false)
-                setErrors({ email: error.response.data.message })
+                setErrors({
+                    email:
+                        message === 'Unauthorized'
+                            ? 'Email or Password is invalid'
+                            : message
+                })
+                dispatch(
+                    flashMessage(
+                        message === 'Unauthorized'
+                            ? 'Email or Password is invalid'
+                            : message,
+                        { isError: true }
+                    )
+                )
             })
     }
 

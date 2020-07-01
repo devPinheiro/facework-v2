@@ -61,6 +61,11 @@ export class RegisterPage extends Component {
             .catch(({ error }) => {
                 setSubmitting(false)
                 setErrors(error.response.data.errors)
+                dispatch(
+                    flashMessage(error.response.data.errors.email[0], {
+                        isError: true
+                    })
+                )
             })
     }
 
