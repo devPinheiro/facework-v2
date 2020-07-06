@@ -6,6 +6,8 @@ import React, { Component, Fragment } from 'react'
 import RegisterForm from '@components/RegisterForm'
 import { postRegister } from '@client/store/actions/auth'
 import { RegisterSchema } from '@client/validation-schemas'
+import Footer from '@components/Footer'
+import '../Login/index.css'
 
 export class RegisterPage extends Component {
     /**
@@ -82,6 +84,7 @@ export class RegisterPage extends Component {
                     validationSchema={this.RegisterSchema}
                     initialValues={this.state.initialValues}
                 />
+                <Footer />
             </Fragment>
         )
     }

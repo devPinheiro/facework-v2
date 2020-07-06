@@ -44,7 +44,7 @@ let defaultConfig = require('tailwindcss/defaultConfig')()
 
 let colors = {
     transparent: 'transparent',
-
+    'form-transparent': 'rgba(192, 192, 192, 0.48)',
     black: '#000',
     'grey-darkest': '#102A43',
     'grey-darker': '#243B53',
@@ -125,7 +125,8 @@ let colors = {
     'blue-darkest': '#003E6B',
     'blue-darker': '#0A558C',
     'blue-dark': '#0F609C',
-    blue: '#186FAF',
+    'blue-deep': '#1B2D6E',
+    blue: 'rgba(33, 74, 177, 0.77)',
     'blue-medium': '#2680C2',
     'blue-medium-light': '#4098D7',
     'blue-medium-lighter': '#62B0E8',
@@ -264,7 +265,7 @@ module.exports = {
             'Courier New',
             'monospace'
         ],
-        primary: ['Merriweather']
+        primary: ['Roboto']
     },
 
     /*
@@ -296,7 +297,8 @@ module.exports = {
         '2xl': '1.5rem', // 24px
         '3xl': '1.875rem', // 30px
         '4xl': '2.25rem', // 36px
-        '5xl': '3rem' // 48px
+        '5xl': '3rem', // 48px
+        '6xl': '4rem' // 48px
     },
 
     /*
@@ -430,7 +432,7 @@ module.exports = {
   | Class name: .border{-side?}{-width?}
   | CSS property: border-width
   |
-  */
+  */ 
 
     borderWidths: {
         default: '1px',
