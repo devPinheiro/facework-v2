@@ -116,7 +116,7 @@ export class Main extends Component {
 
         return (
             <BrowserRouter>
-                <div className="page pb-16">
+                <div className="page">
                     <Flash messages={flash.messages} />
                     {user && !user.emailConfirmedAt && (
                         <SendEmailConfirm

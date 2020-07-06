@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { flashMessage } from 'redux-flash'
 import LoginForm from '@components/LoginForm'
+import Footer from '@components/Footer'
 import React, { Component, Fragment } from 'react'
 import { postLogin } from '@client/store/actions/auth'
 import { LoginSchema } from '@client/validation-schemas'
@@ -92,6 +93,8 @@ class LoginPage extends Component {
                     validationSchema={this.LoginSchema}
                     initialValues={this.state.initialValues}
                 />
+
+                <Footer />
             </Fragment>
         )
     }
