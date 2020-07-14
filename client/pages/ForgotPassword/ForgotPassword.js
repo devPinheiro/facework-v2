@@ -5,8 +5,9 @@ import { flashMessage } from 'redux-flash'
 import React, { Component, Fragment } from 'react'
 import { postForgotPassword } from '@client/store/actions/auth'
 import ForgotPasswordForm from '@components/ForgotPasswordForm'
+import Footer from '@components/Footer'
 import { ForgotPasswordSchema } from '@client/validation-schemas'
-
+import '../Login/index.css'
 export class ForgotPasswordPage extends Component {
     /**
      * Initialize component state
@@ -70,6 +71,7 @@ export class ForgotPasswordPage extends Component {
                     initialValues={this.state.initialValues}
                     validationSchema={this.ForgotPasswordSchema}
                 />
+                <Footer />
             </Fragment>
         )
     }

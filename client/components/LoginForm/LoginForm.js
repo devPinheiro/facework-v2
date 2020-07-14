@@ -17,7 +17,7 @@ const LoginForm = ({ initialValues, onSubmit, validationSchema }) => (
                     <h1 className="text-center font-primary mt-16 mb-8 font-semibold text-6xl">
                         facework
                     </h1>
-                    <div className="bg-white-900 shadow-md pb-4 pt-8 pl-16 pr-16 rounded-lg w-full bg-form-transparent">
+                    <div className="bg-white-900 shadow-md pb-4 pt-8 pl-4 pr-4 md:pl-16 md:pr-16 rounded-lg w-full bg-form-transparent">
                         <h2 className="text-center font-primary font-semibold mb-8">
                             Sign In
                         </h2>
@@ -66,7 +66,7 @@ const LoginForm = ({ initialValues, onSubmit, validationSchema }) => (
                                     >
                                         Sign In
                                     </Button>
-                                    <div className="text-center my-12">
+                                    <div className="text-center md:my-12 my-4">
                                         <Link
                                             to="/auth/passwords/email"
                                             className="font-primary text-white no-underline"
@@ -81,7 +81,7 @@ const LoginForm = ({ initialValues, onSubmit, validationSchema }) => (
                 </div>
             </div>
 
-            <div className="mb-10 text-white flex justify-center">
+            <div className="mb-10 text-white flex justify-center pl-4 pr-4">
                 <div>
                     By contunuing, you agree to the Facework&apos;s
                     {

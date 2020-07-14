@@ -12,27 +12,26 @@ const instance = Axios.create({
 
 export default createStore(
     rootReducer,
-    composeWithDevTools(
-        applyMiddleware(
-            flash(),
-            axiosMiddleware(instance, {
-                returnRejectedPromiseOnError: true,
-                interceptors: {
-                    request: [
-                        {
-                            success: ({ getState }, axiosConfig) => {
-                                const { token } = getState().auth
-                                if (token) {
-                                    axiosConfig.headers = {
-                                        access_token: `${token}`
-                                    }
+
+    applyMiddleware(
+        flash(),
+        axiosMiddleware(instance, {
+            returnRejectedPromiseOnError: true,
+            interceptors: {
+                request: [
+                    {
+                        success: ({ getState }, axiosConfig) => {
+                            const { token } = getState().auth
+                            if (token) {
+                                axiosConfig.headers = {
+                                    access_token: `${token}`
                                 }
-                                return axiosConfig
                             }
+                            return axiosConfig
                         }
-                    ]
-                }
-            })
-        )
+                    }
+                ]
+            }
+        })
     )
 )

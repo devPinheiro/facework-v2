@@ -12,7 +12,7 @@ const Button = ({ type = 'button', children, disabled, loading, style }) => (
         className={
             style ||
             classnames(
-                'focus:outline-none bg-blue rounded-lg hover:bg-blue px-4 py-5 w-full text-white text-xl',
+                'focus:outline-none bg-blue rounded-lg hover:bg-blue px-4 py-3 w-full text-white text-sm md:text-xl',
                 {
                     'bg-emerald': !disabled,
                     'bg-emerald-light cursor-not-allowed': disabled

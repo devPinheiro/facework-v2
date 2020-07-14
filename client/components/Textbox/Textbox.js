@@ -12,7 +12,7 @@ const Textbox = ({
     label
 }) => (
     <div className="mb-5">
-        <label className="mb-4 text-lg font-bold">{label}</label>
+        <label className="mb-4 md:text-lg text-sm font-bold">{label}</label>
         <input
             name={name}
             type={type}
@@ -20,11 +20,11 @@ const Textbox = ({
             placeholder={placeholder}
             onBlur={onBlur}
             value={value}
-            className="focus:outline-none w-full mt-2 p-4 bg-brown-lightest text-brown rounded-lg"
+            className="focus:outline-none w-full mt-2 px-4 py-3 bg-brown-lightest text-brown rounded-lg"
         />
 
         {error && (
-            <span className="text-sm text-red-light mt-2 block">{error}</span>
+            <span className="text-sm text-orange mt-2 block">{error}</span>
         )}
     </div>
 )
