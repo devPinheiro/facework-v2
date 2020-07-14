@@ -15,7 +15,7 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                     <h1 className="text-center font-primary mt-16 mb-8 font-semibold text-6xl">
                         facework
                     </h1>
-                    <div className="bg-white-900 shadow-md pb-8 pt-8 pl-16 pr-16 rounded-lg w-full bg-form-transparent">
+                    <div className="bg-white-900 shadow-md pb-8 pt-8 pl-4 pr-4 md:pl-16 md:pr-16 rounded-lg w-full bg-form-transparent">
                         <h2 className="text-center font-primary font-semibold mb-8">
                             Register
                         </h2>
@@ -37,32 +37,32 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                                 <form onSubmit={handleSubmit}>
                                     <Textbox
                                         type="name"
-                                        name="name"
+                                        label="Full Name"
                                         onBlur={handleBlur}
                                         value={values.name}
                                         onChange={handleChange}
                                         data-testid={'name-field'}
-                                        placeholder={'Enter your name'}
+                                        // placeholder={'Enter your name'}
                                         error={touched.name && errors.name}
                                     />
                                     <Textbox
                                         type="email"
-                                        name="email"
+                                        label="Email"
                                         onBlur={handleBlur}
                                         value={values.email}
                                         onChange={handleChange}
                                         data-testid={'email-field'}
-                                        placeholder={'Enter your email'}
+                                        // placeholder={'Enter your email'}
                                         error={touched.email && errors.email}
                                     />
                                     <Textbox
                                         type="password"
-                                        name="password"
+                                        label="Password"
                                         onBlur={handleBlur}
                                         value={values.password}
                                         onChange={handleChange}
                                         data-testid={'password-field'}
-                                        placeholder={'Enter your password'}
+                                        // placeholder={'Enter your password'}
                                         error={
                                             touched.password && errors.password
                                         }
@@ -80,7 +80,7 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                     </div>
                 </div>
             </div>
-            <div className="mb-10 text-white flex justify-center">
+            <div className="mb-10 text-white flex justify-center  pl-4 pr-4">
                 <div>
                     By contunuing, you agree to the Facework&apos;s
                     {

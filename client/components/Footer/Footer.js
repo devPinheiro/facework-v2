@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className="pt-8 pb-16 bg-blue-deep">
             <div className="flex text-center items-center">
-                <div className="w-full m-auto mx-32 px-32">
+                <div className="w-full m-auto sm:mx-32 md:px-32 px-6">
                     <h3 className="text-5xl">facework</h3>
                     <p className="pt-4">
                         Facework is a platform designed to help business
