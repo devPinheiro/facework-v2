@@ -48,6 +48,11 @@ const EmailConfirmationPage = Loadable({
     loading: PageLoader
 })
 
+const PostFeed = Loadable({
+    loader: () => import('@pages/PostFeeds'),
+    loading: PageLoader
+})
+
 export class Main extends Component {
     /**
      * Define prop types for this component
@@ -156,6 +161,11 @@ export class Main extends Component {
                             exact={true}
                             path={'/auth/emails/confirm/:token'}
                             component={EmailConfirmationPage}
+                        />
+                        <Route
+                            exact={true}
+                            path={'/feeds'}
+                            component={PostFeed}
                         />
                     </Switch>
                 </div>
