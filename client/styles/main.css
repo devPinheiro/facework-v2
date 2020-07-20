@@ -75,10 +75,12 @@ body {
     height: auto;
     max-width: 100%;
     font-family: 'Roboto', sans-serif !important;
-    color: white !important;
     background-position: center center;
 }
 
+.max-w-content {
+    max-width: fit-content;
+}
 
 .page {
     min-height: 760px;
