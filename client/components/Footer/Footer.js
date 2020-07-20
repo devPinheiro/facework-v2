@@ -6,8 +6,8 @@ const Footer = () => {
         <div className="pt-8 pb-16 bg-blue-deep">
             <div className="flex text-center items-center">
                 <div className="w-full m-auto sm:mx-32 md:px-32 px-6">
-                    <h3 className="text-5xl">facework</h3>
-                    <p className="pt-4">
+                    <h3 className="text-5xl text-white">facework</h3>
+                    <p className="pt-4 text-white">
                         Facework is a platform designed to help business
                         ventures of any kind (Professional/Vocational) improve
                         productivity and efficiency in the Nigerian market
@@ -15,7 +15,7 @@ const Footer = () => {
                         women interact with potential clients who are interested
                         in the different services they offer.
                     </p>
-                    <p className="pt-8">
+                    <p className="pt-8 text-white">
                         {' '}
                         It is a platform committed to solving a common problem
                         of visibility faced by several businesses in Nigeria. It
