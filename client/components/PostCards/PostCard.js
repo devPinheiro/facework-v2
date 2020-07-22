@@ -1,18 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
+import PostModal from '../PostModal/PostModal'
 
 // how to make use of the image tag
 
 const PostCard = ({ title, image, avatar, time, description, name }) => {
+
+ const [modalVisibility, setModalVisibility] = React.useState(true);
+const showModal = () =>  <div className={ `${modalVisibility ? 'modal-container modal-container-active' : 'modal-container'}`} onClick={() => setModalVisibility(!modalVisibility)}>
+
+{console.log('keeeeeeeeeeeeeyyyyy')}
+    <div className="modal-body">hey there</div>
+    <div className="modal-footer" />
+      
+    </div>
+
+
     // const URL = `feeds/${props.slug}`
     return (
-<div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10">
+<><div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10" onClick={() => showModal()}>
       <div class="py-2 flex flex-row items-center justify-between">
         <div class="flex flex-row items-center">
           <a href="#" class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
             <img class="rounded-full h-8 w-8 object-cover" src={avatar} alt="" />
-            <p class="ml-2 text-base font-medium">{name}</p>
+            <p class="ml-2 text-base font-medium text-gray-500">{name}</p>
           </a>
         </div>
         <div class="flex flex-row items-center">
@@ -21,8 +33,9 @@ const PostCard = ({ title, image, avatar, time, description, name }) => {
       </div>
       <div class="mt-2">
         <img class="object-cover w-full rounded-lg" src={image} alt="" />
-        <div class="py-2 flex flex-row items-center">
+        <div class="py-2 flex-column items-center">
           <p className="flex text-sm">{title}</p>
+          <div className="flex flex-row py-4">
           <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
             <span class="ml-1">3431</span>
@@ -36,8 +49,11 @@ const PostCard = ({ title, image, avatar, time, description, name }) => {
             <span class="ml-1">340</span>
           </button>
         </div>
+        </div>
       </div>
 </div>
+</>
+
     )
 }
 

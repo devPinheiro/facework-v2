@@ -7,7 +7,7 @@ import PostCard from '@components/PostCards'
 
 // fixtures
 import data from "./fixtures"
-console.log(data)
+
 class PostFeed extends PureComponent {
     render() {
         return (
@@ -15,7 +15,7 @@ class PostFeed extends PureComponent {
                 {' '}
                 <div className="w-full m-auto max-w-2xl flex ">
                      <div className="w-2/3 my-8 mx-4">
-                       {data.map((key,item) => <PostCard title={item.title} image={item.image} key={key} time={item.time} avatar={item.avatar} />)}
+                       {data.map((item,key) => <PostCard title={item.title} image={item.image} key={key} time={item.time} avatar={item.avatar} />)}
                     </div>
                     <div className="w-1/3 mx-4 fixed pin-r">
                         <AuthorCard />
