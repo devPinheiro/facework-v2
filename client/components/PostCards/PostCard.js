@@ -4,26 +4,27 @@ import { Link, withRouter } from 'react-router-dom'
 
 // how to make use of the image tag
 
-const PostCard = () => {
+const PostCard = ({ title, image, avatar, time, description, name }) => {
     // const URL = `feeds/${props.slug}`
     return (
 <div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10">
       <div class="py-2 flex flex-row items-center justify-between">
         <div class="flex flex-row items-center">
           <a href="#" class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
-            <img class="rounded-full h-8 w-8 object-cover" src="https://images.unsplash.com/photo-1520065786657-b71a007dd8a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" alt="" />
-            <p class="ml-2 text-base font-medium">Jon Doe</p>
+            <img class="rounded-full h-8 w-8 object-cover" src={avatar} alt="" />
+            <p class="ml-2 text-base font-medium">{name}</p>
           </a>
         </div>
         <div class="flex flex-row items-center">
-          <p class="text-xs font-semibold text-gray-500">2 hours ago</p>
+          <p class="text-xs font-semibold text-gray-500">{time}</p>
         </div>
       </div>
       <div class="mt-2">
-        <img class="object-cover w-full rounded-lg" src="https://images.unsplash.com/photo-1586398710270-760041494553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=80" alt="" />
+        <img class="object-cover w-full rounded-lg" src={image} alt="" />
         <div class="py-2 flex flex-row items-center">
+          <p className="flex text-sm">{title}</p>
           <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
             <span class="ml-1">3431</span>
           </button>
           <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg ml-3">
