@@ -5,21 +5,20 @@ import PostModal from '../PostModal/PostModal'
 
 // how to make use of the image tag
 
-const PostCard = ({ title, image, avatar, time, description, name }) => {
-
- const [modalVisibility, setModalVisibility] = React.useState(true);
-const showModal = () =>  <div className={ `${modalVisibility ? 'modal-container modal-container-active' : 'modal-container'}`} onClick={() => setModalVisibility(!modalVisibility)}>
-
-{console.log('keeeeeeeeeeeeeyyyyy')}
-    <div className="modal-body">hey there</div>
-    <div className="modal-footer" />
-      
-    </div>
+const PostCard = ({
+    title,
+    image,
+    avatar,
+    time,
+    description,
+    name,
+    setModalVisibility
+  }) => {
 
 
     // const URL = `feeds/${props.slug}`
     return (
-<><div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10" onClick={() => showModal()}>
+<><div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10" onClick={() => setModalVisibility(!false)}>
       <div class="py-2 flex flex-row items-center justify-between">
         <div class="flex flex-row items-center">
           <a href="#" class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
