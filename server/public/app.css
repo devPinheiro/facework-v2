@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap);
 /**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.
@@ -581,6 +582,10 @@ table {
   background-color: transparent;
 }
 
+.bg-form-transparent {
+  background-color: rgba(192, 192, 192, .48);
+}
+
 .bg-black {
   background-color: #000;
 }
@@ -865,8 +870,12 @@ table {
   background-color: #0f609c;
 }
 
+.bg-blue-deep {
+  background-color: #1b2d6e;
+}
+
 .bg-blue {
-  background-color: #186faf;
+  background-color: rgba(33, 74, 177, .77);
 }
 
 .bg-blue-medium {
@@ -979,6 +988,10 @@ table {
 
 .hover\:bg-transparent:hover {
   background-color: transparent;
+}
+
+.hover\:bg-form-transparent:hover {
+  background-color: rgba(192, 192, 192, .48);
 }
 
 .hover\:bg-black:hover {
@@ -1265,8 +1278,12 @@ table {
   background-color: #0f609c;
 }
 
+.hover\:bg-blue-deep:hover {
+  background-color: #1b2d6e;
+}
+
 .hover\:bg-blue:hover {
-  background-color: #186faf;
+  background-color: rgba(33, 74, 177, .77);
 }
 
 .hover\:bg-blue-medium:hover {
@@ -1379,6 +1396,10 @@ table {
 
 .focus\:bg-transparent:focus {
   background-color: transparent;
+}
+
+.focus\:bg-form-transparent:focus {
+  background-color: rgba(192, 192, 192, .48);
 }
 
 .focus\:bg-black:focus {
@@ -1665,8 +1686,12 @@ table {
   background-color: #0f609c;
 }
 
+.focus\:bg-blue-deep:focus {
+  background-color: #1b2d6e;
+}
+
 .focus\:bg-blue:focus {
-  background-color: #186faf;
+  background-color: rgba(33, 74, 177, .77);
 }
 
 .focus\:bg-blue-medium:focus {
@@ -1851,6 +1876,10 @@ table {
 
 .border-transparent {
   border-color: transparent;
+}
+
+.border-form-transparent {
+  border-color: rgba(192, 192, 192, .48);
 }
 
 .border-black {
@@ -2137,8 +2166,12 @@ table {
   border-color: #0f609c;
 }
 
+.border-blue-deep {
+  border-color: #1b2d6e;
+}
+
 .border-blue {
-  border-color: #186faf;
+  border-color: rgba(33, 74, 177, .77);
 }
 
 .border-blue-medium {
@@ -2251,6 +2284,10 @@ table {
 
 .hover\:border-transparent:hover {
   border-color: transparent;
+}
+
+.hover\:border-form-transparent:hover {
+  border-color: rgba(192, 192, 192, .48);
 }
 
 .hover\:border-black:hover {
@@ -2537,8 +2574,12 @@ table {
   border-color: #0f609c;
 }
 
+.hover\:border-blue-deep:hover {
+  border-color: #1b2d6e;
+}
+
 .hover\:border-blue:hover {
-  border-color: #186faf;
+  border-color: rgba(33, 74, 177, .77);
 }
 
 .hover\:border-blue-medium:hover {
@@ -2651,6 +2692,10 @@ table {
 
 .focus\:border-transparent:focus {
   border-color: transparent;
+}
+
+.focus\:border-form-transparent:focus {
+  border-color: rgba(192, 192, 192, .48);
 }
 
 .focus\:border-black:focus {
@@ -2937,8 +2982,12 @@ table {
   border-color: #0f609c;
 }
 
+.focus\:border-blue-deep:focus {
+  border-color: #1b2d6e;
+}
+
 .focus\:border-blue:focus {
-  border-color: #186faf;
+  border-color: rgba(33, 74, 177, .77);
 }
 
 .focus\:border-blue-medium:focus {
@@ -3596,7 +3645,7 @@ table {
 }
 
 .font-primary {
-  font-family: Merriweather;
+  font-family: Roboto;
 }
 
 .font-hairline {
@@ -5527,6 +5576,10 @@ table {
   color: transparent;
 }
 
+.text-form-transparent {
+  color: rgba(192, 192, 192, .48);
+}
+
 .text-black {
   color: #000;
 }
@@ -5811,8 +5864,12 @@ table {
   color: #0f609c;
 }
 
+.text-blue-deep {
+  color: #1b2d6e;
+}
+
 .text-blue {
-  color: #186faf;
+  color: rgba(33, 74, 177, .77);
 }
 
 .text-blue-medium {
@@ -5925,6 +5982,10 @@ table {
 
 .hover\:text-transparent:hover {
   color: transparent;
+}
+
+.hover\:text-form-transparent:hover {
+  color: rgba(192, 192, 192, .48);
 }
 
 .hover\:text-black:hover {
@@ -6211,8 +6272,12 @@ table {
   color: #0f609c;
 }
 
+.hover\:text-blue-deep:hover {
+  color: #1b2d6e;
+}
+
 .hover\:text-blue:hover {
-  color: #186faf;
+  color: rgba(33, 74, 177, .77);
 }
 
 .hover\:text-blue-medium:hover {
@@ -6325,6 +6390,10 @@ table {
 
 .focus\:text-transparent:focus {
   color: transparent;
+}
+
+.focus\:text-form-transparent:focus {
+  color: rgba(192, 192, 192, .48);
 }
 
 .focus\:text-black:focus {
@@ -6611,8 +6680,12 @@ table {
   color: #0f609c;
 }
 
+.focus\:text-blue-deep:focus {
+  color: #1b2d6e;
+}
+
 .focus\:text-blue:focus {
-  color: #186faf;
+  color: rgba(33, 74, 177, .77);
 }
 
 .focus\:text-blue-medium:focus {
@@ -6757,6 +6830,10 @@ table {
 
 .text-5xl {
   font-size: 3rem;
+}
+
+.text-6xl {
+  font-size: 4rem;
 }
 
 .italic {
@@ -7166,10 +7243,23 @@ table {
   * @import "utilities/skew-transforms";
   */
 
-html,
+@media all and (max-width: 1000px) {
+  body {
+    font-size: 12px !important;
+    background-size: auto !important;
+    background-position: cover !important;
+  }
+}
+
 body {
-  height: 100vh;
-  background-color: #fefbfa !important;
+  height: auto;
+  max-width: 100%;
+  font-family: 'Roboto', sans-serif !important;
+  background-position: center center;
+}
+
+.max-w-content {
+  max-width: fit-content;
 }
 
 .page {
@@ -7205,6 +7295,38 @@ body {
   }
 }
 
+.modal-cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .6);
+  z-index: 1040;
+  display: none;
+}
+
+.modal-cover.modal-cover-active {
+  display: block;
+}
+
+.modal-container {
+  z-index: 1050;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  background: white;
+  width: 900px;
+  height: 500px;
+  margin: 10% auto;
+  display: none;
+  transition-duration: .5ms;
+  transition: ease-out;
+}
+
+.modal-container.modal-container-active {
+  display: block;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
@@ -7229,6 +7351,10 @@ body {
 
   .sm\:bg-transparent {
     background-color: transparent;
+  }
+
+  .sm\:bg-form-transparent {
+    background-color: rgba(192, 192, 192, .48);
   }
 
   .sm\:bg-black {
@@ -7515,8 +7641,12 @@ body {
     background-color: #0f609c;
   }
 
+  .sm\:bg-blue-deep {
+    background-color: #1b2d6e;
+  }
+
   .sm\:bg-blue {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .sm\:bg-blue-medium {
@@ -7629,6 +7759,10 @@ body {
 
   .sm\:hover\:bg-transparent:hover {
     background-color: transparent;
+  }
+
+  .sm\:hover\:bg-form-transparent:hover {
+    background-color: rgba(192, 192, 192, .48);
   }
 
   .sm\:hover\:bg-black:hover {
@@ -7915,8 +8049,12 @@ body {
     background-color: #0f609c;
   }
 
+  .sm\:hover\:bg-blue-deep:hover {
+    background-color: #1b2d6e;
+  }
+
   .sm\:hover\:bg-blue:hover {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .sm\:hover\:bg-blue-medium:hover {
@@ -8029,6 +8167,10 @@ body {
 
   .sm\:focus\:bg-transparent:focus {
     background-color: transparent;
+  }
+
+  .sm\:focus\:bg-form-transparent:focus {
+    background-color: rgba(192, 192, 192, .48);
   }
 
   .sm\:focus\:bg-black:focus {
@@ -8315,8 +8457,12 @@ body {
     background-color: #0f609c;
   }
 
+  .sm\:focus\:bg-blue-deep:focus {
+    background-color: #1b2d6e;
+  }
+
   .sm\:focus\:bg-blue:focus {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .sm\:focus\:bg-blue-medium:focus {
@@ -8493,6 +8639,10 @@ body {
 
   .sm\:border-transparent {
     border-color: transparent;
+  }
+
+  .sm\:border-form-transparent {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .sm\:border-black {
@@ -8779,8 +8929,12 @@ body {
     border-color: #0f609c;
   }
 
+  .sm\:border-blue-deep {
+    border-color: #1b2d6e;
+  }
+
   .sm\:border-blue {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .sm\:border-blue-medium {
@@ -8893,6 +9047,10 @@ body {
 
   .sm\:hover\:border-transparent:hover {
     border-color: transparent;
+  }
+
+  .sm\:hover\:border-form-transparent:hover {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .sm\:hover\:border-black:hover {
@@ -9179,8 +9337,12 @@ body {
     border-color: #0f609c;
   }
 
+  .sm\:hover\:border-blue-deep:hover {
+    border-color: #1b2d6e;
+  }
+
   .sm\:hover\:border-blue:hover {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .sm\:hover\:border-blue-medium:hover {
@@ -9293,6 +9455,10 @@ body {
 
   .sm\:focus\:border-transparent:focus {
     border-color: transparent;
+  }
+
+  .sm\:focus\:border-form-transparent:focus {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .sm\:focus\:border-black:focus {
@@ -9579,8 +9745,12 @@ body {
     border-color: #0f609c;
   }
 
+  .sm\:focus\:border-blue-deep:focus {
+    border-color: #1b2d6e;
+  }
+
   .sm\:focus\:border-blue:focus {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .sm\:focus\:border-blue-medium:focus {
@@ -10238,7 +10408,7 @@ body {
   }
 
   .sm\:font-primary {
-    font-family: Merriweather;
+    font-family: Roboto;
   }
 
   .sm\:font-hairline {
@@ -12153,6 +12323,10 @@ body {
     color: transparent;
   }
 
+  .sm\:text-form-transparent {
+    color: rgba(192, 192, 192, .48);
+  }
+
   .sm\:text-black {
     color: #000;
   }
@@ -12437,8 +12611,12 @@ body {
     color: #0f609c;
   }
 
+  .sm\:text-blue-deep {
+    color: #1b2d6e;
+  }
+
   .sm\:text-blue {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .sm\:text-blue-medium {
@@ -12551,6 +12729,10 @@ body {
 
   .sm\:hover\:text-transparent:hover {
     color: transparent;
+  }
+
+  .sm\:hover\:text-form-transparent:hover {
+    color: rgba(192, 192, 192, .48);
   }
 
   .sm\:hover\:text-black:hover {
@@ -12837,8 +13019,12 @@ body {
     color: #0f609c;
   }
 
+  .sm\:hover\:text-blue-deep:hover {
+    color: #1b2d6e;
+  }
+
   .sm\:hover\:text-blue:hover {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .sm\:hover\:text-blue-medium:hover {
@@ -12951,6 +13137,10 @@ body {
 
   .sm\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .sm\:focus\:text-form-transparent:focus {
+    color: rgba(192, 192, 192, .48);
   }
 
   .sm\:focus\:text-black:focus {
@@ -13237,8 +13427,12 @@ body {
     color: #0f609c;
   }
 
+  .sm\:focus\:text-blue-deep:focus {
+    color: #1b2d6e;
+  }
+
   .sm\:focus\:text-blue:focus {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .sm\:focus\:text-blue-medium:focus {
@@ -13383,6 +13577,10 @@ body {
 
   .sm\:text-5xl {
     font-size: 3rem;
+  }
+
+  .sm\:text-6xl {
+    font-size: 4rem;
   }
 
   .sm\:italic {
@@ -13804,6 +14002,10 @@ body {
     background-color: transparent;
   }
 
+  .md\:bg-form-transparent {
+    background-color: rgba(192, 192, 192, .48);
+  }
+
   .md\:bg-black {
     background-color: #000;
   }
@@ -14088,8 +14290,12 @@ body {
     background-color: #0f609c;
   }
 
+  .md\:bg-blue-deep {
+    background-color: #1b2d6e;
+  }
+
   .md\:bg-blue {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .md\:bg-blue-medium {
@@ -14202,6 +14408,10 @@ body {
 
   .md\:hover\:bg-transparent:hover {
     background-color: transparent;
+  }
+
+  .md\:hover\:bg-form-transparent:hover {
+    background-color: rgba(192, 192, 192, .48);
   }
 
   .md\:hover\:bg-black:hover {
@@ -14488,8 +14698,12 @@ body {
     background-color: #0f609c;
   }
 
+  .md\:hover\:bg-blue-deep:hover {
+    background-color: #1b2d6e;
+  }
+
   .md\:hover\:bg-blue:hover {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .md\:hover\:bg-blue-medium:hover {
@@ -14602,6 +14816,10 @@ body {
 
   .md\:focus\:bg-transparent:focus {
     background-color: transparent;
+  }
+
+  .md\:focus\:bg-form-transparent:focus {
+    background-color: rgba(192, 192, 192, .48);
   }
 
   .md\:focus\:bg-black:focus {
@@ -14888,8 +15106,12 @@ body {
     background-color: #0f609c;
   }
 
+  .md\:focus\:bg-blue-deep:focus {
+    background-color: #1b2d6e;
+  }
+
   .md\:focus\:bg-blue:focus {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .md\:focus\:bg-blue-medium:focus {
@@ -15066,6 +15288,10 @@ body {
 
   .md\:border-transparent {
     border-color: transparent;
+  }
+
+  .md\:border-form-transparent {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .md\:border-black {
@@ -15352,8 +15578,12 @@ body {
     border-color: #0f609c;
   }
 
+  .md\:border-blue-deep {
+    border-color: #1b2d6e;
+  }
+
   .md\:border-blue {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .md\:border-blue-medium {
@@ -15466,6 +15696,10 @@ body {
 
   .md\:hover\:border-transparent:hover {
     border-color: transparent;
+  }
+
+  .md\:hover\:border-form-transparent:hover {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .md\:hover\:border-black:hover {
@@ -15752,8 +15986,12 @@ body {
     border-color: #0f609c;
   }
 
+  .md\:hover\:border-blue-deep:hover {
+    border-color: #1b2d6e;
+  }
+
   .md\:hover\:border-blue:hover {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .md\:hover\:border-blue-medium:hover {
@@ -15866,6 +16104,10 @@ body {
 
   .md\:focus\:border-transparent:focus {
     border-color: transparent;
+  }
+
+  .md\:focus\:border-form-transparent:focus {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .md\:focus\:border-black:focus {
@@ -16152,8 +16394,12 @@ body {
     border-color: #0f609c;
   }
 
+  .md\:focus\:border-blue-deep:focus {
+    border-color: #1b2d6e;
+  }
+
   .md\:focus\:border-blue:focus {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .md\:focus\:border-blue-medium:focus {
@@ -16811,7 +17057,7 @@ body {
   }
 
   .md\:font-primary {
-    font-family: Merriweather;
+    font-family: Roboto;
   }
 
   .md\:font-hairline {
@@ -18726,6 +18972,10 @@ body {
     color: transparent;
   }
 
+  .md\:text-form-transparent {
+    color: rgba(192, 192, 192, .48);
+  }
+
   .md\:text-black {
     color: #000;
   }
@@ -19010,8 +19260,12 @@ body {
     color: #0f609c;
   }
 
+  .md\:text-blue-deep {
+    color: #1b2d6e;
+  }
+
   .md\:text-blue {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .md\:text-blue-medium {
@@ -19124,6 +19378,10 @@ body {
 
   .md\:hover\:text-transparent:hover {
     color: transparent;
+  }
+
+  .md\:hover\:text-form-transparent:hover {
+    color: rgba(192, 192, 192, .48);
   }
 
   .md\:hover\:text-black:hover {
@@ -19410,8 +19668,12 @@ body {
     color: #0f609c;
   }
 
+  .md\:hover\:text-blue-deep:hover {
+    color: #1b2d6e;
+  }
+
   .md\:hover\:text-blue:hover {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .md\:hover\:text-blue-medium:hover {
@@ -19524,6 +19786,10 @@ body {
 
   .md\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .md\:focus\:text-form-transparent:focus {
+    color: rgba(192, 192, 192, .48);
   }
 
   .md\:focus\:text-black:focus {
@@ -19810,8 +20076,12 @@ body {
     color: #0f609c;
   }
 
+  .md\:focus\:text-blue-deep:focus {
+    color: #1b2d6e;
+  }
+
   .md\:focus\:text-blue:focus {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .md\:focus\:text-blue-medium:focus {
@@ -19956,6 +20226,10 @@ body {
 
   .md\:text-5xl {
     font-size: 3rem;
+  }
+
+  .md\:text-6xl {
+    font-size: 4rem;
   }
 
   .md\:italic {
@@ -20377,6 +20651,10 @@ body {
     background-color: transparent;
   }
 
+  .lg\:bg-form-transparent {
+    background-color: rgba(192, 192, 192, .48);
+  }
+
   .lg\:bg-black {
     background-color: #000;
   }
@@ -20661,8 +20939,12 @@ body {
     background-color: #0f609c;
   }
 
+  .lg\:bg-blue-deep {
+    background-color: #1b2d6e;
+  }
+
   .lg\:bg-blue {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .lg\:bg-blue-medium {
@@ -20775,6 +21057,10 @@ body {
 
   .lg\:hover\:bg-transparent:hover {
     background-color: transparent;
+  }
+
+  .lg\:hover\:bg-form-transparent:hover {
+    background-color: rgba(192, 192, 192, .48);
   }
 
   .lg\:hover\:bg-black:hover {
@@ -21061,8 +21347,12 @@ body {
     background-color: #0f609c;
   }
 
+  .lg\:hover\:bg-blue-deep:hover {
+    background-color: #1b2d6e;
+  }
+
   .lg\:hover\:bg-blue:hover {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .lg\:hover\:bg-blue-medium:hover {
@@ -21175,6 +21465,10 @@ body {
 
   .lg\:focus\:bg-transparent:focus {
     background-color: transparent;
+  }
+
+  .lg\:focus\:bg-form-transparent:focus {
+    background-color: rgba(192, 192, 192, .48);
   }
 
   .lg\:focus\:bg-black:focus {
@@ -21461,8 +21755,12 @@ body {
     background-color: #0f609c;
   }
 
+  .lg\:focus\:bg-blue-deep:focus {
+    background-color: #1b2d6e;
+  }
+
   .lg\:focus\:bg-blue:focus {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .lg\:focus\:bg-blue-medium:focus {
@@ -21639,6 +21937,10 @@ body {
 
   .lg\:border-transparent {
     border-color: transparent;
+  }
+
+  .lg\:border-form-transparent {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .lg\:border-black {
@@ -21925,8 +22227,12 @@ body {
     border-color: #0f609c;
   }
 
+  .lg\:border-blue-deep {
+    border-color: #1b2d6e;
+  }
+
   .lg\:border-blue {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .lg\:border-blue-medium {
@@ -22039,6 +22345,10 @@ body {
 
   .lg\:hover\:border-transparent:hover {
     border-color: transparent;
+  }
+
+  .lg\:hover\:border-form-transparent:hover {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .lg\:hover\:border-black:hover {
@@ -22325,8 +22635,12 @@ body {
     border-color: #0f609c;
   }
 
+  .lg\:hover\:border-blue-deep:hover {
+    border-color: #1b2d6e;
+  }
+
   .lg\:hover\:border-blue:hover {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .lg\:hover\:border-blue-medium:hover {
@@ -22439,6 +22753,10 @@ body {
 
   .lg\:focus\:border-transparent:focus {
     border-color: transparent;
+  }
+
+  .lg\:focus\:border-form-transparent:focus {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .lg\:focus\:border-black:focus {
@@ -22725,8 +23043,12 @@ body {
     border-color: #0f609c;
   }
 
+  .lg\:focus\:border-blue-deep:focus {
+    border-color: #1b2d6e;
+  }
+
   .lg\:focus\:border-blue:focus {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .lg\:focus\:border-blue-medium:focus {
@@ -23384,7 +23706,7 @@ body {
   }
 
   .lg\:font-primary {
-    font-family: Merriweather;
+    font-family: Roboto;
   }
 
   .lg\:font-hairline {
@@ -25299,6 +25621,10 @@ body {
     color: transparent;
   }
 
+  .lg\:text-form-transparent {
+    color: rgba(192, 192, 192, .48);
+  }
+
   .lg\:text-black {
     color: #000;
   }
@@ -25583,8 +25909,12 @@ body {
     color: #0f609c;
   }
 
+  .lg\:text-blue-deep {
+    color: #1b2d6e;
+  }
+
   .lg\:text-blue {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .lg\:text-blue-medium {
@@ -25697,6 +26027,10 @@ body {
 
   .lg\:hover\:text-transparent:hover {
     color: transparent;
+  }
+
+  .lg\:hover\:text-form-transparent:hover {
+    color: rgba(192, 192, 192, .48);
   }
 
   .lg\:hover\:text-black:hover {
@@ -25983,8 +26317,12 @@ body {
     color: #0f609c;
   }
 
+  .lg\:hover\:text-blue-deep:hover {
+    color: #1b2d6e;
+  }
+
   .lg\:hover\:text-blue:hover {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .lg\:hover\:text-blue-medium:hover {
@@ -26097,6 +26435,10 @@ body {
 
   .lg\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .lg\:focus\:text-form-transparent:focus {
+    color: rgba(192, 192, 192, .48);
   }
 
   .lg\:focus\:text-black:focus {
@@ -26383,8 +26725,12 @@ body {
     color: #0f609c;
   }
 
+  .lg\:focus\:text-blue-deep:focus {
+    color: #1b2d6e;
+  }
+
   .lg\:focus\:text-blue:focus {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .lg\:focus\:text-blue-medium:focus {
@@ -26529,6 +26875,10 @@ body {
 
   .lg\:text-5xl {
     font-size: 3rem;
+  }
+
+  .lg\:text-6xl {
+    font-size: 4rem;
   }
 
   .lg\:italic {
@@ -26950,6 +27300,10 @@ body {
     background-color: transparent;
   }
 
+  .xl\:bg-form-transparent {
+    background-color: rgba(192, 192, 192, .48);
+  }
+
   .xl\:bg-black {
     background-color: #000;
   }
@@ -27234,8 +27588,12 @@ body {
     background-color: #0f609c;
   }
 
+  .xl\:bg-blue-deep {
+    background-color: #1b2d6e;
+  }
+
   .xl\:bg-blue {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .xl\:bg-blue-medium {
@@ -27348,6 +27706,10 @@ body {
 
   .xl\:hover\:bg-transparent:hover {
     background-color: transparent;
+  }
+
+  .xl\:hover\:bg-form-transparent:hover {
+    background-color: rgba(192, 192, 192, .48);
   }
 
   .xl\:hover\:bg-black:hover {
@@ -27634,8 +27996,12 @@ body {
     background-color: #0f609c;
   }
 
+  .xl\:hover\:bg-blue-deep:hover {
+    background-color: #1b2d6e;
+  }
+
   .xl\:hover\:bg-blue:hover {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .xl\:hover\:bg-blue-medium:hover {
@@ -27748,6 +28114,10 @@ body {
 
   .xl\:focus\:bg-transparent:focus {
     background-color: transparent;
+  }
+
+  .xl\:focus\:bg-form-transparent:focus {
+    background-color: rgba(192, 192, 192, .48);
   }
 
   .xl\:focus\:bg-black:focus {
@@ -28034,8 +28404,12 @@ body {
     background-color: #0f609c;
   }
 
+  .xl\:focus\:bg-blue-deep:focus {
+    background-color: #1b2d6e;
+  }
+
   .xl\:focus\:bg-blue:focus {
-    background-color: #186faf;
+    background-color: rgba(33, 74, 177, .77);
   }
 
   .xl\:focus\:bg-blue-medium:focus {
@@ -28212,6 +28586,10 @@ body {
 
   .xl\:border-transparent {
     border-color: transparent;
+  }
+
+  .xl\:border-form-transparent {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .xl\:border-black {
@@ -28498,8 +28876,12 @@ body {
     border-color: #0f609c;
   }
 
+  .xl\:border-blue-deep {
+    border-color: #1b2d6e;
+  }
+
   .xl\:border-blue {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .xl\:border-blue-medium {
@@ -28612,6 +28994,10 @@ body {
 
   .xl\:hover\:border-transparent:hover {
     border-color: transparent;
+  }
+
+  .xl\:hover\:border-form-transparent:hover {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .xl\:hover\:border-black:hover {
@@ -28898,8 +29284,12 @@ body {
     border-color: #0f609c;
   }
 
+  .xl\:hover\:border-blue-deep:hover {
+    border-color: #1b2d6e;
+  }
+
   .xl\:hover\:border-blue:hover {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .xl\:hover\:border-blue-medium:hover {
@@ -29012,6 +29402,10 @@ body {
 
   .xl\:focus\:border-transparent:focus {
     border-color: transparent;
+  }
+
+  .xl\:focus\:border-form-transparent:focus {
+    border-color: rgba(192, 192, 192, .48);
   }
 
   .xl\:focus\:border-black:focus {
@@ -29298,8 +29692,12 @@ body {
     border-color: #0f609c;
   }
 
+  .xl\:focus\:border-blue-deep:focus {
+    border-color: #1b2d6e;
+  }
+
   .xl\:focus\:border-blue:focus {
-    border-color: #186faf;
+    border-color: rgba(33, 74, 177, .77);
   }
 
   .xl\:focus\:border-blue-medium:focus {
@@ -29957,7 +30355,7 @@ body {
   }
 
   .xl\:font-primary {
-    font-family: Merriweather;
+    font-family: Roboto;
   }
 
   .xl\:font-hairline {
@@ -31872,6 +32270,10 @@ body {
     color: transparent;
   }
 
+  .xl\:text-form-transparent {
+    color: rgba(192, 192, 192, .48);
+  }
+
   .xl\:text-black {
     color: #000;
   }
@@ -32156,8 +32558,12 @@ body {
     color: #0f609c;
   }
 
+  .xl\:text-blue-deep {
+    color: #1b2d6e;
+  }
+
   .xl\:text-blue {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .xl\:text-blue-medium {
@@ -32270,6 +32676,10 @@ body {
 
   .xl\:hover\:text-transparent:hover {
     color: transparent;
+  }
+
+  .xl\:hover\:text-form-transparent:hover {
+    color: rgba(192, 192, 192, .48);
   }
 
   .xl\:hover\:text-black:hover {
@@ -32556,8 +32966,12 @@ body {
     color: #0f609c;
   }
 
+  .xl\:hover\:text-blue-deep:hover {
+    color: #1b2d6e;
+  }
+
   .xl\:hover\:text-blue:hover {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .xl\:hover\:text-blue-medium:hover {
@@ -32670,6 +33084,10 @@ body {
 
   .xl\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .xl\:focus\:text-form-transparent:focus {
+    color: rgba(192, 192, 192, .48);
   }
 
   .xl\:focus\:text-black:focus {
@@ -32956,8 +33374,12 @@ body {
     color: #0f609c;
   }
 
+  .xl\:focus\:text-blue-deep:focus {
+    color: #1b2d6e;
+  }
+
   .xl\:focus\:text-blue:focus {
-    color: #186faf;
+    color: rgba(33, 74, 177, .77);
   }
 
   .xl\:focus\:text-blue-medium:focus {
@@ -33102,6 +33524,10 @@ body {
 
   .xl\:text-5xl {
     font-size: 3rem;
+  }
+
+  .xl\:text-6xl {
+    font-size: 4rem;
   }
 
   .xl\:italic {

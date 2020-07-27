@@ -34,6 +34,15 @@ export class HomePage extends Component {
                                 Register
                             </Button>
                         </Link>
+                        <Link to="/feeds">
+                            {' '}
+                            <Button
+                                type="button"
+                                style="bg-black hover:bg-white-100 text-white font-semibold py-2 px-4 ml-4 border border-gray-400 rounded shadow"
+                            >
+                                Posts
+                            </Button>
+                        </Link>
                     </div>
                 </div>
                 <div className="flex items-center justify-center pt-12">
