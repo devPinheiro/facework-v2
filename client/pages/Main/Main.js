@@ -167,6 +167,11 @@ export class Main extends Component {
                             path={'/feeds'}
                             component={PostFeed}
                         />
+                         <Route
+                            exact={true}
+                            path={'/feeds/p/:slug'}
+                            component={PostFeed}
+                        />
                     </Switch>
                 </div>
             </BrowserRouter>

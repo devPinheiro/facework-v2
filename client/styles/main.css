@@ -130,18 +130,11 @@ body {
 
 .modal-container {
   z-index: 1050;
-  border: 1px solid lightgray;
-  border-radius: 6px;
   background: white;
-  width: 900px;
-  height: 500px;
   margin: 10% auto;
   display: none;
-   transition-duration: 0.5ms;
-   transition: ease-out;
 }
 
 .modal-container.modal-container-active {
   display: block;
- 
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const AuthorCard = props => {
     return (
-        <div className="md:flex bg-white rounded-lg p-6 my-8 max-w-content">
+        <div className="md:flex bg-white rounded-lg py-6 my-8 max-w-content">
             <img
                 className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6"
                 src="https://images.unsplash.com/photo-1520065786657-b71a007dd8a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
