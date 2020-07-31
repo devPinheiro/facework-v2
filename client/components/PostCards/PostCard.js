@@ -54,7 +54,7 @@ const PostCard = ({
                     </Link>
                     <div class="py-2 flex-column items-center">
                         <p className="flex text-sm">{title}</p>
-                        <div className="flex flex-row py-4">
+                        <div className="flex flex-row pt-4">
                             <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
                                 <svg
                                     fill="none"
