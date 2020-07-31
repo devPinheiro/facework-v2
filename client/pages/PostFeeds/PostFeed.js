@@ -12,6 +12,7 @@ import data from './fixtures'
 const PostFeed = props => {
     const { slug } = props.match.params
     const [modalVisibility, setModalVisibility] = useState(false)
+    const [postModalVisibility, setPostModalVisibility] = useState(false)
     const closeModal = () => {
         setModalVisibility(!modalVisibility)
         props.history.push('/feeds')
@@ -22,7 +23,7 @@ const PostFeed = props => {
             {' '}
             <div className="w-full m-auto max-w-2xl flex ">
                 <div className="w-full md:w-2/3 my-8 mx-4">
-                    <CreatePost />
+                    <CreatePost postModalVisibility={postModalVisibility} setPostModalVisibility={setPostModalVisibility} />
                     {data.map((item, key) => (
                         <PostCard
                             title={item.title}
