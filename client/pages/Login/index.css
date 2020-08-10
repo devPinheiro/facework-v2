@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
 
-
+*{
+  color: white !important;
+}
 
 .bg-image {
   background-repeat: no-repeat;
@@ -9,3 +11,5 @@
   background-color: rgba(33, 74, 177, 0.77);
   background-size: cover;
 }
+
+

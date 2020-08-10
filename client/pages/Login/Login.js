@@ -100,4 +100,5 @@ class LoginPage extends Component {
     }
 }
 
+
 export default connect()(LoginPage)
