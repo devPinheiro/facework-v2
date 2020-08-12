@@ -126,6 +126,7 @@ body {
 
 .modal-cover.modal-cover-active {
   display: block;
+  overflow: scroll;
 }
 
 .modal-container {
