@@ -1,11 +1,12 @@
 import React from 'react'
 import '../../styles/main.css'
 import { Link } from 'react-router-dom'
+import CreateComment from '../CreateComment'
 
 const PostModal = ({ modalVisibility, setModalVisibility }) => {
   return (
-    <div className={ `${modalVisibility ? 'modal-cover modal-cover-active ' : 'modal-container'}`} onClick={() => setModalVisibility(!modalVisibility)}>
-
+    <div className={ `${modalVisibility ? 'modal-cover modal-cover-active ' : 'modal-container'}`} >
+{/* onClick={() => setModalVisibility(!modalVisibility)} */}
       <div className="modal-container-active modal-container md:max-w-xl max-w-md-1/2">
         <div className="md:flex w-full border-none">
             <img className="md:w-2/3" src="https://images.unsplash.com/photo-1586398710270-760041494553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=80" alt=""/>
@@ -21,8 +22,32 @@ const PostModal = ({ modalVisibility, setModalVisibility }) => {
                             </Link>
                           </div>
                       </div>
-                  <div className="py-4 px-2">
+                  <div className="py-4 px-2 md:h-64 overflow-scroll">
+                    <div className="text-base text-grey-darker"><p>Presentation of Maryland BillBoard</p></div>
+                    <div className="">
                     <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    <p>Presentation of Maryland BillBoard</p>
+                    </div>
+                    
+                  </div>
+                  <div className="flex pin-b">
+                    <CreateComment />
                   </div>
               </div>
             </div>
