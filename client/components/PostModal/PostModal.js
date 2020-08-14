@@ -2,6 +2,12 @@ import React from 'react'
 import '../../styles/main.css'
 import { Link } from 'react-router-dom'
 import CreateComment from '../CreateComment'
+import Comment from '../Comment'
+import ErrorBoundary from '../ErrorBoundary'
+
+// comment fixtures
+import data from './fixtures';
+
 
 const PostModal = ({ modalVisibility, setModalVisibility }) => {
   return (
@@ -22,31 +28,48 @@ const PostModal = ({ modalVisibility, setModalVisibility }) => {
                             </Link>
                           </div>
                       </div>
-                  <div className="py-4 px-2 md:h-64 overflow-scroll">
+                  <div className="pt-2 px-2 md:h-64 overflow-scroll">
                     <div className="text-base text-grey-darker"><p>Presentation of Maryland BillBoard</p></div>
                     <div className="">
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
-                    <p>Presentation of Maryland BillBoard</p>
+                      <ErrorBoundary>
+                        {data.map((item, key) => (
+                          <Comment {...item} key={key} />
+                        ))}
+                      </ErrorBoundary>
                     </div>
                     
                   </div>
-                  <div className="flex pin-b">
+                  <div className=" pin-b">
+                  <div className="flex flex-row pt-4">
+                            <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
+                                <svg
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                    class="w-5 h-5"
+                                >
+                                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                                <span class="ml-1">3431</span>
+                            </button>
+                            <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg ml-3">
+                                <svg
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    viewBox="0 0 24 24"
+                                    class="w-5 h-5"
+                                >
+                                    <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                                <span class="ml-1">566</span>
+                            </button>
+                        </div>
                     <CreateComment />
                   </div>
               </div>
