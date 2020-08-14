@@ -24,7 +24,7 @@ const SearchForm = ({ initialValues, onSubmit, validationSchema }) => (
                                 <form onSubmit={handleSubmit}>
                                     <div class="relative text-gray-600">
                                     <Textbox
-                                        className="bg-white h-relative px-5 pr-10 rounded-full text-sm focus:outline-none"
+                                        className="bg-white px-5 pr-10 rounded-full text-sm focus:outline-none"
                                         type="search"
                                         name="search"
                                         label=""

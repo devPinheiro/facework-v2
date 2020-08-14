@@ -14,8 +14,8 @@ const Ul = styled.ul`
         
         a {
             text-decoration: none;
-            color: blue;
-            font-size: 25px;
+            color: #000000;
+            font-size: 16px;
 
         }
     }

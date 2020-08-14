@@ -6,7 +6,7 @@ const Nav = styled.nav`
     width: 100%;
     height: 55px;
     border-bottom: 2px soid blue;
-    padding: 0 20px;
+    padding: 0 16px;
     display: flex;
     justify-content: space-between;
     color: blue;
@@ -16,8 +16,8 @@ const Nav = styled.nav`
 
         a {
             text-decoration: none;
-            color: blue;
-            font-size: 35px;
+            color: #000000;
+            font-size: 25px;
 
         }
     }

@@ -12,7 +12,7 @@ const CreateComment = ({onSubmit,
     initialValues,
     validationSchema}) => {
     return (
-        <div className="px-4 py-4">
+        <div className="px-1 py-1">
             <Formik
                 onSubmit={onSubmit}
                 initialValues={initialValues}
@@ -28,8 +28,10 @@ const CreateComment = ({onSubmit,
                     handleBlur,
                     handleSubmit
                 }) => (
-                    <form className="flex flex-row justify-between" onSubmit={handleSubmit}>
+                    <form className="flex" onSubmit={handleSubmit}>
+                       <div className="w-4/5">
                         <TextArea
+                       
                             type="body"
                             label=""
                             rows={0}
@@ -40,13 +42,16 @@ const CreateComment = ({onSubmit,
                             placeholder={'Comment'}
                             error={touched.body && errors.body}
                         />
-
+                        </div>
+                        <div className="w-1/5 py-4 px-2">
                         <Button
+                        className="w-1/3"
                             type="submit"
                             loading={isSubmitting}
                             data-testid="submit-button"
                             style="h-2 bg-none"
-                        ><Camera /></Button>
+                        ><p>POST</p></Button>
+                        </div>
                     </form>
                 )}
             </Formik>

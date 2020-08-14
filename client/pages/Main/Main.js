@@ -5,11 +5,14 @@ import React, { Component } from 'react'
 import { flashMessage } from 'redux-flash'
 import { BrowserRouter, Route, withRouter, Switch } from 'react-router-dom'
 
+
+
 // components
 import Flash from '@components/Flash'
 // import Topbar from '@components/Topbar'
 import PageLoader from '@components/PageLoader'
 import SendEmailConfirm from '@components/SendEmailConfirm'
+import NavBar from '@components/Nav/NavBar'
 
 // css
 import '@client/styles/main.css'
@@ -135,6 +138,9 @@ export class Main extends Component {
                         logout={this.logout}
                         isAuthenticated={isAuthenticated}
                     /> */}
+                    <div className="w-full pt-5 m-auto max-w-2xl flex ">
+                        <NavBar />
+                    </div>
                     <Switch>
                         <Route exact={true} path={'/'} component={HomePage} />
                         <Route
