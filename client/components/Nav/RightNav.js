@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { RiDiscussLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
 import SearchForm from './SearchForm';
+import NotificationTray from '../NotificationTray';
 
 
 const Ul = styled.ul`
@@ -19,9 +20,9 @@ const Ul = styled.ul`
             font-size: 16px;
 
         }
-        span {
-            left: -7px;
-            top: -15px;
+        .notify-badge {
+            left: 11px;
+            top: -28px;
             position: relative;
             border-radius: 100%
         }
@@ -52,16 +53,18 @@ const Ul = styled.ul`
 `;
 
 const RightNav = ({ open }) => {
+    const [openNotification, setOpenNotification] = useState(false)
+    const [showNotificationBadge, setNotificationBadge] = useState(true)
     return (
-        <Ul open={open} >
+        <Ul open={open}>
             <SearchForm className="nav" />
         <div className="nav px-2"><a href="">Home</a></div>
         <div className="nav px-2"><a href="">Jobs</a></div>
         <div className="nav px-2"><a href="" className="text-md"><RiDiscussLine /></a></div>
-        <div className="nav px-2"><a href="" className="text-md"><FiBell />
-            <span className="bg-red text-xxxs py-2 px-2 text-white">0</span>
-        </a></div>
-        
+        <div className="nav px-2 cursor-pointer" onClick={() => setOpenNotification(!openNotification)}><FiBell />
+           {showNotificationBadge ? <div className="bg-red rounded-full notify-badge h-2 w-2"></div> : null }
+        </div>
+        <NotificationTray openNotification={openNotification} setOpenNotification={setOpenNotification} />
     </Ul>
 
     )
