@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { RiDiscussLine } from "react-icons/ri";
+import { FiBell } from "react-icons/fi";
 import SearchForm from './SearchForm';
 
 
@@ -17,6 +18,12 @@ const Ul = styled.ul`
             color: #000000;
             font-size: 16px;
 
+        }
+        span {
+            left: -7px;
+            top: -15px;
+            position: relative;
+            border-radius: 100%
         }
     }
 
@@ -39,6 +46,7 @@ const Ul = styled.ul`
                 font-size: 20px;
     
             }
+            
         }
     }
 `;
@@ -46,11 +54,14 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
     return (
         <Ul open={open} >
-        <div className="nav"><a href="">Home</a></div>
-        <div className="nav"><a href="">jobs</a></div>
-        <div className="nav"><a href="">profile</a></div>
-        <div className="nav"><a href=""><RiDiscussLine /></a></div>
-        <SearchForm className="nav" />
+            <SearchForm className="nav" />
+        <div className="nav px-2"><a href="">Home</a></div>
+        <div className="nav px-2"><a href="">Jobs</a></div>
+        <div className="nav px-2"><a href="" className="text-md"><RiDiscussLine /></a></div>
+        <div className="nav px-2"><a href="" className="text-md"><FiBell />
+            <span className="bg-red text-xxxs py-2 px-2 text-white">0</span>
+        </a></div>
+        
     </Ul>
 
     )
