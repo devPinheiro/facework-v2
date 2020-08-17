@@ -139,3 +139,7 @@ body {
 .modal-container.modal-container-active {
   display: block;
 }
+
+.top-20 {
+  top: 62px;
+}
