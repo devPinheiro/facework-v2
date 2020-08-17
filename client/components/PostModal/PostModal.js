@@ -8,6 +8,8 @@ import ErrorBoundary from '../ErrorBoundary'
 // comment fixtures
 import data from './fixtures';
 
+import './index.css'
+import { FiX } from 'react-icons/fi';
 
 const PostModal = ({ modalVisibility, setModalVisibility }) => {
   return (
@@ -17,7 +19,7 @@ const PostModal = ({ modalVisibility, setModalVisibility }) => {
         <div className="md:flex w-full border-none">
             <img className="md:w-2/3" src="https://images.unsplash.com/photo-1586398710270-760041494553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=80" alt=""/>
             <div className="md:w-1/3 md:block">           
-                  <div className="flex flex-row border-b-2 border-grey-lightest px-3 py-4">
+                  <div className="flex flex-row justify-between border-b-2 border-grey-lightest px-3 py-4">
                       <div className="flex items-center">
                             <Link to="#" className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
                             <img class="rounded-full h-10 w-10 object-cover" src="https://images.unsplash.com/photo-1586398710270-760041494553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=80" alt="" />
@@ -27,8 +29,10 @@ const PostModal = ({ modalVisibility, setModalVisibility }) => {
                               </div>
                             </Link>
                           </div>
+  <span className="relative right text-xl text-dark cursor-pointer" onClick={()=> setModalVisibility(!modalVisibility)}><FiX></FiX></span>
                       </div>
-                  <div className="pt-2 px-2 md:h-64 overflow-scroll">
+                      
+                  <div className="pt-2 px-2 md:h-90 overflow-scroll">
                     <div className="text-base text-grey-darker"><p>Presentation of Maryland BillBoard</p></div>
                     <div className="">
                       <ErrorBoundary>
@@ -39,37 +43,8 @@ const PostModal = ({ modalVisibility, setModalVisibility }) => {
                     </div>
                     
                   </div>
-                  <div className=" pin-b">
-                  <div className="flex flex-row pt-4">
-                            <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    class="w-5 h-5"
-                                >
-                                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
-                                <span class="ml-1">3431</span>
-                            </button>
-                            <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg ml-3">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    viewBox="0 0 24 24"
-                                    class="w-5 h-5"
-                                >
-                                    <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                                </svg>
-                                <span class="ml-1">566</span>
-                            </button>
-                        </div>
+                  <div className="-bottom-55">
+                  
                     <CreateComment />
                   </div>
               </div>
