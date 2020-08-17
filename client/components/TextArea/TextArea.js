@@ -10,9 +10,10 @@ const TextArea = ({
     cols,
     error,
     name,
-    label
+    label,
+    customStyle
 }) => (
-    <div className="mb-5">
+    <div className="">
         <label className="mb-4 md:text-lg text-sm font-bold">{label}</label>
         <textarea
             rows={rows}
@@ -22,7 +23,7 @@ const TextArea = ({
             placeholder={placeholder}
             onBlur={onBlur}
             value={value}
-            className="focus:outline-none w-full mt-2 px-4 py-3 bg-brown-lightest text-brown rounded-lg"
+            className={`${ customStyle ? customStyle : "focus:outline-none w-full mt-2 px-4 py-3 bg-brown-lightest text-brown rounded-lg}"}`}
         />
 
         {error && (

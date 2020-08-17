@@ -12,6 +12,7 @@ import Textbox from '@components/Textbox'
 import Camera from '../../assets/image/camera.svg'
 import Video from '../../assets/image/video-camera.svg'
 
+
 const CreatePostModal = ({
     postModalVisibility,
     setPostModalVisibility,

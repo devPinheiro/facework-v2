@@ -29,9 +29,9 @@ const CreateComment = ({onSubmit,
                     handleSubmit
                 }) => (
                     <form className="flex" onSubmit={handleSubmit}>
-                       <div className="w-4/5">
+                       <div className="w-4/5 pl-2">
                         <TextArea
-                       
+                            customStyle="focus:outline-none w-full py-1 px-1 bg-brown-lightest text-brown rounded-lg"
                             type="body"
                             label=""
                             rows={0}
