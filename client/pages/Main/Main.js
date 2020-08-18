@@ -4,6 +4,7 @@ import Loadable from 'react-loadable'
 import React, { Component } from 'react'
 import { flashMessage } from 'redux-flash'
 import { BrowserRouter, Route, withRouter, Switch } from 'react-router-dom'
+import { AnimatePresence } from "framer-motion";
 
 
 
@@ -53,6 +54,11 @@ const EmailConfirmationPage = Loadable({
 
 const PostFeed = Loadable({
     loader: () => import('@pages/PostFeeds'),
+    loading: PageLoader
+})
+
+const UserProfile = Loadable({
+    loader: () => import('@pages/UserProfile'),
     loading: PageLoader
 })
 
@@ -142,6 +148,7 @@ export class Main extends Component {
                         <NavBar />
                     </div>
                     <Switch>
+                    <AnimatePresence exitBeforeEnter initial={false}>
                         <Route exact={true} path={'/'} component={HomePage} />
                         <Route
                             exact={true}
@@ -178,6 +185,12 @@ export class Main extends Component {
                             path={'/feeds/p/:slug'}
                             component={PostFeed}
                         />
+                        <Route
+                            exact={true}
+                            path={'/user/:id'}
+                            component={UserProfile}
+                        />
+                        </AnimatePresence>
                     </Switch>
                 </div>
             </BrowserRouter>
