@@ -20,18 +20,11 @@ const PostFeed = props => {
         setModalVisibility(!modalVisibility)
         props.history.push('/feeds')
     }
-    const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
     
     return (
         <>
             {' '}
-            <motion.div
-                className="thumbnails"
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={{ exit: { transition: { staggerChildren: 0.1 } } }}
-            >
+            
                 <div className="w-full m-auto max-w-2xl flex ">
                     <div className="w-full md:w-2/3 my-8 mx-4">
                        
@@ -61,7 +54,6 @@ const PostFeed = props => {
                         </div>
                     </div>
                 </div>
-            </motion.div>
             {slug ? (
                 <PostModal
                     modalVisibility={!!slug}
