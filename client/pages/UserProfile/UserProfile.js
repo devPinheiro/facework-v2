@@ -41,17 +41,35 @@ const UserProfile = ({ match }) => {
                 animate="enter"
                 exit="exit"
             >
-                <motion.div className="md:w-1/4 my-8 mx-4 h-90 p-4 shadow-md border-grey-lighter rounded-lg flex flex-col items-center" variants={imageVariants}>
+                <motion.div className="md:w-1/4 my-8 mx-4 h-auto p-4 shadow-md border-grey-lighter rounded-lg flex flex-col items-center" variants={imageVariants}>
                     <motion.img
-                        className="h-12 w-12 md:h-16 md:w-16 rounded-full"
+                        className="h-16 w-16 md:h-32 md:w-32 rounded-full"
                         variants={imageVariants}
                         src={`https://images.unsplash.com/photo-1520065786657-b71a007dd8a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80`}
                         alt="Sammy Dev"
                     />
-                    <div className="py-2">
+                    <div className="py-2 text-center">
                         <h2 className="md:text-lg text-black text-sm py-1">Erin Lindford</h2>
-                        <div className="text-purple-500 text-grey-darkest text-sm">Product Engineer</div>
+                        <div className="text-purple-500 text-grey-darkest py-2 text-xs">Product Engineer</div>
+                        <div className="text-purple-500 text-grey-darkest text-xs">Ikeja, Lagos</div>
                         
+                    </div>
+                    <div className="pt-6 flex flex-col item-start">
+                        <span className="pt-8 text-xs font-hairline">Posts</span>
+                        <span className="pt-8 text-xs font-hairline">Dashboard</span>
+                        <span className="pt-8 text-xs font-hairline">Chat</span>
+                        <span className="pt-8 text-xs font-hairline">Profile</span>
+                    </div>
+                    <div className="pt-4 flex flex-col">
+                        <h6 className="md:text-md text-black text-sm pt-2">About me</h6>
+                        <p className="text-xxs">Realm was designed and built from scratch to support mobile devices and even wearables. It's designed as an object-oriented database and this makes it up to 10x faster than SQLite. </p>
+                    </div>
+
+                    <div className="pt-4 flex flex-col">
+                        <h6 className="md:text-md text-black text-sm pt-2">Social Media</h6>
+                        <span>Twitter</span>
+                        <span>Instagram</span>
+                        <span>Facebook</span>
                     </div>
                 </motion.div>
 
