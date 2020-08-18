@@ -148,7 +148,7 @@ export class Main extends Component {
                         <NavBar />
                     </div>
                     <Switch>
-                    <AnimatePresence exitBeforeEnter initial={false}>
+                    
                         <Route exact={true} path={'/'} component={HomePage} />
                         <Route
                             exact={true}
@@ -175,6 +175,7 @@ export class Main extends Component {
                             path={'/auth/emails/confirm/:token'}
                             component={EmailConfirmationPage}
                         />
+                        <AnimatePresence exitBeforeEnter initial={false}>
                         <Route
                             exact={true}
                             path={'/feeds'}

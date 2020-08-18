@@ -13,7 +13,8 @@ const PostCard = ({
     description,
     name,
     setModalVisibility,
-    slug
+    slug,
+    profilePage
 }) => {
 
     const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
@@ -46,9 +47,9 @@ const PostCard = ({
                                 variants={frameVariants}
                                 transition={transition}
                             >
-            <div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10">
+            <div class={`${ profilePage ? "object-cover w-full rounded-lg": "max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10"}`}>
                 <div class="py-2 flex flex-row items-center justify-between">
-                    <div class="flex flex-row items-center">
+                    {profilePage ? null : (<><div class="flex flex-row items-center">
                         <Link
                             to="#"
                             className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg"
@@ -68,11 +69,12 @@ const PostCard = ({
                             </div>
                         </Link>
                     </div>
-                    <div class="flex flex-row items-center">
+                    <div className="flex flex-row items-center">
                         <p class="text-xs font-semibold text-gray-500">
                             {time}
                         </p>
-                    </div>
+                    </div></>
+                    )}
                 </div>
                 <div class="mt-2">
                     <Link to={`/feeds/p/${slug}`}>
@@ -82,9 +84,10 @@ const PostCard = ({
                             alt=""
                         />
                     </Link>
+                    
                     <div class="py-2 flex-column items-center">
                         <p className="flex text-sm">{title}</p>
-                        <div className="flex flex-row pt-4">
+                        { !profilePage &&   <div className="flex flex-row pt-4">
                             <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
                                 <svg
                                     fill="none"
@@ -113,7 +116,7 @@ const PostCard = ({
                                 </svg>
                                 <span class="ml-1">566</span>
                             </button>
-                        </div>
+    </div> }
                     </div>
                 </div>
             </div>
