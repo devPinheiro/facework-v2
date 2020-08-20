@@ -22,7 +22,11 @@ import data from '../PostFeeds/fixtures'
 const UserProfile = ({ match }) => {
     const { slug } = match.params
     const [modalVisibility, setModalVisibility] = useState(false)
-
+    
+    const closeModal = () => {
+        setModalVisibility(!modalVisibility)
+        props.history.push('/feeds')
+    }
     const transition = {
         duration: 1,
         ease: [0.43, 0.13, 0.23, 0.96]
@@ -45,6 +49,7 @@ const UserProfile = ({ match }) => {
         exit: { x: 100, opacity: 0, transition: { delay: 1, ...transition } },
         enter: { x: 0, opacity: 1, transition: { delay: 1, ...transition } }
     }
+
     return (
         <div>
             <motion.div
@@ -149,7 +154,7 @@ const UserProfile = ({ match }) => {
                 </motion.div>
 
                 <motion.div
-                    className="text-xl text-black md:w-3/4 flex justify-between flex-wrap "
+                    className="text-xl text-black md:w-3/4 flex justify-between flex-wrap"
                     variants={backVariants}
                 >
                     {data.map((item, key) => (
@@ -168,6 +173,12 @@ const UserProfile = ({ match }) => {
                         </div>
                     ))}
                 </motion.div>
+                {slug ? (
+                <PostModal
+                    modalVisibility={!!slug}
+                    setModalVisibility={closeModal}
+                />
+            ) : null}
             </motion.div>
         </div>
     )
