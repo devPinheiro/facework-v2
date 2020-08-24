@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 const Loader = () => {
   return (
+    <div className="flex">
     <motion.div
       animate={{
         scale: [1, 2, 2, 1, 1],
@@ -19,6 +20,7 @@ const Loader = () => {
     >
       FW
     </motion.div>
+    </div>
   );
 };
 
