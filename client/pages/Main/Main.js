@@ -188,9 +188,15 @@ export class Main extends Component {
                         />
                         <Route
                             exact={true}
-                            path={'/user/:id'}
+                            path={'/profile/:slug'}
                             component={UserProfile}
                         />
+                        <Route
+                            exact={true}
+                            path={'/profile/:slug/p/:id'}
+                            component={UserProfile}
+                        />
+                        
                         </AnimatePresence>
                     </Switch>
                 </div>

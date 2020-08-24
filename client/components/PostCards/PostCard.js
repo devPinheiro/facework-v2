@@ -14,7 +14,8 @@ const PostCard = ({
     name,
     setModalVisibility,
     slug,
-    profilePage
+    profilePage,
+    modalVisibility
 }) => {
 
     const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
@@ -37,8 +38,7 @@ const PostCard = ({
       };
     return (
         <>
-         <motion.div
-                           
+         <motion.div        
                             // variants={thumbnailVariants}
                         >
                             <motion.div
@@ -77,6 +77,16 @@ const PostCard = ({
                     )}
                 </div>
                 <div class="mt-2">
+                {profilePage ?
+                
+                <img
+                    class="object-cover w-full rounded-lg"
+                    src={image}
+                    alt=""
+                    onClick={() => setModalVisibility(!modalVisibility)}
+                />
+           
+                :
                     <Link to={`/feeds/p/${slug}`}>
                         <img
                             class="object-cover w-full rounded-lg"
@@ -84,6 +94,7 @@ const PostCard = ({
                             alt=""
                         />
                     </Link>
+                    }
                     
                     <div class="py-2 flex-column items-center">
                         <p className="flex text-sm">{title}</p>
