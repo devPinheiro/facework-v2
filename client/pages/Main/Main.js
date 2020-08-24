@@ -188,14 +188,15 @@ export class Main extends Component {
                         />
                         <Route
                             exact={true}
-                            path={'/profile/:id'}
+                            path={'/profile/:slug'}
                             component={UserProfile}
                         />
                         <Route
                             exact={true}
-                            path={'/profile/:id/p/:slug'}
+                            path={'/profile/:slug/p/:id'}
                             component={UserProfile}
                         />
+                        
                         </AnimatePresence>
                     </Switch>
                 </div>

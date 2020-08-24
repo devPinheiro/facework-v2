@@ -14,7 +14,8 @@ const PostCard = ({
     name,
     setModalVisibility,
     slug,
-    profilePage
+    profilePage,
+    modalVisibility
 }) => {
 
     const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
@@ -77,13 +78,14 @@ const PostCard = ({
                 </div>
                 <div class="mt-2">
                 {profilePage ?
-                <Link to={`p/${slug}`}>
+                
                 <img
                     class="object-cover w-full rounded-lg"
                     src={image}
                     alt=""
+                    onClick={() => setModalVisibility(!modalVisibility)}
                 />
-            </Link>
+           
                 :
                     <Link to={`/feeds/p/${slug}`}>
                         <img
