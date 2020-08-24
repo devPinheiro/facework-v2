@@ -20,12 +20,11 @@ import PostModal from '@components/PostModal/PostModal'
 import data from '../PostFeeds/fixtures'
 
 const UserProfile = ({ match }) => {
-    const { slug } = match.params
+    const { id } = match.params
     const [modalVisibility, setModalVisibility] = useState(false)
     
     const closeModal = () => {
         setModalVisibility(!modalVisibility)
-        props.history.push('/feeds')
     }
     const transition = {
         duration: 1,
@@ -52,6 +51,12 @@ const UserProfile = ({ match }) => {
 
     return (
         <div>
+          
+                <PostModal
+                    modalVisibility={modalVisibility}
+                    setModalVisibility={closeModal}
+                />
+            
             <motion.div
                 className="w-full m-auto max-w-2xl block sm:flex"
                 initial="exit"
@@ -167,18 +172,15 @@ const UserProfile = ({ match }) => {
                                 avatar={item.avatar}
                                 name={item.name}
                                 slug={item.slug}
+                                id={item.slug}
                                 profilePage={true}
+                                modalVisibility={modalVisibility}
                                 setModalVisibility={setModalVisibility}
                             />
                         </div>
                     ))}
                 </motion.div>
-                {slug ? (
-                <PostModal
-                    modalVisibility={!!slug}
-                    setModalVisibility={closeModal}
-                />
-            ) : null}
+                
             </motion.div>
         </div>
     )
