@@ -15,6 +15,7 @@ import {
 // components
 import PostCard from '@components/PostCards/PostCard'
 import PostModal from '@components/PostModal/PostModal'
+import AuthorCard from '@components/AuthorCard'
 
 // fixtures
 import data from '../PostFeeds/fixtures'
@@ -52,11 +53,11 @@ const UserProfile = ({ match }) => {
     return (
         <div>
           
-                <PostModal
-                    modalVisibility={modalVisibility}
-                    setModalVisibility={closeModal}
-                />
-            
+            <PostModal
+                modalVisibility={modalVisibility}
+                setModalVisibility={closeModal}
+            />
+        
             <motion.div
                 className="w-full m-auto max-w-2xl block sm:flex"
                 initial="exit"
@@ -67,27 +68,11 @@ const UserProfile = ({ match }) => {
                     className="md:w-1/4 my-8 mx-4 h-full p-4 shadow-md border-grey-lighter rounded-lg flex flex-col "
                     variants={imageVariants}
                 >
-                    <div className="flex flex-col items-center">
-                        <motion.img
-                            className="h-16 w-16 md:h-32 md:w-32 mt-3 rounded-full"
-                            variants={imageVariants}
-                            src={`https://images.unsplash.com/photo-1520065786657-b71a007dd8a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80`}
-                            alt="Sammy Dev"
-                        />
-                        <div className="py-2 text-center">
-                            <h2 className="md:text-lg text-black text-sm py-1">
-                                Erin Lindford
-                            </h2>
-                            <div className="text-purple-500 text-grey-darkest py-2 text-xs">
-                                Product Engineer
-                            </div>
-                            <div className="text-purple-500 text-grey-darkest text-xs">
-                                <FiMapPin /> Ikeja, Lagos
-                            </div>
-                        </div>
-                    </div>
+                    <AuthorCard profile={true} />
+
                     <div className="pt-6 flex flex-col w-full">
                         <div className="flex flex-row justify-between py-2">
+                        <Link to="/">
                             <p className=" text-sm">
                                 {' '}
                                 <span className="px-2 -mb-1">
@@ -95,21 +80,26 @@ const UserProfile = ({ match }) => {
                                 </span>
                                 Posts
                             </p>
-                            15{' '}
+                            
+                            </Link>
+                            <div>15{' '}</div>
                         </div>
                         <div className="flex flex-row  justify-between py-2">
                             {' '}
+                            <Link to="/messages">
                             <p className=" text-sm">
                                 {' '}
                                 <span className="px-2 -mb-1">
                                     <FiMessageCircle />{' '}
                                 </span>
-                                Chats
+                                Messages
                             </p>
+                            </Link>
                             <div className="bg-red rounded-full notify-badge h-2 w-2"></div>
                         </div>
                         <div className="flex flex-row  justify-between py-2">
                             {' '}
+                            <Link to="/edit-profile">
                             <p className=" text-sm">
                                 {' '}
                                 <span className="px-2 -mb-1">
@@ -117,6 +107,7 @@ const UserProfile = ({ match }) => {
                                 </span>
                                 Edit Profile
                             </p>
+                            </Link>
                         </div>
                         <div className="flex flex-row  justify-between py-2">
                             <p className="text-sm">
@@ -180,8 +171,16 @@ const UserProfile = ({ match }) => {
                         </div>
                     ))}
                 </motion.div>
+
+                
                 
             </motion.div>
+            <motion.div
+                    className="text-xl text-black md:w-3/4 flex justify-between flex-wrap"
+                    variants={backVariants}
+                >
+                    
+                </motion.div>
         </div>
     )
 }
