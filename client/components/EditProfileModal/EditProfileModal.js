@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Formik } from 'formik';
 
-
+// components
+import Button from '@components/Button'
+import Textbox from '@components/Textbox'
 import Modal from '../Modal'
 import ErrorBoundary from '../ErrorBoundary'
-i
 
-const EditProfileModal = ({ modalVisibility, setModalVisibility }) => {
+const EditProfileModal = ({ modalVisibility, setModalVisibility, initialValues, onSubmit, validationSchema  }) => {
+
     return (
         <Modal modalVisibility={modalVisibility}>
             <ErrorBoundary>
