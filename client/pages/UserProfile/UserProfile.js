@@ -19,6 +19,7 @@ import AuthorCard from '@components/AuthorCard'
 
 // fixtures
 import data from '../PostFeeds/fixtures'
+import EditProfileModal from '../../components/EditProfileModal'
 
 const UserProfile = ({ match }) => {
     const { id } = match.params
@@ -57,6 +58,9 @@ const UserProfile = ({ match }) => {
                 modalVisibility={modalVisibility}
                 setModalVisibility={closeModal}
             />
+
+            <EditProfileModal modalVisibility={modalVisibility}
+                setModalVisibility={closeModal} />
         
             <motion.div
                 className="w-full m-auto max-w-2xl block sm:flex"
