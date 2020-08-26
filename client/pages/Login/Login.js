@@ -4,12 +4,12 @@ import { Helmet } from 'react-helmet'
 import { flashMessage } from 'redux-flash'
 import LoginForm from '@components/LoginForm'
 import Footer from '@components/Footer'
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { postLogin } from '@client/store/actions/auth'
 import { LoginSchema } from '@client/validation-schemas'
 import './index.css'
 
-class LoginPage extends Component {
+class LoginPage extends PureComponent {
     /**
      * Initialize component state
      *
