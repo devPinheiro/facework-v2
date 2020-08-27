@@ -11,6 +11,7 @@ import CreatePost from '@components/CreatePostCard'
 
 // fixtures
 import data from './fixtures'
+import ErrorBoundary from '../../components/ErrorBoundary'
 
 const PostFeed = props => {
     const { slug } = props.match.params
@@ -34,6 +35,7 @@ const PostFeed = props => {
                                         setPostModalVisibility
                                     }
                                 />
+                                <ErrorBoundary>
                                 {data.map((item, key) => (
                                     <PostCard
                                         title={item.title}
@@ -45,7 +47,7 @@ const PostFeed = props => {
                                         slug={item.slug}
                                         setModalVisibility={setModalVisibility}
                                     />
-                                ))}
+                                ))}</ErrorBoundary>
                           
                     </div>
                     <div className="hidden md:block md:w-1/3 ">

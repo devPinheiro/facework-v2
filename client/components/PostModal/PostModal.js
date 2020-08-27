@@ -10,11 +10,11 @@ import data from './fixtures';
 
 import './index.css'
 import { FiX } from 'react-icons/fi';
+import Modal from '../Modal'
 
 const PostModal = ({ modalVisibility, setModalVisibility }) => {
   return (
-    <div className={ `${modalVisibility ? 'modal-cover modal-cover-active ' : 'modal-container'}`} >
-{/* onClick={() => setModalVisibility(!modalVisibility)} */}
+   <Modal modalVisibility={modalVisibility}>
 <ErrorBoundary>
       <div className="modal-container-active modal-container md:max-w-xl max-w-md-1/2">
         <div className="md:flex w-full border-none">
@@ -52,7 +52,7 @@ const PostModal = ({ modalVisibility, setModalVisibility }) => {
             </div>
         </div>
         </ErrorBoundary>
-      </div>
+        </Modal>
   ) 
 }
 
