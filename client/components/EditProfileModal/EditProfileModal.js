@@ -7,7 +7,7 @@ import Modal from '../Modal'
 import ErrorBoundary from '../ErrorBoundary'
 i
 
-const EditProfileModal = ({modalVisibility}) => {
+const EditProfileModal = ({ modalVisibility, setModalVisibility }) => {
     return (
         <Modal modalVisibility={modalVisibility}>
             <ErrorBoundary>
