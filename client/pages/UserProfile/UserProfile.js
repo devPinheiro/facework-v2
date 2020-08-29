@@ -16,14 +16,17 @@ import {
 import PostCard from '@components/PostCards/PostCard'
 import PostModal from '@components/PostModal/PostModal'
 import AuthorCard from '@components/AuthorCard'
+import EditProfileModal from '@components/EditProfileModal'
 
 // fixtures
 import data from '../PostFeeds/fixtures'
 import EditProfileModal from '../../components/EditProfileModal'
 
+
 const UserProfile = ({ match }) => {
     const { id } = match.params
     const [modalVisibility, setModalVisibility] = useState(false)
+    const [editProfileModalVisibility, setEditProfileModalVisibility] = useState(false)
     
     const closeModal = () => {
         setModalVisibility(!modalVisibility)
@@ -57,10 +60,7 @@ const UserProfile = ({ match }) => {
             <PostModal
                 modalVisibility={modalVisibility}
                 setModalVisibility={closeModal}
-            />
-
-            <EditProfileModal modalVisibility={modalVisibility}
-                setModalVisibility={closeModal} />
+            />          
         
             <motion.div
                 className="w-full m-auto max-w-2xl block sm:flex"
@@ -103,15 +103,15 @@ const UserProfile = ({ match }) => {
                         </div>
                         <div className="flex flex-row  justify-between py-2">
                             {' '}
-                            <Link to="/edit-profile">
-                            <p className=" text-sm">
+                            
+                            <p className=" text-sm" onClick={() => setEditProfileModalVisibility(!editProfileModalVisibility)}>
                                 {' '}
                                 <span className="px-2 -mb-1">
                                     <FiEdit3 />{' '}
                                 </span>
                                 Edit Profile
                             </p>
-                            </Link>
+                            
                         </div>
                         <div className="flex flex-row  justify-between py-2">
                             <p className="text-sm">
@@ -185,6 +185,9 @@ const UserProfile = ({ match }) => {
                 >
                     
                 </motion.div>
+{/* 
+                <EditProfileModal modalVisibility={editProfileModalVisibility}
+                setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} /> */}
         </div>
     )
 }
