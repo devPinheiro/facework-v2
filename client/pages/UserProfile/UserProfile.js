@@ -16,11 +16,16 @@ import {
 import PostCard from '@components/PostCards/PostCard'
 import PostModal from '@components/PostModal/PostModal'
 import AuthorCard from '@components/AuthorCard'
+<<<<<<< HEAD
 import EditProfileModal from '@components/EditProfileModal'
+=======
+import EditProfileModal from '@components/EditProfileModal/EditProfileModal'
+>>>>>>> f64546f... WIP
 
 // fixtures
 import data from '../PostFeeds/fixtures'
-import EditProfileModal from '../../components/EditProfileModal'
+
+
 
 
 const UserProfile = ({ match }) => {
@@ -55,6 +60,7 @@ const UserProfile = ({ match }) => {
     }
 
     return (
+        <> 
         <div>
           
             <PostModal
@@ -185,10 +191,12 @@ const UserProfile = ({ match }) => {
                 >
                     
                 </motion.div>
-{/* 
-                <EditProfileModal modalVisibility={editProfileModalVisibility}
-                setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} /> */}
+
+              
         </div>
+          <EditProfileModal modalVisibility={editProfileModalVisibility}
+          setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} />
+          </>
     )
 }
 
