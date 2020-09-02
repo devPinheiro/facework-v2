@@ -16,11 +16,8 @@ import {
 import PostCard from '@components/PostCards/PostCard'
 import PostModal from '@components/PostModal/PostModal'
 import AuthorCard from '@components/AuthorCard'
-<<<<<<< HEAD
-import EditProfileModal from '@components/EditProfileModal'
-=======
 import EditProfileModal from '@components/EditProfileModal/EditProfileModal'
->>>>>>> f64546f... WIP
+
 
 // fixtures
 import data from '../PostFeeds/fixtures'
