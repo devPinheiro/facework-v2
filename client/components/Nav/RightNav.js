@@ -4,6 +4,7 @@ import { RiDiscussLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
 import SearchForm from './SearchForm';
 import NotificationTray from '../NotificationTray';
+import { Link } from 'react-router-dom';
 
 
 const Ul = styled.ul`
@@ -58,8 +59,8 @@ const RightNav = ({ open }) => {
     return (
         <Ul open={open}>
             <SearchForm className="nav" />
-        <div className="nav px-2"><a href="">Home</a></div>
-        <div className="nav px-2"><a href="">Jobs</a></div>
+        <div className="nav px-2"><Link to="/">Home</Link></div>
+        <div className="nav px-2"><Link to="/jobs">Jobs</Link></div>
         <div className="nav px-2"><a href="" className="text-md"><RiDiscussLine /></a></div>
         <div className="nav px-2 cursor-pointer" onClick={() => setOpenNotification(!openNotification)}><FiBell />
            {showNotificationBadge ? <div className="bg-red rounded-full notify-badge h-2 w-2"></div> : null }

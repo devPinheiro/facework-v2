@@ -8104,6 +8104,11 @@ react-loadable@^5.5.0:
   dependencies:
     prop-types "^15.5.0"
 
+react-lorem-ipsum@^1.4.5:
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/react-lorem-ipsum/-/react-lorem-ipsum-1.4.5.tgz#bc9f8a8691d1dec568de1a81d5574242ff9fee6e"
+  integrity sha512-cFQ86WCrHl7vqzTKSJcMlmH47m15xOH7NbbS+EZ0ARztPjmxm5jVoENGtCLXkG3PU+mQhNoibVXQx8NXUPHf2g==
+
 react-redux@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-6.0.1.tgz#0d423e2c1cb10ada87293d47e7de7c329623ba4d"

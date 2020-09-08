@@ -62,6 +62,12 @@ const UserProfile = Loadable({
     loading: PageLoader
 })
 
+
+const Jobs = Loadable({
+    loader: () => import('@pages/Jobs'),
+    loading: PageLoader
+})
+
 export class Main extends Component {
     /**
      * Define prop types for this component
@@ -197,6 +203,12 @@ export class Main extends Component {
                             path={'/profile/:slug/p/:id'}
                             component={UserProfile}
                             key="second"
+                        />
+
+                        <Route
+                            exact={true}
+                            path={'/jobs'}
+                            component={Jobs}
                         />
                         
                         </AnimatePresence>
