@@ -37,6 +37,7 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                                 <form onSubmit={handleSubmit}>
                                     <Textbox
                                         type="name"
+                                        name="name"
                                         label="Full Name"
                                         onBlur={handleBlur}
                                         value={values.name}
@@ -47,6 +48,7 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                                     />
                                     <Textbox
                                         type="email"
+                                        name="email"
                                         label="Email"
                                         onBlur={handleBlur}
                                         value={values.email}
@@ -57,6 +59,7 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                                     />
                                     <Textbox
                                         type="password"
+                                        name="password"
                                         label="Password"
                                         onBlur={handleBlur}
                                         value={values.password}

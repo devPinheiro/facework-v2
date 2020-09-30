@@ -10,11 +10,13 @@ const instance = Axios.create({
     baseURL: 'https://facework.com.ng/api/'
 })
 
+const flashOptions = { timeout: 5000 }
+
 export default createStore(
     rootReducer,
 
     applyMiddleware(
-        flash(),
+        flash(flashOptions),
         axiosMiddleware(instance, {
             returnRejectedPromiseOnError: true,
             interceptors: {
