@@ -37,32 +37,35 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                                 <form onSubmit={handleSubmit}>
                                     <Textbox
                                         type="name"
+                                        name="name"
                                         label="Full Name"
                                         onBlur={handleBlur}
                                         value={values.name}
                                         onChange={handleChange}
                                         data-testid={'name-field'}
-                                        // placeholder={'Enter your name'}
+                                        placeholder={'Enter your name'}
                                         error={touched.name && errors.name}
                                     />
                                     <Textbox
                                         type="email"
+                                        name="email"
                                         label="Email"
                                         onBlur={handleBlur}
                                         value={values.email}
                                         onChange={handleChange}
                                         data-testid={'email-field'}
-                                        // placeholder={'Enter your email'}
+                                        placeholder={'Enter your email'}
                                         error={touched.email && errors.email}
                                     />
                                     <Textbox
                                         type="password"
+                                        name="password"
                                         label="Password"
                                         onBlur={handleBlur}
                                         value={values.password}
                                         onChange={handleChange}
                                         data-testid={'password-field'}
-                                        // placeholder={'Enter your password'}
+                                        placeholder={'Enter your password'}
                                         error={
                                             touched.password && errors.password
                                         }

@@ -7,14 +7,16 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 
 const instance = Axios.create({
-    baseURL: 'http://facework.com.ng/api/'
+    baseURL: 'https://facework.com.ng/api/'
 })
+
+const flashOptions = { timeout: 5000 }
 
 export default createStore(
     rootReducer,
 
     applyMiddleware(
-        flash(),
+        flash(flashOptions),
         axiosMiddleware(instance, {
             returnRejectedPromiseOnError: true,
             interceptors: {
