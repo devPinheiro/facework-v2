@@ -4,9 +4,7 @@ import Loadable from 'react-loadable'
 import React, { Component } from 'react'
 import { flashMessage } from 'redux-flash'
 import { BrowserRouter, Route, withRouter, Switch } from 'react-router-dom'
-import { AnimatePresence } from "framer-motion";
-
-
+import { AnimatePresence } from 'framer-motion'
 
 // components
 import Flash from '@components/Flash'
@@ -61,7 +59,6 @@ const UserProfile = Loadable({
     loader: () => import('@pages/UserProfile'),
     loading: PageLoader
 })
-
 
 const Jobs = Loadable({
     loader: () => import('@pages/Jobs'),
@@ -150,11 +147,19 @@ export class Main extends Component {
                         logout={this.logout}
                         isAuthenticated={isAuthenticated}
                     /> */}
-                    <div className="w-full pt-5 m-auto max-w-2xl flex ">
-                        <NavBar />
-                    </div>
+
                     <Switch>
-                    
+                        {[
+                            '/login',
+                            '/signup',
+                            '/dashboard',
+                            '/forgot-password'
+                        ].includes(location.pathname) ||
+                            (['/'].includes(location.pathname) && (
+                                <div className="w-full pt-5 m-auto max-w-2xl flex ">
+                                    <NavBar />
+                                </div>
+                            ))}
                         <Route exact={true} path={'/'} component={HomePage} />
                         <Route
                             exact={true}
@@ -182,35 +187,34 @@ export class Main extends Component {
                             component={EmailConfirmationPage}
                         />
                         <AnimatePresence exitBeforeEnter initial={false}>
-                        <Route
-                            exact={true}
-                            path={'/feeds'}
-                            component={PostFeed}
-                        />
-                         <Route
-                            exact={true}
-                            path={'/feeds/p/:slug'}
-                            component={PostFeed}
-                        />
-                        <Route
-                            exact={true}
-                            path={'/profile/:slug'}
-                            component={UserProfile}
-                            key="first"
-                        />
-                        <Route
-                            exact={true}
-                            path={'/profile/:slug/p/:id'}
-                            component={UserProfile}
-                            key="second"
-                        />
+                            <Route
+                                exact={true}
+                                path={'/feeds'}
+                                component={PostFeed}
+                            />
+                            <Route
+                                exact={true}
+                                path={'/feeds/p/:slug'}
+                                component={PostFeed}
+                            />
+                            <Route
+                                exact={true}
+                                path={'/profile/:slug'}
+                                component={UserProfile}
+                                key="first"
+                            />
+                            <Route
+                                exact={true}
+                                path={'/profile/:slug/p/:id'}
+                                component={UserProfile}
+                                key="second"
+                            />
 
-                        <Route
-                            exact={true}
-                            path={'/jobs'}
-                            component={Jobs}
-                        />
-                        
+                            <Route
+                                exact={true}
+                                path={'/jobs'}
+                                component={Jobs}
+                            />
                         </AnimatePresence>
                     </Switch>
                 </div>
