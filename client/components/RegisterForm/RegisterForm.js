@@ -42,7 +42,7 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                                         value={values.name}
                                         onChange={handleChange}
                                         data-testid={'name-field'}
-                                        // placeholder={'Enter your name'}
+                                        placeholder={'Enter your name'}
                                         error={touched.name && errors.name}
                                     />
                                     <Textbox
@@ -52,7 +52,7 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                                         value={values.email}
                                         onChange={handleChange}
                                         data-testid={'email-field'}
-                                        // placeholder={'Enter your email'}
+                                        placeholder={'Enter your email'}
                                         error={touched.email && errors.email}
                                     />
                                     <Textbox
@@ -62,7 +62,7 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                                         value={values.password}
                                         onChange={handleChange}
                                         data-testid={'password-field'}
-                                        // placeholder={'Enter your password'}
+                                        placeholder={'Enter your password'}
                                         error={
                                             touched.password && errors.password
                                         }
