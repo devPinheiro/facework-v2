@@ -7,7 +7,7 @@ import React, { Fragment } from 'react'
 import Button from '@components/Button'
 import Textbox from '@components/Textbox'
 
-const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
+const RegisterForm = ({ initialValues, onSubmit, validationSchema, confirmEmail }) => (
     <Fragment>
         <div className="bg-image">
             <div className="container mx-auto flex text-white justify-center ">
@@ -16,6 +16,15 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                         facework
                     </h1>
                     <div className="bg-white-900 shadow-md pb-8 pt-8 pl-4 pr-4 md:pl-16 md:pr-16 rounded-lg w-full bg-form-transparent">
+                    { confirmEmail ?(
+                       <div>
+                            <h2 className="text-center font-primary font-semibold mb-8">
+                            Confirm your email
+                        </h2>
+                        <p className="text-sm">
+                            We have sent you a confirmation mail. Kindly check it out to activate your account
+                        </p>
+                       </div>) : <>
                         <h2 className="text-center font-primary font-semibold mb-8">
                             Register
                         </h2>
@@ -79,7 +88,7 @@ const RegisterForm = ({ initialValues, onSubmit, validationSchema }) => (
                                     </Button>
                                 </form>
                             )}
-                        </Formik>
+                        </Formik></>}
                     </div>
                 </div>
             </div>
