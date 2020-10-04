@@ -55,7 +55,7 @@ export class ResetPasswordPage extends Component {
 
         dispatch(postResetPassword(data))
             .then(() => {
-                history.push('/')
+                // history.push('/')
 
                 dispatch(flashMessage('Password successfully reset.'))
             })

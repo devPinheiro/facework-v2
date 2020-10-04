@@ -10,6 +10,7 @@ import { postEmailConfirm } from '@client/store/actions/auth'
 // components
 import EmailConfirmationLoader from '@components/EmailConfirmationLoader'
 
+import './index.css'
 export class EmailConfirmationPage extends Component {
     /**
      * The prop types for Email Confirmation Page
@@ -41,7 +42,7 @@ export class EmailConfirmationPage extends Component {
             history
         } = this.props
 
-        dispatch(postEmailConfirm({ token }))
+        dispatch(postEmailConfirm(token))
             .then(response => {
                 localStorage.setItem(
                     'auth',
@@ -49,13 +50,12 @@ export class EmailConfirmationPage extends Component {
                 )
                 history.push('/')
 
-                dispatch(flashMessage('Email confirmed.'))
+                dispatch(flashMessage('Email confirmed successfully.'))
             })
             .catch(() => {
-                history.push('/')
 
                 dispatch(
-                    flashMessage('Error confirming email.', { isError: true })
+                    flashMessage('Error confirming your email.', { isError: true })
                 )
             })
     }
@@ -66,7 +66,26 @@ export class EmailConfirmationPage extends Component {
                 <Helmet>
                     <title>Email confirmation</title>
                 </Helmet>
-                <EmailConfirmationLoader />
+                <div className="bg-image">
+                    <div className="container mx-auto flex text-white justify-center h-screen">
+                        <div className="max-w-md-1/2 mx-3 my-8 w-full">
+                            <h1 className="text-center font-primary mt-16 mb-8 font-semibold text-6xl">
+                                facework
+                            </h1>
+                            <div className="bg-white-900 shadow-md pb-4 pt-8 pl-4 pr-4 md:pl-16 md:pr-16 rounded-lg w-full bg-form-transparent">
+                            
+                            <div>
+                                    <h2 className="text-center font-primary font-semibold mb-8">
+                                    Activating Your Account
+                                </h2>
+                                <p>Please wait a moment while we confirm your email. Thank you</p> 
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
             </Fragment>
         )
     }

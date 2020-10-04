@@ -74,15 +74,17 @@ class LoginPage extends PureComponent {
                             ? 'Email or Password is invalid'
                             : message
                 })
+                message === 'Unauthorized'
+                ? 
                 dispatch(
                     flashMessage(
-                        message === 'Unauthorized'
-                            ? ('Email or Password is invalid',
-                            { isError: true })
-                            : message,
-                            { isError: false }
+                       'Email or Password is invalid',
+                            { isError: true }
+                            
                     )
-                )
+                ) : dispatch(flashMessage(message,
+                    { isError: false }))
+                    
                 this.setState({confirmEmail: message !== 'Unauthorized'})
             })
     }

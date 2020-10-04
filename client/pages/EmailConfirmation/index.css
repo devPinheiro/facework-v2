@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
+
+*{
+  color: white !important;
+}
+
+.bg-image {
+  background-repeat: no-repeat;
+  box-shadow:inset 0 0 0 2000px rgba(8, 19, 80, 0.33);
+  background-image: url('../../assets/image/pexels-photo-2422290.png') !important;
+  background-color: rgba(33, 74, 177, 0.77);
+  background-size: cover;
+}

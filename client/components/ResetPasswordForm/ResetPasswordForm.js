@@ -8,12 +8,18 @@ import Textbox from '@components/Textbox'
 
 const ResetPasswordForm = ({ initialValues, onSubmit, validationSchema }) => (
     <Fragment>
-        <div className="container mx-auto flex justify-center">
-            <div className="max-w-md-1/2 mx-3 my-12 w-full">
-                <h1 className="text-center font-primary font-semibold text-gold">
-                    Reset Password
-                </h1>
-                <div className="bg-white shadow-md my-12 p-16 rounded w-full">
+         <div className="bg-image">
+            <div className="container mx-auto flex text-white justify-center ">
+                <div className="max-w-md-1/2 mx-3 my-8 w-full">
+                    <h1 className="text-center font-primary mt-16 mb-8 font-semibold text-6xl">
+                        facework
+                    </h1>
+                    <div className="bg-white-900 shadow-md pb-8 pt-8 pl-4 pr-4 md:pl-16 md:pr-16 rounded-lg w-full bg-form-transparent">
+                    
+                            <h2 className="text-center font-primary font-semibold mb-8">
+                            Change Your Password
+                        </h2>
+              
                     <Formik
                         onSubmit={onSubmit}
                         initialValues={initialValues}
@@ -60,8 +66,10 @@ const ResetPasswordForm = ({ initialValues, onSubmit, validationSchema }) => (
                         )}
                     </Formik>
                 </div>
-            </div>
-        </div>
+                </div>
+                </div>
+                </div>
+            
     </Fragment>
 )
 

@@ -20,7 +20,8 @@ export class RegisterPage extends Component {
             name: '',
             email: '',
             password: ''
-        }
+        },
+        confirmEmail: false,
     }
 
     /**
@@ -58,7 +59,8 @@ export class RegisterPage extends Component {
                 )
 
                 dispatch(flashMessage('Successfully registered.'))
-                history.push('/')
+                // history.push('/')
+                this.setState({confirmEmail: true})
             })
             .catch(({ error }) => {
                 setSubmitting(false)
@@ -72,6 +74,7 @@ export class RegisterPage extends Component {
     }
 
     render() {
+        const { confirmEmail } = this.state;
         return (
             <Fragment>
                 <Helmet>
@@ -83,6 +86,7 @@ export class RegisterPage extends Component {
                     validate={this.handleValidation}
                     validationSchema={this.RegisterSchema}
                     initialValues={this.state.initialValues}
+                    confirmEmail={confirmEmail}
                 />
                 <Footer />
             </Fragment>

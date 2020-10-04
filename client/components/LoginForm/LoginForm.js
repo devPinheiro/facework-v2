@@ -18,7 +18,7 @@ const LoginForm = ({ initialValues, onSubmit, validationSchema, confirmEmail }) 
                         facework
                     </h1>
                     <div className="bg-white-900 shadow-md pb-4 pt-8 pl-4 pr-4 md:pl-16 md:pr-16 rounded-lg w-full bg-form-transparent">
-                       { confirmEmail ?(
+                       { confirmEmail ? (
                        <div>
                             <h2 className="text-center font-primary font-semibold mb-8">
                             Confirm your email

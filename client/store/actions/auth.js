@@ -55,7 +55,7 @@ export const postForgotPassword = data => ({
     payload: {
         request: {
             method: 'POST',
-            url: 'auth/passwords/email',
+            url: '/password/create',
             data
         }
     }
@@ -72,7 +72,7 @@ export const postResetPassword = data => ({
     payload: {
         request: {
             method: 'POST',
-            url: 'auth/passwords/reset',
+            url: '/password/reset',
             data
         }
     }
@@ -89,8 +89,8 @@ export const postEmailConfirm = data => ({
     payload: {
         request: {
             method: 'POST',
-            url: 'auth/emails/confirm',
-            data
+            url: `auth/signup/activate/${data}`,
+            
         }
     }
 })
