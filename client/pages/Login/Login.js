@@ -2,11 +2,16 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { flashMessage } from 'redux-flash'
+import { ToastProvider, useToasts } from 'react-toast-notifications'
+
+
 import LoginForm from '@components/LoginForm'
 import Footer from '@components/Footer'
 import React, { PureComponent, Fragment } from 'react'
 import { postLogin } from '@client/store/actions/auth'
 import { LoginSchema } from '@client/validation-schemas'
+
+
 import './index.css'
 
 class LoginPage extends PureComponent {
@@ -19,7 +24,8 @@ class LoginPage extends PureComponent {
         initialValues: {
             email: '',
             password: ''
-        }
+        },
+        confirmEmail: false,
     }
 
     /**
@@ -68,32 +74,36 @@ class LoginPage extends PureComponent {
                             ? 'Email or Password is invalid'
                             : message
                 })
+                message === 'Unauthorized'
+                ? 
                 dispatch(
                     flashMessage(
-                        message === 'Unauthorized'
-                            ? 'Email or Password is invalid'
-                            : message,
-                        { isError: true }
+                       'Email or Password is invalid',
+                            { isError: true }
+                            
                     )
-                )
+                ) : dispatch(flashMessage(message,
+                    { isError: false }))
+                    
+                this.setState({confirmEmail: message !== 'Unauthorized'})
             })
     }
 
     render() {
+        const { confirmEmail } = this.state
         return (
             <Fragment>
                 <Helmet>
                     <title>Login</title>
                 </Helmet>
-
                 <LoginForm
                     {...this.props}
                     onSubmit={this.onSubmit}
                     validate={this.handleValidation}
                     validationSchema={this.LoginSchema}
                     initialValues={this.state.initialValues}
+                    confirmEmail={confirmEmail}
                 />
-
                 <Footer />
             </Fragment>
         )

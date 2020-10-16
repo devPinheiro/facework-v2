@@ -9,7 +9,7 @@ import React, { Fragment } from 'react'
 import Button from '@components/Button'
 import Textbox from '@components/Textbox'
 
-const LoginForm = ({ initialValues, onSubmit, validationSchema }) => (
+const LoginForm = ({ initialValues, onSubmit, validationSchema, confirmEmail }) => (
     <Fragment>
         <div className="bg-image">
             <div className="container mx-auto flex text-white justify-center ">
@@ -18,7 +18,15 @@ const LoginForm = ({ initialValues, onSubmit, validationSchema }) => (
                         facework
                     </h1>
                     <div className="bg-white-900 shadow-md pb-4 pt-8 pl-4 pr-4 md:pl-16 md:pr-16 rounded-lg w-full bg-form-transparent">
-                        <h2 className="text-center font-primary font-semibold mb-8">
+                       { confirmEmail ? (
+                       <div>
+                            <h2 className="text-center font-primary font-semibold mb-8">
+                            Confirm your email
+                        </h2>
+                        <p className="text-sm">
+                            We have sent you a confirmation mail. Kindly check it out to activate your account
+                        </p>
+                       </div>) : (<><h2 className="text-center font-primary font-semibold mb-8">
                             Sign In
                         </h2>
                         <Formik
@@ -77,7 +85,7 @@ const LoginForm = ({ initialValues, onSubmit, validationSchema }) => (
                                 </form>
                             )}
                         </Formik>
-                    </div>
+                       </>)}  </div>
                 </div>
             </div>
 

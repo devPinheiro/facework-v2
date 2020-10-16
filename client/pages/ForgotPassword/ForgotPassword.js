@@ -55,7 +55,11 @@ export class ForgotPasswordPage extends Component {
             })
             .catch(({ error }) => {
                 setSubmitting(false)
-                setErrors(error.response.data.data.errors)
+               
+                setErrors(error.response.data.message)
+                dispatch(
+                    flashMessage(error.response.data.message, { isError: true })
+                )
             })
     }
 

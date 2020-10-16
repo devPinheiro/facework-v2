@@ -37,6 +37,7 @@ const ForgotPasswordForm = ({ initialValues, onSubmit, validationSchema }) => (
                                     <Textbox
                                         type="email"
                                         label="Email"
+                                        name="email"
                                         onBlur={handleBlur}
                                         value={values.email}
                                         onChange={handleChange}

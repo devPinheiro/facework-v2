@@ -147,19 +147,19 @@ export class Main extends Component {
                         logout={this.logout}
                         isAuthenticated={isAuthenticated}
                     /> */}
-
-                    <Switch>
-                        {[
-                            '/login',
-                            '/signup',
-                            '/dashboard',
-                            '/forgot-password'
+                    {[
+                            '/auth/login',
+                            '/auth/register',
+                           '/auth/passwords/reset/:token',
+                            '/auth/passwords/email'
                         ].includes(location.pathname) ||
                             (['/'].includes(location.pathname) && (
                                 <div className="w-full pt-5 m-auto max-w-2xl flex ">
                                     <NavBar />
                                 </div>
                             ))}
+                    <Switch>
+                        
                         <Route exact={true} path={'/'} component={HomePage} />
                         <Route
                             exact={true}
