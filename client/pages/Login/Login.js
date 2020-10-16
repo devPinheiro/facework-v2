@@ -59,10 +59,10 @@ class LoginPage extends PureComponent {
             .then(response => {
                 localStorage.setItem(
                     'auth',
-                    JSON.stringify(response.payload.data.data)
+                    JSON.stringify(response.payload.data.access_token)
                 )
 
-                history.push('/')
+                history.push('/feeds')
                 dispatch(flashMessage('Successfully logged in.'))
             })
             .catch(({ error }) => {
