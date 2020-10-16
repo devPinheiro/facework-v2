@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 // components
@@ -21,6 +21,14 @@ const PostFeed = props => {
         setModalVisibility(!modalVisibility)
         props.history.push('/feeds')
     }
+
+    const [feed, setFeed] = useState([]);
+
+    // useEffect(() => {
+    //     return () => {
+    //         effect
+    //     };
+    // }, [input]);
     
     return (
         <>

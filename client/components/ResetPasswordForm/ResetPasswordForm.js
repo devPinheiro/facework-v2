@@ -1,15 +1,17 @@
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 // components
 import Button from '@components/Button'
 import Textbox from '@components/Textbox'
 
+
 const ResetPasswordForm = ({ initialValues, onSubmit, validationSchema }) => (
     <Fragment>
          <div className="bg-image">
-            <div className="container mx-auto flex text-white justify-center ">
+            <div className="container mx-auto flex text-white justify-center h-screen">
                 <div className="max-w-md-1/2 mx-3 my-8 w-full">
                     <h1 className="text-center font-primary mt-16 mb-8 font-semibold text-6xl">
                         facework
@@ -38,6 +40,7 @@ const ResetPasswordForm = ({ initialValues, onSubmit, validationSchema }) => (
                                 <Textbox
                                     type="email"
                                     name="email"
+                                    label="Email"
                                     onBlur={handleBlur}
                                     value={values.email}
                                     onChange={handleChange}
@@ -48,6 +51,7 @@ const ResetPasswordForm = ({ initialValues, onSubmit, validationSchema }) => (
                                 <Textbox
                                     type="password"
                                     name="password"
+                                    label="New Password"
                                     onBlur={handleBlur}
                                     value={values.password}
                                     onChange={handleChange}
@@ -65,11 +69,28 @@ const ResetPasswordForm = ({ initialValues, onSubmit, validationSchema }) => (
                             </form>
                         )}
                     </Formik>
+                     </div>
+                     <div className="mt-8 text-white flex justify-center pb-32">
+                <div className="">
+                    Already have an account?
+                    {
+                        <Link
+                            to="/auth/login"
+                            className="text-orange no-underline"
+                        >
+                            {' '}
+                            Sign in Now
+                        </Link>
+                    }
                 </div>
+            </div>
+                 </div>
+
+                 
                 </div>
-                </div>
-                </div>
-            
+
+                
+            </div>
     </Fragment>
 )
 

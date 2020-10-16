@@ -7,6 +7,7 @@ import ResetPasswordForm from '@components/ResetPasswordForm'
 import { postResetPassword } from '@client/store/actions/auth'
 import { ResetPasswordSchema } from '@client/validation-schemas'
 
+import "../Login/index.css"
 export class ResetPasswordPage extends Component {
     /**
      * Initialize component state
@@ -62,7 +63,8 @@ export class ResetPasswordPage extends Component {
             .catch(({ error }) => {
                 setSubmitting(false)
 
-                setErrors(error.response.data.data.errors)
+                setErrors(error.response.data.message)
+                dispatch(flashMessage(error.response.data.message, {isError: true}))
             })
     }
     render() {

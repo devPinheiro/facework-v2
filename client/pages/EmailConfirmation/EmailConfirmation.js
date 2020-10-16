@@ -46,11 +46,10 @@ export class EmailConfirmationPage extends Component {
             .then(response => {
                 localStorage.setItem(
                     'auth',
-                    JSON.stringify(response.payload.data.data)
+                    JSON.stringify(response.payload.access_token)
                 )
-                history.push('/')
-
                 dispatch(flashMessage('Email confirmed successfully.'))
+                history.push('/')
             })
             .catch(() => {
 

@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 
 const instance = Axios.create({
-    baseURL: 'https://facework.com.ng/api/'
+    baseURL: 'http://localhost:8000/api/'
 })
 
 const flashOptions = { timeout: 5000 }
