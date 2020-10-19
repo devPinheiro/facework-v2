@@ -1,3 +1,5 @@
+import AxiosCall from '../Axios';
+
 // define constant
 
 export const FETCH_POSTS_START = 'FETCH_POSTS_START'
@@ -33,84 +35,28 @@ export const fetchPostsFail = () => ({
  * @param {Object} perPage  number of post per page in the response data
  * @return {Object} Redux action
  */
-export const fetchPostsRequest = (page, perPage) => ({
-   
-});
+export const fetchPostsRequest = (page = 1 , perPage = 12) => async dispatch => {
 
-/**
- * Make post request to request a password reset
- *
- * @param {Object} data
- * @return {Object} redux action object
- */
-export const postForgotPassword = data => ({
-    type: POST_FORGOT_PASSWORD,
-    payload: {
-        request: {
-            method: 'POST',
-            url: '/password/create',
-            data
-        }
+    dispatch(fetchPostsStart());
+    try {
+      const callObj = {
+        method: 'GET',
+        path: `feeds&page=${page}&perPage=${perPage}`
+      };
+      const response = await AxiosCall(callObj);
+      dispatch(fetchPostsSuccess(response));
+      
+    } catch (e) {
+      const {
+        error
+      } = e.response.data;
+      let errorResponse;
+  
+      if (error) {
+        errorResponse = error;
+      } else {
+        errorResponse = 'Something went wrong. please try again';
+      }
+      dispatch(fetchPostsFail(errorResponse));
     }
-})
-
-/**
- * Make post request to reset user password
- *
- * @param {Object} data
- * @return {Object} redux action object
- */
-export const postResetPassword = data => ({
-    type: POST_RESET_PASSWORD,
-    payload: {
-        request: {
-            method: 'POST',
-            url: '/password/reset',
-            data
-        }
-    }
-})
-
-/**
- * Confirm user email address
- *
- * @param {Object} data
- * @return {Object} redux action object
- */
-export const postEmailConfirm = data => ({
-    type: POST_EMAIL_CONFIRM,
-    payload: {
-        request: {
-            method: 'POST',
-            url: `auth/signup/activate/${data}`,
-            
-        }
-    }
-})
-
-/**
- * Resend email confirmation email to user.
- *
- * @param {Object} data
- * @return {Object} redux action object
- */
-export const postResendEmailConfirm = () => ({
-    type: POST_RESEND_EMAIL_CONFIRM,
-    payload: {
-        request: {
-            method: 'POST',
-            url: 'auth/emails/confirm/resend'
-        }
-    }
-})
-
-/**
- * Set the auth data for a user
- *
- * @param {Object} data the user data from server
- * @return {Object} action sent to redux store
- */
-export const authLogout = data => ({
-    type: AUTH_LOGOUT,
-    payload: data
-})
+};
