@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useDispatch, useSelector } from 'react-redux'
 
 // components
 import AuthorCard from '@components/AuthorCard'
@@ -9,12 +10,16 @@ import PostModal from '@components/PostModal'
 import CreatePost from '@components/CreatePostCard'
 // import PropTypes from 'prop-types'
 
+// actions
+import { fetchPostsRequest } from '../../store/actions/feeds'
+
 // fixtures
 import data from './fixtures'
 import ErrorBoundary from '../../components/ErrorBoundary'
 
 const PostFeed = props => {
     const { slug } = props.match.params
+    const dispatch = useDispatch();
     const [modalVisibility, setModalVisibility] = useState(false)
     const [postModalVisibility, setPostModalVisibility] = useState(false)
     const closeModal = () => {
@@ -23,12 +28,17 @@ const PostFeed = props => {
     }
 
     const [feed, setFeed] = useState([]);
+    const feedState = useSelector(s => s.feeds);
 
-    // useEffect(() => {
-    //     return () => {
-    //         effect
-    //     };
-    // }, [input]);
+    useEffect(() => {
+        dispatch(fetchPostsRequest());
+    }, []);
+
+    useEffect(() => {
+        if(feedState.isSuccessful){
+            console.log(feedState.data);
+        }
+    }, [feedState])
     
     return (
         <>

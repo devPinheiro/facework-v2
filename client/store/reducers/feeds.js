@@ -1,44 +1,30 @@
 import {
-    AUTH_LOGOUT,
-    POST_LOGIN_SUCCESS,
-    POST_REGISTER_SUCCESS,
-    POST_EMAIL_CONFIRM_SUCCESS
-} from '@client/store/actions/auth'
+    FETCH_POSTS_START,
+    FETCH_POSTS_SUCCESS,
+    FETCH_POSTS_FAIL
+} from '@client/store/actions/feeds'
+import { feeds } from '../initialState'
 
-let initialState = null
-
-try {
-    initialState = JSON.parse(localStorage.getItem('auth'))
-} catch (e) {}
-
-if (!initialState) {
-    initialState = {
-        user: null,
-        token: null
-    }
-}
-
-export default (state = initialState, action) => {
+export default (state = feeds, action) => {
     switch (action.type) {
-        case POST_LOGIN_SUCCESS:
+        case FETCH_POSTS_START:
             return {
                 ...state,
-                ...action.payload.data.data
+                isLoading: true
             }
-        case POST_REGISTER_SUCCESS:
+        case FETCH_POSTS_SUCCESS:
             return {
                 ...state,
-                ...action.payload.data.data
+                isLoading: false,
+                isSuccessful: true,
+                data: action.payload.data.data
             }
-        case AUTH_LOGOUT:
-            return {
-                user: null,
-                token: null
-            }
-        case POST_EMAIL_CONFIRM_SUCCESS:
+        case FETCH_POSTS_FAIL:
             return {
                 ...state,
-                ...action.payload.data.data
+                isLoading: false,
+                isSuccessful: false,
+                error: action.payload
             }
         default:
             return state
