@@ -3,19 +3,20 @@ import { middleware as flash } from 'redux-flash'
 import { createStore, applyMiddleware } from 'redux'
 import axiosMiddleware from 'redux-axios-middleware'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import thunk from 'redux-thunk';
 
 import rootReducer from './reducers'
 
 const instance = Axios.create({
-    baseURL: 'http://localhost:8000/api/'
+    baseURL: 'https://facework.com.ng/api/'
 })
-
+const middleware = [thunk];
 const flashOptions = { timeout: 5000 }
 
 export default createStore(
     rootReducer,
-
     applyMiddleware(
+        ...middleware,
         flash(flashOptions),
         axiosMiddleware(instance, {
             returnRejectedPromiseOnError: true,

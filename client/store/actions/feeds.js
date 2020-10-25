@@ -1,4 +1,5 @@
 import AxiosCall from '../Axios';
+import axios from 'axios';
 
 // define constant
 
@@ -36,27 +37,23 @@ export const fetchPostsFail = () => ({
  * @return {Object} Redux action
  */
 export const fetchPostsRequest = (page = 1 , perPage = 12) => async dispatch => {
-
     dispatch(fetchPostsStart());
-    try {
-      const callObj = {
-        method: 'GET',
-        path: `feeds&page=${page}&perPage=${perPage}`
-      };
-      const response = await AxiosCall(callObj);
-      dispatch(fetchPostsSuccess(response));
-      
-    } catch (e) {
+    return axios.get("https://facework.com.ng/api/feeds")
+    .then(res => {
+      console.log('-------->',response);
+        dispatch(fetchPostsSuccess(response));
+    })
+    .catch(err => {
       const {
-        error
-      } = e.response.data;
-      let errorResponse;
-  
-      if (error) {
-        errorResponse = error;
-      } else {
-        errorResponse = 'Something went wrong. please try again';
-      }
-      dispatch(fetchPostsFail(errorResponse));
-    }
+            error
+          } = err.response.data;
+          let errorResponse;
+      
+          if (error) {
+            errorResponse = error;
+          } else {
+            errorResponse = 'Something went wrong. please try again';
+          }
+          dispatch(fetchPostsFail(errorResponse));
+    });
 };
