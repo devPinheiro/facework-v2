@@ -31,7 +31,7 @@ const PostFeed = props => {
     const feedState = useSelector(s => s.feeds);
 
     useEffect(() => {
-        dispatch(fetchPostsRequest());
+        dispatch(fetchPostsRequest()); 
     }, []);
 
     useEffect(() => {
