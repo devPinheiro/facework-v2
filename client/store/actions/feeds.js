@@ -19,12 +19,12 @@ export const fetchPostsStart = () => ({
     type: FETCH_POSTS_START
 })
 
-export const fetchPostsSuccess = () => ({
+export const fetchPostsSuccess = payload => ({
     type: FETCH_POSTS_SUCCESS,
     payload
 })
 
-export const fetchPostsFail = () => ({
+export const fetchPostsFail = payload => ({
     type: FETCH_POSTS_FAIL,
     payload
 })
@@ -36,12 +36,11 @@ export const fetchPostsFail = () => ({
  * @param {Object} perPage  number of post per page in the response data
  * @return {Object} Redux action
  */
-export const fetchPostsRequest = (page = 1 , perPage = 12) => async dispatch => {
+export const fetchPostsRequest = (page = 1 ) => async dispatch => {
     dispatch(fetchPostsStart());
-    return axios.get("https://facework.com.ng/api/feeds")
+    return axios.get(`https://facework.com.ng/api/feeds?page=${page}`)
     .then(res => {
-      console.log('-------->',response);
-        dispatch(fetchPostsSuccess(response));
+        dispatch(fetchPostsSuccess(res.data.post));
     })
     .catch(err => {
       const {

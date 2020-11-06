@@ -17,7 +17,10 @@ export default (state = feeds, action) => {
                 ...state,
                 isLoading: false,
                 isSuccessful: true,
-                data: action.payload.data.data
+                data: action.payload.data,
+                nextPage: action.payload.next_page_url,
+                currentPage: action.payload.current_page,
+                lastPage: action.payload.last_page_url
             }
         case FETCH_POSTS_FAIL:
             return {

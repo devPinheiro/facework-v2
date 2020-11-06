@@ -5,11 +5,11 @@ import classnames from 'classnames'
 // components
 import Loader from '@components/Loader'
 
-const Button = ({ type = 'button', children, disabled, loading, style, theme }) => (
+const Button = ({ type = 'button', children, disabled, loading, style, theme, click }) => (
     <button
         type={type}
         disabled={disabled || loading}
-        
+        onClick={click}
         className={
             style ||
             classnames(
