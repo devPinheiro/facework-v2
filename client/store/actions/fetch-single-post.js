@@ -45,7 +45,6 @@ console.log('id',id);
         if(res.data.message){
             dispatch(fetchPostFail(res.data.message))
         }
-        console.log(res.data);
     })
     .catch(err => {
       const {
