@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import ErrorBoundary from '../ErrorBoundary'
+import MomentHelper from '../Moment'
 
 // how to make use of the image tag
 
@@ -11,6 +13,7 @@ const PostCard = ({
     avatar,
     time,
     description,
+    occupation,
     name,
     setModalVisibility,
     slug,
@@ -38,6 +41,7 @@ const PostCard = ({
       };
     return (
         <>
+         <ErrorBoundary>
          <motion.div        
                             // variants={thumbnailVariants}
                         >
@@ -56,7 +60,7 @@ const PostCard = ({
                         >
                             <img
                                 class="rounded-full h-10 w-10 object-cover"
-                                src="https://images.unsplash.com/photo-1586398710270-760041494553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=80"
+                                src={avatar}
                                 alt=""
                             />
                             <div className="flex-column ">
@@ -64,14 +68,14 @@ const PostCard = ({
                                     {name}
                                 </p>
                                 <p className="ml-3 text-xs py-1 text-grey-light">
-                                    Developer{' '}
+                                    {occupation}
                                 </p>
                             </div>
                         </Link>
                     </div>
                     <div className="flex flex-row items-center">
                         <p class="text-xs font-semibold text-gray-500">
-                            {time}
+                            <MomentHelper time={time} />
                         </p>
                     </div></>
                     )}
@@ -80,7 +84,7 @@ const PostCard = ({
                 {profilePage ?
                 
                 <img
-                    class="object-cover w-full rounded-lg"
+                    class="object-cover h-full w-32 rounded-lg"
                     src={image}
                     alt=""
                     onClick={() => setModalVisibility(!modalVisibility)}
@@ -99,7 +103,7 @@ const PostCard = ({
                     <div class="py-2 flex-column items-center">
                         <p className="flex text-sm">{title}</p>
                         { !profilePage &&   <div className="flex flex-row pt-4">
-                            <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
+                            <button className="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
                                 <svg
                                     fill="none"
                                     stroke="currentColor"
@@ -107,13 +111,13 @@ const PostCard = ({
                                     stroke-linejoin="round"
                                     strokeWidth="2"
                                     viewBox="0 0 24 24"
-                                    class="w-5 h-5"
+                                    className="w-5 h-5"
                                 >
                                     <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                                 </svg>
-                                <span class="ml-1">3431</span>
+                                <span className="ml-1"></span>
                             </button>
-                            <button class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg ml-3">
+                            <button className="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg ml-3">
                                 <svg
                                     fill="none"
                                     stroke="currentColor"
@@ -125,7 +129,7 @@ const PostCard = ({
                                 >
                                     <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                                 </svg>
-                                <span class="ml-1">566</span>
+                                <span className="ml-1"></span>
                             </button>
     </div> }
                     </div>
@@ -133,6 +137,7 @@ const PostCard = ({
             </div>
             </motion.div>
             </motion.div>
+            </ErrorBoundary> 
         </>
     )
 }
