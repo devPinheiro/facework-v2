@@ -194,7 +194,7 @@ export class Main extends Component {
                             />
                             <Route
                                 exact={true}
-                                path={'/feeds/p/:slug'}
+                                path={'/feeds/p/:slug/:title'}
                                 component={PostFeed}
                             />
                             <Route

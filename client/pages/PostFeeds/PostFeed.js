@@ -52,7 +52,6 @@ const PostFeed = props => {
         setPage(page + 1);
         dispatch(fetchPostsRequest(page));
     }
-    console.log('feeeeeeeds',feed);
     return (
         <div className="h-screen">
          <ErrorBoundary>
@@ -77,7 +76,7 @@ const PostFeed = props => {
                                         avatar={item.profile && item.profile.image}
                                         name={item.profile && item.profile.name}
                                         occupation={item.profile && item.profile.service}
-                                        slug={item.slug}
+                                        slug={item.id}
                                         setModalVisibility={setModalVisibility}
                                     />
                                 ))}
@@ -95,6 +94,7 @@ const PostFeed = props => {
                 <PostModal
                     modalVisibility={!!slug}
                     setModalVisibility={closeModal}
+                    slug={slug}
                 />
             ) : null}
             <Footer />

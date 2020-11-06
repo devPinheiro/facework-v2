@@ -91,7 +91,9 @@ const PostCard = ({
                 />
            
                 :
-                    <Link to={`/feeds/p/${slug}`}>
+                    <Link to={`/feeds/p/${slug}/${title.toLowerCase()
+                        .replace(/ /g,'-')
+                        .replace(/[^\w-]+/g,'')}`}>
                         <img
                             class="object-cover w-full rounded-lg"
                             src={image}
