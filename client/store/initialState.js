@@ -4,3 +4,10 @@ export const feeds = {
     isSuccessful: false,
     data: {}
 }
+
+export const post = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: {}
+}
