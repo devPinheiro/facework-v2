@@ -16,12 +16,15 @@ import { fetchPostRequest } from '../../store/actions/fetch-single-post'
 import CreateComment from '../CreateComment'
 import Comment from '../Comment'
 import ErrorBoundary from '../ErrorBoundary'
+import { convertArrayToObject } from '../../utils/helper/convertArraytoObject';
+import Loader from '../Loader/Loader';
 
 const PostModal = props => {
   const { modalVisibility, setModalVisibility, slug } = props;
     const dispatch = useDispatch();
 
-    const [post, setPost] = useState([]);
+    const [post, setPost] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
     const postState = useSelector(s => s.post);
 
     useEffect(() => {
@@ -29,27 +32,30 @@ const PostModal = props => {
     }, []);
 
     useEffect(() => {
+        if(!postState.isLoading){
+          setIsLoading(false)
+        }
         if(postState.isSuccessful){        
-                setPost(postState.data.data);
-                
+                setPost(convertArrayToObject(postState.data.data));
         }
     }, [postState]);
 
-    console.log(post[0]);
   return (
    <Modal modalVisibility={modalVisibility}>
-<ErrorBoundary>
+
+  {isLoading ? <Loader /> :
       <div className="modal-container-active modal-container md:max-w-xl max-w-md-1/2">
         <div className="md:flex w-full border-none">
-            <img className="md:w-2/3" src={post.featured} alt=""/>
+        <ErrorBoundary>
+            <img className="md:w-2/3" src={post && post.data && post.data['featured']} alt=""/>
             <div className="md:w-1/3 md:block">           
                   <div className="flex flex-row justify-between border-b-2 border-grey-lightest px-3 py-4">
                       <div className="flex items-center">
                             <Link to="#" className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
-                            <img class="rounded-full h-10 w-10 object-cover" src={post.profile && post.profile.image} alt="" />
+                            <img class="rounded-full h-10 w-10 object-cover" src={post && post.data && post.data['profile']['image']} alt="" />
                               <div className="flex-column ">
-  <p className="ml-3 text-sm font-medium  text-grey-dark">{post.profile && post.profile.name}</p>
-                                <p className="ml-3 text-xs py-1 text-grey-light">{post.profile && post.profile.service} </p>
+  <p className="ml-3 text-sm font-medium  text-grey-dark">{post && post.data && post.data['profile']['name']}</p>
+                                <p className="ml-3 text-xs py-1 text-grey-light">{post && post.data['profile']['service']} </p>
                               </div>
                             </Link>
                           </div>
@@ -57,13 +63,9 @@ const PostModal = props => {
                       </div>
                       
                   <div className="pt-2 px-2 md:h-90 overflow-scroll">
-  <div className="text-base text-grey-darker"><p>{post && post.title}</p></div>
+  <div className="text-base text-grey-darker"><p>{post && post.data && post.data['title']}</p></div>
                     <div className="">
-                      <ErrorBoundary>
-                        {/* {post && post.comments.map((item, key) => (
-                          <Comment {...item} key={key} />
-                        ))} */}
-                      </ErrorBoundary>
+                     
                     </div>
                     
                   </div>
@@ -72,9 +74,10 @@ const PostModal = props => {
                     <CreateComment />
                   </div>
               </div>
-            </div>
-        </div>
-        </ErrorBoundary>
+              </ErrorBoundary>
+            </div>  
+        </div>}
+       
         </Modal>
   ) 
 }
