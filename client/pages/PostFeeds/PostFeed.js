@@ -13,17 +13,17 @@ import CreatePost from '@components/CreatePostCard'
 // import PropTypes from 'prop-types'
 
 // actions
-import { fetchPostsRequest } from '../../store/actions/feeds'
+import { fetchPostsRequest } from '../../store/actions/feeds';
 
 // fixtures
 import data from './fixtures'
-import ErrorBoundary from '../../components/ErrorBoundary'
+import ErrorBoundary from '../../components/ErrorBoundary';
 
 const PostFeed = props => {
     const { slug } = props.match.params
     const dispatch = useDispatch();
-    const [modalVisibility, setModalVisibility] = useState(false)
-    const [postModalVisibility, setPostModalVisibility] = useState(false)
+    const [modalVisibility, setModalVisibility] = useState(false);
+    const [postModalVisibility, setPostModalVisibility] = useState(false);
     const closeModal = () => {
         setModalVisibility(!modalVisibility)
         props.history.push('/feeds')
@@ -31,11 +31,13 @@ const PostFeed = props => {
 
     const [feed, setFeed] = useState([]);
     const [page, setPage] = useState(2);
+    const [isLoading, setIsLoading] = useState(true);
+
     const feedState = useSelector(s => s.feeds);
 
     useEffect(() => {
-        dispatch(fetchPostsRequest()); 
-    }, []);
+        if(!slug)dispatch(fetchPostsRequest()); 
+    }, [slug]);
 
     useEffect(() => {
         if(feedState.isSuccessful){        
@@ -44,6 +46,7 @@ const PostFeed = props => {
             } else {
                 setFeed(feedState.data);
             }
+            setIsLoading(false);
         }
         
     }, [feedState])
@@ -53,7 +56,7 @@ const PostFeed = props => {
         dispatch(fetchPostsRequest(page));
     }
     return (
-        <div className="h-screen">
+        <div className="h-full">
          <ErrorBoundary>
             {' '}
             
@@ -67,7 +70,7 @@ const PostFeed = props => {
                                     }
                                 />
                                
-                                { feedState.isLoading ? <Loader /> : feed.map((item, key) => (
+                                { isLoading ? <div className="m-auto h-64 my-32 py-32"><Loader /> </div> : feed.map((item, key) => (
                                     <PostCard
                                         title={item.title}
                                         image={item.featured}
@@ -97,7 +100,9 @@ const PostFeed = props => {
                     slug={slug}
                 />
             ) : null}
-            <Footer />
+            <div className="pin-y">
+                 <Footer />
+            </div>
             </ErrorBoundary>
         </div>
     )
