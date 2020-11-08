@@ -37,7 +37,6 @@ export const fetchPostFail = payload => ({
  * @return {Object} Redux action
  */
 export const fetchPostRequest = id => async dispatch => {
-console.log('id',id);
     dispatch(fetchPostStart());
     return axios.get(`https://facework.com.ng/api/feeds/${id}`)
     .then(res => {

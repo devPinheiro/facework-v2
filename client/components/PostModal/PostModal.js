@@ -32,30 +32,29 @@ const PostModal = props => {
     }, []);
 
     useEffect(() => {
-        if(!postState.isLoading){
-          setIsLoading(false)
-        }
+       
         if(postState.isSuccessful){        
                 setPost(convertArrayToObject(postState.data.data));
+                setIsLoading(false)
         }
     }, [postState]);
 
   return (
    <Modal modalVisibility={modalVisibility}>
 
-  {isLoading ? <Loader /> :
+  {isLoading ? <div className="m-auto h-64 my-32 py-32"><Loader /> </div> :
       <div className="modal-container-active modal-container md:max-w-xl max-w-md-1/2">
         <div className="md:flex w-full border-none">
         <ErrorBoundary>
-            <img className="md:w-2/3" src={post && post.data && post.data['featured']} alt=""/>
+            <img className="md:w-2/3" src={post.data['featured']} alt=""/>
             <div className="md:w-1/3 md:block">           
                   <div className="flex flex-row justify-between border-b-2 border-grey-lightest px-3 py-4">
                       <div className="flex items-center">
                             <Link to="#" className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
-                            <img class="rounded-full h-10 w-10 object-cover" src={post && post.data && post.data['profile']['image']} alt="" />
+                            <img class="rounded-full h-10 w-10 object-cover" src={post.data['profile']['image']} alt="" />
                               <div className="flex-column ">
-  <p className="ml-3 text-sm font-medium  text-grey-dark">{post && post.data && post.data['profile']['name']}</p>
-                                <p className="ml-3 text-xs py-1 text-grey-light">{post && post.data['profile']['service']} </p>
+  <p className="ml-3 text-sm font-medium  text-grey-dark">{post.data['profile']['name']}</p>
+                                <p className="ml-3 text-xs py-1 text-grey-light">{post.data['profile']['service']} </p>
                               </div>
                             </Link>
                           </div>
@@ -63,7 +62,7 @@ const PostModal = props => {
                       </div>
                       
                   <div className="pt-2 px-2 md:h-90 overflow-scroll">
-  <div className="text-base text-grey-darker"><p>{post && post.data && post.data['title']}</p></div>
+  <div className="text-base text-grey-darker"><p>{post.data['title']}</p></div>
                     <div className="">
                      
                     </div>
