@@ -82,23 +82,28 @@ const PostCard = ({
                 </div>
                 <div class="mt-2">
                 {profilePage ?
-                
-                <img
-                    class="object-cover h-full w-32 rounded-lg"
+                <div className="flex justify-center">
+                    <img
+                    class="max-h-screen rounded-lg"
                     src={image}
                     alt=""
                     onClick={() => setModalVisibility(!modalVisibility)}
                 />
+                </div>
+                
            
                 :
                     <Link to={`/feeds/p/${slug}/${title.toLowerCase()
                         .replace(/ /g,'-')
                         .replace(/[^\w-]+/g,'')}`}>
-                        <img
-                            class="object-cover w-full rounded-lg"
-                            src={image}
-                            alt=""
-                        />
+                        <div className="flex justify-center">
+                             <img
+                                class="max-h-screen rounded-lg"
+                                src={image}
+                                alt=""
+                            />
+                        </div>
+                        
                     </Link>
                     }
                     
