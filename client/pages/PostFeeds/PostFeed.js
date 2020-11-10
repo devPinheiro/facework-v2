@@ -37,7 +37,7 @@ const PostFeed = props => {
 
     useEffect(() => {
         if(!slug)dispatch(fetchPostsRequest()); 
-    }, [slug]);
+    }, []);
 
     useEffect(() => {
         if(feedState.isSuccessful){        
@@ -60,7 +60,7 @@ const PostFeed = props => {
          <ErrorBoundary>
             {' '}
             
-                <div className="w-full m-auto max-w-2xl flex ">
+                <div className="w-full m-auto max-w-xl flex ">
                     <div className="w-full md:w-2/3 my-8 mx-4 ">
                        
                                 <CreatePost
