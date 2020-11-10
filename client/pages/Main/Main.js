@@ -154,7 +154,7 @@ export class Main extends Component {
                             '/auth/passwords/email'
                         ].includes(location.pathname) ||
                             (['/'].includes(location.pathname) && (
-                                <div className="w-full pt-5 m-auto max-w-2xl flex ">
+                                <div className="w-full pt-5 m-auto max-w-xl flex ">
                                     <NavBar />
                                 </div>
                             ))}

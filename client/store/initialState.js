@@ -11,3 +11,11 @@ export const post = {
     isSuccessful: false,
     data: {}
 }
+
+
+export const comment = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: {}
+}

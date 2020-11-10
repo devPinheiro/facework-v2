@@ -84,7 +84,7 @@ const PostCard = ({
                 {profilePage ?
                 <div className="flex justify-center">
                     <img
-                    class="max-h-screen rounded-lg"
+                    class="max-h-screen-sm rounded-lg"
                     src={image}
                     alt=""
                     onClick={() => setModalVisibility(!modalVisibility)}
@@ -98,7 +98,7 @@ const PostCard = ({
                         .replace(/[^\w-]+/g,'')}`}>
                         <div className="flex justify-center">
                              <img
-                                class="max-h-screen rounded-lg"
+                                class="max-h-screen-sm rounded-lg"
                                 src={image}
                                 alt=""
                             />
