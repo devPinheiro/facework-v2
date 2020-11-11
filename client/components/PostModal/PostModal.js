@@ -18,6 +18,8 @@ import Comment from '../Comment'
 import ErrorBoundary from '../ErrorBoundary'
 import { convertArrayToObject } from '../../utils/helper/convertArraytoObject';
 import Loader from '../Loader/Loader';
+import { createCommentRequest } from '../../store/actions/create-comment';
+import { CreateCommentSchema } from '@client/validation-schemas'
 
 const PostModal = props => {
   const { modalVisibility, setModalVisibility, slug } = props;
@@ -31,16 +33,20 @@ const PostModal = props => {
          dispatch(fetchPostRequest(slug)); 
     }, []);
 
-    useEffect(() => {
-       
+    useEffect(() => {    
         if(postState.isSuccessful){        
                 setPost(convertArrayToObject(postState.data.data));
                 setIsLoading(false)
         }
     }, [postState]);
 
-    const handleSubmit = payload => {
-      dispatch();
+    const handleOnSubmit = (data, { setSubmitting, setErrors }) => {
+      const payload = {
+        body: data.body,
+        post_id: post.data['id'],
+        profile_id: post.data['profile']['id']
+      } 
+      dispatch(createCommentRequest(payload));
     }
 
   return (
@@ -80,7 +86,7 @@ const PostModal = props => {
                   </div>
                   <div className="-bottom-55">
                   
-                    <CreateComment />
+                    <CreateComment onSubmit={handleOnSubmit} initialValues={{body: ''}} validationSchema={CreateCommentSchema} />
                   </div>
               </div>
               </ErrorBoundary>
