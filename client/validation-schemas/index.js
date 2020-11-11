@@ -31,6 +31,9 @@ export const EmailConfirmationSchema = Yup.object().shape({
     token: Yup.string().required()
 })
 
+export const CreateCommentSchema = Yup.object().shape({
+    body: Yup.string().required()
+})
 export const ResetPasswordSchema = Yup.object().shape({
     email: Yup.string()
         .email()

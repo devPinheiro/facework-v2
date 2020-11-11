@@ -16,7 +16,7 @@ const CreateComment = ({onSubmit,
             <Formik
                 onSubmit={onSubmit}
                 initialValues={initialValues}
-                validationSchema={validationSchema}
+                // validationSchema={validationSchema}
             >
                 {({
                     values,
@@ -33,6 +33,7 @@ const CreateComment = ({onSubmit,
                         <TextArea
                             customStyle="focus:outline-none w-full py-1 px-1 bg-brown-lightest text-brown rounded-lg"
                             type="body"
+                            name="body"
                             label=""
                             rows={0}
                             onBlur={handleBlur}
@@ -47,6 +48,7 @@ const CreateComment = ({onSubmit,
                         <Button
                         className="w-1/3"
                             type="submit"
+                            disabled={!values.body}
                             loading={isSubmitting}
                             data-testid="submit-button"
                             style="h-2 bg-none"
