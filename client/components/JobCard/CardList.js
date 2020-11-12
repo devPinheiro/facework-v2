@@ -1,10 +1,28 @@
-import * as React from "react"; 
+import {React, useState, useDispatch, useEffect} from "react"; 
 import { Card } from "./index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { fetchJobsRequest } from "../../store/actions/fetch-all-jobs";
+
+
+const dispatch = useDispatch();
+const jobState = useSelector(s => s.job);
+
+const [jobs, setJobs] = useState([]);
+
+useEffect(() => {
+  dispatch(fetchJobsRequest());
+}, []);
+
+useEffect(() => {
+   if(jobState.isSuccessful){
+     console.log(jobState.data);
+     setJobs(jobState.data);
+   }
+}, [jobState])
 
 const List = ({ match, history }) => (
   <ul className="card-list">
-    {cardData.map(card => (
+    {jobs.map(card => (
       <Card
         key={card.id}
         isSelected={match.params.id === card.id}

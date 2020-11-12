@@ -210,12 +210,13 @@ export class Main extends Component {
                                 key="second"
                             />
 
+                        </AnimatePresence>
+
                             <Route
                                 exact={true}
                                 path={'/jobs'}
                                 component={Jobs}
                             />
-                        </AnimatePresence>
                     </Switch>
                 </div>
             </BrowserRouter>

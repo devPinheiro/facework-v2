@@ -1,13 +1,13 @@
 import {
     FETCH_JOBS_START,
-    FETCH_JOB_SUCCESS,
-    FETCH_JOB_FAIL
-} from '@client/store/actions/jobs'
+    FETCH_JOBS_SUCCESS,
+    FETCH_JOBS_FAIL
+} from '@client/store/actions/fetch-all-jobs'
 import { jobs } from '../initialState'
 
 export default (state = jobs, action) => {
     switch (action.type) {
-        case FETCH_JOB_START:
+        case FETCH_JOBS_START:
             return {
                 ...state,
                 isLoading: true
