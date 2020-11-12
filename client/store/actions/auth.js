@@ -88,7 +88,7 @@ export const postEmailConfirm = data => ({
     type: POST_EMAIL_CONFIRM,
     payload: {
         request: {
-            method: 'POST',
+            method: 'GET',
             url: `auth/signup/activate/${data}`,
             
         }

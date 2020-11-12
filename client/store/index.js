@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers'
 
 const instance = Axios.create({
-    baseURL: 'https://facework.com.ng/api/'
+    baseURL: process.env.DEV_URL || process.env.PROD_URL
 })
 const middleware = [thunk];
 const flashOptions = { timeout: 5000 }
