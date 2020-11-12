@@ -61,7 +61,6 @@ class LoginPage extends PureComponent {
                     'auth',
                     JSON.stringify(response.payload.data.access_token)
                 )
-
                 history.push('/feeds')
                 dispatch(flashMessage('Successfully logged in.'))
             })
@@ -84,7 +83,6 @@ class LoginPage extends PureComponent {
                     )
                 ) : dispatch(flashMessage(message,
                     { isError: false }))
-                    
                 this.setState({confirmEmail: message !== 'Unauthorized'})
             })
     }

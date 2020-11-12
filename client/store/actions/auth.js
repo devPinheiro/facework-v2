@@ -1,3 +1,5 @@
+import axios from  '../Axios';
+
 export const SET_AUTH = 'SET_AUTH'
 export const POST_LOGIN = 'POST_LOGIN'
 export const AUTH_LOGOUT = 'AUTH_LOGOUT'
@@ -21,7 +23,7 @@ export const postRegister = data => ({
     payload: {
         request: {
             method: 'POST',
-            url: 'auth/signup',
+            url: '/auth/signup',
             data
         }
     }
@@ -89,7 +91,7 @@ export const postEmailConfirm = data => ({
     payload: {
         request: {
             method: 'GET',
-            url: `auth/signup/activate/${data}`,
+            url: `/auth/signup/activate/${data}`,
             
         }
     }
@@ -106,7 +108,7 @@ export const postResendEmailConfirm = () => ({
     payload: {
         request: {
             method: 'POST',
-            url: 'auth/emails/confirm/resend'
+            url: '/auth/emails/confirm/resend'
         }
     }
 })

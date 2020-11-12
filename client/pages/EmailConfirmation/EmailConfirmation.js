@@ -11,7 +11,11 @@ import { postEmailConfirm } from '@client/store/actions/auth'
 import EmailConfirmationLoader from '@components/EmailConfirmationLoader'
 
 import './index.css'
+import { Link } from 'react-router-dom'
 export class EmailConfirmationPage extends Component {
+    state = {
+        alert: ''
+    }
     /**
      * The prop types for Email Confirmation Page
      *
@@ -44,13 +48,18 @@ export class EmailConfirmationPage extends Component {
 
         dispatch(postEmailConfirm(token))
             .then(response => {
-                console.log(response.payload);
-                localStorage.setItem(
-                    'auth',
-                    JSON.stringify(response.payload.access_token)
-                )
-                dispatch(flashMessage('Email confirmed successfully.'))
-                history.push('/feeds')
+                console.log(response.payload.data);
+                if(response.payload.data.message){
+                    this.setState({alert: response.payload.data.message})
+                    dispatch(flashMessage(response.payload.data.message))
+                } else {
+                    localStorage.setItem(
+                        'auth',
+                        JSON.stringify(response.payload.access_token)
+                    )
+                    dispatch(flashMessage('Email confirmed successfully.'))
+                    history.push('/feeds')
+                }    
             })
             .catch(() => {
 
@@ -61,6 +70,8 @@ export class EmailConfirmationPage extends Component {
     }
 
     render() {
+
+        const { alert } = this.state;
         return (
             <Fragment>
                 <Helmet>
@@ -78,7 +89,7 @@ export class EmailConfirmationPage extends Component {
                                     <h2 className="text-center font-primary font-semibold mb-8">
                                     Activating Your Account
                                 </h2>
-                                <p>Please wait a moment while we confirm your email. Thank you</p> 
+                               {alert ? (<p>{alert} <Link className="text-white font-semibold text-base" to='/auth/login'>here</Link></p>): (<p>Please wait a moment while we confirm your email. Thank you</p>)} 
                                 <p></p>
                             </div>
                         </div>
