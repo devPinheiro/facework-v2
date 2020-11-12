@@ -44,12 +44,13 @@ export class EmailConfirmationPage extends Component {
 
         dispatch(postEmailConfirm(token))
             .then(response => {
+                console.log(response.payload);
                 localStorage.setItem(
                     'auth',
                     JSON.stringify(response.payload.access_token)
                 )
                 dispatch(flashMessage('Email confirmed successfully.'))
-                history.push('/')
+                history.push('/feeds')
             })
             .catch(() => {
 
