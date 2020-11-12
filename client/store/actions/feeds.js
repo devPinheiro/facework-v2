@@ -1,5 +1,5 @@
-import AxiosCall from '../Axios';
-import axios from 'axios';
+import axios from  '../Axios';
+
 
 // define constant
 
@@ -38,7 +38,7 @@ export const fetchPostsFail = payload => ({
  */
 export const fetchPostsRequest = (page = 1 ) => async dispatch => {
     dispatch(fetchPostsStart());
-    return axios.get(`https://facework.com.ng/api/feeds?page=${page}`)
+    return axios.get(`feeds?page=${page}`)
     .then(res => {
         dispatch(fetchPostsSuccess(res.data.post));
     })

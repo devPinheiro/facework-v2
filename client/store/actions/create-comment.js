@@ -1,5 +1,4 @@
-import AxiosCall from '../Axios';
-import axios from 'axios';
+import axios from  '../Axios';
 
 // define constant
 
@@ -37,7 +36,7 @@ export const createCommentFail = payload => ({
  */
 export const createCommentRequest = payload => async dispatch => {
     dispatch(createCommentStart());
-    return axios.post(`https://facework.com.ng/api/comments/create`, payload)
+    return axios.post(`comments/create`, payload)
     .then(res => {
         dispatch(createCommentSuccess(res.data));
         if(res.data.message){

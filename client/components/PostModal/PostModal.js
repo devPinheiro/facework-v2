@@ -26,6 +26,7 @@ const PostModal = props => {
     const dispatch = useDispatch();
 
     const [post, setPost] = useState({});
+    const [comments, setComment] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const postState = useSelector(s => s.post);
 
@@ -35,7 +36,8 @@ const PostModal = props => {
 
     useEffect(() => {    
         if(postState.isSuccessful){        
-                setPost(convertArrayToObject(postState.data.data));
+                setPost(postState.data.post);
+                setComment(postState.data.comments)
                 setIsLoading(false)
         }
     }, [postState]);
@@ -43,8 +45,8 @@ const PostModal = props => {
     const handleOnSubmit = (data, { setSubmitting, setErrors }) => {
       const payload = {
         body: data.body,
-        post_id: post.data['id'],
-        profile_id: post.data['profile']['id']
+        post_id: post.id,
+        profile_id: post.profile.id
       } 
       dispatch(createCommentRequest(payload));
     }
@@ -57,17 +59,17 @@ const PostModal = props => {
         <div className="md:flex w-full border-none">
         <ErrorBoundary>
           <div className="flex md:w-2/3 justify-center">
-          <img className="max-h-screen-md" src={post.data['featured']} alt=""/>
+          <img className="max-h-screen-md" src={post.featured} alt=""/>
           </div>
             
             <div className="md:w-1/3 md:block border-l-2 border-grey-lightest">           
                   <div className="flex flex-row justify-between border-b-2 border-grey-lightest px-3 py-4">
                       <div className="flex items-center">
                             <Link to="#" className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
-                            <img class="rounded-full h-10 w-10 object-cover" src={post.data['profile']['image']} alt="" />
+                            <img class="rounded-full h-10 w-10 object-cover" src={post.profile.image} alt="" />
                               <div className="flex-column ">
-                                <p className="ml-3 text-sm font-medium  text-black">{post.data['profile']['name']}</p>
-                                <p className="ml-3 text-xs py-1 text-grey-light">{post.data['profile']['service']} </p>
+                                <p className="ml-3 text-sm font-medium  text-black">{post.profile.name}</p>
+                                <p className="ml-3 text-xs py-1 text-grey-light">{post.profile.service} </p>
                               </div>
                             </Link>
                           </div>
@@ -75,10 +77,10 @@ const PostModal = props => {
                       </div>
                       
                   <div className="pt-2 px-2 md:h-90 overflow-scroll">
-                 <div className="text-base text-black"><p>{post.data['title']}</p></div>
-                 <small className="text-xxs font-hairline">{post.data['body']} </small> 
+                 <div className="text-base text-black"><p>{post.title}</p></div>
+                 <small className="text-xxs font-hairline">{post.body} </small> 
                     <div className="">
-                     {post && post.data['comments'].map((item, key) => (
+                     {comments && comments.map((item, key) => (
                             <Comment {...item} key={key} />
                         ))}	                       
                     </div>

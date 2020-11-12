@@ -12,6 +12,7 @@ import Flash from '@components/Flash'
 import PageLoader from '@components/PageLoader'
 import SendEmailConfirm from '@components/SendEmailConfirm'
 import NavBar from '@components/Nav/NavBar'
+import Jobs from '@pages/Jobs'
 
 // css
 import '@client/styles/main.css'
@@ -60,10 +61,10 @@ const UserProfile = Loadable({
     loading: PageLoader
 })
 
-const Jobs = Loadable({
-    loader: () => import('@pages/Jobs'),
-    loading: PageLoader
-})
+// const Jobs = Loadable({
+//     loader: () => import('@pages/Jobs'),
+//     loading: PageLoader
+// })
 
 export class Main extends Component {
     /**
@@ -191,32 +192,36 @@ export class Main extends Component {
                                 exact={true}
                                 path={'/feeds'}
                                 component={PostFeed}
+                                key="feeds"
                             />
                             <Route
                                 exact={true}
                                 path={'/feeds/p/:slug/:title'}
-                                component={PostFeed}
+                                component={PostFeed} 
+                                key="postModal"
                             />
                             <Route
                                 exact={true}
                                 path={'/profile/:slug'}
                                 component={UserProfile}
-                                key="first"
+                                key="userProfile"
                             />
                             <Route
                                 exact={true}
                                 path={'/profile/:slug/p/:id'}
                                 component={UserProfile}
-                                key="second"
+                                key="userProfilePost"
                             />
-
-                        </AnimatePresence>
-
                             <Route
                                 exact={true}
                                 path={'/jobs'}
                                 component={Jobs}
+                                key="jobs"
                             />
+
+                        </AnimatePresence>
+
+                            
                     </Switch>
                 </div>
             </BrowserRouter>
