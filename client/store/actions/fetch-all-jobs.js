@@ -16,16 +16,16 @@ export const FETCH_JOBS_FAIL = 'FETCH_JOBS_FAIL'
 
 
 export const fetchJobsStart = () => ({
-    type: FETCH_Jobs_START
+    type: FETCH_JOBS_START
 })
 
 export const fetchJobsSuccess = payload => ({
-    type: FETCH_Jobs_SUCCESS,
+    type: FETCH_JOBS_SUCCESS,
     payload
 })
 
 export const fetchJobsFail = payload => ({
-    type: FETCH_Jobs_FAIL,
+    type: FETCH_JOBS_FAIL,
     payload
 })
 
