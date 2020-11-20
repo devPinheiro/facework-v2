@@ -16,7 +16,7 @@ import CreatePost from '@components/CreatePostCard'
 import { fetchPostsRequest } from '../../store/actions/feeds';
 
 // fixtures
-import data from './fixtures'
+// import data from './fixtures'
 import ErrorBoundary from '../../components/ErrorBoundary';
 
 const PostFeed = props => {

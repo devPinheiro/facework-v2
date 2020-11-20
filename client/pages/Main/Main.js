@@ -191,32 +191,36 @@ export class Main extends Component {
                                 exact={true}
                                 path={'/feeds'}
                                 component={PostFeed}
+                                key="feeds"
                             />
                             <Route
                                 exact={true}
                                 path={'/feeds/p/:slug/:title'}
-                                component={PostFeed}
+                                component={PostFeed} 
+                                key="postModal"
                             />
                             <Route
                                 exact={true}
                                 path={'/profile/:slug'}
                                 component={UserProfile}
-                                key="first"
+                                key="userProfile"
                             />
                             <Route
                                 exact={true}
                                 path={'/profile/:slug/p/:id'}
                                 component={UserProfile}
-                                key="second"
+                                key="userProfilePost"
                             />
-
-                        </AnimatePresence>
-
                             <Route
                                 exact={true}
                                 path={'/jobs'}
                                 component={Jobs}
+                                key="jobs"
                             />
+
+                        </AnimatePresence>
+
+                            
                     </Switch>
                 </div>
             </BrowserRouter>
