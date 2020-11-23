@@ -12,6 +12,7 @@ import Flash from '@components/Flash'
 import PageLoader from '@components/PageLoader'
 import SendEmailConfirm from '@components/SendEmailConfirm'
 import NavBar from '@components/Nav/NavBar'
+import Jobs from '@pages/Jobs'
 
 // css
 import '@client/styles/main.css'
@@ -60,10 +61,7 @@ const UserProfile = Loadable({
     loading: PageLoader
 })
 
-const Jobs = Loadable({
-    loader: () => import('@pages/Jobs'),
-    loading: PageLoader
-})
+
 
 export class Main extends Component {
     /**
@@ -215,7 +213,7 @@ export class Main extends Component {
                                 exact={true}
                                 path={'/jobs'}
                                 component={Jobs}
-                                key="jobs"
+                                
                             />
 
                         </AnimatePresence>

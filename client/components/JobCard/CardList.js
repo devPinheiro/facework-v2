@@ -1,10 +1,13 @@
-import {React, useState, useDispatch, useEffect} from "react"; 
+import React,{useState, useEffect} from "react"; 
 import { Card } from "./index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { fetchJobsRequest } from "../../store/actions/fetch-all-jobs";
+import { useDispatch, useSelector } from "react-redux";
 
 
-const dispatch = useDispatch();
+
+export const CardList = () => {
+  const dispatch = useDispatch();
 const jobState = useSelector(s => s.job);
 
 const [jobs, setJobs] = useState([]);
@@ -33,11 +36,11 @@ const List = ({ match, history }) => (
   </ul>
 );
 
-export const CardList = () => (
-  <Router>
+
+ return <Router>
     <Route path={["/:id", "/"]} component={List} />
   </Router>
-);
+};
 
 const cardData = [
   // Photo by ivan Torres on Unsplash
