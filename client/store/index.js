@@ -7,7 +7,6 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers'
 
-console.log(process.env.NODE_ENV, process.env.DEVELOPMENT_URL, process.env.PRODUCTION_URL);
 const middleware = [thunk];
 const flashOptions = { timeout: 5000 }
 

@@ -39,7 +39,8 @@ export const fetchJobsRequest = (page = 1 ) => async dispatch => {
     dispatch(fetchJobsStart());
     return axios.get(`/jobs?page=${page}`)
     .then(res => {
-        dispatch(fetchJobsSuccess(res.data.post));
+        dispatch(fetchJobsSuccess(res.data));
+        console.log(res.data);
     })
     .catch(err => {
       const {
