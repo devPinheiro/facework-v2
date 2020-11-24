@@ -213,7 +213,7 @@ export class Main extends Component {
                                 exact={true}
                                 path={'/jobs'}
                                 component={Jobs}
-                                
+                                key="jobs"
                             />
 
                         </AnimatePresence>

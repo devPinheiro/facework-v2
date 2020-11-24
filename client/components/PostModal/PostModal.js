@@ -38,6 +38,7 @@ const PostModal = props => {
         if(postState.isSuccessful){        
                 setPost(postState.data.post);
                 setComment(postState.data.comments)
+                console.log(postState.data.comments);
                 setIsLoading(false)
         }
     }, [postState]);
