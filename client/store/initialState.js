@@ -26,3 +26,8 @@ export const jobs = {
     isSuccessful: false,
     data: null
 }
+
+export const auth = {
+    token: null,
+    user: null
+}
