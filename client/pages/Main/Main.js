@@ -97,29 +97,6 @@ export class Main extends Component {
         dispatch(flashMessage('Successfully logged out.'))
     }
 
-    /**
-     * Resend email confirmation to user
-     *
-     * @return {null}
-     */
-    resendEmailConfirmation = () => {
-        const {
-            dispatch,
-            user: { email }
-        } = this.props
-
-        dispatch(postResendEmailConfirm({ email }))
-            .then(() => {
-                dispatch(flashMessage('Confirm email resent.'))
-            })
-            .catch(() => {
-                dispatch(
-                    flashMessage('Error sending password reset link.', {
-                        isError: true
-                    })
-                )
-            })
-    }
 
     /**
      * Render the Main component
@@ -133,29 +110,17 @@ export class Main extends Component {
             <BrowserRouter>
                 <div className="page">
                     <Flash messages={flash.messages} />
-                    {user && !user.emailConfirmedAt && (
-                        <SendEmailConfirm
-                            resendEmailConfirmation={
-                                this.resendEmailConfirmation
-                            }
-                        />
-                    )}
+                    
                     {/* <Topbar
                         user={user}
                         logout={this.logout}
                         isAuthenticated={isAuthenticated}
                     /> */}
-                    {[
-                            '/auth/login',
-                            '/auth/register',
-                           '/auth/passwords/reset/:token',
-                            '/auth/passwords/email'
-                        ].includes(location.pathname) ||
-                            (['/'].includes(location.pathname) && (
+                    {
                                 <div className="w-full pt-5 m-auto max-w-xl flex ">
                                     <NavBar />
                                 </div>
-                            ))}
+                            }
                     <Switch>
                         
                         <Route exact={true} path={'/'} component={HomePage} />

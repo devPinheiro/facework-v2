@@ -64,7 +64,8 @@ class LoginPage extends PureComponent {
                 history.push('/feeds')
                 dispatch(flashMessage('Successfully logged in.'))
             })
-            .catch(({ error }) => {
+            .catch(error  => {
+                console.log('it got here',error);
                 const { message } = error.response.data
                 setSubmitting(false)
                 setErrors({
