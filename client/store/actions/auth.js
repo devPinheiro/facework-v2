@@ -1,4 +1,4 @@
-import axios from  '../Axios';
+import axios from  'axios';
 
 export const SET_AUTH = 'SET_AUTH'
 export const POST_LOGIN = 'POST_LOGIN'
@@ -97,21 +97,7 @@ export const postEmailConfirm = data => ({
     }
 })
 
-/**
- * Resend email confirmation email to user.
- *
- * @param {Object} data
- * @return {Object} redux action object
- */
-export const postResendEmailConfirm = () => ({
-    type: POST_RESEND_EMAIL_CONFIRM,
-    payload: {
-        request: {
-            method: 'POST',
-            url: '/auth/emails/confirm/resend'
-        }
-    }
-})
+
 
 /**
  * Set the auth data for a user
