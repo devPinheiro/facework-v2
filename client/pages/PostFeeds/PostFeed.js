@@ -34,6 +34,8 @@ const PostFeed = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     const feedState = useSelector(s => s.feeds);
+    const authState = useSelector(s => s.auth);
+
 
     useEffect(() => {
         if(!slug)dispatch(fetchPostsRequest()); 
@@ -89,7 +91,7 @@ const PostFeed = props => {
                     </div>
                     <div className="hidden md:block md:w-1/3 ">
                         <div className="mx-4 fixed pin-r-3">
-                            <AuthorCard />
+                            <AuthorCard {...authState.user} />
                         </div>
                     </div>
                 </div>

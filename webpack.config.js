@@ -97,7 +97,7 @@ module.exports = {
             'process.env.PRODUCTION_URL': JSON.stringify(
               'https://facework.com.ng/api/'
             ),
-            'process.env.DEVELOPMENT_URL': JSON.stringify('https://facework.com.ng/api')
+            'process.env.DEVELOPMENT_URL': JSON.stringify('http://localhost:8000/api')
           })
     ].filter(Boolean),
     optimization: {

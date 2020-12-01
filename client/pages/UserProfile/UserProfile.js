@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
@@ -21,14 +21,21 @@ import EditProfileModal from '@components/EditProfileModal/EditProfileModal'
 
 // fixtures
 import data from '../PostFeeds/fixtures'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
 
 
 
 
-const UserProfile = ({ match }) => {
-    const { id } = match.params
+const UserProfile = props => {
+    const { id } = props.match.params
     const [modalVisibility, setModalVisibility] = useState(false)
     const [editProfileModalVisibility, setEditProfileModalVisibility] = useState(false)
+
+    const dispatch = useDispatch()
+    const [user, setUser] = useState({})
+    const [userPost, setUserPost] = useState([])
+    const userProfile = useSelector(state => state.userProfile)
     
     const closeModal = () => {
         setModalVisibility(!modalVisibility)
@@ -55,15 +62,31 @@ const UserProfile = ({ match }) => {
         exit: { x: 100, opacity: 0, transition: { delay: 1, ...transition } },
         enter: { x: 0, opacity: 1, transition: { delay: 1, ...transition } }
     }
+    console.log('it goes here', id);
+
+    useEffect(() => {
+       dispatch(fetchUserProfileRequest(id));
+    }, []);
+
+    useEffect(() => {
+        if(userProfile.isSuccessful){
+            console.log('it got here', userProfile);
+            setUser(userProfile.data.user)
+            setUserPost(userProfile.data.posts.data)
+        }
+    }, [userProfile])
+
 
     return (
+        
         <> 
         <div>
-          
+            { modalVisibility && id &&
             <PostModal
                 modalVisibility={modalVisibility}
                 setModalVisibility={closeModal}
-            />          
+                slug={id}
+            /> }         
         
             <motion.div
                 className="w-full m-auto max-w-2xl block sm:flex"
@@ -75,7 +98,7 @@ const UserProfile = ({ match }) => {
                     className="md:w-1/4 my-8 mx-4 h-full p-4 shadow-md border-grey-lighter rounded-lg flex flex-col "
                     variants={imageVariants}
                 >
-                    <AuthorCard profile={true} />
+                    <AuthorCard profile={true} {...user} />
 
                     <div className="pt-6 flex flex-col w-full">
                         <div className="flex flex-row justify-between py-2">
@@ -89,7 +112,7 @@ const UserProfile = ({ match }) => {
                             </p>
                             
                             </Link>
-                            <div>15{' '}</div>
+                        <div>{userPost && userPost.length}{' '}</div>
                         </div>
                         <div className="flex flex-row  justify-between py-2">
                             {' '}
@@ -160,17 +183,17 @@ const UserProfile = ({ match }) => {
                     className="text-xl text-black md:w-3/4 flex justify-between flex-wrap"
                     variants={backVariants}
                 >
-                    {data.map((item, key) => (
+                    {userPost && userPost.map((item, key) => (
                         <div className="w-64">
                             <PostCard
                                 title={item.title}
-                                image={item.image}
+                                image={item.featured}
                                 key={key}
-                                time={item.time}
+                                time={item.created}
                                 avatar={item.avatar}
                                 name={item.name}
-                                slug={item.slug}
-                                id={item.slug}
+                                slug={item.id}
+                                id={item.id}
                                 profilePage={true}
                                 modalVisibility={modalVisibility}
                                 setModalVisibility={setModalVisibility}

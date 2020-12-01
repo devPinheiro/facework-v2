@@ -13,6 +13,7 @@ const PostCard = ({
     avatar,
     time,
     description,
+    id,
     occupation,
     name,
     setModalVisibility,
@@ -55,7 +56,7 @@ const PostCard = ({
                 <div class="py-2 flex flex-row items-center justify-between">
                     {profilePage ? null : (<><div class="flex flex-row items-center">
                         <Link
-                            to="#"
+                            to=""
                             className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg"
                         >
                             <img
@@ -82,6 +83,9 @@ const PostCard = ({
                 </div>
                 <div class="mt-2">
                 {profilePage ?
+                <Link to={`/profile/${title.toLowerCase()
+                    .replace(/ /g,'-')
+                    .replace(/[^\w-]+/g,'')}/p/${id}`}>
                 <div className="flex justify-center">
                     <img
                     class="max-h-screen-sm rounded-lg"
@@ -90,6 +94,7 @@ const PostCard = ({
                     onClick={() => setModalVisibility(!modalVisibility)}
                 />
                 </div>
+                </Link>
                 
            
                 :
