@@ -33,7 +33,7 @@ const PostModal = props => {
     useEffect(() => {
          dispatch(fetchPostRequest(slug)); 
     }, []);
-
+console.log('slug here', slug);
     useEffect(() => {    
         if(postState.isSuccessful){        
                 setPost(postState.data.post);

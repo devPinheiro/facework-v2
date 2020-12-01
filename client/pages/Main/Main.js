@@ -164,7 +164,7 @@ export class Main extends Component {
                             />
                             <Route
                                 exact={true}
-                                path={'/profile/:slug'}
+                                path={'/profile/:id'}
                                 component={UserProfile}
                                 key="userProfile"
                             />

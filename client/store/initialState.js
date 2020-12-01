@@ -31,3 +31,10 @@ export const auth = {
     token: null,
     user: null
 }
+
+export const userProfile = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}

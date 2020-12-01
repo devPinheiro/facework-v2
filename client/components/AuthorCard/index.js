@@ -6,7 +6,7 @@ import {
     FiMapPin
 } from 'react-icons/fi'
 
-const AuthorCard = ({ profile }) => {
+const AuthorCard = ({ profile, name, email, id }) => {
 
     const transition = {
         duration: 1,
@@ -48,7 +48,7 @@ const AuthorCard = ({ profile }) => {
         </div>
     </div>) :
         (<div className="">
-            <Link className="block md:flex bg-white rounded-lg py-6 my-8 max-w-content" to="/profile/ye7ehe8ehe9ejd0djd0djd9djd9djd0di0i">
+            <Link className="block md:flex bg-white rounded-lg py-6 my-8 max-w-content" to={`/profile/${id}`}>
             <motion.img
             className="h-10 w-10 md:h-16 md:w-16 mt-3 mr-4 rounded-full"
             variants={imageVariants}
@@ -56,9 +56,9 @@ const AuthorCard = ({ profile }) => {
             alt="Sammy Dev"
         />
             <div className="text-center md:text-left mt-2">
-                <h2 className="md:text-lg text-black">Erin Lindford</h2>
-                <div className="text-purple-500 text-grey-darkest">Product Engineer</div>
-                <div className="text-grey-light">erinlindford@example.com</div>
+                <h2 className="md:text-lg text-black pb-2">{name}</h2>
+                <div className="text-purple-500 text-grey-darkest"></div>
+    <div className="text-grey-light">{email}</div>
             </div>
             </Link>
         </div>) }

@@ -1,6 +1,7 @@
 import auth from './auth'
 import feeds from './feeds'
 import post from './fetch-single-post'
+import userProfile from './fetch-user-profile'
 import comment from './create-comment'
 import job from './fetch-all-jobs'
 import { reducer as flash } from 'redux-flash'
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     feeds,
     post,
     comment,
-    job
+    job,
+    userProfile
 })
 
 export default rootReducer
