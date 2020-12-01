@@ -36,7 +36,7 @@ export const createPostFail = payload => ({
  */
 export const createPostRequest = payload => async dispatch => {
     dispatch(createPostStart());
-    return axios.post(`Posts/create`, payload)
+    return axios.post(`posts/create`, payload)
     .then(res => {
         dispatch(createPostSuccess(res.data));
         if(res.data.message){

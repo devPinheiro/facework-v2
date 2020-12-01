@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/main.css'
 import { Link } from 'react-router-dom'
 import { Formik } from 'formik'
@@ -11,6 +11,14 @@ import Textbox from '@components/Textbox'
 // Assets
 import Camera from '../../assets/image/camera.svg'
 import Video from '../../assets/image/video-camera.svg'
+import { useDispatch, useSelector } from 'react-redux'
+
+const dispatch = useDispatch();
+useSelector
+
+useEffect(() => {
+ 
+}, [])
 
 
 const CreatePostModal = ({
