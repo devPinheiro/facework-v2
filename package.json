@@ -25,6 +25,7 @@
     "formik": "^1.5.1",
     "framer-motion": "^2.4.2",
     "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",
     "mongoose": "^5.4.19",
     "nodemailer": "^5.1.1",

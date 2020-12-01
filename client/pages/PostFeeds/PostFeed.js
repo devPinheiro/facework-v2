@@ -34,7 +34,7 @@ const PostFeed = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     const feedState = useSelector(s => s.feeds);
-    const authState = useSelector(s => s.auth);
+    const authState = useSelector(s => s.userProfile.data);
 
 
     useEffect(() => {

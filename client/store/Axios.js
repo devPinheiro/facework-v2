@@ -1,5 +1,14 @@
 import axios from 'axios';
-// axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
+
+export const setAuthToken = token => {
+  if (token) {
+    //set token to auth
+    axios.defaults.headers.common["x-access-token"] = token;
+  } else {
+    delete axios.defaults.headers.common["x-access-token"];
+  }
+};
+
 const instance = axios.create({
   baseURL: process.env.NODE_ENV === 'development' ? process.env.DEVELOPMENT_URL : process.env.PRODUCTION_URL,
   headers: {

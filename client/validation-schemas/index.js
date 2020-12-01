@@ -44,3 +44,9 @@ export const ResetPasswordSchema = Yup.object().shape({
         .required(),
     token: Yup.string().required()
 })
+
+export const isEmpty = value =>
+  value === undefined ||
+  value === null ||
+  (typeof value === "object" && Object.keys(value).length === 0) ||
+  (typeof value === "string" && value.trim().length === 0);
