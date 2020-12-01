@@ -10,7 +10,7 @@ import rootReducer from './reducers'
 const middleware = [thunk];
 const flashOptions = { timeout: 5000 }
 
-export default createStore(
+const store = createStore(
     rootReducer,
     composeWithDevTools(
     applyMiddleware(
@@ -20,3 +20,5 @@ export default createStore(
     )
     )
 )
+
+export default store;

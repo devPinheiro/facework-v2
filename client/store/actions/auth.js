@@ -11,6 +11,7 @@ export const POST_FORGOT_PASSWORD = 'POST_FORGOT_PASSWORD'
 export const POST_REGISTER_SUCCESS = 'POST_REGISTER_SUCCESS'
 export const POST_RESEND_EMAIL_CONFIRM = 'POST_RESEND_EMAIL_CONFIRM'
 export const POST_EMAIL_CONFIRM_SUCCESS = 'POST_EMAIL_CONFIRM_SUCCESS'
+export const SET_CURRENT_USER = 'SET_CURRENT_USER'
 
 /**
  * Make post request to server to register a user
@@ -99,13 +100,18 @@ export const postEmailConfirm = data => ({
 
 
 
-/**
- * Set the auth data for a user
- *
- * @param {Object} data the user data from server
- * @return {Object} action sent to redux store
- */
-export const authLogout = data => ({
-    type: AUTH_LOGOUT,
-    payload: data
-})
+export const setCurrentUser = decoded => {
+    return {
+      type: SET_CURRENT_USER,
+      payload: decoded
+    };
+  };
+  
+  export const logout = history => dispatch => {
+    // remove token
+    localStorage.removeItem("token");
+    setAuthToken(false);
+    dispatch(setCurrentUser({}));
+    history.push("/");
+  };
+  
