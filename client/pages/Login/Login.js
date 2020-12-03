@@ -71,6 +71,7 @@ class LoginPage extends PureComponent {
                                 { isError: true }
                                 
                         ));
+                        setErrors({})
                 }
                
             })

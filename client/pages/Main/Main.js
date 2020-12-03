@@ -1,100 +1,48 @@
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import Loadable from 'react-loadable'
-import React, { Component } from 'react'
-import { flashMessage } from 'redux-flash'
-import { BrowserRouter, Route, withRouter, Switch } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+
+import React, { PureComponent } from 'react'
+import jwt_decode from 'jwt-decode'
+import { BrowserRouter as Router} from 'react-router-dom'
 
 // components
-import Flash from '@components/Flash'
-// import Topbar from '@components/Topbar'
-import PageLoader from '@components/PageLoader'
-import SendEmailConfirm from '@components/SendEmailConfirm'
-import NavBar from '@components/Nav/NavBar'
-import Jobs from '@pages/Jobs'
+import Main from '@pages/AppRouter'
+
 
 // css
 import '@client/styles/main.css'
-// import '@client/'
+
 
 // actions
-import { authLogout, postResendEmailConfirm } from '@client/store/actions/auth'
-
-const HomePage = Loadable({
-    loader: () => import('@pages/Home'),
-    loading: PageLoader
-})
-
-const LoginPage = Loadable({
-    loader: () => import('@pages/Login'),
-    loading: PageLoader
-})
-
-const RegisterPage = Loadable({
-    loader: () => import('@pages/Register'),
-    loading: PageLoader
-})
-
-const ResetPasswordPage = Loadable({
-    loader: () => import('@pages/ResetPassword'),
-    loading: PageLoader
-})
-
-const ForgotPasswordPage = Loadable({
-    loader: () => import('@pages/ForgotPassword'),
-    loading: PageLoader
-})
-
-const EmailConfirmationPage = Loadable({
-    loader: () => import('@pages/EmailConfirmation'),
-    loading: PageLoader
-})
-
-const PostFeed = Loadable({
-    loader: () => import('@pages/PostFeeds'),
-    loading: PageLoader
-})
-
-const UserProfile = Loadable({
-    loader: () => import('@pages/UserProfile'),
-    loading: PageLoader
-})
+import { setAuthToken } from '../../store/Axios'
+import { setCurrentUser , logout} from '../../store/actions/auth'
+import store from '../../store'
+import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
 
 
 
-export class Main extends Component {
-    /**
-     * Define prop types for this component
-     *
-     *@var {Object}
-     */
-    static propTypes = {
-        flash: PropTypes.shape({
-            messages: PropTypes.arrayOf(
-                PropTypes.shape({
-                    id: PropTypes.string,
-                    message: PropTypes.string,
-                    isError: PropTypes.bool
-                })
-            )
-        }),
-        user: PropTypes.shape({}),
-        dispatch: PropTypes.func.isRequired,
-        isAuthenticated: PropTypes.bool.isRequired
-    }
+export class App extends PureComponent {
 
-    /**
-     * Logout a user
-     *
-     * @return {null}
-     */
-    logout = () => {
-        const { dispatch } = this.props
-        localStorage.removeItem('auth')
+    componentDidMount(){
 
-        dispatch(authLogout())
-        dispatch(flashMessage('Successfully logged out.'))
+        if (localStorage.auth) {
+   
+            // set auth token
+            setAuthToken(localStorage.auth);
+            //decode
+            const decoded = jwt_decode(localStorage.auth);
+            console.log('this is decoded', decoded);
+            // set current user
+            store.dispatch(setCurrentUser(decoded));
+          
+            store.dispatch(fetchUserProfileRequest(decoded.aud));
+            // for expired token
+            const currentTime = Date.now() / 1000;
+            if (decoded.exp < currentTime) {
+              // logout current user
+              store.dispatch(logout());
+              window.location.href = "/";
+            }
+          }
+        
     }
 
 
@@ -104,95 +52,12 @@ export class Main extends Component {
      * @return {JSX}
      */
     render() {
-        const { flash, isAuthenticated, user } = this.props
-
         return (
-            <BrowserRouter>
-                <div className="page">
-                    <Flash messages={flash.messages} />
-                    
-                    {/* <Topbar
-                        user={user}
-                        logout={this.logout}
-                        isAuthenticated={isAuthenticated}
-                    /> */}
-                    {
-                                <div className="w-full pt-5 m-auto max-w-xl flex ">
-                                    <NavBar />
-                                </div>
-                            }
-                    <Switch>
-                        
-                        <Route exact={true} path={'/'} component={HomePage} />
-                        <Route
-                            exact={true}
-                            path={'/auth/login'}
-                            component={LoginPage}
-                        />
-                        <Route
-                            exact={true}
-                            path={'/auth/register'}
-                            component={RegisterPage}
-                        />
-                        <Route
-                            exact={true}
-                            path={'/auth/passwords/reset/:token'}
-                            component={ResetPasswordPage}
-                        />
-                        <Route
-                            exact={true}
-                            path={'/auth/passwords/email'}
-                            component={ForgotPasswordPage}
-                        />
-                        <Route
-                            exact={true}
-                            path={'/auth/emails/confirm/:token'}
-                            component={EmailConfirmationPage}
-                        />
-                        <AnimatePresence exitBeforeEnter initial={false}>
-                            <Route
-                                exact={true}
-                                path={'/feeds'}
-                                component={PostFeed}
-                                key="feeds"
-                            />
-                            <Route
-                                exact={true}
-                                path={'/feeds/p/:slug/:title'}
-                                component={PostFeed} 
-                                key="postModal"
-                            />
-                            <Route
-                                exact={true}
-                                path={'/profile/:id'}
-                                component={UserProfile}
-                                key="userProfile"
-                            />
-                            <Route
-                                exact={true}
-                                path={'/profile/:slug/p/:id'}
-                                component={UserProfile}
-                                key="userProfilePost"
-                            />
-                            <Route
-                                exact={true}
-                                path={'/jobs'}
-                                component={Jobs}
-                                key="jobs"
-                            />
-
-                        </AnimatePresence>
-
-                            
-                    </Switch>
-                </div>
-            </BrowserRouter>
+            <Router>
+              <Main />
+            </Router>     
         )
     }
 }
 
-export default connect(state => ({
-    user: state.auth.user,
-    flash: state.flash,
-    isAuthenticated: !!state.auth.user
-}))(Main)
+export default App;
