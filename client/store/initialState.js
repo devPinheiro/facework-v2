@@ -20,6 +20,13 @@ export const comment = {
     data: null
 }
 
+export const createPost = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
 export const jobs = {
     isLoading: false,
     error: null,
