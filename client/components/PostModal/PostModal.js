@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import '../../styles/main.css'
 import { Link } from 'react-router-dom'
+import { flashMessage } from 'redux-flash'
 
 
 
@@ -22,34 +23,64 @@ import { createCommentRequest } from '../../store/actions/create-comment';
 import { CreateCommentSchema } from '@client/validation-schemas'
 
 const PostModal = props => {
-  const { modalVisibility, setModalVisibility, slug } = props;
+    const { modalVisibility, setModalVisibility, slug } = props;
     const dispatch = useDispatch();
 
     const [post, setPost] = useState({});
+    const [value, setValue] = useState('');
     const [comments, setComment] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [resetCommentForm, setResetCommentForm] = useState(false);
     const postState = useSelector(s => s.post);
+    const createCommentState = useSelector(s => s.comment);
 
     useEffect(() => {
          dispatch(fetchPostRequest(slug)); 
     }, []);
-console.log('slug here', slug);
+
     useEffect(() => {    
         if(postState.isSuccessful){        
                 setPost(postState.data.post);
-                setComment(postState.data.comments)
-                console.log(postState.data.comments);
+                setComment(postState.data.comments)       
                 setIsLoading(false)
         }
+
+        
     }, [postState]);
 
-    const handleOnSubmit = (data, { setSubmitting, setErrors }) => {
+
+    useEffect(()=>{
+      if(createCommentState.isSuccessful && !createCommentState.isLoading){
+        setResetCommentForm(false)
+        setValue('')
+        dispatch(fetchPostRequest(slug));
+      }
+    }, [createCommentState])
+
+    const handleOnSubmit = (data, { setSubmitting, setErrors, setValues, resetForm }) => {
       const payload = {
         body: data.body,
         post_id: post.id,
         profile_id: post.profile.id
       } 
-      dispatch(createCommentRequest(payload));
+      dispatch(createCommentRequest(payload))
+           .then(response => {
+        console.log(response.payload.data);
+        if(response.payload.data){
+          dispatch(flashMessage('Successfully registered.'))
+          setValues('')
+          resetForm()
+        }     
+    })
+    .catch(({ error }) => {
+        setSubmitting(false)
+        // setErrors(error.response.data.errors)
+        dispatch(
+            flashMessage('Something went wrong', {
+                isError: true
+            })
+        )
+    })
     }
 
   return (
@@ -81,7 +112,7 @@ console.log('slug here', slug);
                  <div className="text-base text-black"><p>{post.title}</p></div>
                  <small className="text-xxs font-hairline">{post.body} </small> 
                     <div className="">
-                     {comments && comments.map((item, key) => (
+                     {comments && comments.reverse().map((item, key) => (
                             <Comment {...item} key={key} />
                         ))}	                       
                     </div>
@@ -89,7 +120,7 @@ console.log('slug here', slug);
                   </div>
                   <div className="-bottom-55">
                   
-                    <CreateComment onSubmit={handleOnSubmit} initialValues={{body: ''}} validationSchema={CreateCommentSchema} />
+                    <CreateComment onSubmit={handleOnSubmit} initialValues={value} handleChange={e => setValue(e.target.value)} validationSchema={CreateCommentSchema} resetCommentForm={resetCommentForm} />
                   </div>
               </div>
               </ErrorBoundary>

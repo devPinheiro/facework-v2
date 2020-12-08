@@ -91,7 +91,7 @@ const PostFeed = props => {
                     </div>
                     <div className="hidden md:block md:w-1/3 ">
                         <div className="mx-4 fixed pin-r-3">
-                            <AuthorCard {...authState.user} />
+                            <AuthorCard {...(authState && authState.user)} />
                         </div>
                     </div>
                 </div>

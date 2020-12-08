@@ -36,7 +36,8 @@ export const jobs = {
 
 export const auth = {
     token: null,
-    user: null
+    user: null,
+    isAuthenticated: false
 }
 
 export const userProfile = {

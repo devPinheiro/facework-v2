@@ -13,12 +13,9 @@ import Camera from '../../assets/image/camera.svg'
 import Video from '../../assets/image/video-camera.svg'
 import { useDispatch, useSelector } from 'react-redux'
 
-const dispatch = useDispatch();
-useSelector
 
-useEffect(() => {
- 
-}, [])
+
+
 
 
 const CreatePostModal = ({
@@ -28,6 +25,14 @@ const CreatePostModal = ({
     initialValues,
     validationSchema
 }) => {
+
+
+    // const dispatch = useDispatch();
+
+
+// // useEffect(() => {
+ 
+// // }, [])
     return (
         <div
             className={`${
