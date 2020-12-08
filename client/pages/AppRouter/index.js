@@ -52,7 +52,7 @@ const UserProfile = Loadable({
 
 const Main = withRouter(({ location }) => {
 
-    // const flash = useSelector(state => state.flash)
+    const flash = useSelector(state => state.flash)
     
     return (
 <>
@@ -65,7 +65,7 @@ const Main = withRouter(({ location }) => {
 
 
                 <div className="page">
-                    {/* <Flash messages={flash.messages} /> */}
+                    <Flash messages={flash.messages} />
                     
                     
                     <Switch>

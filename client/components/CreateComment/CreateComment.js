@@ -16,7 +16,7 @@ const CreateComment = ({onSubmit, initialValues, resetCommentForm}) => {
                 onSubmit={onSubmit}
                 initialValues={initialValues}
                 // validationSchema={validationSchema}
-               onReset={initialValues} 
+             
             >
          
                 {({
@@ -28,11 +28,11 @@ const CreateComment = ({onSubmit, initialValues, resetCommentForm}) => {
                     handleChange,
                     handleBlur,
                     handleSubmit,
-                    resetForm
+                    re
                     
                 }) => (
                     <form className="flex" onSubmit={handleSubmit} >
-                        
+                        {console.log(values)}
                        <div className="w-4/5 pl-2">
                         <TextArea
                             customStyle="focus:outline-none w-full py-1 px-1 bg-brown-lightest text-brown rounded-lg"

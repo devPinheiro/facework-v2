@@ -27,7 +27,7 @@ const TextArea = ({
         />
 
         {error && (
-            <span className="text-sm text-orange mt-2 block">{error}</span>
+            <span className="text-sm text-red-light font-thin mt-2 block">{error}</span>
         )}
     </div>
 )

@@ -34,6 +34,13 @@ export const EmailConfirmationSchema = Yup.object().shape({
 export const CreateCommentSchema = Yup.object().shape({
     body: Yup.string().required()
 })
+
+export const createPostSchema = Yup.object().shape({
+    body: Yup.string().required('Give your post some content'),
+    title: Yup.string().min(3).required('Give your post a title'),
+    featured: Yup.string().required('Please kindly select a media file')
+})
+
 export const ResetPasswordSchema = Yup.object().shape({
     email: Yup.string()
         .email()

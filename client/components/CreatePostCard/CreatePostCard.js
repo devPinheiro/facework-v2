@@ -5,7 +5,8 @@ import Edit from '../../assets/image/edit.svg'
 import More from '../../assets/image/more.svg'
 import CreatePostModal from '../CreatePostModal/CreatePostModal'
 
-const CreatePostCard = ({ setPostModalVisibility, postModalVisibility }) => {
+const CreatePostCard = ({ setPostModalVisibility, postModalVisibility, initialValues, createPostSchema, onSubmit, imageHandler, pictureError,
+    setPictureError, serverError }) => {
     return (
         <>
         <div className="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10">
@@ -41,7 +42,9 @@ const CreatePostCard = ({ setPostModalVisibility, postModalVisibility }) => {
                 </div>
             </div>
         </div>
-        <CreatePostModal postModalVisibility={postModalVisibility} setPostModalVisibility={setPostModalVisibility} /> 
+        <CreatePostModal postModalVisibility={postModalVisibility} setPostModalVisibility={setPostModalVisibility} onSubmit={onSubmit} initialValues={initialValues}
+                                createPostSchema={createPostSchema} imageHandler={imageHandler}
+                                pictureError={pictureError} setPictureError={setPictureError} serverError={serverError} /> 
         </>
     )
 }

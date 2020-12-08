@@ -62,7 +62,7 @@ const UserProfile = props => {
         exit: { x: 100, opacity: 0, transition: { delay: 1, ...transition } },
         enter: { x: 0, opacity: 1, transition: { delay: 1, ...transition } }
     }
-    console.log('it goes here', id);
+
 
     useEffect(() => {
        dispatch(fetchUserProfileRequest(id));
@@ -70,7 +70,6 @@ const UserProfile = props => {
 
     useEffect(() => {
         if(userProfile.isSuccessful){
-            console.log('it got here', userProfile);
             setUser(userProfile.data.user)
             setUserPost(userProfile.data.posts.data)
         }
