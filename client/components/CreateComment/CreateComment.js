@@ -8,16 +8,17 @@ import TextArea from '@components/TextArea'
 // Assets
 import Camera from '../../assets/image/camera.svg'
 
-const CreateComment = ({onSubmit,
-    initialValues,
-    validationSchema}) => {
+const CreateComment = ({onSubmit, initialValues, resetCommentForm}) => {
+    
     return (
         <div className="px-1 py-1">
             <Formik
                 onSubmit={onSubmit}
                 initialValues={initialValues}
                 // validationSchema={validationSchema}
+               onReset={initialValues} 
             >
+         
                 {({
                     values,
                     errors,
@@ -26,9 +27,12 @@ const CreateComment = ({onSubmit,
                     isSubmitting,
                     handleChange,
                     handleBlur,
-                    handleSubmit
+                    handleSubmit,
+                    resetForm
+                    
                 }) => (
-                    <form className="flex" onSubmit={handleSubmit}>
+                    <form className="flex" onSubmit={handleSubmit} >
+                        
                        <div className="w-4/5 pl-2">
                         <TextArea
                             customStyle="focus:outline-none w-full py-1 px-1 bg-brown-lightest text-brown rounded-lg"
@@ -49,13 +53,14 @@ const CreateComment = ({onSubmit,
                         className="w-1/3"
                             type="submit"
                             disabled={!values.body}
-                            loading={isSubmitting}
+                            loading={resetCommentForm}
                             data-testid="submit-button"
                             style="h-2 bg-none"
                         ><p>POST</p></Button>
                         </div>
                     </form>
                 )}
+            
             </Formik>
         </div>
     )

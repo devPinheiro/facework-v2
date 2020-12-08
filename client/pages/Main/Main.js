@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react'
 import jwt_decode from 'jwt-decode'
 import { BrowserRouter as Router} from 'react-router-dom'
+import { PersistGate } from 'redux-persist/integration/react'
 
 // components
 import Main from '@pages/AppRouter'
@@ -14,8 +15,9 @@ import '@client/styles/main.css'
 // actions
 import { setAuthToken } from '../../store/Axios'
 import { setCurrentUser , logout} from '../../store/actions/auth'
-import store from '../../store'
+import { store, persistor } from '../../store'
 import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
+import { Provider } from 'react-redux'
 
 
 
@@ -29,7 +31,7 @@ export class App extends PureComponent {
             setAuthToken(localStorage.auth);
             //decode
             const decoded = jwt_decode(localStorage.auth);
-            console.log('this is decoded', decoded);
+            
             // set current user
             store.dispatch(setCurrentUser(decoded));
           
@@ -54,7 +56,11 @@ export class App extends PureComponent {
     render() {
         return (
             <Router>
-              <Main />
+                <Provider store={store} >
+                    <PersistGate loading={null} persistor={persistor}>
+                        <Main />
+                    </PersistGate>
+                </Provider>
             </Router>     
         )
     }

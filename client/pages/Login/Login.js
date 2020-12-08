@@ -13,6 +13,8 @@ import { LoginSchema } from '@client/validation-schemas'
 
 
 import './index.css'
+import { setCurrentUser } from '../../store/actions/auth'
+import jwtDecode from 'jwt-decode'
 
 class LoginPage extends PureComponent {
     /**
@@ -58,6 +60,7 @@ class LoginPage extends PureComponent {
         dispatch(postLogin(data))
             .then(response => {
                 if(response.payload.data.access_token){
+                    setCurrentUser(jwtDecode(response.payload.data.access_token))
                     localStorage.setItem(
                         'auth',
                         JSON.stringify(response.payload.data.access_token)

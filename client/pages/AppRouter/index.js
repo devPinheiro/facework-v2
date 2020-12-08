@@ -9,9 +9,8 @@ import Flash from '@components/Flash'
 import PageLoader from '@components/PageLoader'
 import NavBar from '@components/Nav/NavBar'
 import Jobs from '@pages/Jobs'
+import PostFeed from '@pages/PostFeeds'
 import PrivateRoute from "./PrivateRoute";
-import store from '@client/store'
-
 
 const HomePage = Loadable({
     loader: () => import('@pages/Home'),
@@ -43,11 +42,6 @@ const EmailConfirmationPage = Loadable({
     loading: PageLoader
 })
 
-const PostFeed = Loadable({
-    loader: () => import('@pages/PostFeeds'),
-    loading: PageLoader
-})
-
 const UserProfile = Loadable({
     loader: () => import('@pages/UserProfile'),
     loading: PageLoader
@@ -61,9 +55,7 @@ const Main = withRouter(({ location }) => {
     // const flash = useSelector(state => state.flash)
     
     return (
-      <Provider store={store}>
-
-
+<>
         {["/auth/login", "/auth/signup", "/auth/confirm/mail/:token", "/auth/passwords/reset/:token", "/auth/passwords/email"].includes(
           location.pathname
         ) ||
@@ -142,8 +134,8 @@ const Main = withRouter(({ location }) => {
                             
                     </Switch>
                 </div>
-        
-      </Provider>
+        </>
+   
     );
   });
   
