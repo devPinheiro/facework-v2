@@ -25,10 +25,11 @@ export class App extends PureComponent {
 
     componentDidMount(){
 
-        if (localStorage.auth) {
+        if (localStorage.auth !== undefined) {
    
             // set auth token
             setAuthToken(localStorage.auth);
+
             //decode
             const decoded = jwt_decode(localStorage.auth);
             

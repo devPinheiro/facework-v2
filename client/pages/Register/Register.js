@@ -53,23 +53,23 @@ export class RegisterPage extends Component {
 
         dispatch(postRegister(data))
             .then(response => {
-                localStorage.setItem(
-                    'auth',
-                    JSON.stringify(response.payload.data.data)
-                )
+                if(response.payload.data.data){
+                    dispatch(flashMessage('Successfully registered.'))
+                    this.setState({confirmEmail: true})
+                }
 
-                dispatch(flashMessage('Successfully registered.'))
-                // history.push('/')
-                this.setState({confirmEmail: true})
+                if(response.payload.data.errors){
+                    setSubmitting(false)
+                    setErrors(response.payload.data.errors)
+                    dispatch(
+                        flashMessage(response.payload.data.errors.email[0], {
+                            isError: true
+                        })
+                    )
+                }
             })
             .catch(({ error }) => {
-                setSubmitting(false)
-                setErrors(error.response.data.errors)
-                dispatch(
-                    flashMessage(error.response.data.errors.email[0], {
-                        isError: true
-                    })
-                )
+                
             })
     }
 

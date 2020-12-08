@@ -31,7 +31,7 @@ export default (state = auth, action) => {
             return {
                 ...state,
                 user: action.payload.data.data,
-                token: action.payload.data.access_token
+                isAuthenticated: !isEmpty(action.payload)
             }
         case SET_CURRENT_USER:
             return {

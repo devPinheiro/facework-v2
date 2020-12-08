@@ -37,13 +37,13 @@ const AuthorCard = ({ profile, name, email, id }) => {
         />
         <div className="py-2 text-center">
             <h2 className="md:text-lg text-black text-sm py-1">
-                Erin Lindford
+                {name}
             </h2>
             <div className="text-purple-500 text-grey-darkest py-2 text-xs">
-                Product Engineer
+                {profile.service}
             </div>
             <div className="text-purple-500 text-grey-darkest text-xs">
-                <FiMapPin /> Ikeja, Lagos
+                <FiMapPin /> {profile.location}
             </div>
         </div>
     </div>) :

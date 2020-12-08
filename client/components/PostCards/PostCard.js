@@ -19,7 +19,8 @@ const PostCard = ({
     setModalVisibility,
     slug,
     profilePage,
-    modalVisibility
+    modalVisibility,
+    video
 }) => {
 
     const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
@@ -85,14 +86,16 @@ const PostCard = ({
                 {profilePage ?
                 <Link to={`/profile/${title.toLowerCase()
                     .replace(/ /g,'-')
-                    .replace(/[^\w-]+/g,'')}/p/${id}`}>
+                    .replace(/[^\w-]+/g,'')}/p/${id}/member_profile_view`}>
                 <div className="flex justify-center">
-                    <img
+                    { video ? (<video controls src={video} alt="avatar" className="max-h-screen-sm max-w-sm" />) :
+                        (<img
                     class="max-h-screen-sm rounded-lg"
                     src={image}
                     alt=""
                     onClick={() => setModalVisibility(!modalVisibility)}
-                />
+                
+                />)}
                 </div>
                 </Link>
                 
@@ -102,11 +105,11 @@ const PostCard = ({
                         .replace(/ /g,'-')
                         .replace(/[^\w-]+/g,'')}`}>
                         <div className="flex justify-center">
-                             <img
+                        { video ? (<video  controls src={video} alt="avatar" className="max-h-screen-sm max-w-sm" />) : <img
                                 class="max-h-screen-sm rounded-lg"
                                 src={image}
                                 alt=""
-                            />
+                            />}
                         </div>
                         
                     </Link>

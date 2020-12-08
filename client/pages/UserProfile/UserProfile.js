@@ -28,7 +28,7 @@ import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
 
 
 const UserProfile = props => {
-    const { id } = props.match.params
+    const { id, identifier } = props.match.params
     const [modalVisibility, setModalVisibility] = useState(false)
     const [editProfileModalVisibility, setEditProfileModalVisibility] = useState(false)
 
@@ -65,13 +65,13 @@ const UserProfile = props => {
 
 
     useEffect(() => {
-       dispatch(fetchUserProfileRequest(id));
+       dispatch(fetchUserProfileRequest(userProfile.data && userProfile.data.user.id));
     }, []);
 
     useEffect(() => {
         if(userProfile.isSuccessful){
             setUser(userProfile.data.user)
-            setUserPost(userProfile.data.posts.data)
+            setUserPost(userProfile.data.posts && userProfile.data.posts.data)
         }
     }, [userProfile])
 
@@ -80,11 +80,12 @@ const UserProfile = props => {
         
         <> 
         <div>
-            { modalVisibility && id &&
+            { modalVisibility && id && identifier &&
             <PostModal
                 modalVisibility={modalVisibility}
                 setModalVisibility={closeModal}
                 slug={id}
+                identifier={identifier}
             /> }         
         
             <motion.div
@@ -187,6 +188,7 @@ const UserProfile = props => {
                             <PostCard
                                 title={item.title}
                                 image={item.featured}
+                                video={item.featured_video}
                                 key={key}
                                 time={item.created}
                                 avatar={item.avatar}

@@ -23,7 +23,7 @@ import { createCommentRequest } from '../../store/actions/create-comment';
 import { CreateCommentSchema } from '@client/validation-schemas'
 
 const PostModal = props => {
-    const { modalVisibility, setModalVisibility, slug } = props;
+    const { modalVisibility, setModalVisibility, slug, identifier } = props;
     const dispatch = useDispatch();
 
     const [post, setPost] = useState({});
@@ -85,13 +85,15 @@ const PostModal = props => {
         <div className="md:flex w-full border-none">
         <ErrorBoundary>
           <div className="flex md:w-2/3 justify-center">
-          <img className="max-h-screen-md" src={post.featured} alt=""/>
+          { post && post.featured_video ? (<video controls src={post.featured_video} alt="avatar" className="max-h-screen-sm max-w-sm" />) :
+          <img className="max-h-screen-md" src={post.featured} alt=""/>}
           </div>
             
             <div className="md:w-1/3 md:block border-l-2 border-grey-lightest">           
                   <div className="flex flex-row justify-between border-b-2 border-grey-lightest px-3 py-4">
                       <div className="flex items-center">
                             <Link to="#" className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
+                              
                             <img class="rounded-full h-10 w-10 object-cover border-grey-lightest border mr-3" src={post.profile.image} alt="" />
                               <div className="flex-column ">
                                 <p className="text-sm font-medium  text-black">{post.profile.name}</p>
