@@ -15,7 +15,7 @@ export default (state = auth, action) => {
             return {
                 ...state,
                 user: action.payload.data.data,
-                token: action.payload.data.access_token
+                // token: action.payload.data.access_token
             }
         case POST_REGISTER_SUCCESS:
             return {

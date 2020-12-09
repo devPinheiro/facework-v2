@@ -7,6 +7,7 @@ const Textbox = ({
     onBlur,
     value,
     type,
+    ref,
     error,
     name,
     label,
@@ -15,6 +16,7 @@ const Textbox = ({
     <div className="mb-5">
         <label className="mb-4 md:text-lg text-sm font-bold">{label}</label>
         <input
+            ref={ref}
             name={name}
             type={type}
             onChange={onChange}
@@ -25,7 +27,7 @@ const Textbox = ({
         />
 
         {error && (
-            <span className="text-sm text-orange mt-2 block">{error}</span>
+            <span className="text-sm text-red-light font-thin mt-2 block">{error}</span>
         )}
     </div>
 )

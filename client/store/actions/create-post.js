@@ -34,26 +34,25 @@ export const createPostFail = payload => ({
  * @param {Object} payload  payload for the request
  * @return {Object} Redux action
  */
-export const createPostRequest = payload => async dispatch => {
-    dispatch(createPostStart());
-    return axios.post(`posts/create`, payload)
-    .then(res => {
-        dispatch(createPostSuccess(res.data));
-        if(res.data.message){
-            dispatch(createPostFail(res.data.message))
+
+
+
+export const createPostRequest = payload => {
+
+const form = new FormData();
+
+Object.entries(payload).forEach(([key, value]) => {
+    form.append(key, value);
+});
+
+return  {
+  type: CREATE_POST_SUCCESS,
+    payload: {
+        request: {
+            method: 'POST',
+            url: '/feeds/create',
+            data: form
         }
-    })
-    .catch(err => {
-      const {
-            message
-          } = err.response.data;
-          let errorResponse;
-       
-          if (message) {
-            errorResponse = message;
-          } else {
-            errorResponse = 'Something went wrong. please try again';
-          }
-          dispatch(createPostFail(errorResponse));
-    });
-};
+    }
+}
+}

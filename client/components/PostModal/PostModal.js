@@ -27,7 +27,7 @@ const PostModal = props => {
     const dispatch = useDispatch();
 
     const [post, setPost] = useState({});
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState({body: ''});
     const [comments, setComment] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [resetCommentForm, setResetCommentForm] = useState(false);
@@ -52,7 +52,6 @@ const PostModal = props => {
     useEffect(()=>{
       if(createCommentState.isSuccessful && !createCommentState.isLoading){
         setResetCommentForm(false)
-        setValue('')
         dispatch(fetchPostRequest(slug));
       }
     }, [createCommentState])
@@ -65,12 +64,7 @@ const PostModal = props => {
       } 
       dispatch(createCommentRequest(payload))
            .then(response => {
-        console.log(response.payload.data);
-        if(response.payload.data){
-          dispatch(flashMessage('Successfully registered.'))
-          setValues('')
-          resetForm()
-        }     
+          resetForm(value)  
     })
     .catch(({ error }) => {
         setSubmitting(false)
@@ -98,10 +92,10 @@ const PostModal = props => {
                   <div className="flex flex-row justify-between border-b-2 border-grey-lightest px-3 py-4">
                       <div className="flex items-center">
                             <Link to="#" className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
-                            <img class="rounded-full h-10 w-10 object-cover" src={post.profile.image} alt="" />
+                            <img class="rounded-full h-10 w-10 object-cover border-grey-lightest border mr-3" src={post.profile.image} alt="" />
                               <div className="flex-column ">
-                                <p className="ml-3 text-sm font-medium  text-black">{post.profile.name}</p>
-                                <p className="ml-3 text-xs py-1 text-grey-light">{post.profile.service} </p>
+                                <p className="text-sm font-medium  text-black">{post.profile.name}</p>
+                                <p className="text-xs py-1 text-grey-light">{post.profile.service} </p>
                               </div>
                             </Link>
                           </div>
@@ -111,11 +105,13 @@ const PostModal = props => {
                   <div className="pt-2 px-2 md:h-90 overflow-scroll">
                  <div className="text-base text-black"><p>{post.title}</p></div>
                  <small className="text-xxs font-hairline">{post.body} </small> 
-                    <div className="">
-                     {comments && comments.reverse().map((item, key) => (
+                    <div className="pt-4">
+                    <> {isLoading ? <Loader />  : (comments && comments.reverse().map((item, key) => (
                             <Comment {...item} key={key} />
-                        ))}	                       
+                        )))	  } 
+                      </>                  
                     </div>
+                    
                     
                   </div>
                   <div className="-bottom-55">
