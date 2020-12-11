@@ -12,6 +12,8 @@ import Textbox from '@components/Textbox'
 import Camera from '../../assets/image/camera.svg'
 import Video from '../../assets/image/video-camera.svg'
 import { useDispatch, useSelector } from 'react-redux'
+import { uploadToCloudinary } from '../../store/actions/create-post'
+
 
 
 const CreatePostModal = ({
@@ -20,11 +22,18 @@ const CreatePostModal = ({
     onSubmit,
     initialValues,
     createPostSchema,
-    serverError
+    serverError,
+    selectedImage,
+    selectedVideo,
+    setSelectedImage,
+    setSelectedVideo
 }) => {
-    const [selectedImage, setSelectedImage] = useState('');
     const imageRef = useRef();
+    const videoRef = useRef();
+    const dispatch = useDispatch()
     const [pictureError, setPictureError] = useState('')
+    const [videoError, setVideoError] = useState('')
+ 
    
     return (
         <div
@@ -70,11 +79,13 @@ const CreatePostModal = ({
                             }) => (
                                 
                                 <form onSubmit={handleSubmit}>
-                                    {console.log(values)}
+                                  
                                     {serverError && <p className="pb-4 text-red-light font-thin text-xs md:text-sm">{serverError}</p>}                                   
                                     {pictureError && <p className=" text-red-light font-thin text-xs md:text-sm">{pictureError}</p>}                                   
+                                    {videoError && <p className=" text-red-light font-thin text-xs md:text-sm">{videoError}</p>}                                   
 
                                     {selectedImage && !pictureError && <img src={selectedImage} alt="avatar" className="max-h-screen-sm rounded-lg" />}
+                                    {selectedVideo && !videoError && <video autoPlay controls src={selectedVideo} alt="avatar" className="max-h-screen-sm max-w-sm" />}
                                     
                                     {<p className=" text-red-light font-thin text-xs md:text-sm">{touched.featured && errors.featured}</p>}
                                     <input
@@ -90,7 +101,7 @@ const CreatePostModal = ({
                                               // check if file type is any image format
                                         
                                               /* istanbul ignore next */
-                                              if (files[0].size > 2028643) {
+                                              if (files[0].size > 1028643) {
                                                 /* istanbul ignore next */
                                                 setPictureError('Please select an image less than 1mb.');
                                               }
@@ -110,6 +121,39 @@ const CreatePostModal = ({
                                         }}
                                         accept="image/png, image/jpeg"
                                         />
+
+                                        <input
+                                        type="file"
+                                        ref={videoRef}
+                                        className="hidden"
+                                        onChange={e => {
+                                            setVideoError('')
+                                            const files = e.target.files;
+    
+                                            //check if file exist
+                                            if (files && files[0]) {
+                                              // check if file type is any image format
+                                        
+                                              /* istanbul ignore next */
+                                              if (files[0].size > 10028643) {
+                                                /* istanbul ignore next */
+                                                setVideoError('Please select a video less than 10mb.');
+                                              }
+
+                                              const reader = new FileReader();
+                                              reader.onload = e => {
+                                                    setSelectedVideo(e.target.result)
+                                                    setFieldValue('featured', 'video')
+                                                    setFieldValue('selectedVideo', e.target.result)
+                                              }         
+                                             
+                                              /* istanbul ignore next */
+                                              reader.readAsDataURL(files[0]);
+                                            }
+                                        }}
+                                        accept="video/mp4, video/jgp, video/*"
+                                        />
+                                       
                                     <Textbox 
                                        type="text"
                                        name="title"
@@ -142,7 +186,7 @@ const CreatePostModal = ({
                                                     <p className="ml-2 text-grey-dark text-xs md:text-sm">Photo</p>
                                                    
                                                 </button>
-                                                <button  type="button" className="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg ml-3">
+                                                <button  type="button" className="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg ml-3" onClick={() => videoRef.current.click()}>
                                                     <Video />
                                                     <p className="ml-2 text-grey-dark text-xs md:text-sm">Video</p>
                                                 </button>

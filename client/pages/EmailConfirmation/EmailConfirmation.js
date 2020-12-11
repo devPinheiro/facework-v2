@@ -12,6 +12,9 @@ import EmailConfirmationLoader from '@components/EmailConfirmationLoader'
 
 import './index.css'
 import { Link } from 'react-router-dom'
+import jwtDecode from 'jwt-decode'
+import { setAuthToken } from '../../store/Axios'
+import { store } from '../../store'
 export class EmailConfirmationPage extends Component {
     state = {
         alert: ''
@@ -48,24 +51,30 @@ export class EmailConfirmationPage extends Component {
 
         dispatch(postEmailConfirm(token))
             .then(response => {
-                console.log(response.payload.data);
-                if(response.payload.data.message){
+               
+                if(response.payload.data.access_token){
+                    localStorage.setItem('auth',JSON.stringify(response.payload.data.access_token))
+                 
+                    const decoded = jwtDecode(response.payload.data.access_token)
+                    dispatch(setCurrentUser(decoded))
+                    
+                    dispatch(flashMessage('Email confirmed successfully.'))
+                   
+
+                    history.push('/feeds')
+                }else{
                     this.setState({alert: response.payload.data.message})
                     dispatch(flashMessage(response.payload.data.message))
-                } else {
-                    localStorage.setItem(
-                        'auth',
-                        JSON.stringify(response.payload.access_token)
-                    )
-                    dispatch(flashMessage('Email confirmed successfully.'))
-                    history.push('/feeds')
-                }    
-            })
-            .catch(() => {
 
-                dispatch(
-                    flashMessage('Error confirming your email.', { isError: true })
-                )
+                    }
+            })
+            .catch(err => {
+                if(err.response){
+                    dispatch(
+                        flashMessage('Error confirming your email.', { isError: true })
+                    )
+                }
+                
             })
     }
 

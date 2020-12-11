@@ -18,7 +18,7 @@ useEffect(() => {
 
 useEffect(() => {
    if(jobState.isSuccessful){
-     console.log(jobState.data);
+     
      setJobs(jobState.data);
    }
 }, [jobState])

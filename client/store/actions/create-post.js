@@ -56,3 +56,26 @@ return  {
     }
 }
 }
+
+export const uploadToCloudinary = payload => {
+
+    const form = new FormData();
+    form.append('file', payload)
+    form.append('upload_preset', 'ggvzv1ij')
+    form.append('cloud_name', 'appnet')
+    
+    return{
+    type: CREATE_POST_START,
+      payload: {
+          request: {
+              method: 'POST',
+              url: 'https://api.cloudinary.com/v1_1/appnet/upload',
+              data: form,
+              headers: {
+                 "content-type": "multipart/form-data" ,
+                  Authorization: ''
+              }
+          }
+      }
+  }
+}

@@ -40,7 +40,7 @@ export const fetchJobsRequest = (page = 1 ) => async dispatch => {
     return axios.get(`/jobs?page=${page}`)
     .then(res => {
         dispatch(fetchJobsSuccess(res.data));
-        console.log(res.data);
+      
     })
     .catch(err => {
       const {

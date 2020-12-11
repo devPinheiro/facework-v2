@@ -10,6 +10,8 @@ import PageLoader from '@components/PageLoader'
 import NavBar from '@components/Nav/NavBar'
 import Jobs from '@pages/Jobs'
 import PostFeed from '@pages/PostFeeds'
+import EmailConfirmationPage from '@pages/EmailConfirmation'
+import LoginPage from '@pages/Login'
 import PrivateRoute from "./PrivateRoute";
 
 const HomePage = Loadable({
@@ -17,10 +19,6 @@ const HomePage = Loadable({
     loading: PageLoader
 })
 
-const LoginPage = Loadable({
-    loader: () => import('@pages/Login'),
-    loading: PageLoader
-})
 
 const RegisterPage = Loadable({
     loader: () => import('@pages/Register'),
@@ -34,11 +32,6 @@ const ResetPasswordPage = Loadable({
 
 const ForgotPasswordPage = Loadable({
     loader: () => import('@pages/ForgotPassword'),
-    loading: PageLoader
-})
-
-const EmailConfirmationPage = Loadable({
-    loader: () => import('@pages/EmailConfirmation'),
     loading: PageLoader
 })
 
@@ -59,7 +52,7 @@ const Main = withRouter(({ location }) => {
         {["/auth/login", "/auth/signup", "/auth/confirm/mail/:token", "/auth/passwords/reset/:token", "/auth/passwords/email"].includes(
           location.pathname
         ) ||
-          (["/"].includes(location.pathname) && <div className="w-full pt-5 m-auto max-w-xl flex ">
+          ([""].includes(location.pathname) && <div className="w-full pt-5 m-auto max-w-xl flex ">
           <NavBar />
       </div>)}
 
@@ -118,7 +111,7 @@ const Main = withRouter(({ location }) => {
                             />
                             <PrivateRoute
                                 exact={true}
-                                path={'/profile/:slug/p/:id'}
+                                path={'/profile/:slug/p/:id/:identifier'}
                                 component={UserProfile}
                                 key="userProfilePost"
                             />

@@ -6,7 +6,7 @@ import More from '../../assets/image/more.svg'
 import CreatePostModal from '../CreatePostModal/CreatePostModal'
 
 const CreatePostCard = ({ setPostModalVisibility, postModalVisibility, initialValues, createPostSchema, onSubmit, imageHandler, pictureError,
-    setPictureError, serverError }) => {
+    setPictureError, serverError, selectedImage, selectedVideo, setSelectedImage, setSelectedVideo }) => {
     return (
         <>
         <div className="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10">
@@ -44,7 +44,9 @@ const CreatePostCard = ({ setPostModalVisibility, postModalVisibility, initialVa
         </div>
         <CreatePostModal postModalVisibility={postModalVisibility} setPostModalVisibility={setPostModalVisibility} onSubmit={onSubmit} initialValues={initialValues}
                                 createPostSchema={createPostSchema} imageHandler={imageHandler}
-                                pictureError={pictureError} setPictureError={setPictureError} serverError={serverError} /> 
+                                pictureError={pictureError} setPictureError={setPictureError} serverError={serverError}
+                                selectedImage={selectedImage} selectedVideo={selectedVideo} setSelectedImage={setSelectedImage} setSelectedVideo={setSelectedVideo}
+                                /> 
         </>
     )
 }

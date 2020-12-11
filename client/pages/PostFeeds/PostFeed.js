@@ -20,7 +20,9 @@ import { fetchPostsRequest } from '../../store/actions/feeds';
 // import data from './fixtures'
 import ErrorBoundary from '../../components/ErrorBoundary';
 import { createPostSchema } from '../../validation-schemas'
-import { createPostRequest } from '../../store/actions/create-post'
+import { createPostRequest, uploadToCloudinary } from '../../store/actions/create-post'
+import { setCurrentUser } from '../../store/actions/auth'
+import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
 
 const PostFeed = props => {
     // internal states
@@ -31,9 +33,11 @@ const PostFeed = props => {
     const [feed, setFeed] = useState([]);
     const [page, setPage] = useState(2);
     const [isLoading, setIsLoading] = useState(true);
-    const [initialValues, setInitialValues] = useState({title: '', body: '', image: '', selectedImage: '', featured: ''})
+    const [initialValues, setInitialValues] = useState({title: '', body: '', image: '', selectedImage: '', featured: '', selectedVideo: '', featured_video: ''})
     const [pictureError, setPictureError] = useState('')
     const [serverError, setServerError] = useState('')
+    const [selectedImage, setSelectedImage] = useState('')
+    const [selectedVideo, setSelectedVideo] = useState('')
 
     // useSelectors
     const feedState = useSelector(s => s.feeds);
@@ -67,45 +71,40 @@ const PostFeed = props => {
         props.history.push('/feeds')
     }
 
-    const imageHandler = e => {
-        // get the file uploaded
-        const files = e.target.files;
-    
-        //check if file exist
-        if (files && files[0]) {
-          // check if file type is any image format
-    
-          /* istanbul ignore next */
-          if (files[0].size > 2028643) {
-            /* istanbul ignore next */
-            setMediaError('Please select an image less than 1mb.');
-          }
-          setInitialValues({...initialValues, image: files[0]});
-          // initializes file reader
-          /* istanbul ignore next */
-          const reader = new FileReader();
-          /* istanbul ignore next */
-          reader.onload = e => {
-            // extract the image file and set it to state
-            /* istanbul ignore next */
-            setInitialValues({...initialValues, selectedImage: e.target.result});
-          };
-          /* istanbul ignore next */
-          reader.readAsDataURL(files[0]);
-        }
-      };
-
 
      /**
      * Handle registration form submit
      *
      * @return null
      */
-   const onSubmit = (data, { setSubmitting, setErrors, resetForm}) => {
+    const onSubmit = (data, { setSubmitting, setErrors, resetForm}) => {
+      
+        let secureUrl;
+        if(data.selectedVideo){
+            dispatch(uploadToCloudinary(data.selectedVideo)).then(res =>{
+             
+                secureUrl = res.payload.data.secure_url
+                dispatch(createPostRequest({...data, featured_video: secureUrl}))
+                    .then(response => { 
+                        if(response.payload.data.message || response.payload.data.error){
+                            setServerError('Something went wrong, check your network and please try again')
+                            setSubmitting(false)
+                        }else{
+                            dispatch(flashMessage('Post created successfully'))
+                            dispatch(fetchPostsRequest())
+                            setPostModalVisibility(false)
+                            setSubmitting(false)
+                            resetForm(initialValues)
+                            setSelectedVideo('')
+                        }
+                    })
+            })
 
-        dispatch(createPostRequest(data))
+            
+        } else {
+            dispatch(createPostRequest(data))
             .then(response => { 
-                  if(response.payload.data.message){
+                  if(response.payload.data.message || response.payload.data.error){
                     setServerError('Something went wrong, check your network and please try again')
                     setSubmitting(false)
                 }else{
@@ -117,6 +116,9 @@ const PostFeed = props => {
                     setSelectedImage('')
                 }
             })
+        }
+       
+      
            
     }
     return (
@@ -135,16 +137,20 @@ const PostFeed = props => {
                                 onSubmit={onSubmit}
                                 initialValues={initialValues}
                                 createPostSchema={createPostSchema}
-                                imageHandler={imageHandler}
                                 pictureError={pictureError}
                                 setPictureError={setPictureError}
                                 serverError={serverError}
+                                selectedImage={selectedImage}
+                                selectedVideo={selectedVideo}
+                                setSelectedImage={setSelectedImage}
+                                setSelectedVideo={setSelectedVideo}
                                 />
                                
                                 { isLoading ? <div className="m-auto h-64 my-32 py-32"><Loader /> </div> : feed.map((item, key) => (
                                     <PostCard
                                         title={item.title}
                                         image={item.featured}
+                                        video={item.featured_video}
                                         key={key}
                                         time={item.created_at}
                                         avatar={item.profile && item.profile.image}
