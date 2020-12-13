@@ -24,12 +24,12 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const store = createStore(
     persistedReducer,
-    composeWithDevTools(
     applyMiddleware(
         ...middleware,
         flash(flashOptions),
-        axiosMiddleware(instance)
-    )
+        axiosMiddleware(instance,{
+            returnRejectedPromiseOnError: true
+    })
     )
 )
 
