@@ -54,6 +54,7 @@ export class EmailConfirmationPage extends Component {
                
                 if(response.payload.data.access_token){
                     localStorage.setItem('auth',JSON.stringify(response.payload.data.access_token))
+                    setAuthToken(localStorage.auth)
                  
                     const decoded = jwtDecode(response.payload.data.access_token)
                     dispatch(setCurrentUser(decoded))

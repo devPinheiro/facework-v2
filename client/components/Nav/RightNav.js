@@ -61,7 +61,8 @@ const RightNav = ({ open }) => {
             <SearchForm className="nav" />
         <div className="nav px-2"><Link to="/">Home</Link></div>
         <div className="nav px-2"><Link to="/jobs">Jobs</Link></div>
-        <div className="nav px-2"><a href="" className="text-md"><RiDiscussLine /></a></div>
+        <div className="nav px-2"><Link to="/messages" className="text-md"><RiDiscussLine /></Link></div>
+
         <div className="nav px-2 cursor-pointer" onClick={() => setOpenNotification(!openNotification)}><FiBell />
            {showNotificationBadge ? <div className="bg-red rounded-full notify-badge h-2 w-2"></div> : null }
         </div>

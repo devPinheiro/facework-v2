@@ -13,6 +13,7 @@ import PostFeed from '@pages/PostFeeds'
 import EmailConfirmationPage from '@pages/EmailConfirmation'
 import LoginPage from '@pages/Login'
 import PrivateRoute from "./PrivateRoute";
+import Messenger from "../../components/Messenger";
 
 const HomePage = Loadable({
     loader: () => import('@pages/Home'),
@@ -52,7 +53,7 @@ const Main = withRouter(({ location }) => {
         {["/auth/login", "/auth/signup", "/auth/confirm/mail/:token", "/auth/passwords/reset/:token", "/auth/passwords/email"].includes(
           location.pathname
         ) ||
-          ([""].includes(location.pathname) && <div className="w-full pt-5 m-auto max-w-xl flex ">
+          (<div className="w-full pt-5 m-auto max-w-xl flex ">
           <NavBar />
       </div>)}
 
@@ -88,6 +89,11 @@ const Main = withRouter(({ location }) => {
                             exact={true}
                             path={'/auth/emails/confirm/:token'}
                             component={EmailConfirmationPage}
+                        />
+                        <Route 
+                            exact
+                            path={'/messages'}
+                            component={Messenger}
                         />
                         <AnimatePresence exitBeforeEnter initial={false}>
                            
