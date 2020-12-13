@@ -184,7 +184,7 @@ const UserProfile = props => {
                     variants={backVariants}
                 >
                     {userPost && userPost.map((item, key) => (
-                        <div className="w-64">
+                        <div className="flex max-w-xs mx-2">
                             <PostCard
                                 title={item.title}
                                 image={item.featured}
@@ -206,12 +206,6 @@ const UserProfile = props => {
                 
                 
             </motion.div>
-            <motion.div
-                    className="text-xl text-black md:w-3/4 flex justify-between flex-wrap"
-                    variants={backVariants}
-                >
-                    
-                </motion.div>
 
               
         </div>
