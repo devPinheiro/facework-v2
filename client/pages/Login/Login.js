@@ -55,34 +55,25 @@ class LoginPage extends PureComponent {
      *
      * @return null
      */
-    onSubmit = (data, { resetForm, setSubmitting, setErrors }) => {
+    onSubmit = async (data, { resetForm, setSubmitting, setErrors }) => {
         const { dispatch, history } = this.props
 
-        dispatch(postLogin(data))
-            .then(response => {
-                if(response.payload.data.access_token){
-                    localStorage.setItem(
-                        'auth',
-                        JSON.stringify(response.payload.data.access_token)
-                    )
-                    dispatch(setCurrentUser(jwtDecode(response.payload.data.access_token)))
-                    
-                    dispatch(flashMessage('Successfully logged in.'))
+        try {
+            const response = await dispatch(postLogin(data));
+            if(response.payload.data.access_token){
+                localStorage.setItem(
+                    'auth',
+                    JSON.stringify(response.payload.data.access_token)
+                )
+                dispatch(setCurrentUser(jwtDecode(response.payload.data.access_token)))
+                
+                dispatch(flashMessage('Successfully logged in.'))
 
-                    history.push('/feeds')
-                } else {
-                    dispatch(
-                        flashMessage(
-                           'Something went wrong',
-                                { isError: true }
-                                
-                        ));
-                        setErrors({})
+                history.push('/feeds')
                 }
-               
-            })
-            .catch(error  => {
-                const { message } = error.response.data
+           
+        } catch ({ error }) {
+            const { message } = error.response.data
                 setSubmitting(false)
                 setErrors({
                     email:
@@ -101,7 +92,8 @@ class LoginPage extends PureComponent {
                 ) : dispatch(flashMessage(message,
                     { isError: false }))
                 this.setState({confirmEmail: message !== 'Unauthorized'})
-            })
+        }
+
     }
 
     render() {
