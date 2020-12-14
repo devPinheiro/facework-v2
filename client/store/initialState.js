@@ -5,13 +5,19 @@ export const feeds = {
     data: null
 }
 
-export const post = {
+export const notifications = {
     isLoading: false,
     error: null,
     isSuccessful: false,
     data: null
 }
 
+export const post = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
 
 export const comment = {
     isLoading: false,

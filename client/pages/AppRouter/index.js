@@ -121,8 +121,8 @@ const Main = withRouter(({ location }) => {
                                 component={UserProfile}
                                 key="userProfilePost"
                             />
-                            <PrivateRoute
-                                exact={true}
+                            <Route
+                                exact
                                 path={'/jobs'}
                                 component={Jobs}
                                 key="jobs"

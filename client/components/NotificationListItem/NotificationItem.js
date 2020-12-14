@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const NotificationItem = ({link, avatar, title, time }) => {
+const NotificationItem = ({link, avatar, type, read_at, data }) => {
     return (
         <div className="block border-grey-lightest px-2 py-2 hover:bg-grey-lightest">
                       <div className="flex justify-between">

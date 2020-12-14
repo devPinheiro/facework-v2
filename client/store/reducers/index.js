@@ -5,6 +5,7 @@ import userProfile from './fetch-user-profile'
 import comment from './create-comment'
 import createPost from './create-post'
 import job from './fetch-all-jobs'
+import notifications from './notifications'
 import { reducer as flash } from 'redux-flash'
 import { combineReducers } from 'redux'
 
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     comment,
     job,
     userProfile,
-    createPost
+    createPost,
+    notifications
 })
 
 export default rootReducer

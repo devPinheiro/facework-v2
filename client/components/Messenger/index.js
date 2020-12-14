@@ -5,7 +5,8 @@ import './Messenger.css';
 
 export default function Messenger(props) {
     return (
-      <div className="messenger">
+      <div className=" pt-8 m-auto max-w-xl flex  messenger">
+        
         {/* <Toolbar
           title="Messenger"
           leftItems={[
@@ -14,9 +15,9 @@ export default function Messenger(props) {
           rightItems={[
             <ToolbarButton key="add" icon="ion-ios-add-circle-outline" />
           ]}
-        /> */}
+        /> 
 
-        {/* <Toolbar
+         <Toolbar
           title="Conversation Title"
           rightItems={[
             <ToolbarButton key="info" icon="ion-ios-information-circle-outline" />,
