@@ -60,19 +60,24 @@ class LoginPage extends PureComponent {
 
         try {
             const response = await dispatch(postLogin(data));
+           
             if(response.payload.data.access_token){
                 localStorage.setItem(
                     'auth',
                     JSON.stringify(response.payload.data.access_token)
                 )
-                dispatch(setCurrentUser(jwtDecode(response.payload.data.access_token)))
+            
+            }
+    
+                await dispatch(setCurrentUser(response.payload.data.data))
                 
-                dispatch(flashMessage('Successfully logged in.'))
-
+                
+                await dispatch(flashMessage('Successfully logged in.'))
+               
                 history.push('/feeds')
-                }
            
         } catch ({ error }) {
+            console.log(error);
             const { message } = error.response.data
                 setSubmitting(false)
                 setErrors({
