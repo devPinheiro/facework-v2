@@ -9,7 +9,7 @@
     "prettier": "prettier --write './**/*.js'",
     "build": "yarn run build:client && yarn run build:server",
     "test": "jest",
-    "build:client": "webpack --production",
+    "build:client": "webpack --mode=production",
     "start": "node dist/index.js"
   },
   "dependencies": {
