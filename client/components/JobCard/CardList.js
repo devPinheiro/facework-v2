@@ -25,14 +25,14 @@ useEffect(() => {
 
 const List = ({ match, history }) => (
   <ul className="card-list">
-    {jobs.map(card => (
+    {jobs ? jobs && jobs.map(card => (
       <Card
         key={card.id}
         isSelected={match.params.id === card.id}
         history={history}
         {...card}
       />
-    ))}
+    )) : <h4 className="text-center">No job vacancies</h4>}
   </ul>
 );
 

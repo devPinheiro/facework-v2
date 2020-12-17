@@ -1,4 +1,5 @@
 import axios from  'axios';
+import { setAuthToken } from '../Axios';
 
 export const SET_AUTH = 'SET_AUTH'
 export const POST_LOGIN = 'POST_LOGIN'
@@ -109,7 +110,7 @@ export const setCurrentUser = decoded => {
   
   export const logout = history => dispatch => {
     // remove token
-    localStorage.removeItem("token");
+    localStorage.removeItem("auth");
     setAuthToken(false);
     dispatch(setCurrentUser({}));
     history.push("/");

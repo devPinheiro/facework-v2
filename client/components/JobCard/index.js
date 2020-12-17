@@ -28,6 +28,7 @@ export const Card = memo(
     id,
     title,
     category,
+    link,
     history,
     pointOfInterest,
     backgroundColor
@@ -88,7 +89,7 @@ export const Card = memo(
             <ContentPlaceholder />
           </motion.div>
         </div>
-        {!isSelected && <Link to={`/jobs/${id.toString()}`} className={`card-open-link`} />}
+        {!isSelected && <Link to={`${link}`} className={`card-open-link`} />}
       </li>
     );
   },

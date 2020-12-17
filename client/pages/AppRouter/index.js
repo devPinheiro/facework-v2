@@ -111,7 +111,7 @@ const Main = withRouter(({ location }) => {
                             />
                             <PrivateRoute
                                 exact={true}
-                                path={'/profile/:id'}
+                                path={'/profile'}
                                 component={UserProfile}
                                 key="userProfile"
                             />

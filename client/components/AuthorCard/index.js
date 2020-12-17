@@ -6,7 +6,7 @@ import {
     FiMapPin
 } from 'react-icons/fi'
 
-const AuthorCard = ({ profile, name, email, id }) => {
+const AuthorCard = ({ profile, name, email, id, image }) => {
 
     const transition = {
         duration: 1,
@@ -30,9 +30,9 @@ const AuthorCard = ({ profile, name, email, id }) => {
         <>
         { profile ?  (<div className="flex flex-col items-center">
         <motion.img
-            className="h-16 w-16 md:h-32 md:w-32 mt-3 rounded-full"
+            className="h-16 w-16 md:h-32 md:w-32 mt-3 rounded-full  border-grey-lightest border"
             variants={imageVariants}
-            src={`https://images.unsplash.com/photo-1520065786657-b71a007dd8a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80`}
+            src={ image ? image : `https://images.unsplash.com/photo-1520065786657-b71a007dd8a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80`}
             alt="Sammy Dev"
         />
         <div className="py-2 text-center">
@@ -48,11 +48,11 @@ const AuthorCard = ({ profile, name, email, id }) => {
         </div>
     </div>) :
         (<div className="">
-            <Link className="block md:flex bg-white rounded-lg py-6 my-8 max-w-content" to={`/profile/${id}`}>
+            <Link className="block md:flex bg-white rounded-lg py-6 my-8 max-w-content" to={`/profile`}>
             <motion.img
-            className="h-10 w-10 md:h-16 md:w-16 mt-3 mr-4 rounded-full"
+            className="h-10 w-10 md:h-16 md:w-16 mt-3 mr-4 rounded-full border-grey-lightest border"
             variants={imageVariants}
-            src={`https://images.unsplash.com/photo-1520065786657-b71a007dd8a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80`}
+            src={ image ? image : `https://images.unsplash.com/photo-1520065786657-b71a007dd8a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80`}
             alt="Sammy Dev"
         />
             <div className="text-center md:text-left mt-2">

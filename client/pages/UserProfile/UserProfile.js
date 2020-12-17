@@ -23,11 +23,13 @@ import EditProfileModal from '@components/EditProfileModal/EditProfileModal'
 import data from '../PostFeeds/fixtures'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
+import { logout } from '../../store/actions/auth'
 
 
 
 
 const UserProfile = props => {
+    const { history } = props;
     const { id, identifier } = props.match.params
     const [modalVisibility, setModalVisibility] = useState(false)
     const [editProfileModalVisibility, setEditProfileModalVisibility] = useState(false)
@@ -64,9 +66,9 @@ const UserProfile = props => {
     }
 
 
-    useEffect(() => {
-       dispatch(fetchUserProfileRequest(userProfile.data && userProfile.data.user.id));
-    }, []);
+    // useEffect(() => {
+    //    dispatch(fetchUserProfileRequest(userProfile.data && userProfile.data.user.id));
+    // }, []);
 
     useEffect(() => {
         if(userProfile.isSuccessful){
@@ -75,12 +77,14 @@ const UserProfile = props => {
         }
     }, [userProfile])
 
+    console.log(user);
+
 
     return (
         
         <> 
         <div>
-            { modalVisibility && id && identifier &&
+            { id && identifier &&
             <PostModal
                 modalVisibility={modalVisibility}
                 setModalVisibility={closeModal}
@@ -102,7 +106,7 @@ const UserProfile = props => {
 
                     <div className="pt-6 flex flex-col w-full">
                         <div className="flex flex-row justify-between py-2">
-                        <Link to="/">
+                        
                             <p className=" text-sm">
                                 {' '}
                                 <span className="px-2 -mb-1">
@@ -111,7 +115,7 @@ const UserProfile = props => {
                                 Posts
                             </p>
                             
-                            </Link>
+                           
                         <div>{userPost && userPost.length}{' '}</div>
                         </div>
                         <div className="flex flex-row  justify-between py-2">
@@ -140,7 +144,7 @@ const UserProfile = props => {
                             
                         </div>
                         <div className="flex flex-row  justify-between py-2">
-                            <p className="text-sm">
+                            <p className="text-sm" onClick={() => dispatch(logout(history))}>
                                 <span className="px-2 -mb-1">
                                     <FiLogOut />{' '}
                                 </span>{' '}
@@ -153,10 +157,7 @@ const UserProfile = props => {
                             About me
                         </h6>
                         <p className="text-xxs">
-                            Realm was designed and built from scratch to support
-                            mobile devices and even wearables. It's designed as
-                            an object-oriented database and this makes it up to
-                            10x faster than SQLite.{' '}
+                            {user && user.about}
                         </p>
                     </div>
 
@@ -166,13 +167,20 @@ const UserProfile = props => {
                         </h6>
                         <div className="flex flex-row ">
                             <span className="pr-4">
-                                <FiTwitter />
+                                <Link to={user && user.twitter || '#'}>
+                                     <FiTwitter />
+                                </Link>
+                                
                             </span>
                             <span className="pr-4">
+                            <Link to={user && user.instagram || '#'}>
                                 <FiInstagram />
+                                </Link>
                             </span>
                             <span className="pr-4">
+                            <Link to={user && user.facebook || '#'}>
                                 <FiFacebook />
+                                </Link>
                             </span>
                         </div>
                         
@@ -184,7 +192,7 @@ const UserProfile = props => {
                     variants={backVariants}
                 >
                     {userPost && userPost.map((item, key) => (
-                        <div className="flex max-w-xs mx-2">
+                        <div className="flex max-w-xs mx-2" key={key}>
                             <PostCard
                                 title={item.title}
                                 image={item.featured}
@@ -209,8 +217,8 @@ const UserProfile = props => {
 
               
         </div>
-          <EditProfileModal modalVisibility={editProfileModalVisibility}
-          setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} />
+          {/* <EditProfileModal modalVisibility={editProfileModalVisibility}
+          setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} /> */}
           </>
     )
 }
