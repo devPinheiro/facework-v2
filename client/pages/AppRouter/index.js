@@ -50,7 +50,7 @@ const Main = withRouter(({ location }) => {
     
     return (
 <>
-        {["/auth/login", "/auth/signup", "/auth/confirm/mail/:token", "/auth/passwords/reset/:token", "/auth/passwords/email"].includes(
+        {["/auth/login", "/auth/register", "/auth/confirm/mail/:token", "/auth/passwords/reset/:token", "/auth/passwords/email"].includes(
           location.pathname
         ) ||
           (<div className="w-full pt-5 m-auto max-w-xl flex ">

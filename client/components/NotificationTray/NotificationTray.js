@@ -43,7 +43,6 @@ const NotificationTray = ({ openNotification }) => {
          setPage(page + 1);
          dispatch(fetchNotificationsRequest(page));
      }
-console.log(notificationState);
     return (
         
         <div className={`${ openNotification ? "w-80 h-99 flex flex-col bg-fixed bg-white shadow-md border-grey-lightest rounded-md z-50 fixed top-20" : "hidden" }`}>

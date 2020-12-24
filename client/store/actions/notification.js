@@ -40,7 +40,7 @@ export const fetchNotificationsRequest = (page = 1 ) => async dispatch => {
     dispatch(fetchNotificationsStart());
     return axios.get(`notifications?page=${page}`)
     .then(res => {
-        console.log(res.data.data);
+
         dispatch(fetchNotificationsSuccess(res.data.data));
     })
     .catch(err => {
