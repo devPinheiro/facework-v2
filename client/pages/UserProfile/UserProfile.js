@@ -77,8 +77,6 @@ const UserProfile = props => {
         }
     }, [userProfile])
 
-    console.log(user);
-
 
     return (
         

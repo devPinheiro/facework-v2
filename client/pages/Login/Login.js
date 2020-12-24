@@ -77,7 +77,7 @@ class LoginPage extends PureComponent {
                 history.push('/feeds')
            
         } catch ({ error }) {
-            console.log(error);
+           
             const { message } = error.response.data
                 setSubmitting(false)
                 setErrors({
