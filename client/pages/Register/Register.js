@@ -71,7 +71,7 @@ export class RegisterPage extends Component {
                     }
            
         } catch (error) {
-
+            console.log(error);
             if(error.response.payload.data.errors){
                 setSubmitting(false)
                 setErrors(response.payload.data.errors)
