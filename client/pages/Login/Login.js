@@ -16,6 +16,8 @@ import './index.css'
 import { setCurrentUser } from '../../store/actions/auth'
 import jwtDecode from 'jwt-decode'
 import { store } from '../../store'
+import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
+import { setAuthToken } from '../../store/Axios'
 
 class LoginPage extends PureComponent {
     /**
@@ -66,11 +68,10 @@ class LoginPage extends PureComponent {
                     'auth',
                     JSON.stringify(response.payload.data.access_token)
                 )
-            
+                setAuthToken(response.payload.data.access_token)
             }
     
                 await dispatch(setCurrentUser(response.payload.data.data))
-                
                 
                 await dispatch(flashMessage('Successfully logged in.'))
                

@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 import { setAuthToken } from '../../store/Axios'
 import { store } from '../../store'
+import { setCurrentUser } from '../../store/actions/auth'
 export class EmailConfirmationPage extends Component {
     state = {
         alert: ''
@@ -54,10 +55,10 @@ export class EmailConfirmationPage extends Component {
                
                 if(response.payload.data.access_token){
                     localStorage.setItem('auth',JSON.stringify(response.payload.data.access_token))
-                    setAuthToken(localStorage.auth)
-                 
-                    const decoded = jwtDecode(response.payload.data.access_token)
-                    dispatch(setCurrentUser(decoded))
+                    setAuthToken(localStorage.auth)            
+                    
+                    dispatch(setCurrentUser(response.payload.data.data))
+                   
                     
                     dispatch(flashMessage('Email confirmed successfully.'))
                    

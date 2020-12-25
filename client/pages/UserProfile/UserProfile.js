@@ -72,8 +72,8 @@ const UserProfile = props => {
 
     useEffect(() => {
         if(userProfile.isSuccessful){
-            setUser(userProfile.data.user)
-            setUserPost(userProfile.data.posts && userProfile.data.posts.data)
+            setUser(userProfile.data.profile)
+            setUserPost(userProfile.data && userProfile.data.posts.data)
         }
     }, [userProfile])
 

@@ -46,7 +46,7 @@ const PostFeed = props => {
 
     // useEffects
     useEffect(() => {
-        if(authState && authState.user.aud)dispatch(fetchUserProfileRequest(authState && authState.user.aud));
+        if(authState && authState.user) dispatch(fetchUserProfileRequest());
         if(!slug)dispatch(fetchPostsRequest()); 
     }, []);
 
@@ -168,7 +168,7 @@ const PostFeed = props => {
                     </div>
                     <div className="hidden md:block md:w-1/3 ">
                         <div className="mx-4 fixed pin-r-3">
-                            <AuthorCard {...(profileState && profileState.user)} />
+                            <AuthorCard {...(profileState && profileState.profile)} />
                         </div>
                     </div>
                 </div>
