@@ -36,7 +36,7 @@ export class App extends PureComponent {
             // set current user
             store.dispatch(setCurrentUser(decoded));
           
-            store.dispatch(fetchUserProfileRequest(decoded.aud));
+            store.dispatch(fetchUserProfileRequest());
             // for expired token
             const currentTime = Date.now() / 1000;
             if (decoded.exp < currentTime) {

@@ -35,9 +35,9 @@ export const fetchUserProfileFail = payload => ({
  * @param {Object} perPage  number of post per page in the response data
  * @return {Object} Redux action
  */
-export const fetchUserProfileRequest = id => async dispatch => {
+export const fetchUserProfileRequest = () => async dispatch => {
     dispatch(fetchUserProfileStart());
-    return axios.get(`/profile/${id}`)
+    return axios.get(`/auth/user`)
     .then(res => {
         dispatch(fetchUserProfileSuccess(res.data));
         if(res.data.message){

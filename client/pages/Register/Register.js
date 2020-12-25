@@ -48,29 +48,38 @@ export class RegisterPage extends Component {
      *
      * @return null
      */
-    onSubmit = (data, { setSubmitting, setErrors }) => {
+    onSubmit = async (data, { setSubmitting, setErrors }) => {
         const { dispatch, history } = this.props
 
-        dispatch(postRegister(data))
-            .then(response => {
-                if(response.payload.data.data){
-                    dispatch(flashMessage('Successfully registered.'))
-                    this.setState({confirmEmail: true})
-                }
 
-                if(response.payload.data.errors){
-                    setSubmitting(false)
-                    setErrors(response.payload.data.errors)
+        try {
+            const response = await dispatch(postRegister(data));
+           
+            if(response.payload.data.data){
+                dispatch(flashMessage('Successfully registered.'))
+                this.setState({confirmEmail: true})
+            }   
+            
+            if(response.payload.data.errors){
+                        setSubmitting(false)
+                        setErrors(response.payload.data.errors)
+                        dispatch(
+                            flashMessage(response.payload.data.errors.email[0], {
+                                isError: true
+                            })
+                        )
+                    }
+           
+        } catch (error) {
+           
                     dispatch(
-                        flashMessage(response.payload.data.errors.email[0], {
+                        flashMessage('something went wrong', {
                             isError: true
                         })
                     )
-                }
-            })
-            .catch(({ error }) => {
-                
-            })
+        
+        }
+
     }
 
     render() {
