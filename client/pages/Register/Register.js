@@ -71,22 +71,16 @@ export class RegisterPage extends Component {
                     }
            
         } catch (error) {
-            console.log(error);
-            if(error.response.payload.data.errors){
+
+            if(error.response.data.errors){
                 setSubmitting(false)
-                setErrors(response.payload.data.errors)
+                setErrors(error.response.data.errors)
                 dispatch(
-                    flashMessage(response.payload.data.errors.email[0], {
+                    flashMessage(error.response.data.errors.email[0], {
                         isError: true
                     })
                 )
             }
-           
-                    // dispatch(
-                    //     flashMessage('something went wrong', {
-                    //         isError: true
-                    //     })
-                    // )
         
         }
 
