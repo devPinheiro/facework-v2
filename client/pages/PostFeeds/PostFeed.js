@@ -86,7 +86,7 @@ const PostFeed = props => {
             dispatch(uploadToCloudinary(data.selectedVideo)).then(res =>{
              
                 secureUrl = res.payload.data.secure_url
-                dispatch(createPostRequest({...data, featured_video: secureUrl}))
+                dispatch(createPostRequest({title: data.title, featured: 'video', body: data.body, featured_video: secureUrl}))
                     .then(response => { 
                         if(response.payload.data.message || response.payload.data.error){
                             setServerError('Something went wrong, check your network and please try again')
