@@ -6,7 +6,7 @@ const Logo = () => (
         to="/"
         className="font-primary no-underline text-gold flex align-middle font-bold text-gold tracking-xl text-lg"
     >
-        FULLSTACK-JS
+        Facework
     </Link>
 )
 

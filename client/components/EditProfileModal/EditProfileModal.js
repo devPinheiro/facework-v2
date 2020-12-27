@@ -17,6 +17,8 @@ const EditProfileModal = ({
 }) => {
     return (
         <Modal modalVisibility={modalVisibility}>
+
+            
             <ErrorBoundary>
                 <div className="modal-container-active modal-container ">
                     <div className="md:flex w-full border-none justify-center">
