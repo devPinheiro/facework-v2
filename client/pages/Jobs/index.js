@@ -10,6 +10,7 @@ const Jobs = () => {
     return (
         <div className="w-full m-auto max-w-2xl flex">
             <CardList />
+            
         </div>
     )
 }
