@@ -215,8 +215,8 @@ const UserProfile = props => {
 
               
         </div>
-          {/* <EditProfileModal modalVisibility={editProfileModalVisibility}
-          setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} /> */}
+          <EditProfileModal modalVisibility={editProfileModalVisibility}
+          setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} />
           </>
     )
 }
