@@ -17,12 +17,13 @@ import CreatePost from '@components/CreatePostCard'
 import { fetchPostsRequest } from '../../store/actions/feeds';
 
 // fixtures
-// import data from './fixtures'
+import data from './fixtures'
 import ErrorBoundary from '../../components/ErrorBoundary';
 import { createPostSchema } from '../../validation-schemas'
 import { createPostRequest, uploadToCloudinary } from '../../store/actions/create-post'
 import { setCurrentUser } from '../../store/actions/auth'
 import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
+import Follow from '../../components/Follow'
 
 const PostFeed = props => {
     // internal states
@@ -169,6 +170,12 @@ const PostFeed = props => {
                     <div className="hidden md:block md:w-1/3 ">
                         <div className="mx-4 fixed pin-r-3">
                             <AuthorCard {...(profileState && profileState.profile)} />
+                            <div>
+                                {/* fetch follow-able users */}
+                                {data.map((item, key) => (
+                                    <Follow profile={item} key={key}/>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

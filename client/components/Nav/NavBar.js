@@ -1,111 +1,121 @@
-import React from 'react'
-import styled from 'styled-components'
-import Burger from './Burger'
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import classJoin from 'classnames';
+import { FiBell } from "react-icons/fi";
+import styled from 'styled-components';
+import { RiDiscussLine } from "react-icons/ri";
+import NotificationTray from '../NotificationTray';
+import onClickOutside from "react-onclickoutside";
 
 
-const NavBar = () => {
-    return (
-      
+
+const UL = styled.ul`
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+
+    .nav {
+       
         
-<nav class="bg-grey-500">
-  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-    <div class="relative flex items-center justify-between h-16">
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        {/* <!-- Mobile menu button--> */}
-        <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          {/* <!-- Icon when menu is closed. -->
-          <!--
-            Heroicon name: menu
+        a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 16px;
 
-            Menu open: "hidden", Menu closed: "block"
-          --> */}
-          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          {/* <!-- Icon when menu is open. -->
-          <!--
-            Heroicon name: x
+        }
+        .notify-badge {
+            left: 11px;
+            top: -28px;
+            position: relative;
+            border-radius: 100%
+        }
+    }
+`;
 
-            Menu open: "block", Menu closed: "hidden"
-          --> */}
-          <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+const Navbar = () => {
+  const [isVisible, changeVisibility] = useState(false);
+  const classToggle = classJoin({
+    block: isVisible,
+    hidden: !isVisible,
+  });
+  const [openNotification, setOpenNotification] = useState(false)
+  const [showNotificationBadge, setNotificationBadge] = useState(true)
+  Navbar.handleClickOutside = () => setOpenNotification(false)
+
+  return (
+    <nav className="flex items-center justify-between  bg-white-500 pt-5 z-40 pb-8">
+
+      <div className="flex items-center flex-shrink-0 text-dark mr-6">
+        <Link to="/" className="text-3xl text-black no-underline">
+          facework
+        </Link>
       </div>
-      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow" />
-          <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
-        </div>
-        <div class="hidden sm:block sm:ml-6">
-          <div class="flex space-x-4">
-            {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-            <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
-          </div>
-        </div>
-      </div>
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-          {/* <span class="sr-only">View notifications</span> */}
-          {/* <!-- Heroicon name: bell --> */}
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+      <div className="block lg:hidden">
+        <button
+          className="flex items-center px-3 py-2 border navToggler rounded text-dark-200 border-dark-500 hover:text-dark hover:border-dark"
+          onClick={() => changeVisibility(!isVisible)}
+        >
+          <svg
+            className="fill-current h-3 w-3"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg>
         </button>
+      </div>
+      <div
+        id="navLink"
+        className={`${classToggle} w-full block lg:visible xl:visible lg:flex lg:items-center lg:w-auto`}
+      >
+        <div className="lg:flex text-sm text-center m-auto pt-8 lg:pt-1 xl:pt-1">
+       
+          <NavLink
+            className="font-raleway block md:text-base lg:text-base xl:text-base text-sm lg:mr-8 mt-4 lg:inline-block lg:mt-0 text-black no-underline text-dark-200 hover:text-dark"
+            to="/feeds"
+            exact
+            activeClassName="border-orange-500 font-semibold pb-1 border-b-2"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className="font-raleway block md:text-base lg:text-base xl:text-base lg:mr-8 mt-4 lg:inline-block lg:mt-0 text-black no-underline hover:text-dark"
+            to="/jobs"
+            activeClassName="border-orange-500 font-semibold pb-1 border-b-2"
+          >
+            Jobs
+          </NavLink>
 
-        {/* <!-- Profile dropdown --> */}
-        <div class="ml-3 relative">
-          <div>
-            <button class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
-              <span class="sr-only">Open user menu</span>
-              <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-            </button>
-          </div>
-          {/* <!--
-            Profile dropdown panel, show/hide based on dropdown state.
-
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          --> */}
-          <div class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
-          </div>
+          <NavLink
+            className="font-raleway block   md:text-base lg:text-base xl:text-base lg:mr-8 mt-4 lg:inline-block lg:mt-0 text-black no-underline text-dark-200 hover:text-dark"
+            to="/messages"
+            exact
+            activeClassName="border-orange-500 font-semibold pb-1 border-b-2"
+          >
+           Chats
+          </NavLink>
+          <UL>
+            <NavLink to="#" className="nav px-2 cursor-pointer" onClick={() => setOpenNotification(!openNotification)}>
+              
+                    <FiBell />
+                    {showNotificationBadge ? <div className="bg-red rounded-full notify-badge h-2 w-2"></div> : null }
+                  
+            </NavLink>
+          </UL>
+          
+          <NotificationTray openNotification={openNotification} setOpenNotification={setOpenNotification} />
         </div>
       </div>
-    </div>
-  </div>
+    </nav>
+  );
+};
 
-  {/* <!--
-    Mobile menu, toggle classes based on menu state.
+const clickOutsideConfig = {
+  handleClickOutside: () => Navbar.handleClickOutside
+};
 
-    Menu open: "block", Menu closed: "hidden"
-  --> */}
-  <div class="hidden sm:hidden">
-    <div class="px-2 pt-2 pb-3 space-y-1">
-      {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-      <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-    </div>
-  </div>
-</nav>
 
-   
-    )
-}
-
-export default NavBar
+export default onClickOutside(Navbar, clickOutsideConfig)
 
 
