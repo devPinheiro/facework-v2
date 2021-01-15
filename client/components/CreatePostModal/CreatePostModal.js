@@ -47,7 +47,7 @@ const CreatePostModal = ({
                 <div className="w-full border-none">
                     <div className="w-full px-4 py-4 border-grey-lightest border-b-2 ">
                         <div className="flex flex-row justify-between">
-                            <p className="md:text-xl font-thin text-black pt-2">
+                            <p className="md:text-xl text-black pt-2">
                                 Create Post
                             </p>
                             <span
@@ -80,14 +80,14 @@ const CreatePostModal = ({
                                 
                                 <form onSubmit={handleSubmit}>
                                   
-                                    {serverError && <p className="pb-4 text-red-light font-thin text-xs md:text-sm">{serverError}</p>}                                   
-                                    {pictureError && <p className=" text-red-light font-thin text-xs md:text-sm">{pictureError}</p>}                                   
-                                    {videoError && <p className=" text-red-light font-thin text-xs md:text-sm">{videoError}</p>}                                   
+                                    {serverError && <p className="pb-4 text-red-light text-xs md:text-sm">{serverError}</p>}                                   
+                                    {pictureError && <p className=" text-red-light text-xs md:text-sm">{pictureError}</p>}                                   
+                                    {videoError && <p className=" text-red-light text-xs md:text-sm">{videoError}</p>}                                   
 
                                     {selectedImage && !pictureError && <img src={selectedImage} alt="avatar" className="max-h-screen-sm rounded-lg" />}
                                     {selectedVideo && !videoError && <video autoPlay controls src={selectedVideo} alt="avatar" className="max-h-screen-sm max-w-sm" />}
                                     
-                                    {<p className=" text-red-light font-thin text-xs md:text-sm">{touched.featured && errors.featured}</p>}
+                                    {<p className=" text-red-light text-xs md:text-sm">{touched.featured && errors.featured}</p>}
                                     <input
                                         type="file"
                                         ref={imageRef}

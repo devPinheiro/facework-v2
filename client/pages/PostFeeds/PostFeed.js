@@ -170,12 +170,12 @@ const PostFeed = props => {
                     <div className="hidden md:block md:w-1/3 ">
                         <div className="mx-4 fixed pin-r-3">
                             <AuthorCard {...(profileState && profileState.profile)} />
-                            <div>
-                                {/* fetch follow-able users */}
-                                {data.map((item, key) => (
+                            {/* <div>
+                              
+                              //  {data.map((item, key) => (
                                     <Follow profile={item} key={key}/>
                                 ))}
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

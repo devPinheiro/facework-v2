@@ -12,7 +12,7 @@ const Follow = ({ profile, handleFollowUser, isFollowing }) => {
                             <Link to="#" className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
                             <img class="rounded-full h-6 w-6 object-cover border-grey-lightest border" src={profile.image} alt="" />
                               <div className="flex-column h-6 ml-2">
-                                <p className="text-xxs font-thin  text-grey-dark mb-1">{profile.name}</p>               
+                                <p className="text-xxs text-grey-dark mb-1">{profile.name}</p>               
                                               
                               </div>
                             </Link>
