@@ -115,6 +115,12 @@ const Main = withRouter(({ location }) => {
                                 exact={true}
                                 path={'/profile'}
                                 component={UserProfile}
+                                key="userProfile23"
+                            />
+                            <PrivateRoute
+                                exact={true}
+                                path={'/profile/nwlite/:userID'}
+                                component={UserProfile}
                                 key="userProfile"
                             />
                             <PrivateRoute

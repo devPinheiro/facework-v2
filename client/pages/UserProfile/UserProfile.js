@@ -24,19 +24,21 @@ import data from '../PostFeeds/fixtures'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
 import { logout } from '../../store/actions/auth'
+import Button from '../../components/Button'
 
 
 
 
 const UserProfile = props => {
     const { history } = props;
-    const { id, identifier } = props.match.params
+    const { id, identifier, userID } = props.match.params
     const [modalVisibility, setModalVisibility] = useState(false)
     const [editProfileModalVisibility, setEditProfileModalVisibility] = useState(false)
 
     const dispatch = useDispatch()
     const [user, setUser] = useState({})
     const [userPost, setUserPost] = useState([])
+    const [isFollowing, setFollowing] = useState('')
     const userProfile = useSelector(state => state.userProfile)
     
     const closeModal = () => {
@@ -66,13 +68,17 @@ const UserProfile = props => {
     }
 
 
-    // useEffect(() => {
-    //    dispatch(fetchUserProfileRequest(userProfile.data && userProfile.data.user.id));
-    // }, []);
+    useEffect(() => {
+        console.log(userID);
+       if(userID){
+        dispatch(fetchUserProfileRequest(true, userID));
+       } 
+    }, []);
 
     useEffect(() => {
         if(userProfile.isSuccessful){
             setUser(userProfile.data.profile)
+            setFollowing(userProfile.data.isFollowing)
             setUserPost(userProfile.data && userProfile.data.posts.data)
         }
     }, [userProfile])
@@ -81,6 +87,7 @@ const UserProfile = props => {
     return (
         
         <> 
+        
         <div>
             { id && identifier &&
             <PostModal
@@ -101,6 +108,7 @@ const UserProfile = props => {
                     variants={imageVariants}
                 >
                     <AuthorCard profile={true} {...user} />
+                    {userID && <Button >{isFollowing? 'Unfollow' : 'Follow'}</Button>}
 
                     <div className="pt-6 flex flex-col w-full">
                         <div className="flex flex-row justify-between py-2">
@@ -129,7 +137,7 @@ const UserProfile = props => {
                             </Link>
                             <div className="bg-red rounded-full notify-badge h-2 w-2"></div>
                         </div>
-                        <div className="flex flex-row  justify-between py-2">
+                       {!userID && <><div className="flex flex-row  justify-between py-2">
                             {' '}
                             
                             <p className=" text-sm" onClick={() => setEditProfileModalVisibility(!editProfileModalVisibility)}>
@@ -148,7 +156,7 @@ const UserProfile = props => {
                                 </span>{' '}
                                 Log Out
                             </p>
-                        </div>
+                        </div></>}
                     </div>
                     <div className="pt-4 flex flex-col">
                         <h6 className="md:text-md text-black text-sm py-2">

@@ -23,11 +23,11 @@ const TextArea = ({
             placeholder={placeholder}
             onBlur={onBlur}
             value={value}
-            className={`${ customStyle ? customStyle : "focus:outline-none w-full mt-2 px-4 py-3 border border-grey-light text-brown-darkest  rounded-lg}"}`}
+            className={`${ customStyle ? customStyle : "focus:outline-none w-full mt-2 px-4 py-3 border border-grey-light text-brown-darkest rounded-lg}"}`}
         />
 
         {error && (
-            <span className="text-sm text-red-light font-thin mt-2 block">{error}</span>
+            <span className="text-sm text-red-light mt-2 block">{error}</span>
         )}
     </div>
 )

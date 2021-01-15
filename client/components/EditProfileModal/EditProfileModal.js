@@ -26,7 +26,7 @@ const EditProfileModal = ({
                 <div className="modal-container-active modal-container">
                 <div className="w-full px-4 py-4 border-grey-lightest border-b-2 ">
                         <div className="flex flex-row justify-between">
-                            <p className="md:text-xl font-thin text-black pt-2">
+                            <p className="md:text-xl text-black pt-2">
                                 Edit Profile
                             </p>
                             <span

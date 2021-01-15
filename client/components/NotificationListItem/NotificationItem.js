@@ -17,7 +17,7 @@ const NotificationItem = ({created_at, data, read_at, id}) => {
                             <img class="rounded-full h-10 w-10 object-cover border-grey-lightest border mr-3" src={data.post_author_avatar} alt="" />
                               <div className="flex-column ">
                                 <div>
-                                   <p className="text-xs font-hairline text-black">{`${data.post_author} shared a new post:`}</p><p className="text-xs font-thin  text-black">{`${data.post_title}`}</p> 
+                                   <p className="text-xs text-black">{`${data.post_author} shared a new post:`}</p><p className="text-xs text-black">{`${data.post_title}`}</p> 
                                 </div>              
                                 <small className="text-xxs py-1 text-grey-light">
                                   <Moment time={created_at} />
