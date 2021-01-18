@@ -69,7 +69,6 @@ const UserProfile = props => {
 
 
     useEffect(() => {
-        console.log(userID);
        if(userID){
         dispatch(fetchUserProfileRequest(true, userID));
        } 

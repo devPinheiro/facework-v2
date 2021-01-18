@@ -52,3 +52,25 @@ export const userProfile = {
     isSuccessful: false,
     data: null
 }
+
+export const followUser = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
+
+export const unFollowUser = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
+export const editUserProfile = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
