@@ -76,7 +76,7 @@ const PostFeed = props => {
 
 
      /**
-     * Handle registration form submit
+     * Handle feeds form submit
      *
      * @return null
      */
@@ -170,12 +170,7 @@ const PostFeed = props => {
                     <div className="hidden md:block md:w-1/3 ">
                         <div className="mx-4 fixed pin-r-3">
                             <AuthorCard {...(profileState && profileState.profile)} />
-                            {/* <div>
-                              
-                              //  {data.map((item, key) => (
-                                    <Follow profile={item} key={key}/>
-                                ))}
-                            </div> */}
+                            
                         </div>
                     </div>
                 </div>
