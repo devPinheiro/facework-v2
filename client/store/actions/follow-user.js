@@ -37,7 +37,7 @@ export const createFollowFail = payload => ({
  */
 export const createFollowRequest = id => async dispatch => {
     dispatch(createFollowStart());
-    return axios.post(`/follow/${id}`)
+    return axios.post(`users/${id}/follow/`)
     .then(res => {
         dispatch(createFollowSuccess(res.data));
         if(res.data.message){

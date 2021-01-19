@@ -35,9 +35,9 @@ export const editUserProfileFail = payload => ({
  * @param {Object} perPage  number of post per page in the response data
  * @return {Object} Redux action
  */
-export const editUserProfileRequest = (profile, id) => async dispatch => {
+export const editUserProfileRequest = id => async dispatch => {
     dispatch(editUserProfileStart());
-    return axios.get(profile ? `/profile/${id}` : `/auth/user`)
+    return axios.patch(`/profile/${id}`)
     .then(res => {
         dispatch(editUserProfileSuccess(res.data));
         if(res.data.message){

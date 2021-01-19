@@ -37,7 +37,7 @@ export const createUnfollowFail = payload => ({
  */
 export const createUnfollowRequest = id => async dispatch => {
     dispatch(createUnfollowStart());
-    return axios.post(`/follow/${id}`)
+    return axios.delete(`users/${id}/unfollow/`)
     .then(res => {
         dispatch(createUnfollowSuccess(res.data));
         if(res.data.message){
