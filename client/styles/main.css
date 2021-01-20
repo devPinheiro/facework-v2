@@ -143,3 +143,9 @@ body {
 .top-20 {
   top: 62px;
 }
+
+.customPositionCamera {
+  position: relative;
+  bottom: -40px;
+  left: -20px;
+}
