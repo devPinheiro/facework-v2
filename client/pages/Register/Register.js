@@ -70,9 +70,12 @@ export class RegisterPage extends Component {
                         )
                     }
            
-        } catch (error) {
-
-            if(error.response.data.errors){
+        } catch ({error}) {
+            if(error.data){
+                dispatch(flashMessage('Network Error', {isError: true}))
+                setSubmitting(false)
+            } 
+            else if(error.response.data.errors){
                 setSubmitting(false)
                 setErrors(error.response.data.errors)
                 dispatch(
@@ -81,6 +84,7 @@ export class RegisterPage extends Component {
                     })
                 )
             }
+            
         
         }
 
