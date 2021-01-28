@@ -40,7 +40,7 @@ Textbox.propTypes = {
     label: PropTypes.string,
     error: PropTypes.string,
     onChange: PropTypes.func.isRequired,
-    placeholder: PropTypes.string.isRequired
+    placeholder: PropTypes.string
 }
 
 export default Textbox

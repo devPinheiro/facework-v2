@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Formik } from 'formik'
 
@@ -14,10 +14,15 @@ const EditProfileModal = ({
     initialValues,
     onSubmit,
     validationSchema,
-    setModalVisibility
+    setModalVisibility,
+    serverError
 }) => {
 
     const [selectedImage, setSelectedImage] = useState('')
+    const [pictureError, setPictureError] = useState('')
+    const imageRef = useRef();
+    console.log(initialValues);
+
     return (
         <Modal modalVisibility={modalVisibility}>
 
@@ -39,9 +44,14 @@ const EditProfileModal = ({
                             </span>
                         </div>
                     </div>
+
                     <div className="md:flex w-full border-none flex-col justify-center px-10 py-12">
+                    {serverError && <p className="pb-4 text-red-light text-xs md:text-sm">{serverError}</p>}                                   
+                    {pictureError && <p className=" text-red-light text-xs md:text-sm">{pictureError}</p>}                                   
+
                         <div className="flex justify-center items-center pb-16">
-                           <img src={selectedImage || "https://images.unsplash.com/photo-1586398710270-760041494553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=80"} alt="avatar" className="block w-32 h-32 rounded-full" />
+                           <img onClick={() => imageRef.current.click()} src={selectedImage || initialValues.image} alt="avatar" className="block w-32 h-32 rounded-full border border-grey-lightest" />
+                           
                         </div>
                         <Formik
                             onSubmit={onSubmit}
@@ -56,11 +66,49 @@ const EditProfileModal = ({
                                 isSubmitting,
                                 handleChange,
                                 handleBlur,
-                                handleSubmit
+                                handleSubmit,
+                                setFieldValue,
                             }) => (
                                 <form onSubmit={handleSubmit} className="">
 
-                                    <div class="flex flex-wrap -mx-3 mb-6">
+                                    <div className="flex flex-wrap -mx-3 mb-6">
+
+                                    <input
+                                        type="file"
+                                        ref={imageRef}
+                                        className="hidden"
+                                        onChange={e => {
+                                            
+                                            setPictureError('')
+                                            const files = e.target.files;
+    
+                                            //check if file exist
+                                            if (files && files[0]) {
+                                              // check if file type is any image format
+                                        
+                                              /* istanbul ignore next */
+                                              if (files[0].size > 1028643) {
+                                                /* istanbul ignore next */
+                                                setPictureError('Please select an image less than 1mb.');
+                                              }else {
+                                                setFieldValue('image', e.currentTarget.files[0])
+                                                // initializes file reader
+                                                /* istanbul ignore next */
+                                                const reader = new FileReader();
+                                                /* istanbul ignore next */
+                                                reader.onload = e => {
+                                                  // extract the image file and set it to state
+                                                  /* istanbul ignore next */
+                                                  setSelectedImage(e.target.result);
+                                                };
+                                                /* istanbul ignore next */
+                                                reader.readAsDataURL(files[0]);
+                                              }
+                                             
+                                            }
+                                        }}
+                                        accept="image/png, image/jpeg"
+                                        />
                                         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                             <Textbox
                                                 type="text"
@@ -76,7 +124,7 @@ const EditProfileModal = ({
                                                 }
                                             />
                                         </div>
-                                        <div class="w-full md:w-1/2 px-3">
+                                        <div className="w-full md:w-1/2 px-3">
                                             <Textbox
                                                 type="email"
                                                 name="email"
@@ -95,7 +143,7 @@ const EditProfileModal = ({
                                     </div>
 
                                     <div class="flex flex-wrap -mx-3 mb-6">
-                                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                             <Textbox
                                                 type="text"
                                                 name="state"
@@ -110,9 +158,9 @@ const EditProfileModal = ({
                                                 }
                                             />
                                         </div>
-                                        <div class="w-full md:w-1/2 px-3">
+                                        <div className="w-full md:w-1/2 px-3">
                                             <Textbox
-                                                type="number"
+                                                type="text"
                                                 name="phone"
                                                 label="Phone"
                                                 onBlur={handleBlur}
@@ -129,8 +177,8 @@ const EditProfileModal = ({
                                         
                                     </div>
                                     
-                                    <div class="flex flex-wrap -mx-3 mb-6">
-                                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                    <div className="flex flex-wrap -mx-3 mb-6">
+                                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                             <Textbox
                                                 type="text"
                                                 name="service"
@@ -145,7 +193,7 @@ const EditProfileModal = ({
                                                 }
                                             />
                                         </div>
-                                        <div class="w-full md:w-1/2 px-3">
+                                        <div className="w-full md:w-1/2 px-3">
                                             <Textbox
                                                 type="text"
                                                 name="address"
@@ -163,7 +211,7 @@ const EditProfileModal = ({
                                         </div>
                                         
                                     </div>
-                                    <div class="flex flex-wrap -mx-3 mb-6">
+                                    <div className="flex flex-wrap -mx-3 mb-6">
                                         <div class="w-full px-3">
                                             <TextArea
                                                 name="about"
@@ -183,8 +231,8 @@ const EditProfileModal = ({
                                             />
                                         </div>
                                     </div>
-                                    <div class="flex flex-wrap -mx-3 mb-2">
-                                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <div className="flex flex-wrap -mx-3 mb-2">
+                                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                             <Textbox
                                                 type="url"
                                                 name="facebook"
@@ -200,7 +248,7 @@ const EditProfileModal = ({
                                                 }
                                             />{' '}
                                         </div>
-                                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                             <Textbox
                                                 type="url"
                                                 name="twitter"
@@ -216,7 +264,7 @@ const EditProfileModal = ({
                                                 }
                                             />
                                         </div>
-                                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                             <Textbox
                                                 type="url"
                                                 name="instagram"
