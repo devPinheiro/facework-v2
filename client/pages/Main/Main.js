@@ -31,12 +31,13 @@ export class App extends PureComponent {
             setAuthToken(localStorage.auth);
 
             //decode
-            const decoded = jwt_decode(localStorage.auth);
+            // const decoded = jwt_decode(localStorage.auth);
+            const decoded = localStorage.auth;
             
             // set current user
             store.dispatch(setCurrentUser(decoded));
           
-            store.dispatch(fetchUserProfileRequest(false));
+            store.dispatch(fetchUserProfileRequest(false, decoded));
             // for expired token
             const currentTime = Date.now() / 1000;
             if (decoded.exp < currentTime) {

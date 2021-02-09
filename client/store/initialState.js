@@ -5,6 +5,21 @@ export const feeds = {
     data: null
 }
 
+export const chats = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
+export const messages = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: {},
+    current_chat: null
+}
+
 export const notifications = {
     isLoading: false,
     error: null,

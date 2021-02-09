@@ -3,9 +3,10 @@ import ConversationList from '../ConversationList';
 import MessageList from '../MessageList';
 import './Messenger.css';
 
-export default function Messenger(props) {
-    return (
-      <div className=" pt-8 m-auto max-w-xl flex  messenger">
+export default function Messenger({ otherParty }) {
+
+  return (
+      <div className=" pt-8 m-auto max-w-xl flex messenger">
         
         {/* <Toolbar
           title="Messenger"

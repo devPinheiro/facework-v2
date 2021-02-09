@@ -66,7 +66,8 @@ class LoginPage extends PureComponent {
             if(response.payload.data.access_token){
                 localStorage.setItem(
                     'auth',
-                    JSON.stringify(response.payload.data.access_token)
+                    // JSON.stringify(response.payload.data.access_token)
+                    response.payload.data.access_token
                 )
                 setAuthToken(response.payload.data.access_token)
             }
