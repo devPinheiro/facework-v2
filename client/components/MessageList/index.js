@@ -1,5 +1,4 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import React, {useEffect, useRef} from 'react';
 
 import Compose from '../Compose';
 import Toolbar from '../Toolbar';
@@ -8,28 +7,24 @@ import Message from '../Message';
 import moment from 'moment';
 
 // Actions
-import { fetchMessagesRequest } from '../../store/actions/messages';
+// import { fetchMessagesRequest } from '../../store/actions/messages';
 import './MessageList.css';
 
 
-export default function MessageList() {
-  // const dispatch = useDispatch();
-  const messageState = useSelector(s => s.messages);
+export default function MessageList({ messages }) {
   
-  const [messages, setMessages] = useState([])
+  const toRender = useRef('');
+  // const messageState = useSelector(s => s.messages.current_chat);
+  // const [messages, setMessages] = useState([])
   
   useEffect(() => {
-    console.log(messageState);
-    setMessages(messageState.data[messageState.current_chat]);
-    if (messageState.current_chat) {
-      setMessages(messageState.data[messageState.current_chat]);
-    }
-      
-  }, [messageState])
+    // console.log(renderMessages(messages))
+    toRender.current = renderMessages(messages);
+  }, [messages])
 
   const renderMessages = () => {
 
-    if (!messageState.current_chat) {
+    if (!messages.current_chat) {
       return (
         <div className="Empty">
           <h1 className="Empty__name">Welcome, Person </h1>
@@ -44,65 +39,66 @@ export default function MessageList() {
           </p>
         </div>
       );
-    }
-
-    let i = 0;
-    let messageCount = messages.length;
-    let tempMessages = [];
-
-    while (i < messageCount) {
-      let previous = messages[i - 1];
-      let current = messages[i];
-      let next = messages[i + 1];
-      let isMine = current.isMine;
-      let currentMoment = moment(current.timestamp.date);
-      let prevBySameAuthor = false;
-      let nextBySameAuthor = false;
-      let startsSequence = true;
-      let endsSequence = true;
-      let showTimestamp = true;
-
-      if (previous) {
-        let previousMoment = moment(previous.timestamp.date);
-        let previousDuration = moment.duration(currentMoment.diff(previousMoment));
-        prevBySameAuthor = previous.isMine === current.isMine;
-        
-        if (prevBySameAuthor && previousDuration.as('hours') < 1) {
-          startsSequence = false;
+    } else if (messages.current_chat) {
+      let i = 0;
+      let messageList = messages.data[messages.current_chat]
+      let messageCount = messageList.length;
+      let tempMessages = [];
+  
+      while (i < messageCount) {
+        let previous = messageList[i - 1];
+        let current = messageList[i];
+        let next = messageList[i + 1];
+        let isMine = current.isMine;
+        let currentMoment = moment(current.created_at);
+        let prevBySameAuthor = false;
+        let nextBySameAuthor = false;
+        let startsSequence = true;
+        let endsSequence = true;
+        let showTimestamp = true;
+  
+        if (previous) {
+          let previousMoment = moment(previous.created_at);
+          let previousDuration = moment.duration(currentMoment.diff(previousMoment));
+          prevBySameAuthor = previous.isMine === current.isMine;
+          
+          if (prevBySameAuthor && previousDuration.as('hours') < 1) {
+            startsSequence = false;
+          }
+  
+          if (previousDuration.as('hours') < 1) {
+            showTimestamp = false;
+          }
         }
-
-        if (previousDuration.as('hours') < 1) {
-          showTimestamp = false;
+  
+        if (next) {
+          let nextMoment = moment(next.created_at);
+          let nextDuration = moment.duration(nextMoment.diff(currentMoment));
+          nextBySameAuthor = next.isMine === current.isMine;
+  
+          if (nextBySameAuthor && nextDuration.as('hours') < 1) {
+            endsSequence = false;
+          }
         }
+  
+        tempMessages.push(
+          <Message
+            key={i}
+            isMine={isMine}
+            startsSequence={startsSequence}
+            endsSequence={endsSequence}
+            showTimestamp={showTimestamp}
+            data={current}
+          />
+        );
+  
+        // Proceed to the next message.
+        i += 1;
       }
-
-      if (next) {
-        let nextMoment = moment(next.timestamp.date);
-        let nextDuration = moment.duration(nextMoment.diff(currentMoment));
-        nextBySameAuthor = next.isMine === current.isMine;
-
-        if (nextBySameAuthor && nextDuration.as('hours') < 1) {
-          endsSequence = false;
-        }
-      }
-
-      tempMessages.push(
-        <Message
-          key={i}
-          isMine={isMine}
-          startsSequence={startsSequence}
-          endsSequence={endsSequence}
-          showTimestamp={showTimestamp}
-          data={current}
-        />
-      );
-
-      // Proceed to the next message.
-      i += 1;
+      return tempMessages;
     }
-
-    return tempMessages;
   }
+
   
   return(
     <div className="message-list">
@@ -115,7 +111,7 @@ export default function MessageList() {
         ]}
       />
 
-      <div className="message-list-container">{renderMessages()}</div>
+      <div className="message-list-container">{toRender.current}</div>
 
       <Compose rightItems={[
         <ToolbarButton key="photo" icon="ion-ios-camera" />,

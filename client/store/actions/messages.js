@@ -19,9 +19,12 @@ export const fetchMessagesStart = () => ({
     type: FETCH_MESSAGES_START
 })
 
-export const fetchMessagesSuccess = payload => ({
+export const fetchMessagesSuccess = (payload, otherParty) => ({
     type: FETCH_MESSAGES_SUCCESS,
-    payload
+    payload : {
+      otherParty : otherParty,
+      data : payload
+    }
 })
 
 export const fetchMessagesFail = payload => ({
@@ -39,7 +42,7 @@ export const fetchMessagesRequest = (otherParty) => async dispatch => {
     dispatch(fetchMessagesStart());
   return axios.get(`chats/${otherParty}/messages`, {headers: { Authorization: `Bearer ${localStorage.auth}` }})
     .then(res => {
-      dispatch(fetchMessagesSuccess(res.data));
+      dispatch(fetchMessagesSuccess(res.data, otherParty));
     })
     .catch(err => {
       const {

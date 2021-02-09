@@ -13,16 +13,14 @@ export default (state = messages, action) => {
                 isLoading: true
             }
         case FETCH_MESSAGES_SUCCESS:
+            let temp = {...state.temp};
+            temp[action.payload.otherParty] = action.payload.data[action.payload.otherParty]
             return {
                 ...state,
                 isLoading: false,
                 isSuccessful: true,
-                data : function (action) {
-                    if (data.indexOf(action.payload.otherParty) !== -1) {
-                        data.splice(index, 1)
-                    }
-                    return data[action.payload.otherParty] = action.payload.data.otherParty;
-                }
+                current_chat: action.payload.otherParty,
+                data : temp
             }
         case FETCH_MESSAGES_FAIL:
             return {

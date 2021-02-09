@@ -2,7 +2,7 @@ import auth from './auth'
 import feeds from './feeds'
 import chats from './chats'
 import messages from './messages'
-import setChat from './set-current-chat'
+import message from './new-messages'
 import post from './fetch-single-post'
 import userProfile from './fetch-user-profile'
 import comment from './create-comment'
@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
     auth,
     chats,
     messages,
-    setChat,
+    message,
     flash,
     feeds,
     post,
