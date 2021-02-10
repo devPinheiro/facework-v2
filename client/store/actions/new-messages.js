@@ -19,11 +19,12 @@ export const appendNewMessagesStart = () => ({
     type: APPEND_NEW_MESSAGES_START
 })
 
-export const appendNewMessagesSuccess = (message, otherParty) => ({
+export const appendNewMessagesSuccess = (message, messages) => ({
     type: APPEND_NEW_MESSAGES_SUCCESS,
     payload : {
-      otherParty : otherParty,
-      data : message
+      otherParty : messages.current_chat,
+      data : message,
+      messages : messages.data
     }
 })
 
@@ -36,9 +37,9 @@ export const appendNewMessagesFail = payload => ({
  * Create action to fetch all messages for a chat
  * 
  * @param {Object} message  page number of the response data
- * @param {string} otherParty  page number of the response data
+ * @param {string} messages  page number of the response data
  * @return {Object} Redux action
  */
-export const appendNewMessagesRequest = (message, otherParty) => async dispatch => {
-  dispatch(appendNewMessagesSuccess(message, otherParty));
+export const appendNewMessagesRequest = (message, messages) => async dispatch => {
+  dispatch(appendNewMessagesSuccess(message, messages));
 };

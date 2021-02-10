@@ -13,7 +13,7 @@ export default (state = messages, action) => {
                 isLoading: true
             }
         case APPEND_NEW_MESSAGES_SUCCESS:
-            let temp = {...state.temp};
+            let temp = action.payload.messages;
             temp[action.payload.otherParty].push(action.payload.message);
             return {
                 ...state,
