@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Formik } from 'formik'
+import {FiCamera} from 'react-icons/fi'
 
 // components
 import Button from '@components/Button'
@@ -51,7 +52,7 @@ const EditProfileModal = ({
 
                         <div className="flex justify-center items-center pb-16">
                            <img onClick={() => imageRef.current.click()} src={selectedImage || initialValues.image} alt="avatar" className="block w-32 h-32 rounded-full border border-grey-lightest" />
-                           
+                           <div className="customPositionCamera  border border-grey-lightest rounded-full bg-white flex justify-center items-center"><FiCamera className="mx-1 my-1 w-4 h-4 " onClick={() => imageRef.current.click()}  /></div>
                         </div>
                         <Formik
                             onSubmit={onSubmit}
@@ -115,7 +116,7 @@ const EditProfileModal = ({
                                                 name="name"
                                                 label="Full Name"
                                                 onBlur={handleBlur}
-                                                value={values.name}
+                                                value={values.name || initialValues.name}
                                                 onChange={handleChange}
                                                 data-testid={'name-field'}
                                                 // placeholder={'Enter your name'}
@@ -130,7 +131,7 @@ const EditProfileModal = ({
                                                 name="email"
                                                 label="Email"
                                                 onBlur={handleBlur}
-                                                value={values.email}
+                                                value={values.email || initialValues.email}
                                                 onChange={handleChange}
                                                 data-testid={'email-field'}
                                                 // placeholder={'Enter your email'}
@@ -149,7 +150,7 @@ const EditProfileModal = ({
                                                 name="state"
                                                 label="City"
                                                 onBlur={handleBlur}
-                                                value={values.state}
+                                                value={values.state || initialValues.state}
                                                 onChange={handleChange}
                                                 data-testid={'state-field'}
                                                
@@ -164,7 +165,7 @@ const EditProfileModal = ({
                                                 name="phone"
                                                 label="Phone"
                                                 onBlur={handleBlur}
-                                                value={values.phone}
+                                                value={values.phone || initialValues.phone}
                                                 onChange={handleChange}
                                                 data-testid={'phone-field'}
                                                 // placeholder={'Enter your email'}
@@ -184,7 +185,7 @@ const EditProfileModal = ({
                                                 name="service"
                                                 label="Occupation"
                                                 onBlur={handleBlur}
-                                                value={values.service}
+                                                value={values.service || initialValues.service}
                                                 onChange={handleChange}
                                                 data-testid={'service-field'}
                                                 // placeholder={'Enter your name'}
@@ -220,7 +221,7 @@ const EditProfileModal = ({
                                                 row="10"
                                                 label="About "
                                                 onBlur={handleBlur}
-                                                value={values.about}
+                                                value={values.about || initialValues.about}
                                                 onChange={handleChange}
                                                 data-testid={'about-field'}
                                                 // placeholder={'Enter your email'}
@@ -238,7 +239,7 @@ const EditProfileModal = ({
                                                 name="facebook"
                                                 label="Facebook"
                                                 onBlur={handleBlur}
-                                                value={values.facebook}
+                                                value={values.facebook || initialValues.facebook}
                                                 onChange={handleChange}
                                                 data-testid={'facebook-field'}
                                                 placeholder={'https://facebook/your-handle'}
@@ -254,7 +255,7 @@ const EditProfileModal = ({
                                                 name="twitter"
                                                 label="Twitter"
                                                 onBlur={handleBlur}
-                                                value={values.twitter}
+                                                value={values.twitter || initialValues.twitter}
                                                 onChange={handleChange}
                                                 data-testid={'twitter-field'}
                                                 placeholder={'https://twitter/your-handle'}
@@ -270,7 +271,7 @@ const EditProfileModal = ({
                                                 name="instagram"
                                                 label="Instagram"
                                                 onBlur={handleBlur}
-                                                value={values.instagram}
+                                                value={values.instagram || initialValues.instagram}
                                                 onChange={handleChange}
                                                 data-testid={'instagram-field'}
                                                 placeholder={'https://instagram/your-profile'}

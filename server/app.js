@@ -1,6 +1,7 @@
 import path from 'path'
 import Express from 'express'
 import Webpack from 'webpack'
+import cors from  'cors'
 // import Mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import WebpackHotMiddleware from 'webpack-hot-middleware'
@@ -13,6 +14,8 @@ import webpackConfig from '@/webpack.config'
 // Mongoose.connect(config.databaseUrl[config.environment], { useNewUrlParser: true })
 
 const app = new Express()
+
+app.use(cors()) 
 
 if (config.development) {
     const compiler = Webpack(webpackConfig)

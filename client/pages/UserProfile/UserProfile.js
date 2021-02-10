@@ -28,6 +28,7 @@ import Button from '../../components/Button'
 import { createFollowRequest } from '../../store/actions/follow-user';
 import { createUnfollowRequest } from '../../store/actions/unfollow-user';
 import followUser from '../../store/reducers/follow-user';
+import { editUserProfileRequest } from '../../store/actions/edit-user-profile';
 
 
 
@@ -45,6 +46,7 @@ const UserProfile = props => {
     const userProfile = useSelector(state => state.userProfile)
     const followUser = useSelector(state => state.followUser)
     const unFollowUser = useSelector(state => state.unFollowUser)
+    const [serverError, setServerError] = useState('')
     
     const closeModal = () => {
         setModalVisibility(!modalVisibility)
@@ -113,6 +115,26 @@ const UserProfile = props => {
 
     const handleFollowUser = () => {
         dispatch(createFollowRequest(user.id))
+    }
+
+      /**
+     * Handle feeds form submit
+     *
+     * @return null
+     */
+    const onSubmit = (data, { setSubmitting, resetForm}) => {   
+            dispatch(editUserProfileRequest(data, user.id))
+            .then(response => { 
+                  if(response.payload.data.message || response.payload.data.error){
+                    setServerError('Something went wrong, check your network and please try again')
+                    setSubmitting(false)
+                }else{
+                    dispatch(flashMessage('profile updated successfully'))       
+                    setModalVisibility(false)
+                    setSubmitting(false)
+                    resetForm(initialValues)
+                }
+            })
     }
 
     return (
@@ -255,7 +277,7 @@ const UserProfile = props => {
               
         </div>
           <EditProfileModal modalVisibility={editProfileModalVisibility}
-          setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} initialValues={user} />
+          setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} initialValues={user} onSubmit={onSubmit} serverError={serverError} />
           </>
     )
 }

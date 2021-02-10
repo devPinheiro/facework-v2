@@ -39,10 +39,15 @@ export const fetchUserProfileRequest = (profile, id, token) => async dispatch =>
     dispatch(fetchUserProfileStart());
     return axios.get(profile ? `/profile/${id}` : `/auth/user`, {headers: { Authorization: `Bearer ${localStorage.auth}` }})
     .then(res => {
-        dispatch(fetchUserProfileSuccess(res.data));
-        if(res.data.message){
-            dispatch(fetchUserProfileFail(res.data.message))
+        if(res.data.error){
+          dispatch(fetchUserProfileFail(data));
+        } else {
+          dispatch(fetchUserProfileSuccess(res.data));
+          if(res.data.message){
+              dispatch(fetchUserProfileFail(res.data.message))
+          }
         }
+       
     })
     .catch(err => {
       const {
