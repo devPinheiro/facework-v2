@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode'
 import { BrowserRouter as Router} from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 import { echo } from '../../utils/websocket'
+import { appendNewNotificationsRequest } from '../../store/actions/notification'
 
 // components
 import Main from '@pages/AppRouter'
@@ -46,11 +47,15 @@ export class App extends PureComponent {
               store.dispatch(logout());
               window.location.href = "/";
             }
-
-            let Echo = echo();
-            Echo.private(`App.User.1`).notification((data) => {
-                alert(`${data.sender.name} <br> Message: ${data.message}`);
-            });
+            
+            // let Echo = echo();
+            // Echo.disconnect();
+            // let state = store.getState();
+            // console.log(state);
+            // Echo.private(`App.User.${state.userProfile.data.user.id}`).notification((data) => {
+            //     alert(`${data.sender.name} <br> Message: ${data.message}`);
+            //     appendNewNotificationsRequest(state.notifications);
+            // });
         }
         
     }

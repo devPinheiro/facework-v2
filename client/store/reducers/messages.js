@@ -19,15 +19,19 @@ export default (state = messages, action) => {
             }
         case FETCH_MESSAGES_SUCCESS:
             let temp = {...state.data};
-            if (temp[action.payload.otherParty]) {
-                temp[action.payload.otherParty].push(action.payload.data[action.payload.otherParty])
+            let otherParty = action.payload.otherParty;
+            if (temp[otherParty] && Array.isArray(action.payload.data[otherParty])) {
+                if (action.payload.data[otherParty].length) {
+                    temp[otherParty].push(action.payload.data[otherParty])
+                }
+            } else {
+                temp[otherParty] = action.payload.data[otherParty]
             }
-            temp[action.payload.otherParty] = action.payload.data[action.payload.otherParty]
             return {
                 ...state,
                 isLoading: false,
                 isSuccessful: true,
-                current_chat: action.payload.otherParty,
+                current_chat: otherParty,
                 data : temp
             }
         case FETCH_MESSAGES_FAIL:

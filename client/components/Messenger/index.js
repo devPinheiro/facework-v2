@@ -41,8 +41,9 @@ export default function Messenger() {
   }, [chatState])
 
   useEffect(() => {
-    setSearchedChats(searchedChatsState);
-    console.log('set searched chats');
+    if (searchedChatsState.isSuccessful) {
+      setSearchedChats(searchedChatsState.data);
+    }
   }, [searchedChatsState])
   
   useEffect(() => {
@@ -70,6 +71,22 @@ export default function Messenger() {
             ]}
           />
           <ConversationSearch setSearchedChats={setSearchedChats} searchedChats={searchedChats} />
+          
+          { searchedChatsState.data ? (
+            <div>
+              <Toolbar title="Search Results"/>
+              { searchedChats.map((item, key) => (
+                <div className="conversation-list-item" key={key} onClick={() => handleClick(item.chatId)}>
+                  <img className="conversation-photo" src={item.photo} alt="conversation" />
+                  <div className="conversation-info">
+                    <h1 className="conversation-title">{item.name}</h1>
+                    <p className="conversation-snippet">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ): ('')
+          
           {
             chat.map((item, key) => (
               <div className="conversation-list-item" key={key} onClick={() => handleClick(item.chatId)}>

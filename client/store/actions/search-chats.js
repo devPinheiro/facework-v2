@@ -36,10 +36,13 @@ export const searchChatsFail = (payload) => ({
  */
 export const searchChatsRequest = (search) => async dispatch => {
     dispatch(searchChatsStart());
-    return axios.get(`chats/search/${search}`)
+    return axios.get(`chats/search/${search}`, {
+      headers:
+        { Authorization: `Bearer ${localStorage.auth}` }
+    })
     .then(res => {
       let data = Array.isArray(res.data) && res.data.length ? res.data : null;
-      dispatch(searchChatsSuccess(data));
+        dispatch(searchChatsSuccess(data));
     })
     .catch(err => {
       const {

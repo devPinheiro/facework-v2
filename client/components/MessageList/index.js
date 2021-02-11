@@ -31,7 +31,11 @@ export default function MessageList({ profile, Echo }) {
     }, [messageState])
 
     const sendMessage = (message) => {
-      dispatch(sendMessagesRequest(message, messageState))
+      if(message.length) {
+        dispatch(sendMessagesRequest(message, messageState))
+      } else {
+        alert('You cannot send an empty message')
+      }
       setMessage('');
     }
 

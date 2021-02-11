@@ -2,7 +2,7 @@ import {
     SEARCH_CHATS_START,
     SEARCH_CHATS_SUCCESS,
     SEARCH_CHATS_FAIL
-} from '@client/store/actions/chats'
+} from '@client/store/actions/search-chats'
 import { searchedChats } from '../initialState'
 
 export default (state = searchedChats, action) => {
