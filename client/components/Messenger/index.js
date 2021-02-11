@@ -21,10 +21,12 @@ export default function Messenger() {
 
   const profileState = useSelector(s => s.userProfile);
   const chatState = useSelector(s => s.chats);
+  const searchedChatsState = useSelector(s => s.searchedChats);
   const messageState = useSelector(s => s.messages);
 
   const [chat, setChat] = useState([]);
   const [messages, setMessages] = useState([])
+  const [searchedChats, setSearchedChats] = useState([])
 
   useEffect(() => {
     dispatch(fetchChatsRequest()), shave('.conversation-snippet', 20);
@@ -35,6 +37,11 @@ export default function Messenger() {
       setChat(chatState.data);
     }
   }, [chatState])
+
+  useEffect(() => {
+    setSearchedChats(searchedChatsState);
+    console.log('set searched chats');
+  }, [searchedChatsState])
   
   useEffect(() => {
     setMessages(messageState);
@@ -57,7 +64,7 @@ export default function Messenger() {
               <ToolbarButton key="add" icon="ion-ios-add-circle-outline" />
             ]}
           />
-          <ConversationSearch setChat={setChat} chat={chat} />
+          <ConversationSearch setSearchedChats={setSearchedChats} searchedChats={searchedChats} />
           {
             chat.map((item, key) => (
               <div className="conversation-list-item" key={key} onClick={() => handleClick(item.chatId)}>

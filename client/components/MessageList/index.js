@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { sendMessagesRequest } from '../../store/actions/messages';
 import { appendNewMessagesRequest } from '../../store/actions/new-messages';
+// import { echo } from '../../utils/websocket'
 import Echo from 'laravel-echo';
-import axios from 'axios';
+import axios from '../../store/Axios'
 import Pusher from 'pusher-js'
 
 import Compose from '../Compose';
@@ -34,7 +35,7 @@ export default function MessageList({ profile }) {
           authorizer: (channel, options) => {
             return {
               authorize: (socketId, callback) => {
-                axios.post('http://127.0.0.1:8000/api/broadcasting/auth', {
+                axios.post('broadcasting/auth', {
                   socket_id: socketId,
                   channel_name: channel.name
                 })
@@ -50,6 +51,7 @@ export default function MessageList({ profile }) {
         });
     
         // echo.leave(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`);
+        console.log(echo);
         echo.private(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`)
         .listen('MessageSent', (e) => {
           dispatch(appendNewMessagesRequest(e, messageState))
