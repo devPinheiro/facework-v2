@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector, useStore } from 'react-redux'
 // import ConversationList from '../ConversationList';
 import MessageList from '../MessageList';
+import { echo } from '../../utils/websocket'
 import './Messenger.css';
 
 import ConversationSearch from '../ConversationSearch';
@@ -23,6 +24,7 @@ export default function Messenger() {
   const chatState = useSelector(s => s.chats);
   const searchedChatsState = useSelector(s => s.searchedChats);
   const messageState = useSelector(s => s.messages);
+  let Echo = echo();
 
   const [chat, setChat] = useState([]);
   const [messages, setMessages] = useState([])
@@ -48,6 +50,9 @@ export default function Messenger() {
   }, [messageState])
 
   const handleClick = async (id) => {
+    if (messageState.current_chat) {
+      Echo.leave(`private-chat-${profileState.data.user.chat_id}-${messageState.current_chat}`)
+    }
     await dispatch(fetchMessagesRequest(id, messages));
   }
 
@@ -80,7 +85,7 @@ export default function Messenger() {
       </div>
 
       <div className="scrollable content">
-        <MessageList profile={profileState} />
+        <MessageList profile={profileState} Echo={Echo} />
       </div>
     </div>
   );

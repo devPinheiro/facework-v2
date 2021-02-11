@@ -7,27 +7,29 @@ const key = process.env.BROADCASTER_KEY;
 const cluster = process.env.BROADCASTER_CLUSTER;
 
 export const echo = () => {
-    let echo = new Echo({
+    return new Echo({
         broadcaster: broadcaster,
         key: key,
         cluster: cluster,
         forceTLS: false,
         authorizer: (channel, options) => {
-          return {
-            authorize: (socketId, callback) => {
-              axios.post('broadcasting/auth', {
-                socket_id: socketId,
-                channel_name: channel.name
-              })
-                .then(response => {
-                  callback(false, response.data);
-                })
-                .catch(error => {
-                  callback(true, error);
-                });
-            }
-          };
+            return {
+                authorize: (socketId, callback) => {
+                    axios.post('broadcasting/auth', {
+                        socket_id: socketId,
+                        channel_name: channel.name
+                    }, {
+                        headers:
+                            { Authorization: `Bearer ${localStorage.auth}` }
+                    })
+                        .then(response => {
+                            callback(false, response.data);
+                        })
+                        .catch(error => {
+                            callback(true, error);
+                        });
+                }
+            };
         },
     });
-    return echo;
 }

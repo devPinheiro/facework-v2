@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react'
 import jwt_decode from 'jwt-decode'
 import { BrowserRouter as Router} from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
+import { echo } from '../../utils/websocket'
 
 // components
 import Main from '@pages/AppRouter'
@@ -45,7 +46,12 @@ export class App extends PureComponent {
               store.dispatch(logout());
               window.location.href = "/";
             }
-          }
+
+            let Echo = echo();
+            Echo.private(`App.User.1`).notification((data) => {
+                alert(`${data.sender.name} <br> Message: ${data.message}`);
+            });
+        }
         
     }
 

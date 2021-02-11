@@ -2,10 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { sendMessagesRequest } from '../../store/actions/messages';
 import { appendNewMessagesRequest } from '../../store/actions/new-messages';
-// import { echo } from '../../utils/websocket'
-import Echo from 'laravel-echo';
-import axios from '../../store/Axios'
-import Pusher from 'pusher-js'
 
 import Compose from '../Compose';
 import Toolbar from '../Toolbar';
@@ -16,7 +12,7 @@ import moment from 'moment';
 // Actions
 import './MessageList.css';
 
-export default function MessageList({ profile }) {
+export default function MessageList({ profile, Echo }) {
 
     const toRender = useRef('');
     const messageState = useSelector(s => s.messages);
@@ -27,32 +23,7 @@ export default function MessageList({ profile }) {
       toRender.current = renderMessages(messageState);
 
       if (messageState.isSuccessful) {
-        let echo = new Echo({
-          broadcaster: 'pusher',
-          key: 'f607f988d506ff262620',
-          cluster: 'eu',
-          forceTLS: false,
-          authorizer: (channel, options) => {
-            return {
-              authorize: (socketId, callback) => {
-                axios.post('broadcasting/auth', {
-                  socket_id: socketId,
-                  channel_name: channel.name
-                })
-                  .then(response => {
-                    callback(false, response.data);
-                  })
-                  .catch(error => {
-                    callback(true, error);
-                  });
-              }
-            };
-          },
-        });
-    
-        // echo.leave(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`);
-        console.log(echo);
-        echo.private(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`)
+        Echo.private(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`)
         .listen('MessageSent', (e) => {
           dispatch(appendNewMessagesRequest(e, messageState))
         })
