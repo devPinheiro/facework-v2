@@ -40,6 +40,7 @@ export const appendNewMessagesFail = payload => ({
  * @param {string} messages  page number of the response data
  * @return {Object} Redux action
  */
-export const appendNewMessagesRequest = (message, messages) => async dispatch => {
-  dispatch(appendNewMessagesSuccess(message, messages));
+export const appendNewMessagesRequest = (message, otherParty) => async dispatch => {
+  console.log()
+  dispatch(appendNewMessagesSuccess(message, otherParty));
 };

@@ -1,65 +1,57 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { sendMessagesRequest } from '../../store/actions/messages';
-import { appendNewMessagesRequest } from '../../store/actions/new-messages';
-import Echo from 'laravel-echo';
-import axios from 'axios';
-import Pusher from 'pusher-js'
+import { sendMessagesRequest, fetchMoreMessagesRequest, appendNewMessagesRequest } from '../../store/actions/messages';
+import { toast } from 'react-toastify';
+import { Link, useHistory } from 'react-router-dom'
 
 import Compose from '../Compose';
 import Toolbar from '../Toolbar';
 import ToolbarButton from '../ToolbarButton';
+import Button from '@components/Button'
 import Message from '../Message';
 import moment from 'moment';
 
 // Actions
 import './MessageList.css';
 
-export default function MessageList({ profile }) {
+export default function MessageList({ profile, Echo }) {
 
     const toRender = useRef('');
     const messageState = useSelector(s => s.messages);
     const [message, setMessage] = useState('');
     const dispatch = useDispatch();
+    const history = useHistory();
     
     useEffect(() => {
       toRender.current = renderMessages(messageState);
-
-      if (messageState.isSuccessful) {
-        let echo = new Echo({
-          broadcaster: 'pusher',
-          key: 'f607f988d506ff262620',
-          cluster: 'eu',
-          forceTLS: false,
-          authorizer: (channel, options) => {
-            return {
-              authorize: (socketId, callback) => {
-                axios.post('http://127.0.0.1:8000/api/broadcasting/auth', {
-                  socket_id: socketId,
-                  channel_name: channel.name
-                })
-                  .then(response => {
-                    callback(false, response.data);
-                  })
-                  .catch(error => {
-                    callback(true, error);
-                  });
-              }
-            };
-          },
-        });
-    
-        // echo.leave(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`);
-        echo.private(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`)
-        .listen('MessageSent', (e) => {
-          dispatch(appendNewMessagesRequest(e, messageState))
-        })
-      }
     }, [messageState])
 
+    useEffect(() => {
+      if (messageState.isSuccessful) {
+        Echo.private(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`)
+        .listen('MessageSent', (message) => {
+          toast(`📩   New message from ${message.sender.name} -- ${message.message}`, {
+            pauseOnFocusLoss: false,
+            autoClose: 10000,
+            hideProgressBar: true,
+            // onClick: (message) => history.push(`/messages/${message.sender.chat_id}`)
+          });
+          dispatch(appendNewMessagesRequest(message, messageState.current_chat))
+        })
+      }
+    }, [messageState.current_chat])
+
     const sendMessage = (message) => {
-      dispatch(sendMessagesRequest(message, messageState))
+      if(message.length) {
+        dispatch(sendMessagesRequest(message, messageState.current_chat))
+      } else {
+        alert('You cannot send an empty message')
+      }
       setMessage('');
+    }
+
+    const loadMoreMessages = () => {
+      dispatch(fetchMoreMessagesRequest(messageState.current_chat, messageState))
     }
 
     const renderMessages = () => {
@@ -106,7 +98,7 @@ export default function MessageList({ profile }) {
               startsSequence = false;
             }
 
-            if (previousDuration.as('hours') < 1) {
+            if (previousDuration.as('hours') < 2) {
               showTimestamp = false;
             }
           }
@@ -142,13 +134,17 @@ export default function MessageList({ profile }) {
     return (
       <div className="message-list">
         <Toolbar
-          // title={messageState ? messageState}
+          title={messageState.current_chat ? messageState.interlocutor : ''}
           rightItems={[
             <ToolbarButton key="info" icon="ion-ios-information-circle-outline" />,
             <ToolbarButton key="video" icon="ion-ios-videocam" />,
             <ToolbarButton key="phone" icon="ion-ios-call" />
           ]}
         />
+        
+        { ( messageState.current_chat && messageState.current_load_more) ? (
+          <p className="text-center"><Button type="button" style="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-6 border border-gray-400 rounded shadow mr-4" click={loadMoreMessages}> Load More</Button></p>
+        ) : ('')}
 
         <div className="message-list-container">{toRender.current}</div>
 

@@ -15,7 +15,7 @@ export default function Compose({openChat, setMessage, message, sendMessage, rig
             placeholder="Type a message"
             value={message}
             onChange={ (e) => setMessage(e.target.value)}
-            // onKeyUp={ (e) => { if(e.keyCode === 13) { sendMessage(message) }} }
+            onKeyUp={ (e) => { if(e.keyCode === 13) { sendMessage(message) }} }
           />
           <button onClick={ () => { sendMessage(message) } } className="btn">&nbsp; &nbsp; Send</button>
           {

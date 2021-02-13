@@ -12,12 +12,21 @@ export const chats = {
     data: null
 }
 
+export const searchedChats = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
 export const messages = {
     isLoading: false,
     error: null,
     isSuccessful: false,
     data: {},
-    current_chat: null
+    current_chat: null,
+    interlocutor: null,
+    current_load_more: null
 }
 
 export const notifications = {
