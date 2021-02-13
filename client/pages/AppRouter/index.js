@@ -129,12 +129,18 @@ const Main = withRouter(({ location }) => {
                                 component={UserProfile}
                                 key="userProfilePost"
                             />
+                            <PrivateRoute
+                                exact={true}
+                                path={'/messages'}
+                                component={Messenger}
+                                key="Messenger"
+                            />
                             
-                            <Route 
+                            {/* <Route 
                             exact
                             path={'/messages'}
                             component={Messenger}
-                        />
+                        /> */}
 
                         </AnimatePresence>
 

@@ -25,6 +25,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
 import { logout } from '../../store/actions/auth'
 import Button from '../../components/Button'
+import { createFollowRequest } from '../../store/actions/follow-user';
+import { createUnfollowRequest } from '../../store/actions/unfollow-user';
+import followUser from '../../store/reducers/follow-user';
+import { editUserProfileRequest } from '../../store/actions/edit-user-profile';
 
 
 
@@ -34,12 +38,15 @@ const UserProfile = props => {
     const { id, identifier, userID } = props.match.params
     const [modalVisibility, setModalVisibility] = useState(false)
     const [editProfileModalVisibility, setEditProfileModalVisibility] = useState(false)
-
     const dispatch = useDispatch()
     const [user, setUser] = useState({})
     const [userPost, setUserPost] = useState([])
     const [isFollowing, setFollowing] = useState('')
+    const [isFollowingSuccessful, setFollowingSuccessful] = useState(false);
     const userProfile = useSelector(state => state.userProfile)
+    const followUser = useSelector(state => state.followUser)
+    const unFollowUser = useSelector(state => state.unFollowUser)
+    const [serverError, setServerError] = useState('')
     
     const closeModal = () => {
         setModalVisibility(!modalVisibility)
@@ -69,7 +76,6 @@ const UserProfile = props => {
 
 
     useEffect(() => {
-        console.log(userID);
        if(userID){
         dispatch(fetchUserProfileRequest(true, userID));
        } 
@@ -83,6 +89,53 @@ const UserProfile = props => {
         }
     }, [userProfile])
 
+
+
+    useEffect(() => {
+        if(followUser.isSuccessful){
+            setFollowingSuccessful(followUser.data)
+            setFollowing(true)
+        } else {
+            setFollowingSuccessful(false)
+        }
+    }, [followUser])
+
+    useEffect(() => {
+        if(unFollowUser.isSuccessful){
+            setFollowingSuccessful(unFollowUser.data)
+            setFollowing(false)
+        } else {
+            setFollowingSuccessful(false)
+        }
+    }, [unFollowUser])
+
+    const handleUnfollowUser = () => {
+        dispatch(createUnfollowRequest(user.id))
+    }
+
+    const handleFollowUser = () => {
+        dispatch(createFollowRequest(user.id))
+    }
+
+      /**
+     * Handle feeds form submit
+     *
+     * @return null
+     */
+    const onSubmit = (data, { setSubmitting, resetForm}) => {   
+            dispatch(editUserProfileRequest(data, user.id))
+            .then(response => { 
+                  if(response.payload.data.message || response.payload.data.error){
+                    setServerError('Something went wrong, check your network and please try again')
+                    setSubmitting(false)
+                }else{
+                    dispatch(flashMessage('profile updated successfully'))       
+                    setModalVisibility(false)
+                    setSubmitting(false)
+                    resetForm(initialValues)
+                }
+            })
+    }
 
     return (
         
@@ -108,7 +161,7 @@ const UserProfile = props => {
                     variants={imageVariants}
                 >
                     <AuthorCard profile={true} {...user} />
-                    {userID && <Button >{isFollowing? 'Unfollow' : 'Follow'}</Button>}
+                    {userID && (isFollowing ? <Button click={handleUnfollowUser}>Unfollow</Button> : <Button click={handleFollowUser}>Follow</Button>)}
 
                     <div className="pt-6 flex flex-col w-full">
                         <div className="flex flex-row justify-between py-2">
@@ -224,7 +277,7 @@ const UserProfile = props => {
               
         </div>
           <EditProfileModal modalVisibility={editProfileModalVisibility}
-          setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} />
+          setModalVisibility={() => setEditProfileModalVisibility(!editProfileModalVisibility)} initialValues={user} onSubmit={onSubmit} serverError={serverError} />
           </>
     )
 }

@@ -11,7 +11,7 @@ export default function Message(props) {
       showTimestamp
     } = props;
 
-    const friendlyTimestamp = moment(data.timestamp).format('LLLL');
+    const friendlyTimestamp = moment(data.created_at).format('LLLL');
     return (
       <div className={[
         'message',
@@ -28,7 +28,7 @@ export default function Message(props) {
 
         <div className="bubble-container">
           <div className="bubble" title={friendlyTimestamp}>
-            { data.message }
+            { data.message } &nbsp; &nbsp; <sub>{ moment(data.created_at).format('LT') }</sub>
           </div>
         </div>
       </div>

@@ -66,7 +66,8 @@ class LoginPage extends PureComponent {
             if(response.payload.data.access_token){
                 localStorage.setItem(
                     'auth',
-                    JSON.stringify(response.payload.data.access_token)
+                    // JSON.stringify(response.payload.data.access_token)
+                    response.payload.data.access_token
                 )
                 setAuthToken(response.payload.data.access_token)
             }
@@ -78,6 +79,11 @@ class LoginPage extends PureComponent {
                 history.push('/feeds')
            
         } catch ({ error }) {
+           if(error.data){
+               dispatch(flashMessage('Network Error', {isError: true}))
+               setSubmitting(false)
+           } else  {
+
            
             const { message } = error.response.data
                 setSubmitting(false)
@@ -99,6 +105,7 @@ class LoginPage extends PureComponent {
                     { isError: false }))
                 this.setState({confirmEmail: message !== 'Unauthorized'})
         }
+    }
 
     }
 

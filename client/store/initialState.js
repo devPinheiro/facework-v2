@@ -5,6 +5,30 @@ export const feeds = {
     data: null
 }
 
+export const chats = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
+export const searchedChats = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
+export const messages = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: {},
+    current_chat: null,
+    interlocutor: null,
+    current_load_more: null
+}
+
 export const notifications = {
     isLoading: false,
     error: null,
@@ -47,6 +71,28 @@ export const auth = {
 }
 
 export const userProfile = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
+export const followUser = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
+
+export const unFollowUser = {
+    isLoading: false,
+    error: null,
+    isSuccessful: false,
+    data: null
+}
+
+export const editUserProfile = {
     isLoading: false,
     error: null,
     isSuccessful: false,
