@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { sendMessagesRequest } from '../../store/actions/messages';
-import { appendNewMessagesRequest } from '../../store/actions/new-messages';
+import { sendMessagesRequest, fetchMoreMessagesRequest, appendNewMessagesRequest } from '../../store/actions/messages';
+import { toast } from 'react-toastify';
 
 import Compose from '../Compose';
 import Toolbar from '../Toolbar';
 import ToolbarButton from '../ToolbarButton';
+import Button from '@components/Button'
 import Message from '../Message';
 import moment from 'moment';
 
@@ -21,22 +22,33 @@ export default function MessageList({ profile, Echo }) {
     
     useEffect(() => {
       toRender.current = renderMessages(messageState);
-
+    }, [messageState])
+    
+    useEffect(() => {
       if (messageState.isSuccessful) {
         Echo.private(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`)
         .listen('MessageSent', (e) => {
-          dispatch(appendNewMessagesRequest(e, messageState))
+          toast(`New message from ${e.sender.name} -- ${e.message}`, {
+            pauseOnFocusLoss: false,
+            autoClose: 10000,
+            hideProgressBar: true,
+          });
+          dispatch(appendNewMessagesRequest(e, messageState.current_chat))
         })
       }
-    }, [messageState])
+    }, [messageState.current_chat])
 
     const sendMessage = (message) => {
       if(message.length) {
-        dispatch(sendMessagesRequest(message, messageState))
+        dispatch(sendMessagesRequest(message, messageState.current_chat))
       } else {
         alert('You cannot send an empty message')
       }
       setMessage('');
+    }
+
+    const loadMoreMessages = () => {
+      dispatch(fetchMoreMessagesRequest(messageState.current_chat, messageState))
     }
 
     const renderMessages = () => {
@@ -83,7 +95,7 @@ export default function MessageList({ profile, Echo }) {
               startsSequence = false;
             }
 
-            if (previousDuration.as('hours') < 1) {
+            if (previousDuration.as('hours') < 2) {
               showTimestamp = false;
             }
           }
@@ -119,13 +131,17 @@ export default function MessageList({ profile, Echo }) {
     return (
       <div className="message-list">
         <Toolbar
-          // title={messageState ? messageState}
+          title={messageState.current_chat ? messageState.interlocutor : ''}
           rightItems={[
             <ToolbarButton key="info" icon="ion-ios-information-circle-outline" />,
             <ToolbarButton key="video" icon="ion-ios-videocam" />,
             <ToolbarButton key="phone" icon="ion-ios-call" />
           ]}
         />
+        
+        { ( messageState.current_chat && messageState.current_load_more) ? (
+          <p className="text-center"><Button type="button" style="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-6 border border-gray-400 rounded shadow mr-4" click={loadMoreMessages}> Load More</Button></p>
+        ) : ('')}
 
         <div className="message-list-container">{toRender.current}</div>
 

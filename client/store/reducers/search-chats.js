@@ -1,7 +1,8 @@
 import {
     SEARCH_CHATS_START,
     SEARCH_CHATS_SUCCESS,
-    SEARCH_CHATS_FAIL
+    SEARCH_CHATS_FAIL,
+    SEARCH_CHATS_EMPTY
 } from '@client/store/actions/search-chats'
 import { searchedChats } from '../initialState'
 
@@ -18,6 +19,13 @@ export default (state = searchedChats, action) => {
                 isLoading: false,
                 isSuccessful: true,
                 data: action.payload,
+            }
+        case SEARCH_CHATS_EMPTY:
+            return {
+                ...state,
+                isLoading: false,
+                isSuccessful: true,
+                data: null,
             }
         case SEARCH_CHATS_FAIL:
             return {

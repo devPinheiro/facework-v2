@@ -1,10 +1,14 @@
 
-import React, { PureComponent } from 'react'
+import React, { PureComponent, useSelector } from 'react'
 import jwt_decode from 'jwt-decode'
 import { BrowserRouter as Router} from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 import { echo } from '../../utils/websocket'
 import { appendNewNotificationsRequest } from '../../store/actions/notification'
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 
 // components
 import Main from '@pages/AppRouter'
@@ -25,14 +29,14 @@ import { Provider } from 'react-redux'
 
 export class App extends PureComponent {
 
+    
     componentDidMount(){
-
+        
         if (localStorage.auth !== undefined) {
-   
+            
             // set auth token
             setAuthToken(localStorage.auth);
 
-            //decode
             // const decoded = jwt_decode(localStorage.auth);
             const decoded = localStorage.auth;
             
@@ -50,8 +54,7 @@ export class App extends PureComponent {
             
             // let Echo = echo();
             // Echo.disconnect();
-            // let state = store.getState();
-            // console.log(state);
+            // console.log(userProfile.data.user.id);
             // Echo.private(`App.User.${state.userProfile.data.user.id}`).notification((data) => {
             //     alert(`${data.sender.name} <br> Message: ${data.message}`);
             //     appendNewNotificationsRequest(state.notifications);
@@ -72,6 +75,7 @@ export class App extends PureComponent {
                 <Provider store={store} >
                     <PersistGate loading={null} persistor={persistor}>
                         <Main />
+                        <ToastContainer />
                     </PersistGate>
                 </Provider>
             </Router>     

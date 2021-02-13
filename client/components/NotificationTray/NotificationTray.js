@@ -29,7 +29,6 @@ const NotificationTray = ({ openNotification }) => {
     }, [openNotification]);
 
     useEffect(() => {
-        console.log(notificationState)
         if (notificationState.isSuccessful) {
             if (notificationState.currentPage > 1 && notificationState.lastPage) {
                 setNotification(prevState => [...prevState, ...notificationState.data])

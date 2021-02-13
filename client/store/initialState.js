@@ -24,7 +24,9 @@ export const messages = {
     error: null,
     isSuccessful: false,
     data: {},
-    current_chat: null
+    current_chat: null,
+    interlocutor: null,
+    current_load_more: null
 }
 
 export const notifications = {

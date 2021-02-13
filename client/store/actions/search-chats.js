@@ -5,6 +5,7 @@ import axios from  '../Axios';
 
 export const SEARCH_CHATS_START = 'SEARCH_CHATS_START'
 export const SEARCH_CHATS_SUCCESS = 'SEARCH_CHATS_SUCCESS'
+export const SEARCH_CHATS_EMPTY = 'SEARCH_CHATS_EMPTY'
 export const SEARCH_CHATS_FAIL = 'SEARCH_CHATS_FAIL'
 
 
@@ -24,6 +25,10 @@ export const searchChatsSuccess = payload => ({
     payload
 })
 
+export const searchChatsEmpty = () => ({
+  type: SEARCH_CHATS_EMPTY,
+})
+
 export const searchChatsFail = (payload) => ({
     type: SEARCH_CHATS_FAIL,
     payload
@@ -41,7 +46,7 @@ export const searchChatsRequest = (search) => async dispatch => {
         { Authorization: `Bearer ${localStorage.auth}` }
     })
     .then(res => {
-      let data = Array.isArray(res.data) && res.data.length ? res.data : null;
+      let data = Array.isArray(res.data) && res.data.length ? res.data : [];
         dispatch(searchChatsSuccess(data));
     })
     .catch(err => {
@@ -57,4 +62,13 @@ export const searchChatsRequest = (search) => async dispatch => {
           }
           dispatch(searchChatsFail(errorResponse));
     });
+};
+
+/**
+ * Create action to search all chats
+ * @param  string search
+ * @return {Object} Redux action
+ */
+export const emptySearchChatsRequest = () => async dispatch => {
+  dispatch(searchChatsEmpty());
 };

@@ -72,18 +72,20 @@ export default function Messenger() {
           />
           <ConversationSearch setSearchedChats={setSearchedChats} searchedChats={searchedChats} />
           
-          { searchedChatsState.data ? (
+          { (searchedChatsState.data) ? (
             <div>
-              <Toolbar title="Search Results"/>
+              <Toolbar title={`Search Results (${searchedChats.length})`} />
               { searchedChats.map((item, key) => (
                 <div className="conversation-list-item" key={key} onClick={() => handleClick(item.chatId)}>
                   <img className="conversation-photo" src={item.photo} alt="conversation" />
-                  <div className="conversation-info">
+                  <div className="conversation-info"> 
                     <h1 className="conversation-title">{item.name}</h1>
                     <p className="conversation-snippet">{item.text}</p>
                   </div>
                 </div>
               ))}
+              {/* <p style="margin-bottom:3cm;"></p> */}
+              <Toolbar title={`Conversations (${chat.length})`} />
             </div>
           ): ('') }
           
