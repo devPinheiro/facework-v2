@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { sendMessagesRequest, fetchMoreMessagesRequest, appendNewMessagesRequest } from '../../store/actions/messages';
 import { toast } from 'react-toastify';
+import { Link, useHistory } from 'react-router-dom'
 
 import Compose from '../Compose';
 import Toolbar from '../Toolbar';
@@ -19,21 +20,23 @@ export default function MessageList({ profile, Echo }) {
     const messageState = useSelector(s => s.messages);
     const [message, setMessage] = useState('');
     const dispatch = useDispatch();
+    const history = useHistory();
     
     useEffect(() => {
       toRender.current = renderMessages(messageState);
     }, [messageState])
-    
+
     useEffect(() => {
       if (messageState.isSuccessful) {
         Echo.private(`chat-${profile.data.user.chat_id}-${messageState.current_chat}`)
-        .listen('MessageSent', (e) => {
-          toast(`New message from ${e.sender.name} -- ${e.message}`, {
+        .listen('MessageSent', (message) => {
+          toast(`📩   New message from ${message.sender.name} -- ${message.message}`, {
             pauseOnFocusLoss: false,
             autoClose: 10000,
             hideProgressBar: true,
+            // onClick: (message) => history.push(`/messages/${message.sender.chat_id}`)
           });
-          dispatch(appendNewMessagesRequest(e, messageState.current_chat))
+          dispatch(appendNewMessagesRequest(message, messageState.current_chat))
         })
       }
     }, [messageState.current_chat])

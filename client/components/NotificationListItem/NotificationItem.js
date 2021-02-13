@@ -7,8 +7,6 @@ import Moment from '../../components/Moment'
 const NotificationItem = ({ created_at, data, read_at, id, type }) => {
   const dispatch = useDispatch();
 
-  console.log(type.endsWith("NewChatMessage"))
-
   const markAsRead = async id => {
     await axios.put(`/notifications/read/${id}`);
   }
@@ -16,9 +14,7 @@ const NotificationItem = ({ created_at, data, read_at, id, type }) => {
     <div className={`block border-grey-lightest px-2 py-2 hover:bg-grey-lightest ${read_at ? '' : 'bg-grey-lightest'}`}>
       <div className="flex justify-between">
         { type.endsWith("NewChatMessage")
-          ? <Link to={`/messages/${data.sender.chat_id}
-          .replace(/ /g, '-')
-          .replace(/[^\w-]+/g, '')}`} onClick={() => markAsRead(id)} className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
+          ? <Link to={`/messages/${data.sender.chat_id}`} className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
           <img class="rounded-full h-10 w-10 object-cover border-grey-lightest border mr-3" src={data.sender.image} alt="" />
           <div className="flex-column ">
             <div>

@@ -17,14 +17,16 @@ import { fetchMessagesRequest } from '../../store/actions/messages';
 import './../ConversationList/ConversationList.css';
 import './../ConversationListItem/ConversationListItem.css';
 
-export default function Messenger() {
+export default function Messenger(props) {
   const dispatch = useDispatch();
+
+  const currentChat = props.match.params.currentChat;
 
   const profileState = useSelector(s => s.userProfile);
   const chatState = useSelector(s => s.chats);
   const searchedChatsState = useSelector(s => s.searchedChats);
   const messageState = useSelector(s => s.messages);
-  let Echo = echo();
+  const Echo = echo();
 
   const [chat, setChat] = useState([]);
   const [messages, setMessages] = useState([])
@@ -39,6 +41,19 @@ export default function Messenger() {
       setChat(chatState.data);
     }
   }, [chatState])
+
+  useEffect(() => {
+    async function activeChat(currentChat) {
+      if (messageState.current_chat) {
+        Echo.leave(`private-chat-${profileState.data.user.chat_id}-${messageState.current_chat}`)
+      }
+      await dispatch(fetchMessagesRequest(currentChat, messageState));
+    }
+
+    if (currentChat) {
+      activeChat(currentChat)
+    }
+  }, [currentChat])
 
   useEffect(() => {
     if (searchedChatsState.isSuccessful) {

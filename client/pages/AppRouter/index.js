@@ -135,6 +135,12 @@ const Main = withRouter(({ location }) => {
                                 component={Messenger}
                                 key="Messenger"
                             />
+                            <PrivateRoute
+                                exact={true}
+                                path={'/messages/:currentChat'}
+                                component={Messenger}
+                                key="ActiveMessenger"
+                            />
                             
                             {/* <Route 
                             exact
