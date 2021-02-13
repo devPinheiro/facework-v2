@@ -70,23 +70,21 @@ export class RegisterPage extends Component {
                         )
                     }
            
-        } catch (error) {
-
-            if(error.response.payload.data.errors){
+        } catch ({error}) {
+            if(error.data){
+                dispatch(flashMessage('Network Error', {isError: true}))
                 setSubmitting(false)
-                setErrors(response.payload.data.errors)
+            } 
+            else if(error.response.data.errors){
+                setSubmitting(false)
+                setErrors(error.response.data.errors)
                 dispatch(
-                    flashMessage(response.payload.data.errors.email[0], {
+                    flashMessage(error.response.data.errors.email[0], {
                         isError: true
                     })
                 )
             }
-           
-                    // dispatch(
-                    //     flashMessage('something went wrong', {
-                    //         isError: true
-                    //     })
-                    // )
+            
         
         }
 

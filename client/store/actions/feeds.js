@@ -40,7 +40,7 @@ export const fetchPostsRequest = (page = 1 ) => async dispatch => {
     dispatch(fetchPostsStart());
     return axios.get(`feeds?page=${page}`)
     .then(res => {
-        dispatch(fetchPostsSuccess(res.data.post));
+      dispatch(fetchPostsSuccess(res.data.post));
     })
     .catch(err => {
       const {

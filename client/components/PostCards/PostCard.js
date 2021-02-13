@@ -57,7 +57,9 @@ const PostCard = ({
                 <div class="py-2 flex flex-row items-center justify-between">
                     {profilePage ? null : (<><div class="flex flex-row items-center">
                         <Link
-                            to=""
+                            to={`/feeds/p/${slug}/${title.toLowerCase()
+                                .replace(/ /g,'-')
+                                .replace(/[^\w-]+/g,'')}`}
                             className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg"
                         >
                             <img

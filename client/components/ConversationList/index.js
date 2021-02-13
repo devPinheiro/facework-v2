@@ -1,35 +1,42 @@
 import React, {useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+
+// Compponents
 import ConversationSearch from '../ConversationSearch';
-import ConversationListItem from '../ConversationListItem';
+// import ConversationListItem from '../ConversationListItem';
+import shave from 'shave';
 import Toolbar from '../Toolbar';
 import ToolbarButton from '../ToolbarButton';
-import axios from 'axios';
+
+// Actions
+import { fetchChatsRequest } from '../../store/actions/chats';
+import { setCurrentChatRequest } from '../../store/actions/set-current-chat';
 
 import './ConversationList.css';
+import './../ConversationListItem/ConversationListItem.css';
 
-export default function ConversationList(props) {
-  const [conversations, setConversations] = useState([]);
+const ConversationList = props => {
+
+  const dispatch = useDispatch();
+  const [chat, setChat] = useState([]);
+
+  const chatState = useSelector(s => s.chats);
+  
   useEffect(() => {
-    getConversations()
+    dispatch(fetchChatsRequest()), shave('.conversation-snippet', 20);
   },[])
 
- const getConversations = () => {
-    axios.get('https://randomuser.me/api/?results=20', {headers: { Authorization: ''}}).then(response => {
-        let newConversations = response.data.results.map(result => {
-          return {
-            photo: result.picture.large,
-            name: `${result.name.first} ${result.name.last}`,
-            text: 'Hello world! This is a long message that needs to be truncated.'
-          };
-        });
-        setConversations([...conversations, ...newConversations])
-    });
-  }
+  useEffect(() => {
+    if(chatState.isSuccessful){
+      setChat(chatState.data);
+    }
+      
+  }, [chatState])
 
     return (
       <div className="conversation-list">
         <Toolbar
-          title="Messenger"
+          title="Chats"
           leftItems={[
             <ToolbarButton key="cog" icon="ion-ios-cog" />
           ]}
@@ -39,13 +46,18 @@ export default function ConversationList(props) {
         />
         <ConversationSearch />
         {
-          conversations.map(conversation =>
-            <ConversationListItem
-              key={conversation.name}
-              data={conversation}
-            />
-          )
+          chat.map((item, key) => (
+            <div className="conversation-list-item" key={key} onClick={function() {dispatch(setCurrentChatRequest(item.chatId));}}>
+              <img className="conversation-photo" src={item.photo} alt="conversation" />
+              <div className="conversation-info">
+                <h1 className="conversation-title">{ item.name }</h1>
+                <p className="conversation-snippet">{ item.text }</p>
+              </div>
+            </div>
+          ))
         }
       </div>
     );
 }
+
+export default ConversationList

@@ -53,7 +53,7 @@ const Main = withRouter(({ location }) => {
         {["/auth/login", "/auth/register", "/auth/emails/confirm/:token", "/auth/passwords/reset/:token", "/auth/passwords/email"].includes(
           location.pathname
         ) ||
-          (<div className="w-full pt-5 m-auto max-w-xl flex ">
+          (<div className="pt-5 m-auto max-w-xl">
           <NavBar />
       </div>)}
 
@@ -90,11 +90,13 @@ const Main = withRouter(({ location }) => {
                             path={'/auth/emails/confirm/:token'}
                             component={EmailConfirmationPage}
                         />
-                        <Route 
-                            exact
-                            path={'/messages'}
-                            component={Messenger}
-                        />
+                        <Route
+                                exact
+                                path={'/jobs'}
+                                component={Jobs}
+                                key="jobs"
+                            />
+                        
                         <AnimatePresence exitBeforeEnter initial={false}>
                            
                             <PrivateRoute
@@ -113,6 +115,12 @@ const Main = withRouter(({ location }) => {
                                 exact={true}
                                 path={'/profile'}
                                 component={UserProfile}
+                                key="userProfile23"
+                            />
+                            <PrivateRoute
+                                exact={true}
+                                path={'/profile/nwlite/:userID'}
+                                component={UserProfile}
                                 key="userProfile"
                             />
                             <PrivateRoute
@@ -121,12 +129,24 @@ const Main = withRouter(({ location }) => {
                                 component={UserProfile}
                                 key="userProfilePost"
                             />
-                            <Route
-                                exact
-                                path={'/jobs'}
-                                component={Jobs}
-                                key="jobs"
+                            <PrivateRoute
+                                exact={true}
+                                path={'/messages'}
+                                component={Messenger}
+                                key="Messenger"
                             />
+                            <PrivateRoute
+                                exact={true}
+                                path={'/messages/:currentChat'}
+                                component={Messenger}
+                                key="ActiveMessenger"
+                            />
+                            
+                            {/* <Route 
+                            exact
+                            path={'/messages'}
+                            component={Messenger}
+                        /> */}
 
                         </AnimatePresence>
 

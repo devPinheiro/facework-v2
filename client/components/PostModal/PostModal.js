@@ -92,7 +92,7 @@ const PostModal = props => {
             <div className="md:w-1/3 md:block border-l-2 border-grey-lightest">           
                   <div className="flex flex-row justify-between border-b-2 border-grey-lightest px-3 py-4">
                       <div className="flex items-center">
-                            <Link to="#" className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
+                            <Link to={`/profile/nwlite/${post.profile.id}`} className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
                               
                             <img class="rounded-full h-10 w-10 object-cover border-grey-lightest border mr-3" src={post.profile.image} alt="" />
                               <div className="flex-column ">
@@ -106,7 +106,7 @@ const PostModal = props => {
                       
                   <div className="pt-2 px-2 md:h-90 overflow-scroll">
                  <div className="text-base text-black"><p>{post.title}</p></div>
-                 <small className="text-xxs font-hairline">{post.body} </small> 
+                 <small className="text-xxs ">{post.body} </small> 
                     <div className="pt-4">
                     <> {isLoading ? <Loader />  : (comments && comments.reverse().map((item, key) => (
                             <Comment {...item} key={key} />

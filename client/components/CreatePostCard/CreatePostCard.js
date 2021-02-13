@@ -13,7 +13,7 @@ const CreatePostCard = ({ setPostModalVisibility, postModalVisibility, initialVa
             <div className="py-4 flex flex-row items-center justify-between border-grey-lightest border-b-2 cursor-pointer rounded-sm" onClick={ () => setPostModalVisibility(!postModalVisibility) } >
                 <div className="flex flex-row items-center ">
                 <img className="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1520065786657-b71a007dd8a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" alt=""/>
-                    <p class="ml-3 text-sm md:text-xl font-thin text-form-transparent">
+                    <p class="ml-3 text-sm md:text-xl text-form-transparent">
                         What are you working on currently?
                     </p>
                 </div>
