@@ -85,12 +85,12 @@ export default function Messenger(props) {
               <ToolbarButton key="add" icon="ion-ios-add-circle-outline" />
             ]}
           />
-          <ConversationSearch setSearchedChats={setSearchedChats} searchedChats={searchedChats} />
+          <ConversationSearch setSearchedChats={setSearchedChats} />
           
           { (searchedChatsState.data) ? (
             <div>
-              <Toolbar title={`Search Results (${searchedChats.length})`} />
-              { searchedChats.map((item, key) => (
+              <Toolbar title={`Search Results (${searchedChats ? searchedChats.length : 0})`} />
+              { searchedChatsState.data.map((item, key) => (
                 <div className="conversation-list-item" key={key} onClick={() => handleClick(item.chatId)}>
                   <img className="conversation-photo" src={item.photo} alt="conversation" />
                   <div className="conversation-info"> 
