@@ -73,8 +73,7 @@ const PostFeed = props => {
         setModalVisibility(!modalVisibility)
         props.history.push('/feeds')
     }
-
-
+    
      /**
      * Handle feeds form submit
      *
