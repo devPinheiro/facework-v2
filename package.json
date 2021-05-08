@@ -12,7 +12,7 @@
     "build:client": "webpack --mode=production",
     "start": "node dist/index.js"
   },
-  "proxy": "http://facework.app/api",
+  "proxy": "http://facework-up.test/api",
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",

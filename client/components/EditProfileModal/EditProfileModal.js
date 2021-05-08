@@ -22,7 +22,6 @@ const EditProfileModal = ({
     const [selectedImage, setSelectedImage] = useState('')
     const [pictureError, setPictureError] = useState('')
     const imageRef = useRef();
-    console.log(initialValues);
 
     return (
         <Modal modalVisibility={modalVisibility}>

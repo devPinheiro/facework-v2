@@ -1,6 +1,6 @@
 
 import React, { PureComponent, useSelector } from 'react'
-import jwt_decode from 'jwt-decode'
+// import jwt_decode from 'jwt-decode'
 import { BrowserRouter as Router} from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 import { echo } from '../../utils/websocket'
@@ -46,11 +46,11 @@ export class App extends PureComponent {
             store.dispatch(fetchUserProfileRequest(false, decoded));
             // for expired token
             const currentTime = Date.now() / 1000;
-            if (decoded.exp < currentTime) {
-              // logout current user
-              store.dispatch(logout());
-              window.location.href = "/";
-            }
+            // if (decoded.exp < currentTime) {
+            //   // logout current user
+            //   store.dispatch(logout());
+            //   window.location.href = "/";
+            // }
             
             // let Echo = echo();
             // Echo.disconnect();
