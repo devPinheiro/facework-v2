@@ -93,7 +93,13 @@ module.exports = {
             }),
         new MiniExtractCssPlugin({
             filename: 'app.css'
-        }),new webpack.DefinePlugin()
+        }),new webpack.DefinePlugin({
+            'process.env.PRODUCTION_URL': JSON.stringify(process.env.PRODUCTION_URL),
+            'process.env.DEVELOPMENT_URL': JSON.stringify(process.env.DEVELOPMENT_URL),
+            'process.env.BROADCASTER': JSON.stringify(process.env.BROADCASTER),
+            'process.env.BROADCASTER_KEY': JSON.stringify(process.env.BROADCASTER_KEY),
+            'process.env.BROADCASTER_CLUSTER': JSON.stringify(process.env.BROADCASTER_CLUSTER)
+          })
     ].filter(Boolean),
     optimization: {
         minimizer: [
