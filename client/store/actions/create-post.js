@@ -39,22 +39,22 @@ export const createPostFail = payload => ({
 
 export const createPostRequest = payload => {
 
-const form = new FormData();
+    const form = new FormData();
 
-Object.entries(payload).forEach(([key, value]) => {
-    form.append(key, value);
-});
+    Object.entries(payload).forEach(([key, value]) => {
+        form.append(key, value);
+    });
 
-return  {
-  type: CREATE_POST_SUCCESS,
-    payload: {
-        request: {
-            method: 'POST',
-            url: '/feeds/create',
-            data: form
+    return  {
+    type: CREATE_POST_SUCCESS,
+        payload: {
+            request: {
+                method: 'POST',
+                url: '/feeds/create',
+                data: form
+            }
         }
     }
-}
 }
 
 export const uploadToCloudinary = payload => {

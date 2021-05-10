@@ -11,6 +11,7 @@ import {
     FiAlignJustify,
     FiEdit3
 } from 'react-icons/fi'
+import { flashMessage } from 'redux-flash'
 
 // components
 import PostCard from '@components/PostCards/PostCard'
@@ -124,16 +125,15 @@ const UserProfile = props => {
      */
     const onSubmit = (data, { setSubmitting, resetForm}) => {   
             dispatch(editUserProfileRequest(data, user.id))
-            .then(response => { 
-                  if(response.payload.data.message || response.payload.data.error){
-                    setServerError('Something went wrong, check your network and please try again')
-                    setSubmitting(false)
-                }else{
-                    dispatch(flashMessage('profile updated successfully'))       
-                    setModalVisibility(false)
-                    setSubmitting(false)
-                    resetForm(initialValues)
-                }
+            .then(() => { 
+                dispatch(flashMessage('Profile updated successfully'))     
+                setModalVisibility(false)
+                setSubmitting(false)
+                // resetForm(initialValues)
+            })
+            .catch(({ error }) => {
+                setServerError('Something went wrong, check your network and please try again')
+                setSubmitting(false)
             })
     }
 

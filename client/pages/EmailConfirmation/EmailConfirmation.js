@@ -12,9 +12,9 @@ import EmailConfirmationLoader from '@components/EmailConfirmationLoader'
 
 import './index.css'
 import { Link } from 'react-router-dom'
-import jwtDecode from 'jwt-decode'
+// import jwtDecode from 'jwt-decode'
 import { setAuthToken } from '../../store/Axios'
-import { store } from '../../store'
+// import { store } from '../../store'
 import { setCurrentUser } from '../../store/actions/auth'
 export class EmailConfirmationPage extends Component {
     state = {
@@ -54,7 +54,7 @@ export class EmailConfirmationPage extends Component {
             .then(response => {
                
                 if(response.payload.data.access_token){
-                    localStorage.setItem('auth',JSON.stringify(response.payload.data.access_token))
+                    localStorage.setItem('auth',response.payload.data.access_token)
                     setAuthToken(localStorage.auth)            
                     
                     dispatch(setCurrentUser(response.payload.data.data))

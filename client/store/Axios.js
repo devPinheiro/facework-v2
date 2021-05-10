@@ -12,6 +12,8 @@ export const setAuthToken = token => {
 
 const instance = axios.create({
   baseURL: process.env.NODE_ENV === 'development' ? process.env.DEVELOPMENT_URL : process.env.PRODUCTION_URL,
+  headers: {'Authorization': `Bearer ${localStorage.getItem('auth')}`}
+
   // headers: {
   //   'Access-Control-Allow-Origin':'*',
   //   'Accept': 'application/json',

@@ -35,26 +35,49 @@ export const editUserProfileFail = payload => ({
  * @param {Object} perPage  number of post per page in the response data
  * @return {Object} Redux action
  */
-export const editUserProfileRequest = (data, id) => async dispatch => {
-    dispatch(editUserProfileStart());
-    return axios.patch(`/profile/edit/${id}`, data)
-    .then(res => {
-        dispatch(editUserProfileSuccess(res.data));
-        if(res.data.message){
-            dispatch(editUserProfileFail(res.data.message))
-        }
-    })
-    .catch(err => {
-      const {
-            message
-          } = err.response.data;
-          let errorResponse;
+// export const editUserProfileRequest = (data, id) => async dispatch => {
+//     dispatch(editUserProfileStart());
+//     return axios.patch(`/profile/edit/${id}`, data)
+//     .then(res => {
+//         dispatch(editUserProfileSuccess(res.data));
+//         if(res.data.message){
+//             dispatch(editUserProfileFail(res.data.message))
+//         }
+//     })
+//     .catch(err => {
+//       const {
+//             message
+//           } = err.response.data;
+//           let errorResponse;
        
-          if (message) {
-            errorResponse = message;
-          } else {
-            errorResponse = 'Something went wrong. please try again';
+//           if (message) {
+//             errorResponse = message;
+//           } else {
+//             errorResponse = 'Something went wrong. please try again';
+//           }
+//           dispatch(editUserProfileFail(errorResponse));
+//     });
+// };
+
+export const editUserProfileRequest = (data, id) => {
+  
+  const form = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+      form.append(key, value);
+  });
+
+  return  {
+  type: EDIT_USER_PROFILE_SUCCESS,
+      payload: {
+          request: {
+              method: 'POST',
+              url: `/profile/edit/${id}`,
+              data: form,
+              headers: {
+                "content-type": "multipart/form-data"
+              }
           }
-          dispatch(editUserProfileFail(errorResponse));
-    });
-};
+      }
+  }
+}

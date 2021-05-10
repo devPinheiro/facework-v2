@@ -65,11 +65,9 @@ class LoginPage extends PureComponent {
            
             if(response.payload.data.access_token){
                 localStorage.setItem(
-                    'auth',
-                    // JSON.stringify(response.payload.data.access_token)
-                    response.payload.data.access_token
+                    'auth', response.payload.data.access_token
                 )
-                setAuthToken(response.payload.data.access_token)
+                // setAuthToken(response.payload.data.access_token)
             }
     
                 await dispatch(setCurrentUser(response.payload.data.data))
