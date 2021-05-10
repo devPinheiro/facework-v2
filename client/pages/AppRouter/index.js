@@ -50,7 +50,7 @@ const Main = withRouter(({ location }) => {
     
     return (
 <>
-        {["/auth/login", "/auth/register", "/auth/emails/confirm/:token", "/auth/passwords/reset/:token", "/auth/passwords/email"].includes(
+        {["/", "/auth/login", "/auth/register", "/auth/emails/confirm/:token", "/auth/passwords/reset/:token", "/auth/passwords/email"].includes(
           location.pathname
         ) ||
           (<div className="pt-5 m-auto max-w-xl">
@@ -64,7 +64,7 @@ const Main = withRouter(({ location }) => {
                     
                     <Switch>
                         
-                        <Route exact={true} path={'/'} component={HomePage} />
+                        <Route exact={true} path={'/'} component={LoginPage} />
                         <Route
                             exact={true}
                             path={'/auth/login'}
