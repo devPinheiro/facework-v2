@@ -94,10 +94,8 @@ module.exports = {
         new MiniExtractCssPlugin({
             filename: 'app.css'
         }),new webpack.DefinePlugin({
-            'process.env.PRODUCTION_URL': JSON.stringify(
-              'https://facework.com.ng/api/'
-            ),
-            'process.env.DEVELOPMENT_URL': JSON.stringify('http://localhost:8000/api'),
+            'process.env.PRODUCTION_URL': JSON.stringify(process.env.PRODUCTION_URL),
+            'process.env.DEVELOPMENT_URL': JSON.stringify(process.env.DEVELOPMENT_URL),
             'process.env.BROADCASTER': JSON.stringify(process.env.BROADCASTER),
             'process.env.BROADCASTER_KEY': JSON.stringify(process.env.BROADCASTER_KEY),
             'process.env.BROADCASTER_CLUSTER': JSON.stringify(process.env.BROADCASTER_CLUSTER)
