@@ -1,27 +1,33 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export const setAuthToken = token => {
-  if (token) {
-    //set token to auth
-    // axios.defaults.headers.common['Authorization'] = `Bearer ${token.replace(/['"]+/g, '')}`;
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  } else {
-    delete axios.defaults.headers.common['Authorization'];
-  }
-};
+    console.log('====================================');
+    console.log(token);
+    console.log('====================================');
+    if (token) {
+        // set token to auth
+        // axios.defaults.headers.common['Authorization'] = `Bearer ${token.replace(/['"]+/g, '')}`;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    } else {
+        delete axios.defaults.headers.common['Authorization']
+    }
+}
 
 const instance = axios.create({
-  baseURL: process.env.NODE_ENV === 'development' ? process.env.DEVELOPMENT_URL : process.env.PRODUCTION_URL,
-  headers: {'Authorization': `Bearer ${localStorage.getItem('auth')}`}
+    baseURL:
+        process.env.NODE_ENV === 'development'
+            ? process.env.DEVELOPMENT_URL
+            : process.env.PRODUCTION_URL,
+    headers: { Authorization: `Bearer ${localStorage.getItem('auth')}` }
 
-  // headers: {
-  //   'Access-Control-Allow-Origin':'*',
-  //   'Accept': 'application/json',
-  //   'Access-Control-Allow-Credentials': 'true',
-  //   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE, PATCH',
-  //   'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept',
-    
-  //   }   
-});
+    // headers: {
+    //   'Access-Control-Allow-Origin':'*',
+    //   'Accept': 'application/json',
+    //   'Access-Control-Allow-Credentials': 'true',
+    //   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE, PATCH',
+    //   'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept',
 
-export default instance;
+    //   }
+})
+
+export default instance

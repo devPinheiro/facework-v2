@@ -60,17 +60,17 @@ module.exports = {
             {
                 test: /\.svg$/,
                 use: [
-                  {
-                    loader: "babel-loader"
-                  },
-                  {
-                    loader: "react-svg-loader",
-                    options: {
-                      jsx: true // true outputs JSX tags
+                    {
+                        loader: 'babel-loader'
+                    },
+                    {
+                        loader: 'react-svg-loader',
+                        options: {
+                            jsx: true // true outputs JSX tags
+                        }
                     }
-                  }
                 ]
-              }
+            }
         ]
     },
     plugins: [
@@ -93,13 +93,19 @@ module.exports = {
             }),
         new MiniExtractCssPlugin({
             filename: 'app.css'
-        }),new webpack.DefinePlugin({
-            'process.env.PRODUCTION_URL': JSON.stringify(process.env.PRODUCTION_URL),
-            'process.env.DEVELOPMENT_URL': JSON.stringify(process.env.DEVELOPMENT_URL),
+        }),
+        new webpack.DefinePlugin({
+            'process.env.PRODUCTION_URL': 'http://157.230.123.137',
+
+            'process.env.DEVELOPMENT_URL': 'http://157.230.123.137',
             'process.env.BROADCASTER': JSON.stringify(process.env.BROADCASTER),
-            'process.env.BROADCASTER_KEY': JSON.stringify(process.env.BROADCASTER_KEY),
-            'process.env.BROADCASTER_CLUSTER': JSON.stringify(process.env.BROADCASTER_CLUSTER)
-          })
+            'process.env.BROADCASTER_KEY': JSON.stringify(
+                process.env.BROADCASTER_KEY
+            ),
+            'process.env.BROADCASTER_CLUSTER': JSON.stringify(
+                process.env.BROADCASTER_CLUSTER
+            )
+        })
     ].filter(Boolean),
     optimization: {
         minimizer: [
