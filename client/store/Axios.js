@@ -11,7 +11,7 @@ export const setAuthToken = token => {
 }
 
 const instance = axios.create({
-    baseURL: 'http://157.230.123.137/api',
+    baseURL: 'https://157.230.123.137/api',
     headers: { Authorization: `Bearer ${localStorage.getItem('auth')}` }
 })
 
