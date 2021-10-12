@@ -1,4 +1,4 @@
-import axios from  '../Axios';
+import axios from '../Axios'
 
 // define constant
 
@@ -6,13 +6,11 @@ export const EDIT_USER_PROFILE_START = 'EDIT_USER_PROFILE_START'
 export const EDIT_USER_PROFILE_SUCCESS = 'EDIT_USER_PROFILE_SUCCESS'
 export const EDIT_USER_PROFILE_FAIL = 'EDIT_USER_PROFILE_FAIL'
 
-
 /**
  * Make GET request to server to fetch all posts
  *
  * @return {Object} redux action
  */
-
 
 export const editUserProfileStart = () => ({
     type: EDIT_USER_PROFILE_START
@@ -49,7 +47,7 @@ export const editUserProfileFail = payload => ({
 //             message
 //           } = err.response.data;
 //           let errorResponse;
-       
+
 //           if (message) {
 //             errorResponse = message;
 //           } else {
@@ -60,24 +58,23 @@ export const editUserProfileFail = payload => ({
 // };
 
 export const editUserProfileRequest = (data, id) => {
-  
-  const form = new FormData();
+    const form = new FormData()
 
-  Object.entries(data).forEach(([key, value]) => {
-      form.append(key, value);
-  });
+    Object.entries(data).forEach(([key, value]) => {
+        form.append(key, value)
+    })
 
-  return  {
-  type: EDIT_USER_PROFILE_SUCCESS,
-      payload: {
-          request: {
-              method: 'POST',
-              url: `/profile/edit/${id}`,
-              data: form,
-              headers: {
-                "content-type": "multipart/form-data"
-              }
-          }
-      }
-  }
+    return {
+        type: EDIT_USER_PROFILE_SUCCESS,
+        payload: {
+            request: {
+                method: 'POST',
+                url: `/profile/edit/${id}`,
+                data: form,
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            }
+        }
+    }
 }
