@@ -239,7 +239,6 @@ if (true) {
 /* unused harmony export __importDefault */
 /* unused harmony export __classPrivateFieldGet */
 /* unused harmony export __classPrivateFieldSet */
-<<<<<<< HEAD
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -1264,1032 +1263,6 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
             return new RegExp(unescapeFormat(token));
         }
 
-=======
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    }
-    return __assign.apply(this, arguments);
-}
-
-function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-}
-
-function __decorate(decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-}
-
-function __param(paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-}
-
-function __metadata(metadataKey, metadataValue) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
-}
-
-function __awaiter(thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-}
-
-function __generator(thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-}
-
-function __createBinding(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}
-
-function __exportStar(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-
-function __values(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-}
-
-function __read(o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-}
-
-function __spread() {
-    for (var ar = [], i = 0; i < arguments.length; i++)
-        ar = ar.concat(__read(arguments[i]));
-    return ar;
-}
-
-function __spreadArrays() {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
-
-function __await(v) {
-    return this instanceof __await ? (this.v = v, this) : new __await(v);
-}
-
-function __asyncGenerator(thisArg, _arguments, generator) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var g = generator.apply(thisArg, _arguments || []), i, q = [];
-    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
-    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
-    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
-    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
-    function fulfill(value) { resume("next", value); }
-    function reject(value) { resume("throw", value); }
-    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
-}
-
-function __asyncDelegator(o) {
-    var i, p;
-    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
-    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
-}
-
-function __asyncValues(o) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var m = o[Symbol.asyncIterator], i;
-    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
-}
-
-function __makeTemplateObject(cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-
-function __importStar(mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result.default = mod;
-    return result;
-}
-
-function __importDefault(mod) {
-    return (mod && mod.__esModule) ? mod : { default: mod };
-}
-
-function __classPrivateFieldGet(receiver, privateMap) {
-    if (!privateMap.has(receiver)) {
-        throw new TypeError("attempted to get private field on non-instance");
-    }
-    return privateMap.get(receiver);
-}
-
-function __classPrivateFieldSet(receiver, privateMap, value) {
-    if (!privateMap.has(receiver)) {
-        throw new TypeError("attempted to set private field on non-instance");
-    }
-    privateMap.set(receiver, value);
-    return value;
-}
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module) {var require;//! moment.js
-//! version : 2.29.1
-//! authors : Tim Wood, Iskren Chernev, Moment.js contributors
-//! license : MIT
-//! momentjs.com
-
-;(function (global, factory) {
-     true ? module.exports = factory() :
-    undefined
-}(this, (function () { 'use strict';
-
-    var hookCallback;
-
-    function hooks() {
-        return hookCallback.apply(null, arguments);
-    }
-
-    // This is done to register the method called with moment()
-    // without creating circular dependencies.
-    function setHookCallback(callback) {
-        hookCallback = callback;
-    }
-
-    function isArray(input) {
-        return (
-            input instanceof Array ||
-            Object.prototype.toString.call(input) === '[object Array]'
-        );
-    }
-
-    function isObject(input) {
-        // IE8 will treat undefined and null as object if it wasn't for
-        // input != null
-        return (
-            input != null &&
-            Object.prototype.toString.call(input) === '[object Object]'
-        );
-    }
-
-    function hasOwnProp(a, b) {
-        return Object.prototype.hasOwnProperty.call(a, b);
-    }
-
-    function isObjectEmpty(obj) {
-        if (Object.getOwnPropertyNames) {
-            return Object.getOwnPropertyNames(obj).length === 0;
-        } else {
-            var k;
-            for (k in obj) {
-                if (hasOwnProp(obj, k)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-    }
-
-    function isUndefined(input) {
-        return input === void 0;
-    }
-
-    function isNumber(input) {
-        return (
-            typeof input === 'number' ||
-            Object.prototype.toString.call(input) === '[object Number]'
-        );
-    }
-
-    function isDate(input) {
-        return (
-            input instanceof Date ||
-            Object.prototype.toString.call(input) === '[object Date]'
-        );
-    }
-
-    function map(arr, fn) {
-        var res = [],
-            i;
-        for (i = 0; i < arr.length; ++i) {
-            res.push(fn(arr[i], i));
-        }
-        return res;
-    }
-
-    function extend(a, b) {
-        for (var i in b) {
-            if (hasOwnProp(b, i)) {
-                a[i] = b[i];
-            }
-        }
-
-        if (hasOwnProp(b, 'toString')) {
-            a.toString = b.toString;
-        }
-
-        if (hasOwnProp(b, 'valueOf')) {
-            a.valueOf = b.valueOf;
-        }
-
-        return a;
-    }
-
-    function createUTC(input, format, locale, strict) {
-        return createLocalOrUTC(input, format, locale, strict, true).utc();
-    }
-
-    function defaultParsingFlags() {
-        // We need to deep clone this object.
-        return {
-            empty: false,
-            unusedTokens: [],
-            unusedInput: [],
-            overflow: -2,
-            charsLeftOver: 0,
-            nullInput: false,
-            invalidEra: null,
-            invalidMonth: null,
-            invalidFormat: false,
-            userInvalidated: false,
-            iso: false,
-            parsedDateParts: [],
-            era: null,
-            meridiem: null,
-            rfc2822: false,
-            weekdayMismatch: false,
-        };
-    }
-
-    function getParsingFlags(m) {
-        if (m._pf == null) {
-            m._pf = defaultParsingFlags();
-        }
-        return m._pf;
-    }
-
-    var some;
-    if (Array.prototype.some) {
-        some = Array.prototype.some;
-    } else {
-        some = function (fun) {
-            var t = Object(this),
-                len = t.length >>> 0,
-                i;
-
-            for (i = 0; i < len; i++) {
-                if (i in t && fun.call(this, t[i], i, t)) {
-                    return true;
-                }
-            }
-
-            return false;
-        };
-    }
-
-    function isValid(m) {
-        if (m._isValid == null) {
-            var flags = getParsingFlags(m),
-                parsedParts = some.call(flags.parsedDateParts, function (i) {
-                    return i != null;
-                }),
-                isNowValid =
-                    !isNaN(m._d.getTime()) &&
-                    flags.overflow < 0 &&
-                    !flags.empty &&
-                    !flags.invalidEra &&
-                    !flags.invalidMonth &&
-                    !flags.invalidWeekday &&
-                    !flags.weekdayMismatch &&
-                    !flags.nullInput &&
-                    !flags.invalidFormat &&
-                    !flags.userInvalidated &&
-                    (!flags.meridiem || (flags.meridiem && parsedParts));
-
-            if (m._strict) {
-                isNowValid =
-                    isNowValid &&
-                    flags.charsLeftOver === 0 &&
-                    flags.unusedTokens.length === 0 &&
-                    flags.bigHour === undefined;
-            }
-
-            if (Object.isFrozen == null || !Object.isFrozen(m)) {
-                m._isValid = isNowValid;
-            } else {
-                return isNowValid;
-            }
-        }
-        return m._isValid;
-    }
-
-    function createInvalid(flags) {
-        var m = createUTC(NaN);
-        if (flags != null) {
-            extend(getParsingFlags(m), flags);
-        } else {
-            getParsingFlags(m).userInvalidated = true;
-        }
-
-        return m;
-    }
-
-    // Plugins that add properties should also add the key here (null value),
-    // so we can properly clone ourselves.
-    var momentProperties = (hooks.momentProperties = []),
-        updateInProgress = false;
-
-    function copyConfig(to, from) {
-        var i, prop, val;
-
-        if (!isUndefined(from._isAMomentObject)) {
-            to._isAMomentObject = from._isAMomentObject;
-        }
-        if (!isUndefined(from._i)) {
-            to._i = from._i;
-        }
-        if (!isUndefined(from._f)) {
-            to._f = from._f;
-        }
-        if (!isUndefined(from._l)) {
-            to._l = from._l;
-        }
-        if (!isUndefined(from._strict)) {
-            to._strict = from._strict;
-        }
-        if (!isUndefined(from._tzm)) {
-            to._tzm = from._tzm;
-        }
-        if (!isUndefined(from._isUTC)) {
-            to._isUTC = from._isUTC;
-        }
-        if (!isUndefined(from._offset)) {
-            to._offset = from._offset;
-        }
-        if (!isUndefined(from._pf)) {
-            to._pf = getParsingFlags(from);
-        }
-        if (!isUndefined(from._locale)) {
-            to._locale = from._locale;
-        }
-
-        if (momentProperties.length > 0) {
-            for (i = 0; i < momentProperties.length; i++) {
-                prop = momentProperties[i];
-                val = from[prop];
-                if (!isUndefined(val)) {
-                    to[prop] = val;
-                }
-            }
-        }
-
-        return to;
-    }
-
-    // Moment prototype object
-    function Moment(config) {
-        copyConfig(this, config);
-        this._d = new Date(config._d != null ? config._d.getTime() : NaN);
-        if (!this.isValid()) {
-            this._d = new Date(NaN);
-        }
-        // Prevent infinite loop in case updateOffset creates new moment
-        // objects.
-        if (updateInProgress === false) {
-            updateInProgress = true;
-            hooks.updateOffset(this);
-            updateInProgress = false;
-        }
-    }
-
-    function isMoment(obj) {
-        return (
-            obj instanceof Moment || (obj != null && obj._isAMomentObject != null)
-        );
-    }
-
-    function warn(msg) {
-        if (
-            hooks.suppressDeprecationWarnings === false &&
-            typeof console !== 'undefined' &&
-            console.warn
-        ) {
-            console.warn('Deprecation warning: ' + msg);
-        }
-    }
-
-    function deprecate(msg, fn) {
-        var firstTime = true;
-
-        return extend(function () {
-            if (hooks.deprecationHandler != null) {
-                hooks.deprecationHandler(null, msg);
-            }
-            if (firstTime) {
-                var args = [],
-                    arg,
-                    i,
-                    key;
-                for (i = 0; i < arguments.length; i++) {
-                    arg = '';
-                    if (typeof arguments[i] === 'object') {
-                        arg += '\n[' + i + '] ';
-                        for (key in arguments[0]) {
-                            if (hasOwnProp(arguments[0], key)) {
-                                arg += key + ': ' + arguments[0][key] + ', ';
-                            }
-                        }
-                        arg = arg.slice(0, -2); // Remove trailing comma and space
-                    } else {
-                        arg = arguments[i];
-                    }
-                    args.push(arg);
-                }
-                warn(
-                    msg +
-                        '\nArguments: ' +
-                        Array.prototype.slice.call(args).join('') +
-                        '\n' +
-                        new Error().stack
-                );
-                firstTime = false;
-            }
-            return fn.apply(this, arguments);
-        }, fn);
-    }
-
-    var deprecations = {};
-
-    function deprecateSimple(name, msg) {
-        if (hooks.deprecationHandler != null) {
-            hooks.deprecationHandler(name, msg);
-        }
-        if (!deprecations[name]) {
-            warn(msg);
-            deprecations[name] = true;
-        }
-    }
-
-    hooks.suppressDeprecationWarnings = false;
-    hooks.deprecationHandler = null;
-
-    function isFunction(input) {
-        return (
-            (typeof Function !== 'undefined' && input instanceof Function) ||
-            Object.prototype.toString.call(input) === '[object Function]'
-        );
-    }
-
-    function set(config) {
-        var prop, i;
-        for (i in config) {
-            if (hasOwnProp(config, i)) {
-                prop = config[i];
-                if (isFunction(prop)) {
-                    this[i] = prop;
-                } else {
-                    this['_' + i] = prop;
-                }
-            }
-        }
-        this._config = config;
-        // Lenient ordinal parsing accepts just a number in addition to
-        // number + (possibly) stuff coming from _dayOfMonthOrdinalParse.
-        // TODO: Remove "ordinalParse" fallback in next major release.
-        this._dayOfMonthOrdinalParseLenient = new RegExp(
-            (this._dayOfMonthOrdinalParse.source || this._ordinalParse.source) +
-                '|' +
-                /\d{1,2}/.source
-        );
-    }
-
-    function mergeConfigs(parentConfig, childConfig) {
-        var res = extend({}, parentConfig),
-            prop;
-        for (prop in childConfig) {
-            if (hasOwnProp(childConfig, prop)) {
-                if (isObject(parentConfig[prop]) && isObject(childConfig[prop])) {
-                    res[prop] = {};
-                    extend(res[prop], parentConfig[prop]);
-                    extend(res[prop], childConfig[prop]);
-                } else if (childConfig[prop] != null) {
-                    res[prop] = childConfig[prop];
-                } else {
-                    delete res[prop];
-                }
-            }
-        }
-        for (prop in parentConfig) {
-            if (
-                hasOwnProp(parentConfig, prop) &&
-                !hasOwnProp(childConfig, prop) &&
-                isObject(parentConfig[prop])
-            ) {
-                // make sure changes to properties don't modify parent config
-                res[prop] = extend({}, res[prop]);
-            }
-        }
-        return res;
-    }
-
-    function Locale(config) {
-        if (config != null) {
-            this.set(config);
-        }
-    }
-
-    var keys;
-
-    if (Object.keys) {
-        keys = Object.keys;
-    } else {
-        keys = function (obj) {
-            var i,
-                res = [];
-            for (i in obj) {
-                if (hasOwnProp(obj, i)) {
-                    res.push(i);
-                }
-            }
-            return res;
-        };
-    }
-
-    var defaultCalendar = {
-        sameDay: '[Today at] LT',
-        nextDay: '[Tomorrow at] LT',
-        nextWeek: 'dddd [at] LT',
-        lastDay: '[Yesterday at] LT',
-        lastWeek: '[Last] dddd [at] LT',
-        sameElse: 'L',
-    };
-
-    function calendar(key, mom, now) {
-        var output = this._calendar[key] || this._calendar['sameElse'];
-        return isFunction(output) ? output.call(mom, now) : output;
-    }
-
-    function zeroFill(number, targetLength, forceSign) {
-        var absNumber = '' + Math.abs(number),
-            zerosToFill = targetLength - absNumber.length,
-            sign = number >= 0;
-        return (
-            (sign ? (forceSign ? '+' : '') : '-') +
-            Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) +
-            absNumber
-        );
-    }
-
-    var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|N{1,5}|YYYYYY|YYYYY|YYYY|YY|y{2,4}|yo?|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g,
-        localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g,
-        formatFunctions = {},
-        formatTokenFunctions = {};
-
-    // token:    'M'
-    // padded:   ['MM', 2]
-    // ordinal:  'Mo'
-    // callback: function () { this.month() + 1 }
-    function addFormatToken(token, padded, ordinal, callback) {
-        var func = callback;
-        if (typeof callback === 'string') {
-            func = function () {
-                return this[callback]();
-            };
-        }
-        if (token) {
-            formatTokenFunctions[token] = func;
-        }
-        if (padded) {
-            formatTokenFunctions[padded[0]] = function () {
-                return zeroFill(func.apply(this, arguments), padded[1], padded[2]);
-            };
-        }
-        if (ordinal) {
-            formatTokenFunctions[ordinal] = function () {
-                return this.localeData().ordinal(
-                    func.apply(this, arguments),
-                    token
-                );
-            };
-        }
-    }
-
-    function removeFormattingTokens(input) {
-        if (input.match(/\[[\s\S]/)) {
-            return input.replace(/^\[|\]$/g, '');
-        }
-        return input.replace(/\\/g, '');
-    }
-
-    function makeFormatFunction(format) {
-        var array = format.match(formattingTokens),
-            i,
-            length;
-
-        for (i = 0, length = array.length; i < length; i++) {
-            if (formatTokenFunctions[array[i]]) {
-                array[i] = formatTokenFunctions[array[i]];
-            } else {
-                array[i] = removeFormattingTokens(array[i]);
-            }
-        }
-
-        return function (mom) {
-            var output = '',
-                i;
-            for (i = 0; i < length; i++) {
-                output += isFunction(array[i])
-                    ? array[i].call(mom, format)
-                    : array[i];
-            }
-            return output;
-        };
-    }
-
-    // format date using native date object
-    function formatMoment(m, format) {
-        if (!m.isValid()) {
-            return m.localeData().invalidDate();
-        }
-
-        format = expandFormat(format, m.localeData());
-        formatFunctions[format] =
-            formatFunctions[format] || makeFormatFunction(format);
-
-        return formatFunctions[format](m);
-    }
-
-    function expandFormat(format, locale) {
-        var i = 5;
-
-        function replaceLongDateFormatTokens(input) {
-            return locale.longDateFormat(input) || input;
-        }
-
-        localFormattingTokens.lastIndex = 0;
-        while (i >= 0 && localFormattingTokens.test(format)) {
-            format = format.replace(
-                localFormattingTokens,
-                replaceLongDateFormatTokens
-            );
-            localFormattingTokens.lastIndex = 0;
-            i -= 1;
-        }
-
-        return format;
-    }
-
-    var defaultLongDateFormat = {
-        LTS: 'h:mm:ss A',
-        LT: 'h:mm A',
-        L: 'MM/DD/YYYY',
-        LL: 'MMMM D, YYYY',
-        LLL: 'MMMM D, YYYY h:mm A',
-        LLLL: 'dddd, MMMM D, YYYY h:mm A',
-    };
-
-    function longDateFormat(key) {
-        var format = this._longDateFormat[key],
-            formatUpper = this._longDateFormat[key.toUpperCase()];
-
-        if (format || !formatUpper) {
-            return format;
-        }
-
-        this._longDateFormat[key] = formatUpper
-            .match(formattingTokens)
-            .map(function (tok) {
-                if (
-                    tok === 'MMMM' ||
-                    tok === 'MM' ||
-                    tok === 'DD' ||
-                    tok === 'dddd'
-                ) {
-                    return tok.slice(1);
-                }
-                return tok;
-            })
-            .join('');
-
-        return this._longDateFormat[key];
-    }
-
-    var defaultInvalidDate = 'Invalid date';
-
-    function invalidDate() {
-        return this._invalidDate;
-    }
-
-    var defaultOrdinal = '%d',
-        defaultDayOfMonthOrdinalParse = /\d{1,2}/;
-
-    function ordinal(number) {
-        return this._ordinal.replace('%d', number);
-    }
-
-    var defaultRelativeTime = {
-        future: 'in %s',
-        past: '%s ago',
-        s: 'a few seconds',
-        ss: '%d seconds',
-        m: 'a minute',
-        mm: '%d minutes',
-        h: 'an hour',
-        hh: '%d hours',
-        d: 'a day',
-        dd: '%d days',
-        w: 'a week',
-        ww: '%d weeks',
-        M: 'a month',
-        MM: '%d months',
-        y: 'a year',
-        yy: '%d years',
-    };
-
-    function relativeTime(number, withoutSuffix, string, isFuture) {
-        var output = this._relativeTime[string];
-        return isFunction(output)
-            ? output(number, withoutSuffix, string, isFuture)
-            : output.replace(/%d/i, number);
-    }
-
-    function pastFuture(diff, output) {
-        var format = this._relativeTime[diff > 0 ? 'future' : 'past'];
-        return isFunction(format) ? format(output) : format.replace(/%s/i, output);
-    }
-
-    var aliases = {};
-
-    function addUnitAlias(unit, shorthand) {
-        var lowerCase = unit.toLowerCase();
-        aliases[lowerCase] = aliases[lowerCase + 's'] = aliases[shorthand] = unit;
-    }
-
-    function normalizeUnits(units) {
-        return typeof units === 'string'
-            ? aliases[units] || aliases[units.toLowerCase()]
-            : undefined;
-    }
-
-    function normalizeObjectUnits(inputObject) {
-        var normalizedInput = {},
-            normalizedProp,
-            prop;
-
-        for (prop in inputObject) {
-            if (hasOwnProp(inputObject, prop)) {
-                normalizedProp = normalizeUnits(prop);
-                if (normalizedProp) {
-                    normalizedInput[normalizedProp] = inputObject[prop];
-                }
-            }
-        }
-
-        return normalizedInput;
-    }
-
-    var priorities = {};
-
-    function addUnitPriority(unit, priority) {
-        priorities[unit] = priority;
-    }
-
-    function getPrioritizedUnits(unitsObj) {
-        var units = [],
-            u;
-        for (u in unitsObj) {
-            if (hasOwnProp(unitsObj, u)) {
-                units.push({ unit: u, priority: priorities[u] });
-            }
-        }
-        units.sort(function (a, b) {
-            return a.priority - b.priority;
-        });
-        return units;
-    }
-
-    function isLeapYear(year) {
-        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-    }
-
-    function absFloor(number) {
-        if (number < 0) {
-            // -0 -> 0
-            return Math.ceil(number) || 0;
-        } else {
-            return Math.floor(number);
-        }
-    }
-
-    function toInt(argumentForCoercion) {
-        var coercedNumber = +argumentForCoercion,
-            value = 0;
-
-        if (coercedNumber !== 0 && isFinite(coercedNumber)) {
-            value = absFloor(coercedNumber);
-        }
-
-        return value;
-    }
-
-    function makeGetSet(unit, keepTime) {
-        return function (value) {
-            if (value != null) {
-                set$1(this, unit, value);
-                hooks.updateOffset(this, keepTime);
-                return this;
-            } else {
-                return get(this, unit);
-            }
-        };
-    }
-
-    function get(mom, unit) {
-        return mom.isValid()
-            ? mom._d['get' + (mom._isUTC ? 'UTC' : '') + unit]()
-            : NaN;
-    }
-
-    function set$1(mom, unit, value) {
-        if (mom.isValid() && !isNaN(value)) {
-            if (
-                unit === 'FullYear' &&
-                isLeapYear(mom.year()) &&
-                mom.month() === 1 &&
-                mom.date() === 29
-            ) {
-                value = toInt(value);
-                mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](
-                    value,
-                    mom.month(),
-                    daysInMonth(value, mom.month())
-                );
-            } else {
-                mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value);
-            }
-        }
-    }
-
-    // MOMENTS
-
-    function stringGet(units) {
-        units = normalizeUnits(units);
-        if (isFunction(this[units])) {
-            return this[units]();
-        }
-        return this;
-    }
-
-    function stringSet(units, value) {
-        if (typeof units === 'object') {
-            units = normalizeObjectUnits(units);
-            var prioritized = getPrioritizedUnits(units),
-                i;
-            for (i = 0; i < prioritized.length; i++) {
-                this[prioritized[i].unit](units[prioritized[i].unit]);
-            }
-        } else {
-            units = normalizeUnits(units);
-            if (isFunction(this[units])) {
-                return this[units](value);
-            }
-        }
-        return this;
-    }
-
-    var match1 = /\d/, //       0 - 9
-        match2 = /\d\d/, //      00 - 99
-        match3 = /\d{3}/, //     000 - 999
-        match4 = /\d{4}/, //    0000 - 9999
-        match6 = /[+-]?\d{6}/, // -999999 - 999999
-        match1to2 = /\d\d?/, //       0 - 99
-        match3to4 = /\d\d\d\d?/, //     999 - 9999
-        match5to6 = /\d\d\d\d\d\d?/, //   99999 - 999999
-        match1to3 = /\d{1,3}/, //       0 - 999
-        match1to4 = /\d{1,4}/, //       0 - 9999
-        match1to6 = /[+-]?\d{1,6}/, // -999999 - 999999
-        matchUnsigned = /\d+/, //       0 - inf
-        matchSigned = /[+-]?\d+/, //    -inf - inf
-        matchOffset = /Z|[+-]\d\d:?\d\d/gi, // +00:00 -00:00 +0000 -0000 or Z
-        matchShortOffset = /Z|[+-]\d\d(?::?\d\d)?/gi, // +00 -00 +00:00 -00:00 +0000 -0000 or Z
-        matchTimestamp = /[+-]?\d+(\.\d{1,3})?/, // 123456789 123456789.123
-        // any word (or two) characters or numbers including two/three word month in arabic.
-        // includes scottish gaelic two word and hyphenated months
-        matchWord = /[0-9]{0,256}['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFF07\uFF10-\uFFEF]{1,256}|[\u0600-\u06FF\/]{1,256}(\s*?[\u0600-\u06FF]{1,256}){1,2}/i,
-        regexes;
-
-    regexes = {};
-
-    function addRegexToken(token, regex, strictRegex) {
-        regexes[token] = isFunction(regex)
-            ? regex
-            : function (isStrict, localeData) {
-                  return isStrict && strictRegex ? strictRegex : regex;
-              };
-    }
-
-    function getParseRegexForToken(token, config) {
-        if (!hasOwnProp(regexes, token)) {
-            return new RegExp(unescapeFormat(token));
-        }
-
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
         return regexes[token](config._strict, config._locale);
     }
 
@@ -7185,7 +6158,6 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
-<<<<<<< HEAD
 var clamp = function (min, max) { return function (v) {
     return Math.max(Math.min(v, max), min);
 }; };
@@ -7395,217 +6367,6 @@ var complex = {
         var targetTransformer = complex.createTransformer(target);
         return targetTransformer(parsedTarget.map(convertNumbersToZero));
     }
-=======
-var clamp = function (min, max) { return function (v) {
-    return Math.max(Math.min(v, max), min);
-}; };
-var sanitize = function (v) { return (v % 1 ? Number(v.toFixed(5)) : v); };
-var floatRegex = /(-)?(\d[\d\.]*)/g;
-var colorRegex = /(#[0-9a-f]{6}|#[0-9a-f]{3}|#(?:[0-9a-f]{2}){2,4}|(rgb|hsl)a?\((-?[\d\.]+%?[,\s]+){2,3}\s*\/*\s*[\d\.]+%?\))/gi;
-var singleColorRegex = /^(#[0-9a-f]{3}|#(?:[0-9a-f]{2}){2,4}|(rgb|hsl)a?\((-?[\d\.]+%?[,\s]+){2,3}\s*\/*\s*[\d\.]+%?\))$/i;
-
-var number = {
-    test: function (v) { return typeof v === 'number'; },
-    parse: parseFloat,
-    transform: function (v) { return v; }
-};
-var alpha = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])({}, number), { transform: clamp(0, 1) });
-var scale = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])({}, number), { default: 1 });
-
-var createUnitType = function (unit) { return ({
-    test: function (v) {
-        return typeof v === 'string' && v.endsWith(unit) && v.split(' ').length === 1;
-    },
-    parse: parseFloat,
-    transform: function (v) { return "" + v + unit; }
-}); };
-var degrees = createUnitType('deg');
-var percent = createUnitType('%');
-var px = createUnitType('px');
-var vh = createUnitType('vh');
-var vw = createUnitType('vw');
-var progressPercentage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])({}, percent), { parse: function (v) { return percent.parse(v) / 100; }, transform: function (v) { return percent.transform(v * 100); } });
-
-var getValueFromFunctionString = function (value) {
-    return value.substring(value.indexOf('(') + 1, value.lastIndexOf(')'));
-};
-var clampRgbUnit = clamp(0, 255);
-var isRgba = function (v) { return v.red !== undefined; };
-var isHsla = function (v) { return v.hue !== undefined; };
-function getValuesAsArray(value) {
-    return getValueFromFunctionString(value)
-        .replace(/(,|\/)/g, ' ')
-        .split(/ \s*/);
-}
-var splitColorValues = function (terms) {
-    return function (v) {
-        if (typeof v !== 'string')
-            return v;
-        var values = {};
-        var valuesArray = getValuesAsArray(v);
-        for (var i = 0; i < 4; i++) {
-            values[terms[i]] =
-                valuesArray[i] !== undefined ? parseFloat(valuesArray[i]) : 1;
-        }
-        return values;
-    };
-};
-var rgbaTemplate = function (_a) {
-    var red = _a.red, green = _a.green, blue = _a.blue, _b = _a.alpha, alpha = _b === void 0 ? 1 : _b;
-    return "rgba(" + red + ", " + green + ", " + blue + ", " + alpha + ")";
-};
-var hslaTemplate = function (_a) {
-    var hue = _a.hue, saturation = _a.saturation, lightness = _a.lightness, _b = _a.alpha, alpha = _b === void 0 ? 1 : _b;
-    return "hsla(" + hue + ", " + saturation + ", " + lightness + ", " + alpha + ")";
-};
-var rgbUnit = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])({}, number), { transform: function (v) { return Math.round(clampRgbUnit(v)); } });
-function isColorString(color, colorType) {
-    return color.startsWith(colorType) && singleColorRegex.test(color);
-}
-var rgba = {
-    test: function (v) { return (typeof v === 'string' ? isColorString(v, 'rgb') : isRgba(v)); },
-    parse: splitColorValues(['red', 'green', 'blue', 'alpha']),
-    transform: function (_a) {
-        var red = _a.red, green = _a.green, blue = _a.blue, _b = _a.alpha, alpha$1 = _b === void 0 ? 1 : _b;
-        return rgbaTemplate({
-            red: rgbUnit.transform(red),
-            green: rgbUnit.transform(green),
-            blue: rgbUnit.transform(blue),
-            alpha: sanitize(alpha.transform(alpha$1))
-        });
-    }
-};
-var hsla = {
-    test: function (v) { return (typeof v === 'string' ? isColorString(v, 'hsl') : isHsla(v)); },
-    parse: splitColorValues(['hue', 'saturation', 'lightness', 'alpha']),
-    transform: function (_a) {
-        var hue = _a.hue, saturation = _a.saturation, lightness = _a.lightness, _b = _a.alpha, alpha$1 = _b === void 0 ? 1 : _b;
-        return hslaTemplate({
-            hue: Math.round(hue),
-            saturation: percent.transform(sanitize(saturation)),
-            lightness: percent.transform(sanitize(lightness)),
-            alpha: sanitize(alpha.transform(alpha$1))
-        });
-    }
-};
-var hex = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__[/* __assign */ "a"])({}, rgba), { test: function (v) { return typeof v === 'string' && isColorString(v, '#'); }, parse: function (v) {
-        var r = '';
-        var g = '';
-        var b = '';
-        if (v.length > 4) {
-            r = v.substr(1, 2);
-            g = v.substr(3, 2);
-            b = v.substr(5, 2);
-        }
-        else {
-            r = v.substr(1, 1);
-            g = v.substr(2, 1);
-            b = v.substr(3, 1);
-            r += r;
-            g += g;
-            b += b;
-        }
-        return {
-            red: parseInt(r, 16),
-            green: parseInt(g, 16),
-            blue: parseInt(b, 16),
-            alpha: 1
-        };
-    } });
-var color = {
-    test: function (v) {
-        return (typeof v === 'string' && singleColorRegex.test(v)) ||
-            isRgba(v) ||
-            isHsla(v);
-    },
-    parse: function (v) {
-        if (rgba.test(v)) {
-            return rgba.parse(v);
-        }
-        else if (hsla.test(v)) {
-            return hsla.parse(v);
-        }
-        else if (hex.test(v)) {
-            return hex.parse(v);
-        }
-        return v;
-    },
-    transform: function (v) {
-        if (isRgba(v)) {
-            return rgba.transform(v);
-        }
-        else if (isHsla(v)) {
-            return hsla.transform(v);
-        }
-        return v;
-    }
-};
-
-var COLOR_TOKEN = '${c}';
-var NUMBER_TOKEN = '${n}';
-var convertNumbersToZero = function (v) {
-    return typeof v === 'number' ? 0 : v;
-};
-var complex = {
-    test: function (v) {
-        if (typeof v !== 'string' || !isNaN(v))
-            return false;
-        var numValues = 0;
-        var foundNumbers = v.match(floatRegex);
-        var foundColors = v.match(colorRegex);
-        if (foundNumbers)
-            numValues += foundNumbers.length;
-        if (foundColors)
-            numValues += foundColors.length;
-        return numValues > 0;
-    },
-    parse: function (v) {
-        var input = v;
-        var parsed = [];
-        var foundColors = input.match(colorRegex);
-        if (foundColors) {
-            input = input.replace(colorRegex, COLOR_TOKEN);
-            parsed.push.apply(parsed, foundColors.map(color.parse));
-        }
-        var foundNumbers = input.match(floatRegex);
-        if (foundNumbers) {
-            parsed.push.apply(parsed, foundNumbers.map(number.parse));
-        }
-        return parsed;
-    },
-    createTransformer: function (prop) {
-        var template = prop;
-        var token = 0;
-        var foundColors = prop.match(colorRegex);
-        var numColors = foundColors ? foundColors.length : 0;
-        if (foundColors) {
-            for (var i = 0; i < numColors; i++) {
-                template = template.replace(foundColors[i], COLOR_TOKEN);
-                token++;
-            }
-        }
-        var foundNumbers = template.match(floatRegex);
-        var numNumbers = foundNumbers ? foundNumbers.length : 0;
-        if (foundNumbers) {
-            for (var i = 0; i < numNumbers; i++) {
-                template = template.replace(foundNumbers[i], NUMBER_TOKEN);
-                token++;
-            }
-        }
-        return function (v) {
-            var output = template;
-            for (var i = 0; i < token; i++) {
-                output = output.replace(i < numColors ? COLOR_TOKEN : NUMBER_TOKEN, i < numColors ? color.transform(v[i]) : sanitize(v[i]));
-            }
-            return output;
-        };
-    },
-    getAnimatableNone: function (target) {
-        var parsedTarget = complex.parse(target);
-        var targetTransformer = complex.createTransformer(target);
-        return targetTransformer(parsedTarget.map(convertNumbersToZero));
-    }
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 };
 
 
@@ -9275,11 +8036,7 @@ var setAuthToken = function setAuthToken(token) {
   }
 };
 var instance = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
-<<<<<<< HEAD
-  baseURL:  false ? undefined : "https://facework.com.ng/api/" // headers: {
-=======
-  baseURL:  false ? undefined : "http://157.230.235.163/api/" // headers: {
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
+  baseURL:  false ? undefined : "http://157.230.123.137/api/" // headers: {
   //   'Access-Control-Allow-Origin':'*',
   //   'Accept': 'application/json',
   //   'Access-Control-Allow-Credentials': 'true',
@@ -17679,13 +16436,8 @@ function useAnimatedState(initialState) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return invariant; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return warning; });
-<<<<<<< HEAD
 var warning = function () { };
 var invariant = function () { };
-=======
-var warning = function () { };
-var invariant = function () { };
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 if (false) {}
 
 
@@ -51770,7 +50522,6 @@ module.exports = hasUnicode;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 /* jshint node: true */
 
 function makeArrayFrom(obj) {
@@ -52156,393 +50907,6 @@ function patchAwaiterIfRequired(__awaiter) {
 module.exports = {
   SynchronousPromise: SynchronousPromise
 };
-=======
-/* jshint node: true */
-
-function makeArrayFrom(obj) {
-  return Array.prototype.slice.apply(obj);
-}
-var
-  PENDING = "pending",
-  RESOLVED = "resolved",
-  REJECTED = "rejected";
-
-function SynchronousPromise(handler) {
-  this.status = PENDING;
-  this._continuations = [];
-  this._parent = null;
-  this._paused = false;
-  if (handler) {
-    handler.call(
-      this,
-      this._continueWith.bind(this),
-      this._failWith.bind(this)
-    );
-  }
-}
-
-function looksLikeAPromise(obj) {
-  return obj && typeof (obj.then) === "function";
-}
-
-function passThrough(value) {
-  return value;
-}
-
-SynchronousPromise.prototype = {
-  then: function (nextFn, catchFn) {
-    var next = SynchronousPromise.unresolved()._setParent(this);
-    if (this._isRejected()) {
-      if (this._paused) {
-        this._continuations.push({
-          promise: next,
-          nextFn: nextFn,
-          catchFn: catchFn
-        });
-        return next;
-      }
-      if (catchFn) {
-        try {
-          var catchResult = catchFn(this._error);
-          if (looksLikeAPromise(catchResult)) {
-            this._chainPromiseData(catchResult, next);
-            return next;
-          } else {
-            return SynchronousPromise.resolve(catchResult)._setParent(this);
-          }
-        } catch (e) {
-          return SynchronousPromise.reject(e)._setParent(this);
-        }
-      }
-      return SynchronousPromise.reject(this._error)._setParent(this);
-    }
-    this._continuations.push({
-      promise: next,
-      nextFn: nextFn,
-      catchFn: catchFn
-    });
-    this._runResolutions();
-    return next;
-  },
-  catch: function (handler) {
-    if (this._isResolved()) {
-      return SynchronousPromise.resolve(this._data)._setParent(this);
-    }
-    var next = SynchronousPromise.unresolved()._setParent(this);
-    this._continuations.push({
-      promise: next,
-      catchFn: handler
-    });
-    this._runRejections();
-    return next;
-  },
-  finally: function(callback) {
-    var ran = false;
-    function runFinally(result, err) {
-      if (!ran) {
-        ran = true;
-        if (!callback) {
-          callback = passThrough;
-        }
-        var callbackResult = callback(result);
-        if (looksLikeAPromise(callbackResult)) {
-          return callbackResult.then(function() {
-            if (err) {
-              throw err;
-            }
-            return result;
-          });
-        } else {
-          return result;
-        }
-      }
-    }
-    return this
-      .then(function(result) {
-        return runFinally(result);
-      })
-      .catch(function(err) {
-        return runFinally(null, err);
-      });
-  },
-  pause: function () {
-    this._paused = true;
-    return this;
-  },
-  resume: function () {
-    var firstPaused = this._findFirstPaused();
-    if (firstPaused) {
-      firstPaused._paused = false;
-      firstPaused._runResolutions();
-      firstPaused._runRejections();
-    }
-    return this;
-  },
-  _findAncestry: function () {
-    return this._continuations.reduce(function (acc, cur) {
-      if (cur.promise) {
-        var node = {
-          promise: cur.promise,
-          children: cur.promise._findAncestry()
-        };
-        acc.push(node);
-      }
-      return acc;
-    }, []);
-  },
-  _setParent: function (parent) {
-    if (this._parent) {
-      throw new Error("parent already set");
-    }
-    this._parent = parent;
-    return this;
-  },
-  _continueWith: function (data) {
-    var firstPending = this._findFirstPending();
-    if (firstPending) {
-      firstPending._data = data;
-      firstPending._setResolved();
-    }
-  },
-  _findFirstPending: function () {
-    return this._findFirstAncestor(function (test) {
-      return test._isPending && test._isPending();
-    });
-  },
-  _findFirstPaused: function () {
-    return this._findFirstAncestor(function (test) {
-      return test._paused;
-    });
-  },
-  _findFirstAncestor: function (matching) {
-    var test = this;
-    var result;
-    while (test) {
-      if (matching(test)) {
-        result = test;
-      }
-      test = test._parent;
-    }
-    return result;
-  },
-  _failWith: function (error) {
-    var firstRejected = this._findFirstPending();
-    if (firstRejected) {
-      firstRejected._error = error;
-      firstRejected._setRejected();
-    }
-  },
-  _takeContinuations: function () {
-    return this._continuations.splice(0, this._continuations.length);
-  },
-  _runRejections: function () {
-    if (this._paused || !this._isRejected()) {
-      return;
-    }
-    var
-      error = this._error,
-      continuations = this._takeContinuations(),
-      self = this;
-    continuations.forEach(function (cont) {
-      if (cont.catchFn) {
-        try {
-          var catchResult = cont.catchFn(error);
-          self._handleUserFunctionResult(catchResult, cont.promise);
-        } catch (e) {
-          cont.promise.reject(e);
-        }
-      } else {
-        cont.promise.reject(error);
-      }
-    });
-  },
-  _runResolutions: function () {
-    if (this._paused || !this._isResolved() || this._isPending()) {
-      return;
-    }
-    var continuations = this._takeContinuations();
-    if (looksLikeAPromise(this._data)) {
-      return this._handleWhenResolvedDataIsPromise(this._data);
-    }
-    var data = this._data;
-    var self = this;
-    continuations.forEach(function (cont) {
-      if (cont.nextFn) {
-        try {
-          var result = cont.nextFn(data);
-          self._handleUserFunctionResult(result, cont.promise);
-        } catch (e) {
-          self._handleResolutionError(e, cont);
-        }
-      } else if (cont.promise) {
-        cont.promise.resolve(data);
-      }
-    });
-  },
-  _handleResolutionError: function (e, continuation) {
-    this._setRejected();
-    if (continuation.catchFn) {
-      try {
-        continuation.catchFn(e);
-        return;
-      } catch (e2) {
-        e = e2;
-      }
-    }
-    if (continuation.promise) {
-      continuation.promise.reject(e);
-    }
-  },
-  _handleWhenResolvedDataIsPromise: function (data) {
-    var self = this;
-    return data.then(function (result) {
-      self._data = result;
-      self._runResolutions();
-    }).catch(function (error) {
-      self._error = error;
-      self._setRejected();
-      self._runRejections();
-    });
-  },
-  _handleUserFunctionResult: function (data, nextSynchronousPromise) {
-    if (looksLikeAPromise(data)) {
-      this._chainPromiseData(data, nextSynchronousPromise);
-    } else {
-      nextSynchronousPromise.resolve(data);
-    }
-  },
-  _chainPromiseData: function (promiseData, nextSynchronousPromise) {
-    promiseData.then(function (newData) {
-      nextSynchronousPromise.resolve(newData);
-    }).catch(function (newError) {
-      nextSynchronousPromise.reject(newError);
-    });
-  },
-  _setResolved: function () {
-    this.status = RESOLVED;
-    if (!this._paused) {
-      this._runResolutions();
-    }
-  },
-  _setRejected: function () {
-    this.status = REJECTED;
-    if (!this._paused) {
-      this._runRejections();
-    }
-  },
-  _isPending: function () {
-    return this.status === PENDING;
-  },
-  _isResolved: function () {
-    return this.status === RESOLVED;
-  },
-  _isRejected: function () {
-    return this.status === REJECTED;
-  }
-};
-
-SynchronousPromise.resolve = function (result) {
-  return new SynchronousPromise(function (resolve, reject) {
-    if (looksLikeAPromise(result)) {
-      result.then(function (newResult) {
-        resolve(newResult);
-      }).catch(function (error) {
-        reject(error);
-      });
-    } else {
-      resolve(result);
-    }
-  });
-};
-
-SynchronousPromise.reject = function (result) {
-  return new SynchronousPromise(function (resolve, reject) {
-    reject(result);
-  });
-};
-
-SynchronousPromise.unresolved = function () {
-  return new SynchronousPromise(function (resolve, reject) {
-    this.resolve = resolve;
-    this.reject = reject;
-  });
-};
-
-SynchronousPromise.all = function () {
-  var args = makeArrayFrom(arguments);
-  if (Array.isArray(args[0])) {
-    args = args[0];
-  }
-  if (!args.length) {
-    return SynchronousPromise.resolve([]);
-  }
-  return new SynchronousPromise(function (resolve, reject) {
-    var
-      allData = [],
-      numResolved = 0,
-      doResolve = function () {
-        if (numResolved === args.length) {
-          resolve(allData);
-        }
-      },
-      rejected = false,
-      doReject = function (err) {
-        if (rejected) {
-          return;
-        }
-        rejected = true;
-        reject(err);
-      };
-    args.forEach(function (arg, idx) {
-      SynchronousPromise.resolve(arg).then(function (thisResult) {
-        allData[idx] = thisResult;
-        numResolved += 1;
-        doResolve();
-      }).catch(function (err) {
-        doReject(err);
-      });
-    });
-  });
-};
-
-/* jshint ignore:start */
-if (Promise === SynchronousPromise) {
-  throw new Error("Please use SynchronousPromise.installGlobally() to install globally");
-}
-var RealPromise = Promise;
-SynchronousPromise.installGlobally = function(__awaiter) {
-  if (Promise === SynchronousPromise) {
-    return __awaiter;
-  }
-  var result = patchAwaiterIfRequired(__awaiter);
-  Promise = SynchronousPromise;
-  return result;
-};
-
-SynchronousPromise.uninstallGlobally = function() {
-  if (Promise === SynchronousPromise) {
-    Promise = RealPromise;
-  }
-};
-
-function patchAwaiterIfRequired(__awaiter) {
-  if (typeof(__awaiter) === "undefined" || __awaiter.__patched) {
-    return __awaiter;
-  }
-  var originalAwaiter = __awaiter;
-  __awaiter = function() {
-    var Promise = RealPromise;
-    originalAwaiter.apply(this, makeArrayFrom(arguments));
-  };
-  __awaiter.__patched = true;
-  return __awaiter;
-}
-/* jshint ignore:end */
-
-module.exports = {
-  SynchronousPromise: SynchronousPromise
-};
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 
 
 /***/ }),
@@ -89675,7 +88039,6 @@ ToastController.defaultProps = {
 /***/ }),
 /* 547 */
 /***/ (function(module, exports, __webpack_require__) {
-<<<<<<< HEAD
 
 // extracted by mini-css-extract-plugin
 
@@ -89683,15 +88046,6 @@ ToastController.defaultProps = {
 /* 548 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-=======
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 548 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
@@ -89956,24 +88310,14 @@ function _createSuper(Derived) {
 }
 
 var Connector = /*#__PURE__*/function () {
-<<<<<<< HEAD
   /**
    * Create a new class instance.
-=======
-  /**
-   * Create a new class instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
   function Connector(options) {
     echo_classCallCheck(this, Connector);
 
-<<<<<<< HEAD
     /**
      * Default connector options.
-=======
-    /**
-     * Default connector options.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
     this._defaultOptions = {
       auth: {
@@ -89989,13 +88333,8 @@ var Connector = /*#__PURE__*/function () {
     this.setOptions(options);
     this.connect();
   }
-<<<<<<< HEAD
   /**
    * Merge the custom options with the defaults.
-=======
-  /**
-   * Merge the custom options with the defaults.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
 
 
@@ -90010,13 +88349,8 @@ var Connector = /*#__PURE__*/function () {
 
       return options;
     }
-<<<<<<< HEAD
     /**
      * Extract the CSRF token from the page.
-=======
-    /**
-     * Extract the CSRF token from the page.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90039,13 +88373,8 @@ var Connector = /*#__PURE__*/function () {
   return Connector;
 }();
 
-<<<<<<< HEAD
 /**
  * This class represents a basic channel.
-=======
-/**
- * This class represents a basic channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 var Channel = /*#__PURE__*/function () {
   function Channel() {
@@ -90055,24 +88384,14 @@ var Channel = /*#__PURE__*/function () {
   echo_createClass(Channel, [{
     key: "listenForWhisper",
 
-<<<<<<< HEAD
     /**
      * Listen for a whisper event on the channel instance.
-=======
-    /**
-     * Listen for a whisper event on the channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
     value: function listenForWhisper(event, callback) {
       return this.listen('.client-' + event, callback);
     }
-<<<<<<< HEAD
     /**
      * Listen for an event on the channel instance.
-=======
-    /**
-     * Listen for an event on the channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90080,13 +88399,8 @@ var Channel = /*#__PURE__*/function () {
     value: function notification(callback) {
       return this.listen('.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', callback);
     }
-<<<<<<< HEAD
     /**
      * Stop listening for a whisper event on the channel instance.
-=======
-    /**
-     * Stop listening for a whisper event on the channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90099,34 +88413,20 @@ var Channel = /*#__PURE__*/function () {
   return Channel;
 }();
 
-<<<<<<< HEAD
 /**
  * Event name formatter
  */
 var EventFormatter = /*#__PURE__*/function () {
   /**
    * Create a new class instance.
-=======
-/**
- * Event name formatter
- */
-var EventFormatter = /*#__PURE__*/function () {
-  /**
-   * Create a new class instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
   function EventFormatter(namespace) {
     echo_classCallCheck(this, EventFormatter);
 
     this.setNamespace(namespace);
   }
-<<<<<<< HEAD
   /**
    * Format the given event name.
-=======
-  /**
-   * Format the given event name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
 
 
@@ -90141,13 +88441,8 @@ var EventFormatter = /*#__PURE__*/function () {
 
       return event.replace(/\./g, '\\');
     }
-<<<<<<< HEAD
     /**
      * Set the event namespace.
-=======
-    /**
-     * Set the event namespace.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90160,13 +88455,8 @@ var EventFormatter = /*#__PURE__*/function () {
   return EventFormatter;
 }();
 
-<<<<<<< HEAD
 /**
  * This class represents a Pusher channel.
-=======
-/**
- * This class represents a Pusher channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var PusherChannel = /*#__PURE__*/function (_Channel) {
@@ -90174,13 +88464,8 @@ var PusherChannel = /*#__PURE__*/function (_Channel) {
 
   var _super = _createSuper(PusherChannel);
 
-<<<<<<< HEAD
   /**
    * Create a new class instance.
-=======
-  /**
-   * Create a new class instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
   function PusherChannel(pusher, name, options) {
     var _this;
@@ -90197,13 +88482,8 @@ var PusherChannel = /*#__PURE__*/function (_Channel) {
 
     return _this;
   }
-<<<<<<< HEAD
   /**
    * Subscribe to a Pusher channel.
-=======
-  /**
-   * Subscribe to a Pusher channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
 
 
@@ -90212,13 +88492,8 @@ var PusherChannel = /*#__PURE__*/function (_Channel) {
     value: function subscribe() {
       this.subscription = this.pusher.subscribe(this.name);
     }
-<<<<<<< HEAD
     /**
      * Unsubscribe from a Pusher channel.
-=======
-    /**
-     * Unsubscribe from a Pusher channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90226,13 +88501,8 @@ var PusherChannel = /*#__PURE__*/function (_Channel) {
     value: function unsubscribe() {
       this.pusher.unsubscribe(this.name);
     }
-<<<<<<< HEAD
     /**
      * Listen for an event on the channel instance.
-=======
-    /**
-     * Listen for an event on the channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90241,13 +88511,8 @@ var PusherChannel = /*#__PURE__*/function (_Channel) {
       this.on(this.eventFormatter.format(event), callback);
       return this;
     }
-<<<<<<< HEAD
     /**
      * Stop listening for an event on the channel instance.
-=======
-    /**
-     * Stop listening for an event on the channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90261,13 +88526,8 @@ var PusherChannel = /*#__PURE__*/function (_Channel) {
 
       return this;
     }
-<<<<<<< HEAD
     /**
      * Register a callback to be called anytime a subscription succeeds.
-=======
-    /**
-     * Register a callback to be called anytime a subscription succeeds.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90278,13 +88538,8 @@ var PusherChannel = /*#__PURE__*/function (_Channel) {
       });
       return this;
     }
-<<<<<<< HEAD
     /**
      * Register a callback to be called anytime a subscription error occurs.
-=======
-    /**
-     * Register a callback to be called anytime a subscription error occurs.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90295,13 +88550,8 @@ var PusherChannel = /*#__PURE__*/function (_Channel) {
       });
       return this;
     }
-<<<<<<< HEAD
     /**
      * Bind a channel to an event.
-=======
-    /**
-     * Bind a channel to an event.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90315,13 +88565,8 @@ var PusherChannel = /*#__PURE__*/function (_Channel) {
   return PusherChannel;
 }(Channel);
 
-<<<<<<< HEAD
 /**
  * This class represents a Pusher private channel.
-=======
-/**
- * This class represents a Pusher private channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var PusherPrivateChannel = /*#__PURE__*/function (_PusherChannel) {
@@ -90338,13 +88583,8 @@ var PusherPrivateChannel = /*#__PURE__*/function (_PusherChannel) {
   echo_createClass(PusherPrivateChannel, [{
     key: "whisper",
 
-<<<<<<< HEAD
     /**
      * Trigger client event on the channel.
-=======
-    /**
-     * Trigger client event on the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
     value: function whisper(eventName, data) {
       this.pusher.channels.channels[this.name].trigger("client-".concat(eventName), data);
@@ -90355,13 +88595,8 @@ var PusherPrivateChannel = /*#__PURE__*/function (_PusherChannel) {
   return PusherPrivateChannel;
 }(PusherChannel);
 
-<<<<<<< HEAD
 /**
  * This class represents a Pusher private channel.
-=======
-/**
- * This class represents a Pusher private channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var PusherEncryptedPrivateChannel = /*#__PURE__*/function (_PusherChannel) {
@@ -90378,13 +88613,8 @@ var PusherEncryptedPrivateChannel = /*#__PURE__*/function (_PusherChannel) {
   echo_createClass(PusherEncryptedPrivateChannel, [{
     key: "whisper",
 
-<<<<<<< HEAD
     /**
      * Trigger client event on the channel.
-=======
-    /**
-     * Trigger client event on the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
     value: function whisper(eventName, data) {
       this.pusher.channels.channels[this.name].trigger("client-".concat(eventName), data);
@@ -90395,13 +88625,8 @@ var PusherEncryptedPrivateChannel = /*#__PURE__*/function (_PusherChannel) {
   return PusherEncryptedPrivateChannel;
 }(PusherChannel);
 
-<<<<<<< HEAD
 /**
  * This class represents a Pusher presence channel.
-=======
-/**
- * This class represents a Pusher presence channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var PusherPresenceChannel = /*#__PURE__*/function (_PusherChannel) {
@@ -90418,13 +88643,8 @@ var PusherPresenceChannel = /*#__PURE__*/function (_PusherChannel) {
   echo_createClass(PusherPresenceChannel, [{
     key: "here",
 
-<<<<<<< HEAD
     /**
      * Register a callback to be called anytime the member list changes.
-=======
-    /**
-     * Register a callback to be called anytime the member list changes.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
     value: function here(callback) {
       this.on('pusher:subscription_succeeded', function (data) {
@@ -90434,13 +88654,8 @@ var PusherPresenceChannel = /*#__PURE__*/function (_PusherChannel) {
       });
       return this;
     }
-<<<<<<< HEAD
     /**
      * Listen for someone joining the channel.
-=======
-    /**
-     * Listen for someone joining the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90451,13 +88666,8 @@ var PusherPresenceChannel = /*#__PURE__*/function (_PusherChannel) {
       });
       return this;
     }
-<<<<<<< HEAD
     /**
      * Listen for someone leaving the channel.
-=======
-    /**
-     * Listen for someone leaving the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90468,13 +88678,8 @@ var PusherPresenceChannel = /*#__PURE__*/function (_PusherChannel) {
       });
       return this;
     }
-<<<<<<< HEAD
     /**
      * Trigger client event on the channel.
-=======
-    /**
-     * Trigger client event on the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90488,13 +88693,8 @@ var PusherPresenceChannel = /*#__PURE__*/function (_PusherChannel) {
   return PusherPresenceChannel;
 }(PusherChannel);
 
-<<<<<<< HEAD
 /**
  * This class represents a Socket.io channel.
-=======
-/**
- * This class represents a Socket.io channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var SocketIoChannel = /*#__PURE__*/function (_Channel) {
@@ -90502,13 +88702,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
 
   var _super = _createSuper(SocketIoChannel);
 
-<<<<<<< HEAD
   /**
    * Create a new class instance.
-=======
-  /**
-   * Create a new class instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
   function SocketIoChannel(socket, name, options) {
     var _this;
@@ -90516,7 +88711,6 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
     echo_classCallCheck(this, SocketIoChannel);
 
     _this = _super.call(this);
-<<<<<<< HEAD
     /**
      * The event callbacks applied to the socket.
      */
@@ -90524,15 +88718,6 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
     _this.events = {};
     /**
      * User supplied callbacks for events on this channel.
-=======
-    /**
-     * The event callbacks applied to the socket.
-     */
-
-    _this.events = {};
-    /**
-     * User supplied callbacks for events on this channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
     _this.listeners = {};
@@ -90545,13 +88730,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
 
     return _this;
   }
-<<<<<<< HEAD
   /**
    * Subscribe to a Socket.io channel.
-=======
-  /**
-   * Subscribe to a Socket.io channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
 
 
@@ -90563,13 +88743,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
         auth: this.options.auth || {}
       });
     }
-<<<<<<< HEAD
     /**
      * Unsubscribe from channel and ubind event callbacks.
-=======
-    /**
-     * Unsubscribe from channel and ubind event callbacks.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90581,13 +88756,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
         auth: this.options.auth || {}
       });
     }
-<<<<<<< HEAD
     /**
      * Listen for an event on the channel instance.
-=======
-    /**
-     * Listen for an event on the channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90596,13 +88766,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
       this.on(this.eventFormatter.format(event), callback);
       return this;
     }
-<<<<<<< HEAD
     /**
      * Stop listening for an event on the channel instance.
-=======
-    /**
-     * Stop listening for an event on the channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90611,13 +88776,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
       this.unbindEvent(this.eventFormatter.format(event), callback);
       return this;
     }
-<<<<<<< HEAD
     /**
      * Register a callback to be called anytime a subscription succeeds.
-=======
-    /**
-     * Register a callback to be called anytime a subscription succeeds.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90628,13 +88788,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
       });
       return this;
     }
-<<<<<<< HEAD
     /**
      * Register a callback to be called anytime an error occurs.
-=======
-    /**
-     * Register a callback to be called anytime an error occurs.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90642,13 +88797,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
     value: function error(callback) {
       return this;
     }
-<<<<<<< HEAD
     /**
      * Bind the channel's socket to an event and store the callback.
-=======
-    /**
-     * Bind the channel's socket to an event and store the callback.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90673,13 +88823,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
       this.listeners[event].push(callback);
       return this;
     }
-<<<<<<< HEAD
     /**
      * Unbind the channel's socket from all stored event callbacks.
-=======
-    /**
-     * Unbind the channel's socket from all stored event callbacks.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90691,13 +88836,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
         _this3.unbindEvent(event);
       });
     }
-<<<<<<< HEAD
     /**
      * Unbind the listeners for the given event.
-=======
-    /**
-     * Unbind the listeners for the given event.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90725,13 +88865,8 @@ var SocketIoChannel = /*#__PURE__*/function (_Channel) {
   return SocketIoChannel;
 }(Channel);
 
-<<<<<<< HEAD
 /**
  * This class represents a Socket.io private channel.
-=======
-/**
- * This class represents a Socket.io private channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var SocketIoPrivateChannel = /*#__PURE__*/function (_SocketIoChannel) {
@@ -90748,13 +88883,8 @@ var SocketIoPrivateChannel = /*#__PURE__*/function (_SocketIoChannel) {
   echo_createClass(SocketIoPrivateChannel, [{
     key: "whisper",
 
-<<<<<<< HEAD
     /**
      * Trigger client event on the channel.
-=======
-    /**
-     * Trigger client event on the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
     value: function whisper(eventName, data) {
       this.socket.emit('client event', {
@@ -90769,13 +88899,8 @@ var SocketIoPrivateChannel = /*#__PURE__*/function (_SocketIoChannel) {
   return SocketIoPrivateChannel;
 }(SocketIoChannel);
 
-<<<<<<< HEAD
 /**
  * This class represents a Socket.io presence channel.
-=======
-/**
- * This class represents a Socket.io presence channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var SocketIoPresenceChannel = /*#__PURE__*/function (_SocketIoPrivateChann) {
@@ -90792,13 +88917,8 @@ var SocketIoPresenceChannel = /*#__PURE__*/function (_SocketIoPrivateChann) {
   echo_createClass(SocketIoPresenceChannel, [{
     key: "here",
 
-<<<<<<< HEAD
     /**
      * Register a callback to be called anytime the member list changes.
-=======
-    /**
-     * Register a callback to be called anytime the member list changes.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
     value: function here(callback) {
       this.on('presence:subscribed', function (members) {
@@ -90808,13 +88928,8 @@ var SocketIoPresenceChannel = /*#__PURE__*/function (_SocketIoPrivateChann) {
       });
       return this;
     }
-<<<<<<< HEAD
     /**
      * Listen for someone joining the channel.
-=======
-    /**
-     * Listen for someone joining the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90825,13 +88940,8 @@ var SocketIoPresenceChannel = /*#__PURE__*/function (_SocketIoPrivateChann) {
       });
       return this;
     }
-<<<<<<< HEAD
     /**
      * Listen for someone leaving the channel.
-=======
-    /**
-     * Listen for someone leaving the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90847,13 +88957,8 @@ var SocketIoPresenceChannel = /*#__PURE__*/function (_SocketIoPrivateChann) {
   return SocketIoPresenceChannel;
 }(SocketIoPrivateChannel);
 
-<<<<<<< HEAD
 /**
  * This class represents a null channel.
-=======
-/**
- * This class represents a null channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var NullChannel = /*#__PURE__*/function (_Channel) {
@@ -90870,7 +88975,6 @@ var NullChannel = /*#__PURE__*/function (_Channel) {
   echo_createClass(NullChannel, [{
     key: "subscribe",
 
-<<<<<<< HEAD
     /**
      * Subscribe to a channel.
      */
@@ -90878,28 +88982,14 @@ var NullChannel = /*#__PURE__*/function (_Channel) {
 
     /**
      * Unsubscribe from a channel.
-=======
-    /**
-     * Subscribe to a channel.
-     */
-    value: function subscribe() {} //
-
-    /**
-     * Unsubscribe from a channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
     key: "unsubscribe",
     value: function unsubscribe() {} //
 
-<<<<<<< HEAD
     /**
      * Listen for an event on the channel instance.
-=======
-    /**
-     * Listen for an event on the channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90907,13 +88997,8 @@ var NullChannel = /*#__PURE__*/function (_Channel) {
     value: function listen(event, callback) {
       return this;
     }
-<<<<<<< HEAD
     /**
      * Stop listening for an event on the channel instance.
-=======
-    /**
-     * Stop listening for an event on the channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90921,13 +89006,8 @@ var NullChannel = /*#__PURE__*/function (_Channel) {
     value: function stopListening(event, callback) {
       return this;
     }
-<<<<<<< HEAD
     /**
      * Register a callback to be called anytime a subscription succeeds.
-=======
-    /**
-     * Register a callback to be called anytime a subscription succeeds.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90935,13 +89015,8 @@ var NullChannel = /*#__PURE__*/function (_Channel) {
     value: function subscribed(callback) {
       return this;
     }
-<<<<<<< HEAD
     /**
      * Register a callback to be called anytime an error occurs.
-=======
-    /**
-     * Register a callback to be called anytime an error occurs.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90949,13 +89024,8 @@ var NullChannel = /*#__PURE__*/function (_Channel) {
     value: function error(callback) {
       return this;
     }
-<<<<<<< HEAD
     /**
      * Bind a channel to an event.
-=======
-    /**
-     * Bind a channel to an event.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -90968,13 +89038,8 @@ var NullChannel = /*#__PURE__*/function (_Channel) {
   return NullChannel;
 }(Channel);
 
-<<<<<<< HEAD
 /**
  * This class represents a null private channel.
-=======
-/**
- * This class represents a null private channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var NullPrivateChannel = /*#__PURE__*/function (_NullChannel) {
@@ -90991,13 +89056,8 @@ var NullPrivateChannel = /*#__PURE__*/function (_NullChannel) {
   echo_createClass(NullPrivateChannel, [{
     key: "whisper",
 
-<<<<<<< HEAD
     /**
      * Trigger client event on the channel.
-=======
-    /**
-     * Trigger client event on the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
     value: function whisper(eventName, data) {
       return this;
@@ -91007,13 +89067,8 @@ var NullPrivateChannel = /*#__PURE__*/function (_NullChannel) {
   return NullPrivateChannel;
 }(NullChannel);
 
-<<<<<<< HEAD
 /**
  * This class represents a null presence channel.
-=======
-/**
- * This class represents a null presence channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var NullPresenceChannel = /*#__PURE__*/function (_NullChannel) {
@@ -91030,24 +89085,14 @@ var NullPresenceChannel = /*#__PURE__*/function (_NullChannel) {
   echo_createClass(NullPresenceChannel, [{
     key: "here",
 
-<<<<<<< HEAD
     /**
      * Register a callback to be called anytime the member list changes.
-=======
-    /**
-     * Register a callback to be called anytime the member list changes.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
     value: function here(callback) {
       return this;
     }
-<<<<<<< HEAD
     /**
      * Listen for someone joining the channel.
-=======
-    /**
-     * Listen for someone joining the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91055,13 +89100,8 @@ var NullPresenceChannel = /*#__PURE__*/function (_NullChannel) {
     value: function joining(callback) {
       return this;
     }
-<<<<<<< HEAD
     /**
      * Listen for someone leaving the channel.
-=======
-    /**
-     * Listen for someone leaving the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91069,13 +89109,8 @@ var NullPresenceChannel = /*#__PURE__*/function (_NullChannel) {
     value: function leaving(callback) {
       return this;
     }
-<<<<<<< HEAD
     /**
      * Trigger client event on the channel.
-=======
-    /**
-     * Trigger client event on the channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91088,13 +89123,8 @@ var NullPresenceChannel = /*#__PURE__*/function (_NullChannel) {
   return NullPresenceChannel;
 }(NullChannel);
 
-<<<<<<< HEAD
 /**
  * This class creates a connector to Pusher.
-=======
-/**
- * This class creates a connector to Pusher.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var PusherConnector = /*#__PURE__*/function (_Connector) {
@@ -91108,25 +89138,15 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
     echo_classCallCheck(this, PusherConnector);
 
     _this = _super.apply(this, arguments);
-<<<<<<< HEAD
     /**
      * All of the subscribed channel names.
-=======
-    /**
-     * All of the subscribed channel names.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
     _this.channels = {};
     return _this;
   }
-<<<<<<< HEAD
   /**
    * Create a fresh Pusher connection.
-=======
-  /**
-   * Create a fresh Pusher connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
 
 
@@ -91139,13 +89159,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
         this.pusher = new Pusher(this.options.key, this.options);
       }
     }
-<<<<<<< HEAD
     /**
      * Listen for an event on a channel instance.
-=======
-    /**
-     * Listen for an event on a channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91153,13 +89168,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
     value: function listen(name, event, callback) {
       return this.channel(name).listen(event, callback);
     }
-<<<<<<< HEAD
     /**
      * Get a channel instance by name.
-=======
-    /**
-     * Get a channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91171,13 +89181,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
 
       return this.channels[name];
     }
-<<<<<<< HEAD
     /**
      * Get a private channel instance by name.
-=======
-    /**
-     * Get a private channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91189,13 +89194,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
 
       return this.channels['private-' + name];
     }
-<<<<<<< HEAD
     /**
      * Get a private encrypted channel instance by name.
-=======
-    /**
-     * Get a private encrypted channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91207,13 +89207,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
 
       return this.channels['private-encrypted-' + name];
     }
-<<<<<<< HEAD
     /**
      * Get a presence channel instance by name.
-=======
-    /**
-     * Get a presence channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91225,13 +89220,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
 
       return this.channels['presence-' + name];
     }
-<<<<<<< HEAD
     /**
      * Leave the given channel, as well as its private and presence variants.
-=======
-    /**
-     * Leave the given channel, as well as its private and presence variants.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91244,13 +89234,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
         _this2.leaveChannel(name);
       });
     }
-<<<<<<< HEAD
     /**
      * Leave the given channel.
-=======
-    /**
-     * Leave the given channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91261,13 +89246,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
         delete this.channels[name];
       }
     }
-<<<<<<< HEAD
     /**
      * Get the socket ID for the connection.
-=======
-    /**
-     * Get the socket ID for the connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91275,13 +89255,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
     value: function socketId() {
       return this.pusher.connection.socket_id;
     }
-<<<<<<< HEAD
     /**
      * Disconnect Pusher connection.
-=======
-    /**
-     * Disconnect Pusher connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91294,13 +89269,8 @@ var PusherConnector = /*#__PURE__*/function (_Connector) {
   return PusherConnector;
 }(Connector);
 
-<<<<<<< HEAD
 /**
  * This class creates a connnector to a Socket.io server.
-=======
-/**
- * This class creates a connnector to a Socket.io server.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var SocketIoConnector = /*#__PURE__*/function (_Connector) {
@@ -91314,25 +89284,15 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
     echo_classCallCheck(this, SocketIoConnector);
 
     _this = _super.apply(this, arguments);
-<<<<<<< HEAD
     /**
      * All of the subscribed channel names.
-=======
-    /**
-     * All of the subscribed channel names.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
     _this.channels = {};
     return _this;
   }
-<<<<<<< HEAD
   /**
    * Create a fresh Socket.io connection.
-=======
-  /**
-   * Create a fresh Socket.io connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
 
 
@@ -91350,13 +89310,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
       });
       return this.socket;
     }
-<<<<<<< HEAD
     /**
      * Get socket.io module from global scope or options.
-=======
-    /**
-     * Get socket.io module from global scope or options.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91372,13 +89327,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
 
       throw new Error('Socket.io client not found. Should be globally available or passed via options.client');
     }
-<<<<<<< HEAD
     /**
      * Listen for an event on a channel instance.
-=======
-    /**
-     * Listen for an event on a channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91386,13 +89336,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
     value: function listen(name, event, callback) {
       return this.channel(name).listen(event, callback);
     }
-<<<<<<< HEAD
     /**
      * Get a channel instance by name.
-=======
-    /**
-     * Get a channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91404,13 +89349,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
 
       return this.channels[name];
     }
-<<<<<<< HEAD
     /**
      * Get a private channel instance by name.
-=======
-    /**
-     * Get a private channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91422,13 +89362,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
 
       return this.channels['private-' + name];
     }
-<<<<<<< HEAD
     /**
      * Get a presence channel instance by name.
-=======
-    /**
-     * Get a presence channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91440,13 +89375,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
 
       return this.channels['presence-' + name];
     }
-<<<<<<< HEAD
     /**
      * Leave the given channel, as well as its private and presence variants.
-=======
-    /**
-     * Leave the given channel, as well as its private and presence variants.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91459,13 +89389,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
         _this3.leaveChannel(name);
       });
     }
-<<<<<<< HEAD
     /**
      * Leave the given channel.
-=======
-    /**
-     * Leave the given channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91476,13 +89401,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
         delete this.channels[name];
       }
     }
-<<<<<<< HEAD
     /**
      * Get the socket ID for the connection.
-=======
-    /**
-     * Get the socket ID for the connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91490,13 +89410,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
     value: function socketId() {
       return this.socket.id;
     }
-<<<<<<< HEAD
     /**
      * Disconnect Socketio connection.
-=======
-    /**
-     * Disconnect Socketio connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91509,13 +89424,8 @@ var SocketIoConnector = /*#__PURE__*/function (_Connector) {
   return SocketIoConnector;
 }(Connector);
 
-<<<<<<< HEAD
 /**
  * This class creates a null connector.
-=======
-/**
- * This class creates a null connector.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 var NullConnector = /*#__PURE__*/function (_Connector) {
@@ -91529,25 +89439,15 @@ var NullConnector = /*#__PURE__*/function (_Connector) {
     echo_classCallCheck(this, NullConnector);
 
     _this = _super.apply(this, arguments);
-<<<<<<< HEAD
     /**
      * All of the subscribed channel names.
-=======
-    /**
-     * All of the subscribed channel names.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
     _this.channels = {};
     return _this;
   }
-<<<<<<< HEAD
   /**
    * Create a fresh connection.
-=======
-  /**
-   * Create a fresh connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
 
 
@@ -91555,13 +89455,8 @@ var NullConnector = /*#__PURE__*/function (_Connector) {
     key: "connect",
     value: function connect() {} //
 
-<<<<<<< HEAD
     /**
      * Listen for an event on a channel instance.
-=======
-    /**
-     * Listen for an event on a channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91569,13 +89464,8 @@ var NullConnector = /*#__PURE__*/function (_Connector) {
     value: function listen(name, event, callback) {
       return new NullChannel();
     }
-<<<<<<< HEAD
     /**
      * Get a channel instance by name.
-=======
-    /**
-     * Get a channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91583,13 +89473,8 @@ var NullConnector = /*#__PURE__*/function (_Connector) {
     value: function channel(name) {
       return new NullChannel();
     }
-<<<<<<< HEAD
     /**
      * Get a private channel instance by name.
-=======
-    /**
-     * Get a private channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91597,13 +89482,8 @@ var NullConnector = /*#__PURE__*/function (_Connector) {
     value: function privateChannel(name) {
       return new NullPrivateChannel();
     }
-<<<<<<< HEAD
     /**
      * Get a presence channel instance by name.
-=======
-    /**
-     * Get a presence channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91611,39 +89491,24 @@ var NullConnector = /*#__PURE__*/function (_Connector) {
     value: function presenceChannel(name) {
       return new NullPresenceChannel();
     }
-<<<<<<< HEAD
     /**
      * Leave the given channel, as well as its private and presence variants.
-=======
-    /**
-     * Leave the given channel, as well as its private and presence variants.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
     key: "leave",
     value: function leave(name) {} //
 
-<<<<<<< HEAD
     /**
      * Leave the given channel.
-=======
-    /**
-     * Leave the given channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
     key: "leaveChannel",
     value: function leaveChannel(name) {} //
 
-<<<<<<< HEAD
     /**
      * Get the socket ID for the connection.
-=======
-    /**
-     * Get the socket ID for the connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91651,13 +89516,8 @@ var NullConnector = /*#__PURE__*/function (_Connector) {
     value: function socketId() {
       return 'fake-socket-id';
     }
-<<<<<<< HEAD
     /**
      * Disconnect the connection.
-=======
-    /**
-     * Disconnect the connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91669,7 +89529,6 @@ var NullConnector = /*#__PURE__*/function (_Connector) {
   return NullConnector;
 }(Connector);
 
-<<<<<<< HEAD
 /**
  * This class is the primary API for interacting with broadcasting.
  */
@@ -91677,15 +89536,6 @@ var NullConnector = /*#__PURE__*/function (_Connector) {
 var echo_Echo = /*#__PURE__*/function () {
   /**
    * Create a new class instance.
-=======
-/**
- * This class is the primary API for interacting with broadcasting.
- */
-
-var echo_Echo = /*#__PURE__*/function () {
-  /**
-   * Create a new class instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
   function Echo(options) {
     echo_classCallCheck(this, Echo);
@@ -91697,13 +89547,8 @@ var echo_Echo = /*#__PURE__*/function () {
       this.registerInterceptors();
     }
   }
-<<<<<<< HEAD
   /**
    * Get a channel instance by name.
-=======
-  /**
-   * Get a channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
 
 
@@ -91712,13 +89557,8 @@ var echo_Echo = /*#__PURE__*/function () {
     value: function channel(_channel) {
       return this.connector.channel(_channel);
     }
-<<<<<<< HEAD
     /**
      * Create a new connection.
-=======
-    /**
-     * Create a new connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91734,13 +89574,8 @@ var echo_Echo = /*#__PURE__*/function () {
         this.connector = new this.options.broadcaster(this.options);
       }
     }
-<<<<<<< HEAD
     /**
      * Disconnect from the Echo server.
-=======
-    /**
-     * Disconnect from the Echo server.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91748,13 +89583,8 @@ var echo_Echo = /*#__PURE__*/function () {
     value: function disconnect() {
       this.connector.disconnect();
     }
-<<<<<<< HEAD
     /**
      * Get a presence channel instance by name.
-=======
-    /**
-     * Get a presence channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91762,13 +89592,8 @@ var echo_Echo = /*#__PURE__*/function () {
     value: function join(channel) {
       return this.connector.presenceChannel(channel);
     }
-<<<<<<< HEAD
     /**
      * Leave the given channel, as well as its private and presence variants.
-=======
-    /**
-     * Leave the given channel, as well as its private and presence variants.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91776,13 +89601,8 @@ var echo_Echo = /*#__PURE__*/function () {
     value: function leave(channel) {
       this.connector.leave(channel);
     }
-<<<<<<< HEAD
     /**
      * Leave the given channel.
-=======
-    /**
-     * Leave the given channel.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91790,13 +89610,8 @@ var echo_Echo = /*#__PURE__*/function () {
     value: function leaveChannel(channel) {
       this.connector.leaveChannel(channel);
     }
-<<<<<<< HEAD
     /**
      * Listen for an event on a channel instance.
-=======
-    /**
-     * Listen for an event on a channel instance.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91804,13 +89619,8 @@ var echo_Echo = /*#__PURE__*/function () {
     value: function listen(channel, event, callback) {
       return this.connector.listen(channel, event, callback);
     }
-<<<<<<< HEAD
     /**
      * Get a private channel instance by name.
-=======
-    /**
-     * Get a private channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91818,13 +89628,8 @@ var echo_Echo = /*#__PURE__*/function () {
     value: function _private(channel) {
       return this.connector.privateChannel(channel);
     }
-<<<<<<< HEAD
     /**
      * Get a private encrypted channel instance by name.
-=======
-    /**
-     * Get a private encrypted channel instance by name.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91832,13 +89637,8 @@ var echo_Echo = /*#__PURE__*/function () {
     value: function encryptedPrivate(channel) {
       return this.connector.encryptedPrivateChannel(channel);
     }
-<<<<<<< HEAD
     /**
      * Get the Socket ID for the connection.
-=======
-    /**
-     * Get the Socket ID for the connection.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91846,15 +89646,9 @@ var echo_Echo = /*#__PURE__*/function () {
     value: function socketId() {
       return this.connector.socketId();
     }
-<<<<<<< HEAD
     /**
      * Register 3rd party request interceptiors. These are used to automatically
      * send a connections socket id to a Laravel app with a X-Socket-Id header.
-=======
-    /**
-     * Register 3rd party request interceptiors. These are used to automatically
-     * send a connections socket id to a Laravel app with a X-Socket-Id header.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91872,13 +89666,8 @@ var echo_Echo = /*#__PURE__*/function () {
         this.registerjQueryAjaxSetup();
       }
     }
-<<<<<<< HEAD
     /**
      * Register a Vue HTTP interceptor to add the X-Socket-ID header.
-=======
-    /**
-     * Register a Vue HTTP interceptor to add the X-Socket-ID header.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91894,13 +89683,8 @@ var echo_Echo = /*#__PURE__*/function () {
         next();
       });
     }
-<<<<<<< HEAD
     /**
      * Register an Axios HTTP interceptor to add the X-Socket-ID header.
-=======
-    /**
-     * Register an Axios HTTP interceptor to add the X-Socket-ID header.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -91916,13 +89700,8 @@ var echo_Echo = /*#__PURE__*/function () {
         return config;
       });
     }
-<<<<<<< HEAD
     /**
      * Register jQuery AjaxPrefilter to add the X-Socket-ID header.
-=======
-    /**
-     * Register jQuery AjaxPrefilter to add the X-Socket-ID header.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
      */
 
   }, {
@@ -92278,13 +90057,8 @@ var TYPE = {
   DARK: 'dark'
 };
 
-<<<<<<< HEAD
 /**
  * Used to collapse toast after exit animation
-=======
-/**
- * Used to collapse toast after exit animation
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 function collapseToast(node, done, duration
 /* COLLAPSE_DURATION */
@@ -92308,7 +90082,6 @@ function collapseToast(node, done, duration
   });
 }
 
-<<<<<<< HEAD
 /**
  * Css animation that just work.
  * You could use animate.css for instance
@@ -92321,20 +90094,6 @@ function collapseToast(node, done, duration
  * })
  * ```
  *
-=======
-/**
- * Css animation that just work.
- * You could use animate.css for instance
- *
- *
- * ```
- * cssTransition({
- *   enter: "animate__animated animate__bounceIn",
- *   exit: "animate__animated animate__bounceOut"
- * })
- * ```
- *
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 function cssTransition(_ref) {
@@ -92434,7 +90193,6 @@ var eventManager = {
     return this;
   },
 
-<<<<<<< HEAD
   /**
    * Enqueue the event at the end of the call stack
    * Doing so let the user call toast as follow:
@@ -92442,15 +90200,6 @@ var eventManager = {
    * toast('2')
    * toast('3')
    * Without setTimemout the code above will not work
-=======
-  /**
-   * Enqueue the event at the end of the call stack
-   * Doing so let the user call toast as follow:
-   * toast('1')
-   * toast('2')
-   * toast('3')
-   * Without setTimemout the code above will not work
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
   emit: function emit(event) {
     var _this = this;
@@ -92471,19 +90220,11 @@ var eventManager = {
   }
 };
 
-<<<<<<< HEAD
 /**
  * `useKeeper` is a helper around `useRef`.
  *
  * You don't need to access the `.current`property to get the value
  * If refresh is set to true. The ref will be updated every render
-=======
-/**
- * `useKeeper` is a helper around `useRef`.
- *
- * You don't need to access the `.current`property to get the value
- * If refresh is set to true. The ref will be updated every render
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 function useKeeper(arg, refresh) {
@@ -92605,17 +90346,10 @@ function useToastContainer(props) {
 
     appendToast(toastContent, toastProps, staleId);
   }
-<<<<<<< HEAD
   /**
    * check if a container is attached to the dom
    * check for multi-container, build only if associated
    * check for duplicate toastId if no update
-=======
-  /**
-   * check if a container is attached to the dom
-   * check for multi-container, build only if associated
-   * check for duplicate toastId if no update
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
    */
 
 
@@ -93293,25 +91027,15 @@ var containerDomNode;
 var containerConfig;
 var react_toastify_esm_queue = [];
 var lazy = false;
-<<<<<<< HEAD
 /**
  * Check whether any container is currently mounted in the DOM
-=======
-/**
- * Check whether any container is currently mounted in the DOM
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 function isAnyContainerMounted() {
   return containers.size > 0;
 }
-<<<<<<< HEAD
 /**
  * Get the toast by id, given it's in the DOM, otherwise returns null
-=======
-/**
- * Get the toast by id, given it's in the DOM, otherwise returns null
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
@@ -93321,26 +91045,16 @@ function getToast(toastId, _ref) {
   if (!container) return null;
   return container.getToast(toastId);
 }
-<<<<<<< HEAD
 /**
  * Generate a random toastId
-=======
-/**
- * Generate a random toastId
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
 function generateToastId() {
   return Math.random().toString(36).substr(2, 9);
 }
-<<<<<<< HEAD
 /**
  * Generate a toastId or use the one provided
-=======
-/**
- * Generate a toastId or use the one provided
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
@@ -93351,15 +91065,9 @@ function getToastId(options) {
 
   return generateToastId();
 }
-<<<<<<< HEAD
 /**
  * If the container is not mounted, the toast is enqueued and
  * the container lazy mounted
-=======
-/**
- * If the container is not mounted, the toast is enqueued and
- * the container lazy mounted
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
@@ -93384,13 +91092,8 @@ function dispatchToast(content, options) {
 
   return options.toastId;
 }
-<<<<<<< HEAD
 /**
  * Merge provided options with the defaults settings and generate the toastId
-=======
-/**
- * Merge provided options with the defaults settings and generate the toastId
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
@@ -93417,13 +91120,8 @@ react_toastify_esm_toast.error = /*#__PURE__*/createToastByType(TYPE.ERROR);
 react_toastify_esm_toast.warning = /*#__PURE__*/createToastByType(TYPE.WARNING);
 react_toastify_esm_toast.dark = /*#__PURE__*/createToastByType(TYPE.DARK);
 react_toastify_esm_toast.warn = react_toastify_esm_toast.warning;
-<<<<<<< HEAD
 /**
  * Remove toast programmaticaly
-=======
-/**
- * Remove toast programmaticaly
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 react_toastify_esm_toast.dismiss = function (id) {
@@ -93431,13 +91129,8 @@ react_toastify_esm_toast.dismiss = function (id) {
   /* Clear */
   , id);
 };
-<<<<<<< HEAD
 /**
  * Clear waiting queue when limit is used
-=======
-/**
- * Clear waiting queue when limit is used
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
@@ -93450,13 +91143,8 @@ react_toastify_esm_toast.clearWaitingQueue = function (params) {
   /* ClearWaitingQueue */
   , params);
 };
-<<<<<<< HEAD
 /**
  * return true if one container is displaying the toast
-=======
-/**
- * return true if one container is displaying the toast
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
@@ -93496,13 +91184,8 @@ react_toastify_esm_toast.update = function (toastId, options) {
     }
   }, 0);
 };
-<<<<<<< HEAD
 /**
  * Used for controlled progress bar.
-=======
-/**
- * Used for controlled progress bar.
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
@@ -93511,15 +91194,9 @@ react_toastify_esm_toast.done = function (id) {
     progress: 1
   });
 };
-<<<<<<< HEAD
 /**
  * Track changes. The callback get the number of toast displayed
  *
-=======
-/**
- * Track changes. The callback get the number of toast displayed
- *
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
@@ -93536,13 +91213,8 @@ react_toastify_esm_toast.onChange = function (callback) {
     , callback);
   };
 };
-<<<<<<< HEAD
 /**
  * Configure the ToastContainer when lazy mounted
-=======
-/**
- * Configure the ToastContainer when lazy mounted
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 
@@ -93557,15 +91229,9 @@ react_toastify_esm_toast.configure = function (config) {
 
 react_toastify_esm_toast.POSITION = POSITION;
 react_toastify_esm_toast.TYPE = TYPE;
-<<<<<<< HEAD
 /**
  * Wait until the ToastContainer is mounted to dispatch the toast
  * and attach isActive method
-=======
-/**
- * Wait until the ToastContainer is mounted to dispatch the toast
- * and attach isActive method
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
  */
 
 eventManager.on(2
@@ -94804,24 +92470,15 @@ function cubicBezier(mX1, mY1, mX2, mY2) {
 
 
 
-<<<<<<< HEAD
 var zeroPoint = {
     x: 0,
     y: 0,
     z: 0
 };
-=======
-var zeroPoint = {
-    x: 0,
-    y: 0,
-    z: 0
-};
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 var popcorn_es_isNum = function (v) { return typeof v === 'number'; };
 
 var radiansToDegrees = (function (radians) { return (radians * 180) / Math.PI; });
 
-<<<<<<< HEAD
 var angle = (function (a, b) {
     if (b === void 0) { b = zeroPoint; }
     return radiansToDegrees(Math.atan2(b.y - a.y, b.x - a.x));
@@ -94843,34 +92500,10 @@ var applyOffset = (function (from, to) {
             return to;
         }
     };
-=======
-var angle = (function (a, b) {
-    if (b === void 0) { b = zeroPoint; }
-    return radiansToDegrees(Math.atan2(b.y - a.y, b.x - a.x));
-});
-
-var applyOffset = (function (from, to) {
-    var hasReceivedFrom = true;
-    if (to === undefined) {
-        to = from;
-        hasReceivedFrom = false;
-    }
-    return function (v) {
-        if (hasReceivedFrom) {
-            return v - from + to;
-        }
-        else {
-            from = v;
-            hasReceivedFrom = true;
-            return to;
-        }
-    };
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 });
 
 var curryRange = (function (func) { return function (min, max, v) { return (v !== undefined ? func(min, max, v) : function (cv) { return func(min, max, cv); }); }; });
 
-<<<<<<< HEAD
 var popcorn_es_clamp = function (min, max, v) {
     return Math.min(Math.max(v, min), max);
 };
@@ -94878,20 +92511,10 @@ var clamp$1 = curryRange(popcorn_es_clamp);
 
 var conditional = (function (check, apply) { return function (v) {
     return check(v) ? apply(v) : v;
-=======
-var popcorn_es_clamp = function (min, max, v) {
-    return Math.min(Math.max(v, min), max);
-};
-var clamp$1 = curryRange(popcorn_es_clamp);
-
-var conditional = (function (check, apply) { return function (v) {
-    return check(v) ? apply(v) : v;
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 }; });
 
 var degreesToRadians = (function (degrees) { return (degrees * Math.PI) / 180; });
 
-<<<<<<< HEAD
 var isPoint = (function (point) {
     return point.hasOwnProperty('x') && point.hasOwnProperty('y');
 });
@@ -95243,359 +92866,6 @@ var steps = (function (steps, direction) {
         var rounded = direction === 'end' ? Math.floor(expanded) : Math.ceil(expanded);
         return clampProgress(rounded / steps);
     };
-=======
-var isPoint = (function (point) {
-    return point.hasOwnProperty('x') && point.hasOwnProperty('y');
-});
-
-var isPoint3D = (function (point) {
-    return isPoint(point) && point.hasOwnProperty('z');
-});
-
-var distance1D = function (a, b) { return Math.abs(a - b); };
-var distance = (function (a, b) {
-    if (b === void 0) { b = zeroPoint; }
-    if (popcorn_es_isNum(a) && popcorn_es_isNum(b)) {
-        return distance1D(a, b);
-    }
-    else if (isPoint(a) && isPoint(b)) {
-        var xDelta = distance1D(a.x, b.x);
-        var yDelta = distance1D(a.y, b.y);
-        var zDelta = isPoint3D(a) && isPoint3D(b) ? distance1D(a.z, b.z) : 0;
-        return Math.sqrt(Math.pow(xDelta, 2) + Math.pow(yDelta, 2) + Math.pow(zDelta, 2));
-    }
-    return 0;
-});
-
-var popcorn_es_progress = (function (from, to, value) {
-    var toFromDifference = to - from;
-    return toFromDifference === 0 ? 1 : (value - from) / toFromDifference;
-});
-
-var mix = (function (from, to, progress) {
-    return -progress * from + progress * to + from;
-});
-
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-
-var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-
-var mixLinearColor = function (from, to, v) {
-    var fromExpo = from * from;
-    var toExpo = to * to;
-    return Math.sqrt(Math.max(0, v * (toExpo - fromExpo) + fromExpo));
-};
-var colorTypes = [style_value_types_es["e" /* hex */], style_value_types_es["k" /* rgba */], style_value_types_es["f" /* hsla */]];
-var getColorType = function (v) {
-    return colorTypes.find(function (type) { return type.test(v); });
-};
-var notAnimatable = function (color$$1) {
-    return "'" + color$$1 + "' is not an animatable color. Use the equivalent color code instead.";
-};
-var mixColor = (function (from, to) {
-    var fromColorType = getColorType(from);
-    var toColorType = getColorType(to);
-    Object(hey_listen_es["a" /* invariant */])(!!fromColorType, notAnimatable(from));
-    Object(hey_listen_es["a" /* invariant */])(!!toColorType, notAnimatable(to));
-    Object(hey_listen_es["a" /* invariant */])(fromColorType.transform === toColorType.transform, 'Both colors must be hex/RGBA, OR both must be HSLA.');
-    var fromColor = fromColorType.parse(from);
-    var toColor = toColorType.parse(to);
-    var blended = __assign({}, fromColor);
-    var mixFunc = fromColorType === style_value_types_es["f" /* hsla */] ? mix : mixLinearColor;
-    return function (v) {
-        for (var key in blended) {
-            if (key !== 'alpha') {
-                blended[key] = mixFunc(fromColor[key], toColor[key], v);
-            }
-        }
-        blended.alpha = mix(fromColor.alpha, toColor.alpha, v);
-        return fromColorType.transform(blended);
-    };
-});
-
-var combineFunctions = function (a, b) { return function (v) { return b(a(v)); }; };
-var pipe = (function () {
-    var transformers = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        transformers[_i] = arguments[_i];
-    }
-    return transformers.reduce(combineFunctions);
-});
-
-function getMixer(origin, target) {
-    if (popcorn_es_isNum(origin)) {
-        return function (v) { return mix(origin, target, v); };
-    }
-    else if (style_value_types_es["b" /* color */].test(origin)) {
-        return mixColor(origin, target);
-    }
-    else {
-        return mixComplex(origin, target);
-    }
-}
-var mixArray = function (from, to) {
-    var output = from.slice();
-    var numValues = output.length;
-    var blendValue = from.map(function (fromThis, i) { return getMixer(fromThis, to[i]); });
-    return function (v) {
-        for (var i = 0; i < numValues; i++) {
-            output[i] = blendValue[i](v);
-        }
-        return output;
-    };
-};
-var mixObject = function (origin, target) {
-    var output = __assign({}, origin, target);
-    var blendValue = {};
-    for (var key in output) {
-        if (origin[key] !== undefined && target[key] !== undefined) {
-            blendValue[key] = getMixer(origin[key], target[key]);
-        }
-    }
-    return function (v) {
-        for (var key in blendValue) {
-            output[key] = blendValue[key](v);
-        }
-        return output;
-    };
-};
-function analyse(value) {
-    var parsed = style_value_types_es["c" /* complex */].parse(value);
-    var numValues = parsed.length;
-    var numNumbers = 0;
-    var numRGB = 0;
-    var numHSL = 0;
-    for (var i = 0; i < numValues; i++) {
-        if (numNumbers || typeof parsed[i] === 'number') {
-            numNumbers++;
-        }
-        else {
-            if (parsed[i].hue !== undefined) {
-                numHSL++;
-            }
-            else {
-                numRGB++;
-            }
-        }
-    }
-    return { parsed: parsed, numNumbers: numNumbers, numRGB: numRGB, numHSL: numHSL };
-}
-var mixComplex = function (origin, target) {
-    var template = style_value_types_es["c" /* complex */].createTransformer(target);
-    var originStats = analyse(origin);
-    var targetStats = analyse(target);
-    Object(hey_listen_es["a" /* invariant */])(originStats.numHSL === targetStats.numHSL &&
-        originStats.numRGB === targetStats.numRGB &&
-        originStats.numNumbers >= targetStats.numNumbers, "Complex values '" + origin + "' and '" + target + "' too different to mix. Ensure all colors are of the same type.");
-    return pipe(mixArray(originStats.parsed, targetStats.parsed), template);
-};
-
-var mixNumber = function (from, to) { return function (p) { return mix(from, to, p); }; };
-function detectMixerFactory(v) {
-    if (typeof v === 'number') {
-        return mixNumber;
-    }
-    else if (typeof v === 'string') {
-        if (style_value_types_es["b" /* color */].test(v)) {
-            return mixColor;
-        }
-        else {
-            return mixComplex;
-        }
-    }
-    else if (Array.isArray(v)) {
-        return mixArray;
-    }
-    else if (typeof v === 'object') {
-        return mixObject;
-    }
-}
-function createMixers(output, ease, customMixer) {
-    var mixers = [];
-    var mixerFactory = customMixer || detectMixerFactory(output[0]);
-    var numMixers = output.length - 1;
-    for (var i = 0; i < numMixers; i++) {
-        var mixer = mixerFactory(output[i], output[i + 1]);
-        if (ease) {
-            var easingFunction = Array.isArray(ease) ? ease[i] : ease;
-            mixer = pipe(easingFunction, mixer);
-        }
-        mixers.push(mixer);
-    }
-    return mixers;
-}
-function fastInterpolate(_a, _b) {
-    var from = _a[0], to = _a[1];
-    var mixer = _b[0];
-    return function (v) { return mixer(popcorn_es_progress(from, to, v)); };
-}
-function slowInterpolate(input, mixers) {
-    var inputLength = input.length;
-    var lastInputIndex = inputLength - 1;
-    return function (v) {
-        var mixerIndex = 0;
-        var foundMixerIndex = false;
-        if (v <= input[0]) {
-            foundMixerIndex = true;
-        }
-        else if (v >= input[lastInputIndex]) {
-            mixerIndex = lastInputIndex - 1;
-            foundMixerIndex = true;
-        }
-        if (!foundMixerIndex) {
-            var i = 1;
-            for (; i < inputLength; i++) {
-                if (input[i] > v || i === lastInputIndex) {
-                    break;
-                }
-            }
-            mixerIndex = i - 1;
-        }
-        var progressInRange = popcorn_es_progress(input[mixerIndex], input[mixerIndex + 1], v);
-        return mixers[mixerIndex](progressInRange);
-    };
-}
-function interpolate(input, output, _a) {
-    var _b = _a === void 0 ? {} : _a, _c = _b.clamp, clamp = _c === void 0 ? true : _c, ease = _b.ease, mixer = _b.mixer;
-    var inputLength = input.length;
-    Object(hey_listen_es["a" /* invariant */])(inputLength === output.length, 'Both input and output ranges must be the same length');
-    Object(hey_listen_es["a" /* invariant */])(!ease || !Array.isArray(ease) || ease.length === inputLength - 1, 'Array of easing functions must be of length `input.length - 1`, as it applies to the transitions **between** the defined values.');
-    if (input[0] > input[inputLength - 1]) {
-        input = [].concat(input);
-        output = [].concat(output);
-        input.reverse();
-        output.reverse();
-    }
-    var mixers = createMixers(output, ease, mixer);
-    var interpolator = inputLength === 2
-        ? fastInterpolate(input, mixers)
-        : slowInterpolate(input, mixers);
-    return clamp
-        ? pipe(clamp$1(input[0], input[inputLength - 1]), interpolator)
-        : interpolator;
-}
-
-var pointFromVector = (function (origin, angle, distance) {
-    angle = degreesToRadians(angle);
-    return {
-        x: distance * Math.cos(angle) + origin.x,
-        y: distance * Math.sin(angle) + origin.y
-    };
-});
-
-var toDecimal = (function (num, precision) {
-    if (precision === void 0) { precision = 2; }
-    precision = Math.pow(10, precision);
-    return Math.round(num * precision) / precision;
-});
-
-var smoothFrame = (function (prevValue, nextValue, duration, smoothing) {
-    if (smoothing === void 0) { smoothing = 0; }
-    return toDecimal(prevValue +
-        (duration * (nextValue - prevValue)) / Math.max(smoothing, duration));
-});
-
-var smooth = (function (strength) {
-    if (strength === void 0) { strength = 50; }
-    var previousValue = 0;
-    var lastUpdated = 0;
-    return function (v) {
-        var currentFramestamp = Object(framesync_es["c" /* getFrameData */])().timestamp;
-        var timeDelta = currentFramestamp !== lastUpdated ? currentFramestamp - lastUpdated : 0;
-        var newValue = timeDelta
-            ? smoothFrame(previousValue, v, timeDelta, strength)
-            : previousValue;
-        lastUpdated = currentFramestamp;
-        previousValue = newValue;
-        return newValue;
-    };
-});
-
-var snap = (function (points) {
-    if (typeof points === 'number') {
-        return function (v) { return Math.round(v / points) * points; };
-    }
-    else {
-        var i_1 = 0;
-        var numPoints_1 = points.length;
-        return function (v) {
-            var lastDistance = Math.abs(points[0] - v);
-            for (i_1 = 1; i_1 < numPoints_1; i_1++) {
-                var point = points[i_1];
-                var distance = Math.abs(point - v);
-                if (distance === 0)
-                    return point;
-                if (distance > lastDistance)
-                    return points[i_1 - 1];
-                if (i_1 === numPoints_1 - 1)
-                    return point;
-                lastDistance = distance;
-            }
-        };
-    }
-});
-
-var identity = function (v) { return v; };
-var springForce = function (alterDisplacement) {
-    if (alterDisplacement === void 0) { alterDisplacement = identity; }
-    return curryRange(function (constant, origin, v) {
-        var displacement = origin - v;
-        var springModifiedDisplacement = -(0 - constant + 1) * (0 - alterDisplacement(Math.abs(displacement)));
-        return displacement <= 0
-            ? origin + springModifiedDisplacement
-            : origin - springModifiedDisplacement;
-    });
-};
-var springForceLinear = springForce();
-var springForceExpo = springForce(Math.sqrt);
-
-var velocityPerFrame = (function (xps, frameDuration) {
-    return popcorn_es_isNum(xps) ? xps / (1000 / frameDuration) : 0;
-});
-
-var velocityPerSecond = (function (velocity, frameDuration) {
-    return frameDuration ? velocity * (1000 / frameDuration) : 0;
-});
-
-var wrap = function (min, max, v) {
-    var rangeSize = max - min;
-    return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
-};
-var wrap$1 = curryRange(wrap);
-
-var clampProgress = clamp$1(0, 1);
-var steps = (function (steps, direction) {
-    if (direction === void 0) { direction = 'end'; }
-    return function (progress) {
-        progress =
-            direction === 'end' ? Math.min(progress, 0.999) : Math.max(progress, 0.001);
-        var expanded = progress * steps;
-        var rounded = direction === 'end' ? Math.floor(expanded) : Math.ceil(expanded);
-        return clampProgress(rounded / steps);
-    };
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 });
 
 
@@ -97496,69 +94766,12 @@ function createMigrate(migrations, config) {
     }
 
     var inboundVersion = state._persist && state._persist.version !== undefined ? state._persist.version : DEFAULT_VERSION;
-<<<<<<< HEAD
 
     if (inboundVersion === currentVersion) {
       if (false) {}
       return Promise.resolve(state);
     }
 
-    if (inboundVersion > currentVersion) {
-=======
-
-    if (inboundVersion === currentVersion) {
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
-      if (false) {}
-      return Promise.resolve(state);
-    }
-
-<<<<<<< HEAD
-    var migrationKeys = Object.keys(migrations).map(function (ver) {
-      return parseInt(ver);
-    }).filter(function (key) {
-      return currentVersion >= key && key > inboundVersion;
-    }).sort(function (a, b) {
-      return a - b;
-    });
-    if (false) {}
-
-    try {
-      var migratedState = migrationKeys.reduce(function (state, versionKey) {
-        if (false) {}
-        return migrations[versionKey](state);
-      }, state);
-      return Promise.resolve(migratedState);
-    } catch (err) {
-      return Promise.reject(err);
-    }
-  };
-}
-// CONCATENATED MODULE: ./node_modules/redux-persist/es/createTransform.js
-function createTransform( // @NOTE inbound: transform state coming from redux on its way to being serialized and stored
-inbound, // @NOTE outbound: transform state coming from storage, on its way to be rehydrated into redux
-outbound) {
-  var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  var whitelist = config.whitelist || null;
-  var blacklist = config.blacklist || null;
-
-  function whitelistBlacklistCheck(key) {
-    if (whitelist && whitelist.indexOf(key) === -1) return true;
-    if (blacklist && blacklist.indexOf(key) !== -1) return true;
-    return false;
-  }
-
-  return {
-    in: function _in(state, key, fullState) {
-      return !whitelistBlacklistCheck(key) && inbound ? inbound(state, key, fullState) : state;
-    },
-    out: function out(state, key, fullState) {
-      return !whitelistBlacklistCheck(key) && outbound ? outbound(state, key, fullState) : state;
-    }
-  };
-}
-// CONCATENATED MODULE: ./node_modules/redux-persist/es/index.js
-
-=======
     if (inboundVersion > currentVersion) {
       if (false) {}
       return Promise.resolve(state);
@@ -97608,7 +94821,6 @@ outbound) {
   };
 }
 // CONCATENATED MODULE: ./node_modules/redux-persist/es/index.js
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 
 
 
@@ -97617,1213 +94829,6 @@ outbound) {
 
 
 
-<<<<<<< HEAD
-// EXTERNAL MODULE: ./node_modules/redux-persist/lib/storage/index.js
-var lib_storage = __webpack_require__(338);
-var storage_default = /*#__PURE__*/__webpack_require__.n(lib_storage);
-
-// EXTERNAL MODULE: ./client/store/initialState.js
-var store_initialState = __webpack_require__(15);
-
-// CONCATENATED MODULE: ./client/store/reducers/auth.js
-
-
-function auth_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function auth_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { auth_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { auth_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-
-/* harmony default export */ var reducers_auth = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["a" /* auth */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case actions_auth["c" /* POST_LOGIN_SUCCESS */]:
-      return auth_objectSpread(auth_objectSpread({}, state), {}, {
-        user: action.payload.data.data // token: action.payload.data.access_token
-
-      });
-
-    case actions_auth["d" /* POST_REGISTER_SUCCESS */]:
-      return auth_objectSpread(auth_objectSpread({}, state), {}, {
-        user: action.payload.data.user
-      });
-
-    case actions_auth["a" /* AUTH_LOGOUT */]:
-      return {
-        user: null,
-        token: null
-      };
-
-    case actions_auth["b" /* POST_EMAIL_CONFIRM_SUCCESS */]:
-      return auth_objectSpread(auth_objectSpread({}, state), {}, {
-        user: action.payload.data.data,
-        isAuthenticated: !Object(validation_schemas["g" /* isEmpty */])(action.payload)
-      });
-
-    case actions_auth["e" /* SET_CURRENT_USER */]:
-      return auth_objectSpread(auth_objectSpread({}, state), {}, {
-        isAuthenticated: !Object(validation_schemas["g" /* isEmpty */])(action.payload),
-        user: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// CONCATENATED MODULE: ./client/store/reducers/feeds.js
-
-
-function feeds_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function feeds_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { feeds_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { feeds_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var feeds = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["e" /* feeds */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case FETCH_POSTS_START:
-      return feeds_objectSpread(feeds_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case FETCH_POSTS_SUCCESS:
-      return feeds_objectSpread(feeds_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload.data,
-        nextPage: action.payload.next_page_url,
-        currentPage: action.payload.current_page,
-        lastPage: action.payload.last_page_url
-      });
-
-    case FETCH_POSTS_FAIL:
-      return feeds_objectSpread(feeds_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// CONCATENATED MODULE: ./client/store/actions/chats.js
-
-
- // define constant
-
-var FETCH_CHATS_START = 'FETCH_CHATS_START';
-var FETCH_CHATS_SUCCESS = 'FETCH_CHATS_SUCCESS';
-var FETCH_CHATS_FAIL = 'FETCH_CHATS_FAIL';
-var UPDATE_CHAT_LAST_MESSAGE = 'UPDATE_CHAT_LAST_MESSAGE';
-/**
- * Make GET request to server to fetch all posts
- *
- * @return {Object} redux action
- */
-
-var fetchChatsStart = function fetchChatsStart() {
-  return {
-    type: FETCH_CHATS_START
-  };
-};
-var fetchChatsSuccess = function fetchChatsSuccess(payload) {
-  return {
-    type: FETCH_CHATS_SUCCESS,
-    payload: payload
-  };
-};
-var fetchChatsFail = function fetchChatsFail(payload) {
-  return {
-    type: FETCH_CHATS_FAIL,
-    payload: payload
-  };
-};
-var updateChatLastMessage = function updateChatLastMessage(message, otherParty) {
-  return {
-    type: UPDATE_CHAT_LAST_MESSAGE,
-    payload: {
-      message: message,
-      otherParty: otherParty
-    }
-  };
-};
-/**
- * Create action to fetch all messages for a chat
- * 
- * @param {Object} message  page number of the response data
- * @param {string} messages  page number of the response data
- * @return {Object} Redux action
- */
-
-var chats_updateChatLastMessageRequest = function updateChatLastMessageRequest(message, otherParty) {
-  return /*#__PURE__*/function () {
-    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatch) {
-      return regenerator_default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              dispatch(updateChatLastMessage(message, otherParty));
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-};
-/**
- * Create action to fetch all chats
- *
- * @return {Object} Redux action
- */
-
-var chats_fetchChatsRequest = function fetchChatsRequest() {
-  return /*#__PURE__*/function () {
-    var _ref2 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee2(dispatch) {
-      return regenerator_default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              dispatch(fetchChatsStart());
-              return _context2.abrupt("return", Axios["a" /* default */].get('chats', {
-                headers: {
-                  Authorization: "Bearer ".concat(localStorage.auth)
-                }
-              }).then(function (res) {
-                dispatch(fetchChatsSuccess(res.data));
-              })["catch"](function (err) {
-                var error = err.response.data.error;
-                var errorResponse;
-
-                if (error) {
-                  errorResponse = error;
-                } else {
-                  errorResponse = 'Something went wrong. please try again';
-                }
-
-                dispatch(fetchChatsFail(errorResponse));
-              }));
-
-            case 2:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function (_x2) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-};
-// CONCATENATED MODULE: ./client/store/reducers/chats.js
-
-
-function chats_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function chats_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { chats_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { chats_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var chats = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["b" /* chats */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case FETCH_CHATS_START:
-      return chats_objectSpread(chats_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case FETCH_CHATS_SUCCESS:
-      return chats_objectSpread(chats_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload
-      });
-
-    case FETCH_CHATS_FAIL:
-      return chats_objectSpread(chats_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    case UPDATE_CHAT_LAST_MESSAGE:
-      var _chats = chats_objectSpread({}, state.data);
-
-      for (var key in _chats) {
-        if (_chats[key].chatId === action.payload.otherParty) {
-          return _chats[key].text = action.payload.message.message;
-        }
-      }
-
-      return chats_objectSpread(chats_objectSpread({}, state), {}, {
-        data: _chats
-      });
-
-    default:
-      return state;
-  }
-});
-// CONCATENATED MODULE: ./client/store/actions/messages.js
-
-
-
- // Fetch Messages
-
-var FETCH_MESSAGES_START = 'FETCH_MESSAGES_START';
-var FETCH_MESSAGES_SUCCESS = 'FETCH_MESSAGES_SUCCESS';
-var FETCH_MESSAGES_FAIL = 'FETCH_MESSAGES_FAIL';
-/**
- * Make GET request to server to fetch all posts
- *
- * @return {Object} redux action
- */
-
-var fetchMessagesStart = function fetchMessagesStart() {
-  return {
-    type: FETCH_MESSAGES_START
-  };
-};
-var fetchMessagesSuccess = function fetchMessagesSuccess(payload, otherParty) {
-  return {
-    type: FETCH_MESSAGES_SUCCESS,
-    payload: {
-      otherParty: otherParty,
-      data: payload
-    }
-  };
-};
-var fetchMessagesFail = function fetchMessagesFail(payload) {
-  return {
-    type: FETCH_MESSAGES_FAIL,
-    payload: payload
-  };
-};
-/**
- * Create action to fetch all messages for a chat
- * 
- * @param {Object} otherParty  page number of the response data
- * @return {Object} Redux action
- */
-
-var messages_fetchMessagesRequest = function fetchMessagesRequest(otherParty, messages) {
-  return /*#__PURE__*/function () {
-    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatch) {
-      var lastMessage, current;
-      return regenerator_default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              dispatch(fetchMessagesStart());
-              lastMessage = 0;
-              current = messages.data[otherParty];
-
-              if (current) {
-                lastMessage = current[current.length - 1].id;
-              }
-
-              return _context.abrupt("return", Axios["a" /* default */].get("chats/".concat(otherParty, "/messages/").concat(lastMessage), {
-                headers: {
-                  Authorization: "Bearer ".concat(localStorage.auth)
-                }
-              }).then(function (res) {
-                dispatch(fetchMessagesSuccess(res.data, otherParty));
-              })["catch"](function (err) {
-                var error = err.response.data.error;
-                var errorResponse;
-
-                if (error) {
-                  errorResponse = error;
-                } else {
-                  errorResponse = 'Something went wrong. please try again';
-                }
-
-                dispatch(fetchMessagesFail(errorResponse));
-              }));
-
-            case 5:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-}; // Send message
-
-var SEND_MESSAGES_START = 'SEND_MESSAGES_START';
-var SEND_MESSAGES_SUCCESS = 'SEND_MESSAGES_SUCCESS';
-var SEND_MESSAGES_FAIL = 'SEND_MESSAGES_FAIL';
-/**
- * Make GET request to server to send all posts
- *
- * @return {Object} redux action
- */
-
-var sendMessagesStart = function sendMessagesStart() {
-  return {
-    type: SEND_MESSAGES_START
-  };
-};
-var sendMessagesSuccess = function sendMessagesSuccess(message, otherParty) {
-  return {
-    type: SEND_MESSAGES_SUCCESS,
-    payload: {
-      otherParty: otherParty,
-      data: message
-    }
-  };
-};
-var sendMessagesFail = function sendMessagesFail(payload) {
-  return {
-    type: SEND_MESSAGES_FAIL,
-    payload: payload
-  };
-};
-/**
- * Create action to send all messages for a chat
- * 
- * @param {string} message  page number of the response data
- * @param {string} otherParty  page number of the response data
- * @return {Object} Redux action
- */
-
-var messages_sendMessagesRequest = function sendMessagesRequest(message, otherParty) {
-  return /*#__PURE__*/function () {
-    var _ref2 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee2(dispatch) {
-      return regenerator_default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              dispatch(sendMessagesStart());
-              return _context2.abrupt("return", Axios["a" /* default */].post("chats/".concat(otherParty, "/messages"), {
-                message: message
-              }, {
-                headers: {
-                  Authorization: "Bearer ".concat(localStorage.auth)
-                }
-              }).then(function (res) {
-                dispatch(sendMessagesSuccess(res.data.data, otherParty));
-                dispatch(chats_updateChatLastMessageRequest(res.data.data, otherParty));
-              })["catch"](function (err) {
-                var error = err.response.data.error;
-                var errorResponse;
-
-                if (error) {
-                  errorResponse = error;
-                } else {
-                  errorResponse = 'Something went wrong. please try again';
-                }
-
-                dispatch(sendMessagesFail(errorResponse));
-              }));
-
-            case 2:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function (_x2) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-}; // Append new message
-
-var APPEND_NEW_MESSAGES_SUCCESS = 'APPEND_NEW_MESSAGES_SUCCESS';
-var appendNewMessagesSuccess = function appendNewMessagesSuccess(message, otherParty) {
-  return {
-    type: APPEND_NEW_MESSAGES_SUCCESS,
-    payload: {
-      otherParty: otherParty,
-      data: message
-    }
-  };
-};
-/**
- * Create action to fetch all messages for a chat
- * 
- * @param {Object} message  page number of the response data
- * @param {string} messages  page number of the response data
- * @return {Object} Redux action
- */
-
-var messages_appendNewMessagesRequest = function appendNewMessagesRequest(message, otherParty) {
-  return /*#__PURE__*/function () {
-    var _ref3 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee3(dispatch) {
-      return regenerator_default.a.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              dispatch(appendNewMessagesSuccess(message, otherParty));
-              dispatch(chats_updateChatLastMessageRequest(message, otherParty));
-
-            case 2:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function (_x3) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-}; // Fetch more Messages
-
-var FETCH_MORE_MESSAGES_START = 'FETCH_MORE_MESSAGES_START';
-var FETCH_MORE_MESSAGES_SUCCESS = 'FETCH_MORE_MESSAGES_SUCCESS';
-var FETCH_MORE_MESSAGES_FAIL = 'FETCH_MORE_MESSAGES_FAIL';
-/**
- * Make GET request to server to fetch all posts
- *
- * @return {Object} redux action
- */
-
-var fetchMoreMessagesStart = function fetchMoreMessagesStart() {
-  return {
-    type: FETCH_MORE_MESSAGES_START
-  };
-};
-var fetchMoreMessagesSuccess = function fetchMoreMessagesSuccess(payload, otherParty) {
-  return {
-    type: FETCH_MORE_MESSAGES_SUCCESS,
-    payload: {
-      otherParty: otherParty,
-      data: payload
-    }
-  };
-};
-var fetchMoreMessagesFail = function fetchMoreMessagesFail(payload) {
-  return {
-    type: FETCH_MORE_MESSAGES_FAIL,
-    payload: payload
-  };
-};
-/**
- * Create action to fetchMore all messages for a chat
- * 
- * @param {Object} otherParty  page number of the response data
- * @return {Object} Redux action
- */
-
-var messages_fetchMoreMessagesRequest = function fetchMoreMessagesRequest(otherParty, messages) {
-  return /*#__PURE__*/function () {
-    var _ref4 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee4(dispatch) {
-      var offset, _yield$axios$get, response, error, errorResponse;
-
-      return regenerator_default.a.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              dispatch(fetchMoreMessagesStart());
-              offset = messages.data[otherParty].length;
-              _context4.prev = 2;
-              _context4.next = 5;
-              return Axios["a" /* default */].get("chats/".concat(otherParty, "/messages/more/").concat(offset), {
-                headers: {
-                  Authorization: "Bearer ".concat(localStorage.auth)
-                }
-              });
-
-            case 5:
-              _yield$axios$get = _context4.sent;
-              response = _yield$axios$get.data;
-              dispatch(fetchMoreMessagesSuccess(response, otherParty));
-              _context4.next = 15;
-              break;
-
-            case 10:
-              _context4.prev = 10;
-              _context4.t0 = _context4["catch"](2);
-              error = _context4.t0.response.data.error;
-
-              if (error) {
-                errorResponse = error;
-              } else {
-                errorResponse = 'Something went wrong. please try again';
-              }
-
-              dispatch(fetchMoreMessagesFail(errorResponse));
-
-            case 15:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4, null, [[2, 10]]);
-    }));
-
-    return function (_x4) {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-};
-// CONCATENATED MODULE: ./client/store/reducers/messages.js
-
-
-
-function messages_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function messages_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { messages_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { messages_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var reducers_messages = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["h" /* messages */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case FETCH_MESSAGES_START:
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case FETCH_MESSAGES_SUCCESS:
-      var temp = messages_objectSpread({}, state.data);
-
-      var otherParty = action.payload.otherParty;
-      var _messages = action.payload.data[otherParty];
-
-      var more = messages_objectSpread({}, state.current_load_more);
-
-      if (temp[otherParty] && Array.isArray(_messages)) {
-        if (_messages.length) {
-          var _temp$otherParty;
-
-          (_temp$otherParty = temp[otherParty]).push.apply(_temp$otherParty, toConsumableArray_default()(_messages));
-        }
-      } else {
-        temp[otherParty] = _messages;
-      }
-
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        current_chat: otherParty,
-        interlocutor: action.payload.data.interlocutor,
-        current_load_more: action.payload.data.last_message ? action.payload.data.pagination.more : more - _messages.length,
-        data: temp
-      });
-
-    case FETCH_MESSAGES_FAIL:
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    case APPEND_NEW_MESSAGES_SUCCESS:
-      var holder = messages_objectSpread({}, state.data);
-
-      holder[action.payload.otherParty].push(action.payload.data);
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        current_chat: action.payload.otherParty,
-        data: holder
-      });
-
-    case SEND_MESSAGES_START:
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case SEND_MESSAGES_SUCCESS:
-      var data = messages_objectSpread({}, state.data);
-
-      data[action.payload.otherParty].push(action.payload.data);
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: data
-      });
-
-    case SEND_MESSAGES_FAIL:
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    case FETCH_MORE_MESSAGES_START:
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case FETCH_MORE_MESSAGES_SUCCESS:
-      var more_messages = messages_objectSpread({}, state.data);
-
-      if (Array.isArray(action.payload.data[action.payload.otherParty])) {
-        if (action.payload.data[action.payload.otherParty].length) {
-          var _more_messages$action;
-
-          (_more_messages$action = more_messages[action.payload.otherParty]).unshift.apply(_more_messages$action, toConsumableArray_default()(action.payload.data[action.payload.otherParty]));
-        }
-      }
-
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        current_load_more: action.payload.data.pagination.more,
-        data: more_messages
-      });
-
-    case FETCH_MORE_MESSAGES_FAIL:
-      return messages_objectSpread(messages_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// CONCATENATED MODULE: ./client/store/actions/search-chats.js
-
-
- // define constant
-
-var SEARCH_CHATS_START = 'SEARCH_CHATS_START';
-var SEARCH_CHATS_SUCCESS = 'SEARCH_CHATS_SUCCESS';
-var SEARCH_CHATS_EMPTY = 'SEARCH_CHATS_EMPTY';
-var SEARCH_CHATS_FAIL = 'SEARCH_CHATS_FAIL';
-/**
- * Make GET request to server to search all posts
- *
- * @return {Object} redux action
- */
-
-var searchChatsStart = function searchChatsStart() {
-  return {
-    type: SEARCH_CHATS_START
-  };
-};
-var searchChatsSuccess = function searchChatsSuccess(payload) {
-  return {
-    type: SEARCH_CHATS_SUCCESS,
-    payload: payload
-  };
-};
-var searchChatsEmpty = function searchChatsEmpty() {
-  return {
-    type: SEARCH_CHATS_EMPTY
-  };
-};
-var searchChatsFail = function searchChatsFail(payload) {
-  return {
-    type: SEARCH_CHATS_FAIL,
-    payload: payload
-  };
-};
-/**
- * Create action to search all chats
- * @param  string search
- * @return {Object} Redux action
- */
-
-var search_chats_searchChatsRequest = function searchChatsRequest(search) {
-  return /*#__PURE__*/function () {
-    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatch) {
-      return regenerator_default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              dispatch(searchChatsStart());
-              return _context.abrupt("return", Axios["a" /* default */].get("chats/search/".concat(search), {
-                headers: {
-                  Authorization: "Bearer ".concat(localStorage.auth)
-                }
-              }).then(function (res) {
-                var data = Array.isArray(res.data) && res.data.length ? res.data : [];
-                dispatch(searchChatsSuccess(data));
-              })["catch"](function (err) {
-                var error = err.response.data.error;
-                var errorResponse;
-
-                if (error) {
-                  errorResponse = error;
-                } else {
-                  errorResponse = 'Something went wrong. please try again';
-                }
-
-                dispatch(searchChatsFail(errorResponse));
-              }));
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-};
-/**
- * Create action to search all chats
- * @param  string search
- * @return {Object} Redux action
- */
-
-var search_chats_emptySearchChatsRequest = function emptySearchChatsRequest() {
-  return /*#__PURE__*/function () {
-    var _ref2 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee2(dispatch) {
-      return regenerator_default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              dispatch(searchChatsEmpty());
-
-            case 1:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function (_x2) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-};
-// CONCATENATED MODULE: ./client/store/reducers/search-chats.js
-
-
-function search_chats_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function search_chats_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { search_chats_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { search_chats_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var search_chats = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["k" /* searchedChats */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case SEARCH_CHATS_START:
-      return search_chats_objectSpread(search_chats_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case SEARCH_CHATS_SUCCESS:
-      return search_chats_objectSpread(search_chats_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload
-      });
-
-    case SEARCH_CHATS_EMPTY:
-      return search_chats_objectSpread(search_chats_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: null
-      });
-
-    case SEARCH_CHATS_FAIL:
-      return search_chats_objectSpread(search_chats_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// EXTERNAL MODULE: ./client/store/actions/fetch-single-post.js
-var fetch_single_post = __webpack_require__(56);
-
-// CONCATENATED MODULE: ./client/store/reducers/fetch-single-post.js
-
-
-function fetch_single_post_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function fetch_single_post_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { fetch_single_post_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { fetch_single_post_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var reducers_fetch_single_post = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["j" /* post */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case fetch_single_post["b" /* FETCH_POST_START */]:
-      return fetch_single_post_objectSpread(fetch_single_post_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case fetch_single_post["c" /* FETCH_POST_SUCCESS */]:
-      return fetch_single_post_objectSpread(fetch_single_post_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload
-      });
-
-    case fetch_single_post["a" /* FETCH_POST_FAIL */]:
-      return fetch_single_post_objectSpread(fetch_single_post_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// CONCATENATED MODULE: ./client/store/reducers/fetch-user-profile.js
-
-
-function fetch_user_profile_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function fetch_user_profile_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { fetch_user_profile_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { fetch_user_profile_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var reducers_fetch_user_profile = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["m" /* userProfile */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case fetch_user_profile["b" /* FETCH_USER_PROFILE_START */]:
-      return fetch_user_profile_objectSpread(fetch_user_profile_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case fetch_user_profile["c" /* FETCH_USER_PROFILE_SUCCESS */]:
-      return fetch_user_profile_objectSpread(fetch_user_profile_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload
-      });
-
-    case fetch_user_profile["a" /* FETCH_USER_PROFILE_FAIL */]:
-      return fetch_user_profile_objectSpread(fetch_user_profile_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// EXTERNAL MODULE: ./client/store/actions/create-comment.js
-var create_comment = __webpack_require__(68);
-
-// CONCATENATED MODULE: ./client/store/reducers/create-comment.js
-
-
-function create_comment_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function create_comment_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { create_comment_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { create_comment_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var reducers_create_comment = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["c" /* comment */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case create_comment["b" /* CREATE_COMMENT_START */]:
-      return create_comment_objectSpread(create_comment_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case create_comment["c" /* CREATE_COMMENT_SUCCESS */]:
-      return create_comment_objectSpread(create_comment_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload
-      });
-
-    case create_comment["a" /* CREATE_COMMENT_FAIL */]:
-      return create_comment_objectSpread(create_comment_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// CONCATENATED MODULE: ./client/store/reducers/create-post.js
-
-
-function create_post_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function create_post_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { create_post_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { create_post_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var create_post = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["d" /* createPost */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case CREATE_POST_START:
-      return create_post_objectSpread(create_post_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case CREATE_POST_SUCCESS:
-      return create_post_objectSpread(create_post_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload
-      });
-
-    case CREATE_POST_FAIL:
-      return create_post_objectSpread(create_post_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// CONCATENATED MODULE: ./client/store/reducers/fetch-all-jobs.js
-
-
-function fetch_all_jobs_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function fetch_all_jobs_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { fetch_all_jobs_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { fetch_all_jobs_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var fetch_all_jobs = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["g" /* jobs */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case FETCH_JOBS_START:
-      return fetch_all_jobs_objectSpread(fetch_all_jobs_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case FETCH_JOBS_SUCCESS:
-      return fetch_all_jobs_objectSpread(fetch_all_jobs_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload.data,
-        nextPage: action.payload.next_page_url,
-        currentPage: action.payload.current_page,
-        lastPage: action.payload.last_page_url
-      });
-
-    case FETCH_JOBS_FAIL:
-      return fetch_all_jobs_objectSpread(fetch_all_jobs_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// CONCATENATED MODULE: ./client/store/reducers/notifications.js
-
-
-function notifications_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function notifications_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { notifications_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { notifications_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var reducers_notifications = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["i" /* notifications */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case FETCH_NOTIFICATIONS_START:
-      return notifications_objectSpread(notifications_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case FETCH_NOTIFICATIONS_SUCCESS:
-      return notifications_objectSpread(notifications_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload.data,
-        nextPage: action.payload.next_page_url,
-        currentPage: action.payload.current_page,
-        lastPage: action.payload.last_page_url
-      });
-
-    case FETCH_NOTIFICATIONS_FAIL:
-      return notifications_objectSpread(notifications_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    case APPEND_NEW_NOTIFICATIONS_START:
-      return notifications_objectSpread(notifications_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case APPEND_NEW_NOTIFICATIONS_SUCCESS:
-      var temp = action.payload.notifications;
-
-      if (Array.isArray(action.payload.data) && action.payload.data.length) {
-        temp.push(action.payload.data);
-      }
-
-      return notifications_objectSpread(notifications_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: temp
-      });
-
-    case APPEND_NEW_NOTIFICATIONS_FAIL:
-      return notifications_objectSpread(notifications_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// EXTERNAL MODULE: ./client/store/reducers/follow-user.js
-var follow_user = __webpack_require__(322);
-
-// EXTERNAL MODULE: ./client/store/actions/unfollow-user.js
-var unfollow_user = __webpack_require__(102);
-
-// CONCATENATED MODULE: ./client/store/reducers/unfollow-user.js
-
-
-function unfollow_user_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function unfollow_user_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { unfollow_user_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { unfollow_user_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ var reducers_unfollow_user = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : store_initialState["l" /* unFollowUser */];
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case unfollow_user["b" /* CREATE_UNFOLLOW_START */]:
-      return unfollow_user_objectSpread(unfollow_user_objectSpread({}, state), {}, {
-        isLoading: true
-      });
-
-    case unfollow_user["c" /* CREATE_UNFOLLOW_SUCCESS */]:
-      return unfollow_user_objectSpread(unfollow_user_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: true,
-        data: action.payload
-      });
-
-    case unfollow_user["a" /* CREATE_UNFOLLOW_FAIL */]:
-      return unfollow_user_objectSpread(unfollow_user_objectSpread({}, state), {}, {
-        isLoading: false,
-        isSuccessful: false,
-        error: action.payload
-      });
-
-    default:
-      return state;
-  }
-});
-// CONCATENATED MODULE: ./client/store/reducers/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var rootReducer = Object(redux["combineReducers"])({
-  auth: reducers_auth,
-  chats: chats,
-  messages: reducers_messages,
-  searchedChats: search_chats,
-  flash: redux_flash_lib["reducer"],
-  feeds: feeds,
-  post: reducers_fetch_single_post,
-  comment: reducers_create_comment,
-  job: fetch_all_jobs,
-  userProfile: reducers_fetch_user_profile,
-  createPost: create_post,
-  notifications: reducers_notifications,
-  followUser: follow_user["a" /* default */],
-  unFollowUser: reducers_unfollow_user
-});
-/* harmony default export */ var store_reducers = (rootReducer);
-// CONCATENATED MODULE: ./client/store/index.js
-
-
-
-
-
-
-
- // defaults to localStorage for web
-
-
-var middleware = [redux_thunk_es];
-var flashOptions = {
-  timeout: 5000
-};
-var persistConfig = {
-  key: 'facework-v1',
-  storage: storage_default.a,
-  whitelist: ['auth']
-};
-var persistedReducer = persistReducer(persistConfig, store_reducers);
-var store_store = Object(redux["createStore"])(persistedReducer, Object(redux_devtools_extension["composeWithDevTools"])(redux["applyMiddleware"].apply(void 0, middleware.concat([Object(redux_flash_lib["middleware"])(flashOptions), bundle_default()(Axios["a" /* default */], {
-  returnRejectedPromiseOnError: true
-})]))));
-var store_persistor = persistStore(store_store);
-
-// CONCATENATED MODULE: ./client/pages/EmailConfirmation/EmailConfirmation.js
-
-
-=======
 
 // EXTERNAL MODULE: ./node_modules/redux-persist/lib/storage/index.js
 var lib_storage = __webpack_require__(338);
@@ -100030,7 +96035,6 @@ var store_persistor = persistStore(store_store);
 // CONCATENATED MODULE: ./client/pages/EmailConfirmation/EmailConfirmation.js
 
 
->>>>>>> 01e799d663cec98558c7729e1fcc4547c4f25087
 
 
 
