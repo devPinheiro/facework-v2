@@ -53,9 +53,9 @@ const PostCard = ({
                                 variants={frameVariants}
                                 transition={transition}
                             >
-            <div class={`${ profilePage ? "object-cover w-full rounded-lg": "max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10"}`}>
-                <div class="py-2 flex flex-row items-center justify-between">
-                    {profilePage ? null : (<><div class="flex flex-row items-center">
+            <div className={`${ profilePage ? "object-cover w-full rounded-lg": "max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg my-10"}`}>
+                <div className="py-2 flex flex-row items-center justify-between">
+                    {profilePage ? null : (<><div className="flex flex-row items-center">
                         <Link
                             to={`/feeds/p/${slug}/${title.toLowerCase()
                                 .replace(/ /g,'-')
@@ -63,7 +63,7 @@ const PostCard = ({
                             className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg"
                         >
                             <img
-                                class="rounded-full h-10 w-10 object-cover"
+                                className="rounded-full h-10 w-10 object-cover"
                                 src={avatar}
                                 alt=""
                             />
@@ -78,13 +78,13 @@ const PostCard = ({
                         </Link>
                     </div>
                     <div className="flex flex-row items-center">
-                        <p class="text-xs font-semibold text-gray-500">
+                        <p className="text-xs font-semibold text-gray-500">
                             <MomentHelper time={time} />
                         </p>
                     </div></>
                     )}
                 </div>
-                <div class="mt-2">
+                <div className="mt-2">
                 {profilePage ?
                 <Link to={`/profile/${title.toLowerCase()
                     .replace(/ /g,'-')
@@ -92,7 +92,7 @@ const PostCard = ({
                 <div className="flex justify-center">
                     { video ? (<video controls src={video} alt="avatar" className="max-h-screen-sm max-w-sm" />) :
                         (<img
-                    class="max-h-screen-sm rounded-lg"
+                    className="max-h-screen-sm rounded-lg"
                     src={image}
                     alt=""
                     onClick={() => setModalVisibility(!modalVisibility)}
@@ -108,7 +108,7 @@ const PostCard = ({
                         .replace(/[^\w-]+/g,'')}`}>
                         <div className="flex justify-center">
                         { video ? (<video  controls src={video} alt="avatar" className="max-h-screen-sm max-w-sm" />) : <img
-                                class="max-h-screen-sm rounded-lg"
+                                className="max-h-screen-sm rounded-lg"
                                 src={image}
                                 alt=""
                             />}
@@ -117,7 +117,7 @@ const PostCard = ({
                     </Link>
                     }
                     
-                    <div class="py-2 flex-column items-center">
+                    <div className="py-2 flex-column items-center">
                         <p className="flex text-sm">{title}</p>
                         { !profilePage &&   <div className="flex flex-row pt-4">
                             <button className="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
@@ -142,7 +142,7 @@ const PostCard = ({
                                     stroke-linejoin="round"
                                     stroke-width="2"
                                     viewBox="0 0 24 24"
-                                    class="w-5 h-5"
+                                    className="w-5 h-5"
                                 >
                                     <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                                 </svg>
