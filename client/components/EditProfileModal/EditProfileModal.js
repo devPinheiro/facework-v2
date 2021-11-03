@@ -109,7 +109,7 @@ const EditProfileModal = ({
                                         }}
                                         accept="image/png, image/jpeg"
                                         />
-                                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                             <Textbox
                                                 type="text"
                                                 name="name"
@@ -142,7 +142,7 @@ const EditProfileModal = ({
                                         </div>
                                     </div>
 
-                                    <div class="flex flex-wrap -mx-3 mb-6">
+                                    <div className="flex flex-wrap -mx-3 mb-6">
                                         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                             <Textbox
                                                 type="text"
@@ -212,7 +212,7 @@ const EditProfileModal = ({
                                         
                                     </div>
                                     <div className="flex flex-wrap -mx-3 mb-6">
-                                        <div class="w-full px-3">
+                                        <div className="w-full px-3">
                                             <TextArea
                                                 name="about"
                                                 type="textarea"

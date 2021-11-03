@@ -94,7 +94,7 @@ const PostModal = props => {
                       <div className="flex items-center">
                             <Link to={`/profile/nwlite/${post.profile.id}`} className="flex items-center focus:outline-none focus:shadow-outline no-underline appearance-none rounded-lg">
                               
-                            <img class="rounded-full h-10 w-10 object-cover border-grey-lightest border mr-3" src={post.profile.image} alt="" />
+                            <img className="rounded-full h-10 w-10 object-cover border-grey-lightest border mr-3" src={post.profile.image} alt="" />
                               <div className="flex-column ">
                                 <p className="text-sm font-medium  text-black">{post.profile.name}</p>
                                 <p className="text-xs py-1 text-grey-light">{post.profile.service} </p>
