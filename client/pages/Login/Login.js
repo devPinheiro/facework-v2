@@ -4,13 +4,11 @@ import { Helmet } from 'react-helmet'
 import { flashMessage } from 'redux-flash'
 import { ToastProvider, useToasts } from 'react-toast-notifications'
 
-
 import LoginForm from '@components/LoginForm'
 import Footer from '@components/Footer'
 import React, { PureComponent, Fragment } from 'react'
 import { postLogin } from '@client/store/actions/auth'
 import { LoginSchema } from '@client/validation-schemas'
-
 
 import './index.css'
 import { setCurrentUser } from '../../store/actions/auth'
@@ -30,7 +28,7 @@ class LoginPage extends PureComponent {
             email: '',
             password: ''
         },
-        confirmEmail: false,
+        confirmEmail: false
     }
 
     /**
@@ -61,29 +59,24 @@ class LoginPage extends PureComponent {
         const { dispatch, history } = this.props
 
         try {
-            const response = await dispatch(postLogin(data));
-           
-            if(response.payload.data.access_token){
-                localStorage.setItem(
-                    'auth', response.payload.data.access_token
-                )
+            const response = await dispatch(postLogin(data))
+
+            if (response.payload.data.access_token) {
+                localStorage.setItem('auth', response.payload.data.access_token)
                 setAuthToken(response.payload.data.access_token)
             }
-    
-                await dispatch(setCurrentUser(response.payload.data.data))
-                
-                await dispatch(flashMessage('Successfully logged in.'))
-               
-                history.push('/feeds')
-           
-        } catch ({ error }) {
-           if(error.data){
-               dispatch(flashMessage('Network Error', {isError: true}))
-               setSubmitting(false)
-           } else  {
 
-           
-            const { message } = error.response.data
+            await dispatch(setCurrentUser(response.payload.data.data))
+
+            await dispatch(flashMessage('Successfully logged in.'))
+
+            history.push('/feeds')
+        } catch ({ error }) {
+            if (error.data) {
+                dispatch(flashMessage('Network Error', { isError: true }))
+                setSubmitting(false)
+            } else {
+                const { message } = error.response.data
                 setSubmitting(false)
                 setErrors({
                     email:
@@ -92,19 +85,15 @@ class LoginPage extends PureComponent {
                             : message
                 })
                 message === 'Unauthorized'
-                ? 
-                dispatch(
-                    flashMessage(
-                       'Email or Password is invalid',
-                            { isError: true }
-                            
-                    )
-                ) : dispatch(flashMessage(message,
-                    { isError: false }))
-                this.setState({confirmEmail: message !== 'Unauthorized'})
+                    ? dispatch(
+                          flashMessage('Email or Password is invalid', {
+                              isError: true
+                          })
+                      )
+                    : dispatch(flashMessage(message, { isError: false }))
+                this.setState({ confirmEmail: message !== 'Unauthorized' })
+            }
         }
-    }
-
     }
 
     render() {
@@ -127,6 +116,5 @@ class LoginPage extends PureComponent {
         )
     }
 }
-
 
 export default connect()(LoginPage)

@@ -38,10 +38,14 @@ const Navbar = () => {
     Navbar.handleClickOutside = () => setOpenNotification(false)
 
     return (
-        <nav className="flex items-center justify-between  bg-white-500 pt-5 z-40 pb-8 px-6">
+        <nav className="flex items-center justify-between  bg-white-500 pt-5 z-40 pb-8 ">
             <div className="flex items-center flex-shrink-0 text-dark mr-6">
-                <Link to="/" className="text-3xl text-black no-underline">
-                    facework
+                <Link to="/feeds" className="text-3xl text-black no-underline ">
+                    <img
+                        src="https://res.cloudinary.com/appnet/image/upload/v1636843877/Facework_logo_2-removebg-preview_1.png"
+                        alt="facework logo"
+                        className="h-16"
+                    />
                 </Link>
             </div>
             <div className="block lg:hidden">
