@@ -105,7 +105,7 @@ export default function Messenger(props) {
           ): ('') }
           
           {
-            chat.map((item, key) => (
+            chat && chat.map((item, key) => (
               <div className="conversation-list-item" key={key} onClick={() => handleClick(item.chatId)}>
                 <img className="conversation-photo" src={item.photo} alt="conversation" />
                 <div className="conversation-info">
