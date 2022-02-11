@@ -11,7 +11,7 @@ export const setAuthToken = token => {
 }
 
 const instance = axios.create({
-    baseURL: 'https://facework-backend.com.ng/api',
+    baseURL: 'https://facework-up.test/api',
     headers: { Authorization: `Bearer ${localStorage.getItem('auth')}` }
 })
 
