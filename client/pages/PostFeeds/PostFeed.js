@@ -24,9 +24,9 @@ import {
     createPostRequest,
     uploadToCloudinary
 } from '../../store/actions/create-post'
-import { setCurrentUser } from '../../store/actions/auth'
-import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
-import Follow from '../../components/Follow'
+// import { setCurrentUser } from '../../store/actions/auth'
+// import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
+// import Follow from '../../components/Follow'
 
 const PostFeed = props => {
     // internal states
@@ -58,7 +58,7 @@ const PostFeed = props => {
 
     // useEffects
     useEffect(() => {
-        if (authState && authState.user) dispatch(fetchUserProfileRequest())
+        if (authState && authState.user) setFeed(authState.user.posts)
         if (!slug) dispatch(fetchPostsRequest())
     }, [])
 

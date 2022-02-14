@@ -1,57 +1,46 @@
-
-import React, { PureComponent, useSelector } from 'react'
+import React, { PureComponent } from 'react'
 // import jwt_decode from 'jwt-decode'
-import { BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
-import { echo } from '../../utils/websocket'
-import { appendNewNotificationsRequest } from '../../store/actions/notification'
-import { ToastContainer } from 'react-toastify';
+// import { echo } from '../../utils/websocket'
+// import { appendNewNotificationsRequest } from '../../store/actions/notification'
+import { ToastContainer } from 'react-toastify'
 
-import 'react-toastify/dist/ReactToastify.css';
-
+import 'react-toastify/dist/ReactToastify.css'
 
 // components
 import Main from '@pages/AppRouter'
 
-
 // css
 import '@client/styles/main.css'
 
-
 // actions
 import { setAuthToken } from '../../store/Axios'
-import { setCurrentUser , logout} from '../../store/actions/auth'
+import { setCurrentUser, logout } from '../../store/actions/auth'
 import { store, persistor } from '../../store'
 import { fetchUserProfileRequest } from '../../store/actions/fetch-user-profile'
 import { Provider } from 'react-redux'
 
-
-
 export class App extends PureComponent {
-
-    
-    componentDidMount(){
-        
+    componentDidMount() {
         if (localStorage.auth !== undefined) {
-            
             // set auth token
-            setAuthToken(localStorage.auth);
-
+            setAuthToken(localStorage.auth)
             // const decoded = jwt_decode(localStorage.auth);
-            const decoded = localStorage.auth;
-            
+            const decoded = localStorage.auth
+
             // set current user
-            store.dispatch(setCurrentUser(decoded));
-          
-            store.dispatch(fetchUserProfileRequest(false, decoded));
+            store.dispatch(setCurrentUser(decoded))
+
+            store.dispatch(fetchUserProfileRequest(false, decoded))
             // for expired token
-            const currentTime = Date.now() / 1000;
-            // if (decoded.exp < currentTime) {
-            //   // logout current user
-            //   store.dispatch(logout());
-            //   window.location.href = "/";
-            // }
-            
+            const currentTime = Date.now() / 1000
+            if (decoded.exp < currentTime) {
+                // logout current user
+                store.dispatch(logout())
+                window.location.href = '/'
+            }
+
             // let Echo = echo();
             // Echo.disconnect();
             // console.log(userProfile.data.user.id);
@@ -60,9 +49,7 @@ export class App extends PureComponent {
             //     appendNewNotificationsRequest(state.notifications);
             // });
         }
-        
     }
-
 
     /**
      * Render the Main component
@@ -72,15 +59,15 @@ export class App extends PureComponent {
     render() {
         return (
             <Router>
-                <Provider store={store} >
+                <Provider store={store}>
                     <PersistGate loading={null} persistor={persistor}>
                         <Main />
                         <ToastContainer />
                     </PersistGate>
                 </Provider>
-            </Router>     
+            </Router>
         )
     }
 }
 
-export default App;
+export default App

@@ -1,5 +1,5 @@
-import axios from  'axios';
-import { setAuthToken } from '../Axios';
+import axios from 'axios'
+import { setAuthToken } from '../Axios'
 
 export const SET_AUTH = 'SET_AUTH'
 export const POST_LOGIN = 'POST_LOGIN'
@@ -93,26 +93,22 @@ export const postEmailConfirm = data => ({
     payload: {
         request: {
             method: 'GET',
-            url: `/auth/signup/activate/${data}`,
-            
+            url: `/auth/signup/activate/${data}`
         }
     }
 })
 
-
-
 export const setCurrentUser = decoded => {
     return {
-      type: SET_CURRENT_USER,
-      payload: decoded
-    };
-  };
-  
-  export const logout = history => dispatch => {
+        type: SET_CURRENT_USER,
+        payload: decoded
+    }
+}
+
+export const logout = history => dispatch => {
     // remove token
-    localStorage.removeItem("auth");
-    setAuthToken(false);
-    dispatch(setCurrentUser({}));
-    history.push("/");
-  };
-  
+    localStorage.removeItem('auth')
+    setAuthToken(false)
+    dispatch(setCurrentUser({}))
+    history.push('/')
+}
